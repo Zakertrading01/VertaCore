@@ -1,0 +1,276 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── CAPABILITY CONTENT ───────────────────────────────────
+
+model Solution {
+  id          String     @id @default(cuid())
+  slug        String     @unique
+  title       String
+  subtitle    String
+  description String
+  icon        String?
+  coverImage  String?
+  features    String[]
+  order       Int        @default(0)
+  published   Boolean    @default(false)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  industries  Industry[]
+  projects    Project[]
+}
+
+model Industry {
+  id          String     @id @default(cuid())
+  slug        String     @unique
+  name        String
+  description String
+  icon        String?
+  coverImage  String?
+  order       Int        @default(0)
+  published   Boolean    @default(true)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  solutions   Solution[]
+  projects    Project[]
+}
+
+// ─── CATALOGUE SHOWCASE ───────────────────────────────────
+
+model CatalogueItem {
+  id            String   @id @default(cuid())
+  name          String
+  description   String?
+  categoryGroup String
+  image         String?
+  certTags      String[]
+  brandName     String?
+  datasheetUrl  String?
+  order         Int      @default(0)
+  published     Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+// ─── PROJECTS / CASE STUDIES ──────────────────────────────
+
+model Project {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  title       String
+  subtitle    String?
+  client      String?
+  coverImage  String?
+  industry    Industry? @relation(fields: [industryId], references: [id])
+  industryId  String?
+  scope       String
+  outcome     String
+  metrics     Json?
+  featured    Boolean   @default(false)
+  published   Boolean   @default(false)
+  completedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  solutions   Solution[]
+}
+
+// ─── TRUST CONTENT ────────────────────────────────────────
+
+model Certification {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  name        String
+  body        String
+  description String?
+  logo        String?
+  documentUrl String?
+  validUntil  DateTime?
+  featured    Boolean   @default(false)
+  order       Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Brand {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  name        String
+  logo        String?
+  description String?
+  country     String?
+  website     String?
+  featured    Boolean   @default(false)
+  order       Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+// ─── INSIGHTS / BLOG ──────────────────────────────────────
+
+model Insight {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  title       String
+  excerpt     String
+  content     String
+  coverImage  String?
+  author      String    @default("VERTACORE Editorial")
+  tags        String[]
+  readTime    Int       @default(5)
+  featured    Boolean   @default(false)
+  published   Boolean   @default(false)
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([publishedAt])
+}
+
+// ─── RFQ & ENQUIRIES ──────────────────────────────────────
+
+model RFQ {
+  id           String      @id @default(cuid())
+  rfqNumber    String      @unique
+  firstName    String
+  lastName     String
+  email        String
+  phone        String?
+  company      String
+  jobTitle     String?
+  country      String?
+  industry     String?
+  items        String
+  message      String?
+  status       RFQStatus   @default(NEW)
+  priority     RFQPriority @default(NORMAL)
+  internalNote String?
+  source       String?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+
+  @@index([status, createdAt])
+}
+
+enum RFQStatus {
+  NEW
+  REVIEWING
+  QUOTED
+  ACCEPTED
+  DECLINED
+}
+
+enum RFQPriority {
+  NORMAL
+  HIGH
+  URGENT
+}
+
+model ContactInquiry {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  company   String?
+  phone     String?
+  subject   String
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  confirmed Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+// ─── CATALOGUE PDF DOWNLOAD ───────────────────────────────
+
+model CataloguePDF {
+  id           String   @id @default(cuid())
+  title        String
+  fileUrl      String
+  coverImage   String?
+  fileSize     String?
+  version      String?
+  downloads    Int      @default(0)
+  published    Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  pdfDownloads CataloguePDFDownload[]
+}
+
+model CataloguePDFDownload {
+  id        String       @id @default(cuid())
+  catPDF    CataloguePDF @relation(fields: [catPDFId], references: [id])
+  catPDFId  String
+  email     String
+  company   String?
+  createdAt DateTime     @default(now())
+
+  @@index([catPDFId])
+}
+
+// ─── ADMIN ────────────────────────────────────────────────
+
+model AdminUser {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  passwordHash String
+  name         String
+  role         AdminRole @default(EDITOR)
+  lastLoginAt  DateTime?
+  createdAt    DateTime  @default(now())
+}
+
+enum AdminRole {
+  SUPER_ADMIN
+  EDITOR
+}
+
+// ─── ASK AI ───────────────────────────────────────────────
+
+model AISetting {
+  id           String   @id @default(cuid())
+  provider     String   @default("anthropic")
+  model        String   @default("claude-haiku-4-5-20251001")
+  apiKeyEnc    String   @default("")
+  systemPrompt String   @default("")
+  enabled      Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model AIQuestion {
+  id        String   @id @default(cuid())
+  text      String   @db.VarChar(200)
+  answer    String?
+  sortOrder Int      @default(0)
+  enabled   Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([enabled, sortOrder])
+}
+
+model AIChatLog {
+  id        String   @id @default(cuid())
+  ipHash    String   @db.VarChar(64)
+  messages  String
+  provider  String   @db.VarChar(20)
+  model     String   @db.VarChar(100)
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([ipHash])
+}
