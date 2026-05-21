@@ -3,7 +3,6 @@ import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema, localBusinessSchema } from "@/lib/schema";
 import { SectionLabel } from "@/components/shared/SectionLabel";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
-import { RFQForm } from "@/components/forms/RFQForm";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { Mail, Clock, Shield } from "lucide-react";
@@ -12,11 +11,11 @@ export const dynamic = 'force-dynamic';
 
 
 export const metadata: Metadata = buildMetadata({
-  title: "Contact & Request a Quote",
+  title: "Contact Us",
   description:
-    "Request a quotation for industrial equipment or get in touch with the VERTACORE team. ISO 9001:2015 certified. Response within 24 business hours.",
+    "Get in touch with the VERTACORE team for industrial equipment enquiries and technical support. ISO 9001:2015 certified.",
   path: "/contact",
-  keywords: ["contact VERTACORE", "request quote industrial", "industrial RFQ"],
+  keywords: ["contact VERTACORE", "industrial supply contact", "technical support"],
 });
 
 export default function ContactPage() {
@@ -43,13 +42,12 @@ export default function ContactPage() {
           <Breadcrumb items={breadcrumb} className="mb-6" />
           <SectionLabel className="mb-3">Get in Touch</SectionLabel>
           <h1 className="text-dlg font-bold text-surface max-w-2xl tracking-tight">
-            Request a Quote or
+            Contact
             <br />
-            <span className="text-gold">Contact Our Team.</span>
+            <span className="text-gold">Our Technical Team.</span>
           </h1>
           <p className="mt-4 text-body text-surface/60 max-w-xl leading-relaxed">
-            Submit your requirements and our technical team will respond with
-            a comprehensive quotation within 24 business hours.
+            Submit your enquiries and our technical team will respond within 24 business hours.
           </p>
 
           {/* Contact signals */}
@@ -73,47 +71,37 @@ export default function ContactPage() {
       {/* Forms */}
       <section className="section-padding bg-graphite-subtle">
         <div className="container-base">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
-            {/* RFQ Form */}
-            <ScrollReveal>
-              <div>
-                <SectionLabel className="mb-3">Request a Quote</SectionLabel>
-                <h2 className="text-h1 font-bold text-surface mb-2">RFQ Form</h2>
-                <p className="text-sm text-surface/50 mb-8">
-                  Describe your requirements and we&apos;ll prepare a comprehensive quotation.
-                </p>
-                <RFQForm source="contact" />
-              </div>
-            </ScrollReveal>
-
+          <div className="max-w-3xl mx-auto">
             {/* Divider + Contact form */}
-            <ScrollReveal delay={0.1}>
-              <div>
+            <ScrollReveal>
+              <div className="card-glass p-8 md:p-10">
                 <SectionLabel className="mb-3">General Enquiry</SectionLabel>
                 <h2 className="text-h1 font-bold text-surface mb-2">Send a Message</h2>
                 <p className="text-sm text-surface/50 mb-8">
-                  For general enquiries, partnership discussions, or non-RFQ questions.
+                  For product enquiries, technical support, or partnership discussions.
                 </p>
                 <ContactForm />
 
                 {/* Direct contact info */}
-                <div className="mt-10 pt-8 border-t border-steel/20 space-y-4">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-widest text-steel-muted mb-2">
-                      Email
-                    </p>
-                    <a
-                      href="mailto:sales@vertacore.com"
-                      className="text-body text-gold hover:text-gold-muted transition-colors"
-                    >
-                      sales@vertacore.com
-                    </a>
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-widest text-steel-muted mb-2">
-                      Response Time
-                    </p>
-                    <p className="text-sm text-surface/60">Within 24 business hours</p>
+                <div className="mt-10 pt-8 border-t border-steel/20 space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-widest text-steel-muted mb-2">
+                        Email
+                      </p>
+                      <a
+                        href="mailto:sales@vertacore.com"
+                        className="text-body text-gold hover:text-gold-muted transition-colors font-bold"
+                      >
+                        sales@vertacore.com
+                      </a>
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-widest text-steel-muted mb-2">
+                        Response Time
+                      </p>
+                      <p className="text-sm text-surface/60">Within 24 business hours</p>
+                    </div>
                   </div>
                 </div>
               </div>

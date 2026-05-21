@@ -31,8 +31,7 @@ export function CTASection() {
             <span className="text-gold">industrial equipment?</span>
           </h2>
           <p className="mt-4 text-body text-surface/60 max-w-xl mx-auto leading-relaxed">
-            Speak with our technical team. Submit your requirements and receive
-            a comprehensive quotation within 24 business hours.
+            Speak with our technical team. Submit your enquiries and our specialists will respond within 24 business hours.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center mt-8">

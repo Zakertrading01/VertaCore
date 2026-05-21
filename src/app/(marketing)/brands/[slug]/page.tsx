@@ -105,7 +105,7 @@ export default async function BrandPage({
 
           <div className="flex flex-wrap gap-4">
             <Link
-              href="/contact#rfq"
+              href="/contact"
               className="inline-flex items-center gap-2 bg-gold text-navy font-semibold px-6 py-3 rounded-lg hover:bg-gold-muted transition-colors text-sm"
             >
               Request Products

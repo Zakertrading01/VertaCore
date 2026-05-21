@@ -24,7 +24,7 @@ const pillars = [
     icon: CheckSquare,
     title: "Enterprise Partnership",
     description:
-      "Not a transactional vendor — a long-term procurement partner. Dedicated account management, technical consultation, and 24-hour RFQ response.",
+      "Not a transactional vendor — a long-term procurement partner. Dedicated account management, technical consultation, and 24-hour response time.",
   },
   {
     icon: Globe,
@@ -53,7 +53,7 @@ const testimonials = [
     position: "Maintenance Supervisor",
   },
   {
-    quote: "We've been using VERTACORE for hard supplies and custom rigging systems. Their customer service is exceptional, quotes are returned within an hour or two, and the quality certificates are always perfect. They have saved us both time and money.",
+    quote: "We've been using VERTACORE for hard supplies and custom rigging systems. Their customer service is exceptional, enquiries are handled quickly, and the quality certificates are always perfect. They have saved us both time and money.",
     client: "Aaron Ozminkowski",
     position: "Production Manager, Coan Engineering",
   },
@@ -120,14 +120,14 @@ export function WhyVertacoreSection() {
                   Register for Enterprise Portal
                 </h3>
                 <p className="text-xs text-steel-muted mb-6">
-                  Get access to contract pricing, fast RFQ responses, and full digital documentation.
+                  Get access to contract pricing, fast technical support, and full digital documentation.
                 </p>
 
                 <ul className="space-y-3.5 mb-7">
                   {[
                     "Contract & Discounted Pricing",
                     "Dedicated Account Portal",
-                    "Fast 24-Hour RFQ Response",
+                    "Fast 24-Hour Response",
                     "Cylinder tracking & gas management",
                     "Digital compliance certificates & SDS",
                     "Manage custom lists and order history",
@@ -140,7 +140,7 @@ export function WhyVertacoreSection() {
                 </ul>
 
                 <Link
-                  href="/contact#rfq"
+                  href="/contact"
                   className="flex items-center justify-center w-full bg-gold text-navy font-bold py-3.5 rounded-lg hover:bg-gold-muted transition-colors text-[15px]"
                 >
                   Request Portal Access

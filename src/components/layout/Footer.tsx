@@ -22,10 +22,9 @@ const customerCare = [
 ];
 
 const myAccount = [
-  { label: "Online Registration", href: "/contact#rfq" },
-  { label: "Go Paperless", href: "/contact#rfq" },
-  { label: "Credit Application", href: "/contact#rfq" },
-  { label: "Request a Quote", href: "/contact#rfq" },
+  { label: "Online Registration", href: "/contact" },
+  { label: "Go Paperless", href: "/contact" },
+  { label: "Credit Application", href: "/contact" },
   { label: "Customer Service", href: "/contact" },
 ];
 

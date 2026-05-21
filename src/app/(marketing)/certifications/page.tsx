@@ -36,7 +36,7 @@ const faqs = [
   {
     question: "Can I download certificates for products VERTACORE supplies?",
     answer:
-      "Yes. Product compliance certificates, test reports, and material documentation are available on request. Submit an RFQ or contact our team directly.",
+      "Yes. Product compliance certificates, test reports, and material documentation are available on request. Contact our team directly.",
   },
   {
     question: "What standards do VERTACORE products meet?",

@@ -4,7 +4,7 @@ const metrics = [
   { end: 500, suffix: "+", label: "Products Supplied" },
   { end: 10, suffix: "+", label: "Industries Served" },
   { end: 30, suffix: "+", label: "Years Experience" },
-  { end: 24, suffix: "hr", label: "RFQ Response Time" },
+  { end: 24, suffix: "hr", label: "Average Response Time" },
 ];
 
 export function MetricsBand() {

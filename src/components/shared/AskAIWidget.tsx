@@ -162,51 +162,52 @@ export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
     }
   };
 
-  if (!isOpen) return null;
-
   const showChips = messages.length === 0 && config?.questions && config.questions.length > 0;
 
   return (
     <>
-      {/* Backdrop on mobile */}
+      {/* Backdrop (Transparent, only for click-to-close) */}
       <div
-        className="fixed inset-0 bg-navy-dark/60 backdrop-blur-sm z-40 lg:hidden"
+        className={cn(
+          "fixed inset-0 top-[80px] md:top-[105px] z-[100] transition-opacity duration-300",
+          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        )}
         onClick={onClose}
       />
 
-      {/* Widget panel */}
+      {/* Widget Side Panel */}
       <div
         className={cn(
-          "fixed right-4 bottom-4 z-50 flex flex-col",
-          "w-[90vw] max-w-[400px] h-[700px] max-h-[85vh]",
-          "bg-navy border border-gold/20 rounded-2xl shadow-2xl overflow-hidden",
+          "fixed right-0 top-[80px] md:top-[105px] bottom-0 z-[101] flex flex-col bg-navy border-l border-gold/20 shadow-2xl transition-transform duration-300 ease-out",
+          "w-full max-w-[400px] h-[calc(100vh-80px)] md:h-[calc(100vh-105px)]",
+          isOpen ? "translate-x-0" : "translate-x-full",
         )}
         role="dialog"
         aria-modal="true"
         aria-label="VERTACORE AI Assistant"
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-4 py-3.5 bg-navy-dark border-b border-steel/30 flex-shrink-0">
-          <div className="flex items-center gap-2.5">
-            <div className="p-1.5 rounded-lg bg-gold/10">
-              <Sparkles className="h-4 w-4 text-gold" />
+        <div className="flex items-center justify-between px-6 py-5 bg-navy-dark border-b border-steel/30 flex-shrink-0">
+          <div className="flex items-center gap-3">
+            <div className="p-2 rounded-xl bg-gold/10">
+              <Sparkles className="h-5 w-5 text-gold" />
             </div>
             <div>
-              <p className="text-sm font-bold text-surface">VERTACORE AI</p>
-              <p className="text-[11px] text-steel-muted">Procurement assistant</p>
+              <p className="text-base font-bold text-surface tracking-tight">VERTACORE AI</p>
+              <p className="text-xs text-steel-muted">Procurement assistant</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 text-surface/50 hover:text-gold transition-colors rounded-lg hover:bg-navy-light/30"
+            className="p-2 text-surface/50 hover:text-gold transition-colors rounded-xl hover:bg-navy-light/30 border border-transparent hover:border-gold/20"
             aria-label="Close AI assistant"
           >
-            <X className="h-4 w-4" />
+            <X className="h-5 w-5" />
           </button>
         </div>
 
         {/* Messages */}
-        <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4">
+        <div className="flex-1 overflow-y-auto px-6 py-6 space-y-5">
           {/* Welcome message */}
           <div className="flex gap-2.5">
             <div className="h-6 w-6 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -290,7 +291,7 @@ export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
         </div>
 
         {/* Input */}
-        <div className="flex-shrink-0 p-3 border-t border-steel/30 bg-navy-dark">
+        <div className="flex-shrink-0 p-6 border-t border-steel/30 bg-navy-dark">
           <form onSubmit={handleSubmit} className="flex gap-2 items-end">
             <textarea
               ref={inputRef}

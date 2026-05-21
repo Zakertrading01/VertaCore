@@ -72,7 +72,7 @@ export function Navbar() {
               <Mail className="w-4 h-4" /> Contact Us
             </Link>
             <span className="text-white/20">|</span>
-            <Link href="/contact#rfq" className="flex items-center gap-1.5 bg-[#1a365d] px-3 py-1 rounded text-gold hover:bg-[#234575] transition-colors font-bold text-xs">
+            <Link href="/contact" className="flex items-center gap-1.5 bg-[#1a365d] px-3 py-1 rounded text-gold hover:bg-[#234575] transition-colors font-bold text-xs">
               <span className="text-base leading-none">+</span> Special Offers
             </Link>
           </div>
@@ -137,11 +137,9 @@ export function Navbar() {
 
       <MobileMenu isOpen={mobileOpen} onClose={() => setMobileOpen(false)} />
 
-      {aiOpen && (
-        <Suspense fallback={null}>
-          <AskAIWidget isOpen={aiOpen} onClose={() => setAiOpen(false)} />
-        </Suspense>
-      )}
+      <Suspense fallback={null}>
+        <AskAIWidget isOpen={aiOpen} onClose={() => setAiOpen(false)} />
+      </Suspense>
     </>
   );
 }
