@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/db";
+import { db } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
@@ -10,7 +10,7 @@ async function checkDatabase(): Promise<{ ok: boolean; latencyMs: number }> {
   const start = Date.now();
   try {
     await Promise.race([
-      prisma.$queryRaw`SELECT 1`,
+      db.$queryRaw`SELECT 1`,
       new Promise((_, reject) =>
         setTimeout(() => reject(new Error("DB timeout")), 3000),
       ),
@@ -22,9 +22,9 @@ async function checkDatabase(): Promise<{ ok: boolean; latencyMs: number }> {
 }
 
 export async function GET() {
-  const db = await checkDatabase();
+  const dbCheck = await checkDatabase();
   const uptimeSeconds = Math.floor((Date.now() - START_TIME) / 1000);
-  const isHealthy = db.ok;
+  const isHealthy = dbCheck.ok;
 
   const body = {
     status: isHealthy ? "ok" : "degraded",
@@ -32,8 +32,8 @@ export async function GET() {
     build: BUILD_SHA,
     checks: {
       database: {
-        status: db.ok ? "ok" : "unreachable",
-        latencyMs: db.latencyMs,
+        status: dbCheck.ok ? "ok" : "unreachable",
+        latencyMs: dbCheck.latencyMs,
       },
     },
     timestamp: new Date().toISOString(),
