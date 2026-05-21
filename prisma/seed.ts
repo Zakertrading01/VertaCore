@@ -283,6 +283,222 @@ async function main() {
     },
   ];
 
+  // ── Catalogue Items ──────────────────────────────────────
+  const catalogueItems = [
+    // Safety & PPE
+    {
+      name: "3M SecureFit 400 Series Eyewear",
+      description: "Anti-scratch and anti-fog safety glasses with pressure diffusion temple technology.",
+      categoryGroup: "Safety & PPE",
+      brandName: "3M",
+      image: "/images/catalogue/3m-glasses.png",
+      certTags: ["EN 166:2001", "CE"],
+      order: 1,
+    },
+    {
+      name: "MSA V-Gard Safety Helmet",
+      description: "Industry-leading protective helmet with Fas-Trac III suspension for superior comfort.",
+      categoryGroup: "Safety & PPE",
+      brandName: "MSA Safety",
+      image: "/images/catalogue/msa-helmet.png",
+      certTags: ["EN 397", "ANSI/ISEA Z89.1"],
+      order: 2,
+    },
+    {
+      name: "Honeywell North 7700 Half Mask",
+      description: "Premium silicone half mask respirator for ultimate comfort and protection in industrial environments.",
+      categoryGroup: "Safety & PPE",
+      brandName: "Honeywell",
+      image: "/images/catalogue/honeywell-mask.png",
+      certTags: ["NIOSH", "EN 140"],
+      order: 3,
+    },
+    // Welding
+    {
+      name: "Lincoln Electric Idealarc DC-600",
+      description: "Rugged industrial DC multi-process welding power source for heavy fabrication and construction.",
+      categoryGroup: "Welding",
+      brandName: "Lincoln Electric",
+      image: "/images/catalogue/lincoln-dc600.png",
+      certTags: ["CSA", "NEMA", "CE"],
+      order: 4,
+    },
+    {
+      name: "ESAB Aristo 500ix",
+      description: "Heavy-duty pulsed secondary switched power source for high-quality MIG/MAG and TIG welding.",
+      categoryGroup: "Welding",
+      brandName: "ESAB",
+      image: "/images/catalogue/esab-aristo.png",
+      certTags: ["ISO 9001", "CE"],
+      order: 5,
+    },
+    // Lifting & Rigging
+    {
+      name: "Kito CB Series Chain Block",
+      description: "Robust hand chain hoist with shock-resistant gear casing and high-precision gears.",
+      categoryGroup: "Lifting & Rigging",
+      brandName: "Kito",
+      image: "/images/catalogue/kito-hoist.png",
+      certTags: ["ASME B30.16", "ISO 9001"],
+      order: 6,
+    },
+    {
+      name: "Crosby G-209 Screw Pin Shackle",
+      description: "Forged, quenched and tempered screw pin anchor shackle for critical lifting operations.",
+      categoryGroup: "Lifting & Rigging",
+      brandName: "Crosby",
+      image: "/images/catalogue/crosby-shackle.png",
+      certTags: ["RR-C-271F", "CE"],
+      order: 7,
+    },
+    // Abrasives
+    {
+      name: "Norton Quantum3 Grinding Wheels",
+      description: "High-performance ceramic alumina grinding wheels for faster metal removal and longer life.",
+      categoryGroup: "Abrasives",
+      brandName: "Norton",
+      image: "/images/catalogue/norton-wheel.png",
+      certTags: ["oSa", "EN 12413"],
+      order: 8,
+    },
+    {
+      name: "3M Cubitron II Flap Disc 967A",
+      description: "Engineered to cut faster and last longer than traditional ceramic abrasives.",
+      categoryGroup: "Abrasives",
+      brandName: "3M",
+      image: "/images/catalogue/cubitron-disc.png",
+      certTags: ["oSa", "ISO 9001"],
+      order: 9,
+    },
+    // Industrial Tools
+    {
+      name: "DeWalt DCD996 Hammer Drill",
+      description: "High-power, high-efficiency brushless motor delivers up to 75% more runtime vs. brushed.",
+      categoryGroup: "Industrial Tools",
+      brandName: "DeWalt",
+      image: "/images/catalogue/dewalt-drill.png",
+      certTags: ["UL", "CE"],
+      order: 10,
+    },
+    {
+      name: "Stanley FatMax Tape Measure",
+      description: "Heavy-duty 8m/26ft tape measure with 3.3m standout and Mylar coated blade.",
+      categoryGroup: "Industrial Tools",
+      brandName: "Stanley",
+      image: "/images/catalogue/stanley-tape.png",
+      certTags: ["Class II"],
+      order: 11,
+    },
+  ];
+
+  for (const item of catalogueItems) {
+    const existing = await db.catalogueItem.findFirst({ where: { name: item.name } });
+    if (existing) {
+      await db.catalogueItem.update({ where: { id: existing.id }, data: { ...item, published: true } });
+    } else {
+      await db.catalogueItem.create({ data: { ...item, published: true } });
+    }
+  }
+
+  // ── Certifications ────────────────────────────────────────
+  const certifications = [
+    {
+      slug: "iso-9001-2015",
+      name: "ISO 9001:2015",
+      body: "Lloyd's Register Quality Assurance",
+      description: "International standard for quality management systems ensuring consistent high-quality supply chain and procurement operations.",
+      featured: true,
+      order: 1,
+    },
+    {
+      slug: "ce-marking",
+      name: "CE Marking",
+      body: "European Conformity",
+      description: "Conformity with health, safety, and environmental protection standards for products sold within the European Economic Area.",
+      featured: true,
+      order: 2,
+    },
+  ];
+
+  for (const cert of certifications) {
+    await db.certification.upsert({
+      where: { slug: cert.slug },
+      update: cert,
+      create: cert,
+    });
+  }
+
+  // ── Projects ──────────────────────────────────────────────
+  const sampleProjects = [
+    {
+      slug: "offshore-refinery-maintenance",
+      title: "Offshore Refinery MRO Support",
+      subtitle: "Comprehensive maintenance supply overhaul for a major offshore facility.",
+      client: "Global PetroMarine",
+      coverImage: "/images/projects/offshore-refinery.png",
+      scope: "Supply of multi-discipline safety gear, specialized welding consumables, and heavy-duty lifting equipment.",
+      outcome: "Zero downtime during maintenance window and 100% compliance with rig safety standards.",
+      featured: true,
+      published: true,
+      completedAt: new Date("2025-11-15"),
+    },
+    {
+      slug: "marine-fabrication-yard",
+      title: "Vessel Fabrication Supply Chain",
+      subtitle: "Long-term supply partnership for complex vessel construction projects.",
+      client: "NavalTech Yards",
+      coverImage: "/images/projects/vessel-fabrication.png",
+      scope: "Provision of welding systems, automated cutting tables, and site-wide PPE management.",
+      outcome: "Improved procurement efficiency by 22% through standardized MRO supply protocols.",
+      featured: true,
+      published: true,
+      completedAt: new Date("2026-02-10"),
+    },
+  ];
+
+  for (const project of sampleProjects) {
+    const ind = await db.industry.findFirst({ where: { slug: "oil-gas" } });
+    await db.project.upsert({
+      where: { slug: project.slug },
+      update: { ...project, industryId: ind?.id },
+      create: { ...project, industryId: ind?.id },
+    });
+  }
+
+  // ── Insights ──────────────────────────────────────────────
+  const sampleInsights = [
+    {
+      slug: "industrial-safety-trends-2026",
+      title: "Industrial Safety Trends 2026",
+      excerpt: "Exploring the evolution of PPE and automated safety systems in heavy industrial environments.",
+      content: "Detailed analysis of how smart PPE and real-time monitoring are reshaping safety standards in the Oil & Gas sector...",
+      coverImage: "/images/insights/safety-trends.png",
+      tags: ["Safety", "Innovation", "2026"],
+      featured: true,
+      published: true,
+      publishedAt: new Date(),
+    },
+    {
+      slug: "optimizing-mro-procurement",
+      title: "Optimizing MRO Procurement",
+      excerpt: "Efficiency strategies for industrial procurement managers in a volatile supply landscape.",
+      content: "Framework for building resilient supply chains and reducing total cost of ownership for industrial equipment...",
+      coverImage: "/images/insights/procurement-optimization.png",
+      tags: ["Procurement", "Supply Chain", "Efficiency"],
+      featured: true,
+      published: true,
+      publishedAt: new Date(),
+    },
+  ];
+
+  for (const insight of sampleInsights) {
+    await db.insight.upsert({
+      where: { slug: insight.slug },
+      update: insight,
+      create: insight,
+    });
+  }
+
   for (const q of questions) {
     const existing = await db.aIQuestion.findFirst({ where: { text: q.text } });
     if (!existing) {

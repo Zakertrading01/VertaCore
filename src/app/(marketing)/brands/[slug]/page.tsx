@@ -52,8 +52,21 @@ export default async function BrandPage({
     brand = await db.brand.findUnique({ where: { slug } });
   } catch (error) {
     console.error(`[Brands] DB Error in BrandPage for slug ${slug}:`, error);
-    notFound();
   }
+
+  // Fallback for key brands if not in DB
+  if (!brand) {
+    const fallbacks: Record<string, any> = {
+      techweld: { name: "TECHWELD", description: "Techweld industrial technologies limited is a leading manufacturer and supplier of professional welding accessories, tools and tackles.", country: "United Kingdom", logo: "/brands/techweld.png" },
+      geotex: { name: "GEOTEX", description: "One of the leading industry supplier of welding curtains, welding blankets and welding pads to protect people, plants, and equipment.", country: "Netherlands", logo: "/brands/geotex.png" },
+      weldman: { name: "WELDMAN", description: "Manufacturer of welding products for various industries like oilfield, construction and marine with all relevant international standards.", country: "Global", logo: "/brands/weldman.png" },
+      superon: { name: "SUPERON", description: "One of the largest manufacturers of high-quality welding consumables, stainless steel wires, and industrial coatings.", country: "Global", logo: "/brands/superon.png" },
+      gasiq: { name: "GASIQ", description: "Swedish manufacturer of equipment for gas welding, soldering, cutting and gas control for gas shielded welding.", country: "Sweden", logo: "/brands/gasiq.png" },
+      sakura: { name: "SAKURA", description: "Leading pigment technology expert. Sakura manufactures smooth writing solid paint markers and industrial markers.", country: "Japan", logo: "/brands/sakura.png" },
+    };
+    brand = fallbacks[slug];
+  }
+
   if (!brand) notFound();
 
   const breadcrumb = [

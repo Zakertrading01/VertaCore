@@ -18,6 +18,7 @@ const navItems = [
   { label: "Industries", href: "/industries" },
   { label: "About", href: "/about" },
   { label: "Certifications", href: "/certifications" },
+  { label: "Brands", href: "/brands" },
   { label: "Insights", href: "/insights" },
 ];
 
