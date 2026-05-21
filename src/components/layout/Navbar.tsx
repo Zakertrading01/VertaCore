@@ -58,7 +58,7 @@ export function Navbar() {
         )}
       >
         {/* Top Utility Bar (Dark Blue) */}
-        <div className="bg-[#112240] text-[15px] py-1.5 px-4 md:px-8 hidden md:flex justify-between items-center text-white/90 border-b border-white/5">
+        <div className="bg-[#112240] text-[13px] py-1 px-4 md:px-8 hidden md:flex justify-between items-center text-white/90 border-b border-white/5">
           <div className="flex items-center gap-2 text-gold font-bold">
             <Phone className="w-4 h-4" />
             <span>Call Us: +1-855-VERTACORE</span>
@@ -79,7 +79,7 @@ export function Navbar() {
         </div>
 
         {/* Main Navigation Bar (White Background) */}
-        <div className="flex items-stretch h-[60px] md:h-[68px] px-0">
+        <div className="flex items-stretch h-[54px] md:h-[60px] px-0">
 
           {/* Logo Block (Dark Blue Background) */}
           <Link
@@ -90,7 +90,7 @@ export function Navbar() {
             <img
               src="/image.png"
               alt="VERTACORE"
-              className="h-10 md:h-12 w-auto object-contain"
+              className="h-8 md:h-10 w-auto object-contain"
             />
           </Link>
 
@@ -100,7 +100,7 @@ export function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="flex flex-1 items-center justify-center gap-2 text-[18px] md:text-[20px] font-bold text-navy hover:text-gold hover:bg-navy-dark active:bg-navy-dark transition-all duration-200 border-r border-gray-100 last:border-r-0"
+                className="flex flex-1 items-center justify-center gap-2 text-[15px] md:text-[16px] font-bold text-navy hover:text-gold hover:bg-navy-dark active:bg-navy-dark transition-all duration-200 border-r border-gray-100 last:border-r-0"
               >
                 {item.label}
                 {item.label !== "Home" && (

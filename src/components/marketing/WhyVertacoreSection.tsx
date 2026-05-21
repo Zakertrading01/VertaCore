@@ -69,11 +69,11 @@ export function WhyVertacoreSection() {
 
   return (
     <section
-      className="bg-navy-dark border-t border-steel/20"
+      className="bg-[#FAF9F6] border-t border-navy/5"
       aria-labelledby="why-vertacore-heading"
     >
       {/* 1. What We Do & Portal Registration (Side-by-Side) */}
-      <div className="container-base py-16 md:py-24">
+      <div className="container-base py-10 md:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left: What We Do */}
           <div className="lg:col-span-7">
@@ -81,15 +81,15 @@ export function WhyVertacoreSection() {
               <SectionLabel className="mb-4">Company Overview</SectionLabel>
               <h2
                 id="why-vertacore-heading"
-                className="text-dmd font-bold text-surface tracking-tight"
+                className="text-dmd font-bold text-navy tracking-tight"
               >
                 What We Do
               </h2>
-              <div className="accent-line my-5" />
-              <p className="text-body text-surface/75 leading-relaxed">
+              <div className="accent-line bg-gold my-5" />
+              <p className="text-body text-navy/75 leading-relaxed">
                 Since our founding, VERTACORE has been supplying demanding sectors with an extensive range of certified MRO supplies, welding machinery, safety equipment, and industrial consumables. Whether you are a local engineering lead or a global procurement manager, we are committed to delivering the highest quality products and technical support to keep your operations running safely and efficiently.
               </p>
-              <p className="text-sm text-steel-muted leading-relaxed mt-4">
+              <p className="text-sm text-navy/50 leading-relaxed mt-4">
                 Our highly trained representatives are committed to providing clients with the best resources in the industry. Our experience and continuous technical training ensure that clients get the service, compliance standards, and up-to-date documentation that help improve their operational efficiency and bottom line.
               </p>
               <div className="flex flex-wrap gap-4 mt-8">
@@ -112,14 +112,14 @@ export function WhyVertacoreSection() {
           {/* Right: Register for Enterprise Account */}
           <div className="lg:col-span-5">
             <ScrollReveal delay={0.15}>
-              <div className="card-glass p-7 md:p-8 border border-gold/15 bg-navy/20 shadow-xl relative overflow-hidden">
+              <div className="card-glass p-7 md:p-8 border border-navy/10 bg-white shadow-xl relative overflow-hidden">
                 {/* Visual border accent */}
                 <div className="absolute top-0 left-0 w-full h-[3px] bg-gold" />
 
-                <h3 className="text-[19px] font-bold text-surface mb-2">
+                <h3 className="text-[19px] font-bold text-navy mb-2">
                   Register for Enterprise Portal
                 </h3>
-                <p className="text-xs text-steel-muted mb-6">
+                <p className="text-xs text-navy/60 mb-6">
                   Get access to contract pricing, fast technical support, and full digital documentation.
                 </p>
 
@@ -132,7 +132,7 @@ export function WhyVertacoreSection() {
                     "Digital compliance certificates & SDS",
                     "Manage custom lists and order history",
                   ].map((benefit, i) => (
-                    <li key={i} className="flex items-start gap-2.5 text-sm text-surface/85">
+                    <li key={i} className="flex items-start gap-2.5 text-sm text-navy/85">
                       <CheckCircle className="h-4.5 w-4.5 text-gold flex-shrink-0 mt-0.5" />
                       <span>{benefit}</span>
                     </li>
@@ -151,17 +151,17 @@ export function WhyVertacoreSection() {
         </div>
 
         {/* 2. Horizontal Services Grid List */}
-        <div className="mt-16 pt-12 border-t border-steel/20">
+        <div className="mt-12 pt-10 border-t border-navy/10">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-9 gap-4 text-center">
             {services.map((srv, idx) => {
               const Icon = srv.icon;
               return (
                 <ScrollReveal key={srv.name} delay={idx * 0.05}>
-                  <div className="flex flex-col items-center p-3 rounded-lg hover:bg-navy-light/20 transition-all group">
-                    <div className="p-2.5 rounded-lg bg-navy-light/40 group-hover:bg-gold/10 transition-colors mb-2">
+                  <div className="flex flex-col items-center p-3 rounded-lg hover:bg-gold/5 transition-all group">
+                    <div className="p-2.5 rounded-lg bg-white shadow-sm border border-navy/5 group-hover:bg-gold/10 transition-colors mb-2">
                       <Icon className="h-4.5 w-4.5 text-gold" />
                     </div>
-                    <span className="text-xs font-semibold text-surface/85 group-hover:text-gold transition-colors leading-tight">
+                    <span className="text-xs font-semibold text-navy/80 group-hover:text-gold transition-colors leading-tight">
                       {srv.name}
                     </span>
                   </div>
@@ -173,46 +173,46 @@ export function WhyVertacoreSection() {
       </div>
 
       {/* 3. Three Core Focus Columns */}
-      <div className="bg-graphite-subtle border-t border-b border-steel/20 py-16 md:py-20">
+      <div className="bg-[#f0ede6] border-t border-b border-navy/5 py-10 md:py-16">
         <div className="container-base">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <ScrollReveal delay={0.05}>
-              <div className="flex flex-col h-full p-6 bg-navy-dark/45 border border-steel/30 rounded-xl">
+              <div className="flex flex-col h-full p-6 bg-white border border-navy/5 shadow-sm rounded-xl">
                 <div className="p-3 rounded-lg bg-gold/10 w-fit mb-4">
                   <Award className="h-5.5 w-5.5 text-gold" />
                 </div>
-                <h3 className="text-[17px] font-bold text-surface mb-2">
+                <h3 className="text-[17px] font-bold text-navy mb-2">
                   Nuclear & High-Integrity QA
                 </h3>
-                <p className="text-sm text-steel-muted leading-relaxed">
+                <p className="text-sm text-navy/60 leading-relaxed">
                   VERTACORE’s rigorous quality auditing and material certification pipeline allow us to service critical military, power, and high-pressure manufacturing operations globally.
                 </p>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={0.15}>
-              <div className="flex flex-col h-full p-6 bg-navy-dark/45 border border-steel/30 rounded-xl">
+              <div className="flex flex-col h-full p-6 bg-white border border-navy/5 shadow-sm rounded-xl">
                 <div className="p-3 rounded-lg bg-gold/10 w-fit mb-4">
                   <Globe className="h-5.5 w-5.5 text-gold" />
                 </div>
-                <h3 className="text-[17px] font-bold text-surface mb-2">
+                <h3 className="text-[17px] font-bold text-navy mb-2">
                   Global Sourcing Network
                 </h3>
-                <p className="text-sm text-steel-muted leading-relaxed">
+                <p className="text-sm text-navy/60 leading-relaxed">
                   We maintain a robust network of premium international manufacturers to procure specialized, standard-compliant MRO supplies that others cannot find.
                 </p>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={0.25}>
-              <div className="flex flex-col h-full p-6 bg-navy-dark/45 border border-steel/30 rounded-xl">
+              <div className="flex flex-col h-full p-6 bg-white border border-navy/5 shadow-sm rounded-xl">
                 <div className="p-3 rounded-lg bg-gold/10 w-fit mb-4">
                   <Users className="h-5.5 w-5.5 text-gold" />
                 </div>
-                <h3 className="text-[17px] font-bold text-surface mb-2">
+                <h3 className="text-[17px] font-bold text-navy mb-2">
                   Agile, Independent Partner
                 </h3>
-                <p className="text-sm text-steel-muted leading-relaxed">
+                <p className="text-sm text-navy/60 leading-relaxed">
                   We are scaled to handle procurement workflows for multinational corporations, yet remain nimble and independent to make rapid, custom delivery decisions when you need them.
                 </p>
               </div>
@@ -222,14 +222,14 @@ export function WhyVertacoreSection() {
       </div>
 
       {/* 4. Customer Testimonials (Weldstar Style) */}
-      <div className="container-base py-16 md:py-24">
+      <div className="container-base py-10 md:py-16">
         <div className="max-w-2xl mx-auto text-center mb-12">
           <ScrollReveal>
             <SectionLabel className="mb-3">Proven Performance</SectionLabel>
-            <h2 className="text-dmd font-bold text-surface tracking-tight">
+            <h2 className="text-dmd font-bold text-navy tracking-tight">
               What Our Clients Say
             </h2>
-            <div className="accent-line mx-auto my-4" />
+            <div className="accent-line bg-gold mx-auto my-4" />
           </ScrollReveal>
         </div>
 
@@ -238,10 +238,10 @@ export function WhyVertacoreSection() {
             const isExpanded = expandedTestimonial === index;
             return (
               <ScrollReveal key={index} delay={index * 0.1}>
-                <div className="bg-navy p-6 rounded-xl border border-steel/30 flex flex-col justify-between h-full relative group hover:border-gold/20 transition-all">
+                <div className="bg-white p-6 rounded-xl border border-navy/10 flex flex-col justify-between h-full relative group hover:border-gold/30 hover:shadow-lg transition-all">
                   <div>
-                    <span className="text-gold font-serif text-5xl absolute top-3 left-4 opacity-15 pointer-events-none">“</span>
-                    <p className={`text-sm text-surface/90 leading-relaxed italic relative z-10 ${!isExpanded ? "line-clamp-4" : ""
+                    <span className="text-gold font-serif text-5xl absolute top-3 left-4 opacity-25 pointer-events-none">“</span>
+                    <p className={`text-sm text-navy/80 leading-relaxed italic relative z-10 ${!isExpanded ? "line-clamp-4" : ""
                       }`}>
                       {test.quote}
                     </p>
@@ -253,11 +253,11 @@ export function WhyVertacoreSection() {
                     </button>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-steel/20 flex flex-col">
-                    <span className="text-[14px] font-bold text-surface">
+                  <div className="mt-6 pt-4 border-t border-navy/5 flex flex-col">
+                    <span className="text-[14px] font-bold text-navy">
                       {test.client}
                     </span>
-                    <span className="text-xs text-steel-muted mt-0.5">
+                    <span className="text-xs text-navy/50 mt-0.5">
                       {test.position}
                     </span>
                   </div>

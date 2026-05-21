@@ -10,7 +10,7 @@ const metrics = [
 export function MetricsBand() {
   return (
     <section
-      className="py-14 bg-gold"
+      className="py-10 bg-gold"
       aria-label="Key metrics"
     >
       <div className="container-base">

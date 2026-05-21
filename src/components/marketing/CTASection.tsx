@@ -6,7 +6,7 @@ import { ScrollReveal } from "@/components/shared/ScrollReveal";
 export function CTASection() {
   return (
     <section
-      className="section-padding relative bg-navy overflow-hidden"
+      className="section-padding relative bg-[#FAF9F6] border-t border-navy/5 overflow-hidden"
       aria-label="Call to action"
     >
       {/* Gold accent strip */}
@@ -25,12 +25,12 @@ export function CTASection() {
       <div className="relative container-base text-center">
         <ScrollReveal>
           <SectionLabel className="mb-4">Get Started</SectionLabel>
-          <h2 className="text-dmd font-bold text-surface tracking-tight">
+          <h2 className="text-dmd font-bold text-navy tracking-tight">
             Ready to source certified
             <br />
             <span className="text-gold">industrial equipment?</span>
           </h2>
-          <p className="mt-4 text-body text-surface/60 max-w-xl mx-auto leading-relaxed">
+          <p className="mt-4 text-body text-navy/60 max-w-xl mx-auto leading-relaxed">
             Speak with our technical team. Submit your enquiries and our specialists will respond within 24 business hours.
           </p>
 
@@ -45,7 +45,7 @@ export function CTASection() {
           </div>
 
           {/* Trust indicators */}
-          <div className="flex flex-wrap items-center justify-center gap-6 mt-10 text-xs text-steel-muted">
+          <div className="flex flex-wrap items-center justify-center gap-6 mt-10 text-xs text-navy/40">
             <span className="flex items-center gap-1.5">
               <span className="h-1.5 w-1.5 rounded-full bg-gold" />
               ISO 9001:2015 Certified

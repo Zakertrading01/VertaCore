@@ -40,10 +40,10 @@ export function Footer() {
   return (
     <footer className="bg-navy-dark border-t border-steel/30" role="contentinfo">
       {/* Main footer content */}
-      <div className="container-base py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
+      <div className="container-base pt-10 md:pt-12 pb-4 md:pb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
           {/* Brand column */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-4">
             <Link href="/" className="inline-flex items-center gap-2 group mb-4">
               <div className="h-7 w-7 rounded bg-gold flex items-center justify-center flex-shrink-0">
                 <span className="text-navy font-black text-xs tracking-tighter">VC</span>
@@ -155,8 +155,8 @@ export function Footer() {
         </div>
 
         {/* 2. Branch Locations List (Weldstar Style) */}
-        <div id="locations" className="border-t border-steel/20 py-10 scroll-mt-24">
-          <h3 className="text-xs font-bold uppercase tracking-widest text-surface/50 mb-6">
+        <div id="locations" className="border-t border-steel/20 py-6 scroll-mt-24">
+          <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold/60 mb-4">
             VERTACORE Branch Locations
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
@@ -180,7 +180,7 @@ export function Footer() {
         </div>
 
         {/* 3. Bottom Credits & Certifying Bodies */}
-        <div className="border-t border-steel/20 py-6 mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-steel-muted">
+        <div className="border-t border-steel/20 py-2 mt-2 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-steel-muted">
           <div className="flex flex-wrap items-center gap-4">
             <span>© {new Date().getFullYear()} VERTACORE Company, Inc. All Rights Reserved.</span>
             <span className="hidden sm:inline">|</span>

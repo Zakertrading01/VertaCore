@@ -63,23 +63,23 @@
   --text-dxl--line-height: 1.06;
   --text-dxl--letter-spacing: -0.03em;
 
-  --text-dlg: 52px;
+  --text-dlg: 42px;
   --text-dlg--line-height: 1.1;
   --text-dlg--letter-spacing: -0.025em;
 
-  --text-dmd: 42px;
-  --text-dmd--line-height: 1.15;
+  --text-dmd: 32px;
+  --text-dmd--line-height: 1.2;
   --text-dmd--letter-spacing: -0.02em;
 
-  --text-h1: 36px;
+  --text-h1: 28px;
   --text-h1--line-height: 1.2;
   --text-h1--letter-spacing: -0.015em;
 
-  --text-h2: 28px;
+  --text-h2: 24px;
   --text-h2--line-height: 1.25;
   --text-h2--letter-spacing: -0.01em;
 
-  --text-h3: 22px;
+  --text-h3: 18px;
   --text-h3--line-height: 1.3;
   --text-h3--letter-spacing: -0.005em;
 
@@ -226,21 +226,21 @@
 
   /* Section padding */
   .section-padding {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 
   @media (min-width: 768px) {
     .section-padding {
-      padding-top: 7rem;
-      padding-bottom: 7rem;
+      padding-top: 4.5rem;
+      padding-bottom: 4.5rem;
     }
   }
 
   @media (min-width: 1024px) {
     .section-padding {
-      padding-top: 9rem;
-      padding-bottom: 9rem;
+      padding-top: 5.5rem;
+      padding-bottom: 5.5rem;
     }
   }
 

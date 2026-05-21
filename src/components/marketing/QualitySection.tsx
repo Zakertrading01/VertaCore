@@ -29,7 +29,7 @@ const certifications = [
 export function QualitySection() {
   return (
     <section
-      className="section-padding bg-graphite-subtle"
+      className="section-padding bg-[#f8f8f2]"
       aria-labelledby="quality-heading"
     >
       <div className="container-base">
@@ -40,13 +40,13 @@ export function QualitySection() {
               <SectionLabel className="mb-3">Certified. Compliant. Trusted.</SectionLabel>
               <h2
                 id="quality-heading"
-                className="text-dmd font-bold text-surface tracking-tight mt-3"
+                className="text-dmd font-bold text-navy tracking-tight mt-3"
               >
                 Every product meets
                 <br />
                 <span className="text-gold">international standards.</span>
               </h2>
-              <p className="mt-4 text-body text-surface/60 leading-relaxed max-w-lg">
+              <p className="mt-4 text-body text-navy/60 leading-relaxed max-w-lg">
                 VERTACORE is ISO 9001:2015 certified. Every item we supply is verified
                 against internationally recognised quality and safety standards, with full
                 documentation available on request.
@@ -66,17 +66,17 @@ export function QualitySection() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {certifications.map((cert, i) => (
               <ScrollReveal key={cert.name} delay={0.1 + i * 0.08}>
-                <div className="card-base p-5 h-full">
+                <div className="bg-white border border-navy/5 shadow-sm rounded-xl p-5 h-full">
                   <div className="flex items-start gap-3 mb-3">
-                    <div className="p-2 rounded-lg bg-gold/10 flex-shrink-0">
+                    <div className="p-2 rounded-lg bg-gold/5 flex-shrink-0">
                       <Award className="h-4 w-4 text-gold" />
                     </div>
                     <div>
-                      <div className="text-[15px] font-bold text-surface">{cert.name}</div>
+                      <div className="text-[15px] font-bold text-navy">{cert.name}</div>
                       <div className="text-xs text-gold/70 mt-0.5">{cert.body}</div>
                     </div>
                   </div>
-                  <p className="text-xs text-steel-muted leading-relaxed">
+                  <p className="text-xs text-navy/50 leading-relaxed">
                     {cert.description}
                   </p>
                 </div>

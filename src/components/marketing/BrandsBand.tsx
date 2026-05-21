@@ -119,13 +119,13 @@ const categories = [
 
 const brandsByCategory: Record<string, string[]> = {
   welding: [
-    "techweld", 
-    "geotex", 
-    "weldman", 
-    "electro-heat", 
-    "gasiq", 
-    "superon", 
-    "tempindic", 
+    "techweld",
+    "geotex",
+    "weldman",
+    "electro-heat",
+    "gasiq",
+    "superon",
+    "tempindic",
     "victor",
     "sincosald",
     "sakura"
@@ -141,33 +141,45 @@ export function BrandsBand() {
   return (
     <section
       id="brands"
-      className="border-y border-steel/20 bg-white py-10 overflow-hidden"
+      className="border-y border-white/5 bg-gradient-to-b from-[#0F172A] to-[#020617] py-16 overflow-hidden relative"
       aria-label="Our brand partners"
     >
+      {/* Premium Glow for depth */}
+      <div className="absolute inset-0 opacity-[0.05] pointer-events-none"
+        style={{ background: 'radial-gradient(circle at 40% 40%, #E7C85A, transparent 70%)' }} />
+
       <div className="w-full mb-4">
         {/* Prominent title above categories */}
-        <h3 className="text-h2 md:text-dlg font-bold text-navy text-center mb-10">Our Brands</h3>
+        <h3 className="text-h2 font-bold text-white text-center mb-10 relative z-10">
+          Our <span className="text-gold">Partners</span>
+          <div className="h-1 w-20 bg-gold/30 mx-auto mt-4 rounded-full" />
+        </h3>
 
         {/* All categories stacked vertically */}
-        <div className="w-full flex flex-col gap-8">
+        <div className="w-full flex flex-col gap-4">
           {categories.map((cat, index) => (
             <div key={cat.key} className="flex flex-col items-center w-full">
-              {/* Category Title Box (Above) */}
-              <div className="w-full bg-[#0d1f38] py-3">
-                <h4 className="text-3xl md:text-4xl font-bold text-gold uppercase tracking-widest text-center">
-                  {cat.label}
-                </h4>
+              {/* Unique Technical Capsule Label */}
+              <div className="flex items-center justify-center gap-4 w-full relative z-20">
+                <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-gold/30" />
+                <div className="px-8 py-2 bg-gold rounded-full shadow-[0_0_20px_rgba(231,200,90,0.2)]">
+                  <h4 className="text-[11px] font-black text-[#0F172A] uppercase tracking-[0.4em] text-center">
+                    {cat.label}
+                  </h4>
+                </div>
+                <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-gold/30" />
               </div>
 
               {/* Brand Images for this Category (Below) */}
-              <div className="w-full flex flex-wrap justify-center gap-8 md:gap-16 py-8 px-4 max-w-6xl mx-auto">
+              <div className="w-full flex flex-wrap justify-center gap-4 md:gap-6 py-8 px-4 max-w-6xl mx-auto">
                 {(brandsByCategory[cat.key] || []).map((b) => (
-                  <div 
-                    key={b} 
+                  <div
+                    key={b}
                     onClick={() => setSelectedBrand({ id: b, category: cat.label })}
-                    className="flex items-center justify-center w-[150px] sm:w-[220px] p-4 hover:bg-black/5 transition-colors cursor-pointer rounded-xl"
+                    className="flex items-center justify-center w-[140px] sm:w-[190px] h-[80px] sm:h-[110px] p-6 bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.5)] hover:shadow-gold/20 hover:-translate-y-2 transition-all duration-300 cursor-pointer group relative overflow-hidden"
                   >
-                    <img src={`/brands/${b}.png`} alt={b} className="max-h-28 w-full object-contain hover:scale-105 transition-transform" />
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-black/5" />
+                    <img src={`/brands/${b}.png`} alt={b} className="max-h-full w-full object-contain group-hover:scale-110 transition-transform relative z-10" />
                   </div>
                 ))}
               </div>
@@ -179,7 +191,7 @@ export function BrandsBand() {
       {/* Slide-over Drawer for Brand Details */}
       {selectedBrand && (
         <>
-          <div 
+          <div
             className="fixed inset-0 bg-black/30 z-50 transition-opacity"
             onClick={() => setSelectedBrand(null)}
           />
@@ -194,7 +206,7 @@ export function BrandsBand() {
                   {brandDetails[selectedBrand.id]?.name || selectedBrand.id.replace(/[-_]/g, " ")}
                 </h2>
               </div>
-              <button 
+              <button
                 onClick={() => setSelectedBrand(null)}
                 className="p-2 hover:bg-white/10 rounded-full transition-colors"
                 aria-label="Close panel"
@@ -202,12 +214,12 @@ export function BrandsBand() {
                 <X className="w-6 h-6 text-white" />
               </button>
             </div>
-            
+
             {/* Scrollable Content */}
             <div className="flex-1 overflow-y-auto p-8">
               <div className="flex justify-center items-center p-8 bg-surface rounded-xl border border-steel/20 mb-8">
-                <img 
-                  src={`/brands/${selectedBrand.id}.png`} 
+                <img
+                  src={`/brands/${selectedBrand.id}.png`}
                   alt={selectedBrand.id}
                   className="max-h-40 w-full object-contain"
                 />
