@@ -82,7 +82,7 @@ export const defaultMetadata: Metadata = {
   },
   robots: { index: true, follow: true },
   icons: {
-    icon: [{ url: "/icons/favicon.ico" }],
-    apple: [{ url: "/icons/apple-touch-icon.png" }],
+    icon: [{ url: "/icon.png" }],
+    apple: [{ url: "/icon.png" }],
   },
 };

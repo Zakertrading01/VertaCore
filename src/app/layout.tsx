@@ -2,7 +2,14 @@ import type { Metadata } from "next";
 import { defaultMetadata } from "@/lib/seo";
 import "./globals.css";
 
-export const metadata: Metadata = defaultMetadata;
+export const metadata: Metadata = {
+  ...defaultMetadata,
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
+};
 
 export default function RootLayout({
   children,

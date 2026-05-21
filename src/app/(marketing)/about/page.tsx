@@ -119,7 +119,7 @@ export default function AboutPage() {
                 { label: "500+", desc: "Products in supply range" },
                 { label: "10+", desc: "Industry sectors served" },
                 { label: "30+", desc: "Years of industrial expertise" },
-                { label: "24hr", desc: "Guaranteed RFQ response" },
+                { label: "24hr", desc: "Fast Technical Response" },
               ].map((stat, i) => (
                 <ScrollReveal key={stat.label} delay={0.1 + i * 0.08}>
                   <div className="card-base p-5 text-center">

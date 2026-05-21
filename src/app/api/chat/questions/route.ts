@@ -10,8 +10,8 @@ const QUESTIONS = [
   },
   {
     id: "q2",
-    text: "How do I submit a Request for Quotation?",
-    answer: "To submit an RFQ, click the 'Request a Quote' button or visit /contact#rfq. Our procurement team will respond with a formal quote within 24 hours."
+    text: "How do I purchase industrial equipment?",
+    answer: "To purchase equipment, technical teams can contact us directly at sales@vertacore.com with their requirements. We fulfill orders for Oil & Gas, Marine, and major industrial sectors worldwide."
   },
   {
     id: "q3",

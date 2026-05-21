@@ -26,7 +26,6 @@ const company = [
   { label: "Brands & Partners", href: "/brands" },
   { label: "Projects", href: "/projects" },
   { label: "Insights", href: "/insights" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export function Footer() {
@@ -37,13 +36,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
           {/* Brand column */}
           <div className="lg:col-span-2">
-            <Link href="/" className="inline-flex items-center gap-2 group mb-4">
-              <div className="h-7 w-7 rounded bg-gold flex items-center justify-center flex-shrink-0">
-                <span className="text-navy font-black text-xs tracking-tighter">VC</span>
+            <Link href="/" className="inline-flex items-center gap-3 group mb-4">
+              <div className="h-8 w-auto relative flex-shrink-0">
+                <img
+                  src="/image.png"
+                  alt="VERTACORE Logo"
+                  className="h-full w-auto object-contain brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                />
               </div>
-              <span className="font-bold text-[15px] tracking-[0.12em] text-surface uppercase">
-                VERTACORE
-              </span>
             </Link>
 
             <p className="text-sm text-steel-muted leading-relaxed max-w-xs mt-3">

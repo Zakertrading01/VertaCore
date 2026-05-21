@@ -70,15 +70,11 @@ export function CatalogueItemCard({
           </div>
         )}
 
-        {/* Actions */}
         <div className="flex items-center justify-between mt-auto pt-3 border-t border-steel/20">
-          <Link
-            href={`/contact#rfq?item=${encodeURIComponent(name)}`}
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-gold-muted transition-colors"
-          >
-            Request a Quote
-            <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
+          <div className="flex items-center gap-2 text-[11px] font-semibold text-steel-muted uppercase tracking-wider">
+            <Package className="h-3 w-3" />
+            Certified Supply
+          </div>
 
           {datasheetUrl && <DatasheetLink url={datasheetUrl} />}
         </div>

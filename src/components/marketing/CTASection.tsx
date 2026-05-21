@@ -37,18 +37,11 @@ export function CTASection() {
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center mt-8">
             <Link
-              href="/contact#rfq"
-              className="inline-flex items-center justify-center gap-2 bg-gold text-navy font-semibold px-8 py-3.5 rounded-lg hover:bg-gold-muted transition-colors text-[15px]"
-            >
-              Request a Quote
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
               href="/catalogue"
-              className="inline-flex items-center justify-center gap-2 border border-steel/50 text-surface/80 font-semibold px-8 py-3.5 rounded-lg hover:border-gold/40 hover:text-surface transition-colors text-[15px]"
+              className="inline-flex items-center justify-center gap-2 bg-gold text-navy font-semibold px-10 py-4 rounded-lg hover:bg-gold-muted transition-colors text-[16px]"
             >
-              <Download className="h-4 w-4" />
-              View Catalogue
+              <Download className="h-5 w-5" />
+              Download Catalogue
             </Link>
           </div>
 
@@ -57,10 +50,6 @@ export function CTASection() {
             <span className="flex items-center gap-1.5">
               <span className="h-1.5 w-1.5 rounded-full bg-gold" />
               ISO 9001:2015 Certified
-            </span>
-            <span className="flex items-center gap-1.5">
-              <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-              Response within 24 hours
             </span>
             <span className="flex items-center gap-1.5">
               <span className="h-1.5 w-1.5 rounded-full bg-gold" />

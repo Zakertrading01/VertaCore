@@ -70,8 +70,8 @@ export default async function IndustryPage({
         subtitle={industry.description}
         coverImage={industry.coverImage ?? undefined}
         breadcrumb={breadcrumb}
-        ctaLabel="Request a Quote"
-        ctaHref="/contact#rfq"
+        ctaLabel="View Catalogue"
+        ctaHref="/catalogue"
       />
 
       {/* Overview */}

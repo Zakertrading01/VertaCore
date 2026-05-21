@@ -19,7 +19,7 @@ const pillars = [
     icon: CheckSquare,
     title: "Enterprise Partnership",
     description:
-      "Not a transactional vendor — a long-term procurement partner. Dedicated account management, technical consultation, and 24-hour RFQ response.",
+      "Not a transactional vendor — a long-term procurement partner. Dedicated account management and technical consultation for enterprise clients.",
   },
   {
     icon: Globe,

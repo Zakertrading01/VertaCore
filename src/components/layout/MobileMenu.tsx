@@ -19,7 +19,6 @@ const navItems = [
   { label: "About", href: "/about" },
   { label: "Certifications", href: "/certifications" },
   { label: "Insights", href: "/insights" },
-  { label: "Contact", href: "/contact" },
 ];
 
 interface MobileMenuProps {
@@ -117,14 +116,13 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           ))}
         </nav>
 
-        {/* CTA */}
         <div className="p-4 mt-2">
           <Link
-            href="/contact#rfq"
+            href="/catalogue"
             className="flex items-center justify-center gap-2 w-full bg-gold text-navy font-semibold py-3 rounded-lg hover:bg-gold-muted transition-colors"
             onClick={onClose}
           >
-            Request a Quote
+            Browse Catalogue
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

@@ -123,20 +123,13 @@ export default async function CataloguePage() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
-              <Link
-                href="/contact#rfq"
-                className="inline-flex items-center justify-center gap-2 bg-gold text-navy font-semibold px-5 py-2.5 rounded-lg hover:bg-gold-muted transition-colors text-sm"
-              >
-                Request a Quote
-                <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
               {cataloguePDF && (
                 <Link
                   href={`/api/catalogue?pdfId=${cataloguePDF.id}`}
-                  className="inline-flex items-center justify-center gap-2 border border-steel/40 text-surface/70 font-semibold px-5 py-2.5 rounded-lg hover:border-gold/40 hover:text-surface transition-colors text-sm"
+                  className="inline-flex items-center justify-center gap-2 bg-gold text-navy font-semibold px-6 py-3 rounded-lg hover:bg-gold-muted transition-colors text-sm"
                 >
-                  <Download className="h-3.5 w-3.5" />
-                  Download PDF
+                  <Download className="h-4 w-4" />
+                  Download PDF Catalogue
                 </Link>
               )}
             </div>
@@ -165,33 +158,25 @@ export default async function CataloguePage() {
           {items.length === 0 && (
             <div className="text-center py-16">
               <p className="text-surface/40 text-body">
-                Catalogue items are being added. Please check back soon or{" "}
-                <Link href="/contact" className="text-gold hover:text-gold-muted transition-colors">
-                  contact our team
-                </Link>
-                .
+                Catalogue items are being added. Please check back soon.
               </p>
             </div>
           )}
         </div>
       </section>
 
-      {/* Bottom CTA */}
       <section className="py-14 bg-navy border-t border-steel/20">
         <div className="container-base text-center">
           <h2 className="text-h2 font-bold text-surface mb-2">
-            Can&apos;t find what you need?
+            Professional Industrial Supply
           </h2>
           <p className="text-body text-surface/60 mb-6">
-            Our team sources to specification. Contact us with your requirements.
+            All our products are certified and meet international quality standards.
           </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 bg-gold text-navy font-semibold px-6 py-3 rounded-lg hover:bg-gold-muted transition-colors"
-          >
-            Contact Our Team
-            <ArrowRight className="h-4 w-4" />
-          </Link>
+          <div className="flex items-center justify-center gap-2 text-gold font-semibold uppercase tracking-widest text-xs">
+            <span className="h-2 w-2 rounded-full bg-gold" />
+            ISO 9001:2015 Certified
+          </div>
         </div>
       </section>
     </>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import { X, Send, Sparkles, Loader2, ArrowRight } from "lucide-react";
+import { X, Send, Sparkles, Loader2, ArrowRight as LucideArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { WidgetConfig, ChatMessage } from "@/types/api";
 
@@ -18,8 +18,8 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "q2",
-    text: "How do I submit a Request for Quotation?",
-    answer: "To submit an RFQ, click the 'Request a Quote' button or visit /contact#rfq. Our procurement team will respond with a formal quote within 24 hours."
+    text: "How do I purchase industrial equipment?",
+    answer: "To purchase equipment, technical teams can contact us directly at sales@vertacore.com with their requirements. We fulfill orders for Oil & Gas, Marine, and major industrial sectors worldwide."
   },
   {
     id: "q3",
@@ -34,7 +34,7 @@ const DEFAULT_QUESTIONS = [
 ];
 
 const WELCOME_MESSAGE =
-  "Hi, I'm VERTACORE AI. I can help with product information, certifications, RFQ process questions, and sourcing enquiries. How can I help?";
+  "Hi, I'm VERTACORE AI. I can help with product information, certifications, and technical industrial sourcing enquiries. How can I help?";
 
 export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
   const [config, setConfig] = useState<WidgetConfig>({ enabled: true, questions: DEFAULT_QUESTIONS });
@@ -95,7 +95,7 @@ export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
           {
             role: "assistant",
             content:
-              "The AI assistant is currently offline. Please contact our team directly at sales@vertacore.com or submit an RFQ.",
+              "The AI assistant is currently offline. Please contact our team directly at sales@vertacore.com.",
           },
         ]);
         setLoading(false);
@@ -120,7 +120,7 @@ export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
             ...prev,
             {
               role: "assistant",
-              content: "The AI assistant is currently offline. For immediate assistance, please email sales@vertacore.com or use the 'Request a Quote' form."
+              content: "The AI assistant is currently offline. For immediate assistance, please email our technical team directly at sales@vertacore.com."
             },
           ]);
           setLoading(false);
@@ -232,7 +232,7 @@ export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
                   >
                     <div className="flex items-center justify-between">
                       <span>{q.text}</span>
-                      <ArrowRight className="h-3 w-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-gold" />
+                      <LucideArrowRight className="h-3 w-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-gold" />
                     </div>
                   </button>
                 ))}

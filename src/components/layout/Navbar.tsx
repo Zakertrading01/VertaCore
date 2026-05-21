@@ -58,16 +58,17 @@ export function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2 group"
+            className="flex items-center gap-3 group"
             aria-label="VERTACORE — Home"
           >
             <div className="flex items-center gap-2">
-              <div className="h-7 w-7 rounded bg-gold flex items-center justify-center flex-shrink-0">
-                <span className="text-navy font-black text-xs tracking-tighter">VC</span>
+              <div className="h-10 w-auto relative flex-shrink-0">
+                <img
+                  src="/image.png"
+                  alt="VERTACORE Logo"
+                  className="h-full w-auto object-contain"
+                />
               </div>
-              <span className="font-bold text-[15px] tracking-[0.12em] text-surface group-hover:text-gold transition-colors uppercase">
-                VERTACORE
-              </span>
             </div>
           </Link>
 
@@ -101,15 +102,6 @@ export function Navbar() {
               <Sparkles className="h-3.5 w-3.5" />
               Ask AI
             </button>
-
-            {/* RFQ CTA */}
-            <Link
-              href="/contact#rfq"
-              className="hidden sm:inline-flex items-center gap-1.5 bg-gold text-navy text-sm font-semibold px-4 py-2 rounded-lg hover:bg-gold-muted transition-colors"
-            >
-              Request a Quote
-              <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
 
             {/* Mobile menu button */}
             <button

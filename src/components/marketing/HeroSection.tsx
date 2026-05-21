@@ -63,18 +63,11 @@ export function HeroSection() {
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-3 mt-8">
             <Link
-              href="/contact#rfq"
-              className="inline-flex items-center justify-center gap-2 bg-gold text-navy font-semibold px-7 py-3.5 rounded-lg hover:bg-gold-muted transition-colors text-[15px]"
-            >
-              Request a Quote
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
               href="/catalogue"
-              className="inline-flex items-center justify-center gap-2 border border-steel/50 text-surface/80 font-semibold px-7 py-3.5 rounded-lg hover:border-gold/40 hover:text-surface transition-colors text-[15px]"
+              className="inline-flex items-center justify-center gap-2 bg-gold text-navy font-semibold px-8 py-4 rounded-lg hover:bg-gold-muted transition-colors text-[16px]"
             >
-              <BookOpen className="h-4 w-4" />
-              View Catalogue
+              <BookOpen className="h-5 w-5" />
+              View Our Catalogue
             </Link>
           </div>
 
@@ -93,11 +86,6 @@ export function HeroSection() {
             <div className="text-center">
               <div className="text-h2 font-bold text-gold">500+</div>
               <div className="text-xs text-surface/50 mt-1 uppercase tracking-wide">Products Supplied</div>
-            </div>
-            <div className="h-8 w-px bg-steel/30 hidden sm:block" />
-            <div className="text-center">
-              <div className="text-h2 font-bold text-gold">24hr</div>
-              <div className="text-xs text-surface/50 mt-1 uppercase tracking-wide">RFQ Response</div>
             </div>
           </div>
         </div>

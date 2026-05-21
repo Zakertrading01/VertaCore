@@ -94,9 +94,9 @@ export default async function SolutionPage({
         : `VERTACORE supplies ${solution.title.toLowerCase()} to Oil & Gas, Marine, Construction, Manufacturing and other major industrial sectors.`,
     },
     {
-      question: `How do I request a quote for ${solution.title.toLowerCase()}?`,
+      question: `How do I source ${solution.title.toLowerCase()} from VERTACORE?`,
       answer:
-        "Submit your requirements via our Request for Quotation form. Include product names, quantities, specifications and any relevant standards. Our team responds within 24 business hours.",
+        "Contact our technical team with your specific requirements. Provide names, quantities, and standards, and we will fulfill your order based on our global brand network.",
     },
   ];
 
@@ -127,8 +127,8 @@ export default async function SolutionPage({
         subtitle={solution.subtitle}
         coverImage={solution.coverImage ?? undefined}
         breadcrumb={breadcrumb}
-        ctaLabel="Request a Quote"
-        ctaHref="/contact#rfq"
+        ctaLabel="View Catalogue"
+        ctaHref="/catalogue"
       />
 
       {/* Overview */}
