@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import { X, Send, Sparkles, Loader2 } from "lucide-react";
+import { X, Send, Sparkles, Loader2, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { WidgetConfig, ChatMessage } from "@/types/api";
 
@@ -10,11 +10,34 @@ interface AskAIWidgetProps {
   onClose: () => void;
 }
 
+const DEFAULT_QUESTIONS = [
+  {
+    id: "q1",
+    text: "What certifications do your products carry?",
+    answer: "Our products carry major international certifications including ISO 9001:2015, CE, EN standards, and ANSI Z359 for safety equipment. Visit our Certifications page for details."
+  },
+  {
+    id: "q2",
+    text: "How do I submit a Request for Quotation?",
+    answer: "To submit an RFQ, click the 'Request a Quote' button or visit /contact#rfq. Our procurement team will respond with a formal quote within 24 hours."
+  },
+  {
+    id: "q3",
+    text: "Which industries do you serve?",
+    answer: "VERTACORE serves major enterprise clients in Oil & Gas, Marine, Construction, Manufacturing, and Mining sectors worldwide."
+  },
+  {
+    id: "q4",
+    text: "Do you supply welding products?",
+    answer: "Yes, we provide a comprehensive range of welding systems, protective gear, and industrial consumables from leading global brands."
+  },
+];
+
 const WELCOME_MESSAGE =
   "Hi, I'm VERTACORE AI. I can help with product information, certifications, RFQ process questions, and sourcing enquiries. How can I help?";
 
 export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
-  const [config, setConfig] = useState<WidgetConfig | null>(null);
+  const [config, setConfig] = useState<WidgetConfig>({ enabled: true, questions: DEFAULT_QUESTIONS });
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -24,12 +47,16 @@ export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
 
   // Load widget config
   useEffect(() => {
-    if (!isOpen || config) return;
+    if (!isOpen) return;
     fetch("/api/chat/questions")
       .then((r) => r.json())
-      .then(setConfig)
-      .catch(() => setConfig({ enabled: false, questions: [] }));
-  }, [isOpen, config]);
+      .then((data) => {
+        if (data.questions && data.questions.length > 0) {
+          setConfig(data);
+        }
+      })
+      .catch(() => { });
+  }, [isOpen]);
 
   // Scroll to bottom on new messages
   useEffect(() => {
@@ -85,7 +112,21 @@ export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ messages: allMessages.slice(-10) }),
         });
+
         const data = await res.json();
+
+        if (res.status === 503 || data.error?.includes("offline")) {
+          setMessages((prev) => [
+            ...prev,
+            {
+              role: "assistant",
+              content: "The AI assistant is currently offline. For immediate assistance, please email sales@vertacore.com or use the 'Request a Quote' form."
+            },
+          ]);
+          setLoading(false);
+          return;
+        }
+
         if (data.reply) {
           setMessages((prev) => [
             ...prev,
@@ -95,9 +136,13 @@ export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
           throw new Error(data.error || "Unknown error");
         }
       } catch (err) {
-        setError(
-          "The AI assistant encountered an error. Please try again or contact us directly.",
-        );
+        setMessages((prev) => [
+          ...prev,
+          {
+            role: "assistant",
+            content: "I'm having trouble connecting to the AI service right now. Please try a suggested question above or reach us at sales@vertacore.com."
+          },
+        ]);
       } finally {
         setLoading(false);
       }
@@ -133,7 +178,7 @@ export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
       <div
         className={cn(
           "fixed right-4 bottom-4 z-50 flex flex-col",
-          "w-[90vw] max-w-[400px] h-[600px] max-h-[80vh]",
+          "w-[90vw] max-w-[400px] h-[700px] max-h-[85vh]",
           "bg-navy border border-gold/20 rounded-2xl shadow-2xl overflow-hidden",
         )}
         role="dialog"
@@ -161,7 +206,7 @@ export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
         </div>
 
         {/* Messages */}
-        <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
+        <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4">
           {/* Welcome message */}
           <div className="flex gap-2.5">
             <div className="h-6 w-6 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -172,20 +217,23 @@ export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
             </div>
           </div>
 
-          {/* Suggested question chips */}
+          {/* Suggested questions */}
           {showChips && (
-            <div className="space-y-2 pl-8">
-              <p className="text-[10px] font-semibold uppercase tracking-widest text-steel-muted">
-                Suggested questions
+            <div className="mt-1 space-y-3 pb-2 animate-in fade-in slide-in-from-bottom-2 duration-500">
+              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold/60 px-1">
+                Suggested Questions
               </p>
-              <div className="flex flex-col gap-2">
-                {config!.questions.map((q) => (
+              <div className="flex flex-col gap-2.5">
+                {config.questions.map((q) => (
                   <button
                     key={q.id}
                     onClick={() => sendMessage(q.text, q.answer)}
-                    className="text-left text-sm text-surface/70 border border-steel/40 hover:border-gold/40 hover:text-gold px-3.5 py-2.5 rounded-xl transition-colors"
+                    className="w-full text-left text-[13px] text-surface/90 bg-navy-light/40 border border-steel/30 hover:border-gold/50 hover:text-gold hover:bg-gold/5 px-4 py-3 rounded-xl transition-all duration-300 group"
                   >
-                    {q.text}
+                    <div className="flex items-center justify-between">
+                      <span>{q.text}</span>
+                      <ArrowRight className="h-3 w-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-gold" />
+                    </div>
                   </button>
                 ))}
               </div>

@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { db } from "@/lib/db";
-import { decryptApiKey, runChat, hashIp } from "@/lib/ai";
+import { runChat, hashIp } from "@/lib/ai";
 import { sanitiseText } from "@/lib/security";
 import { rateLimit, getClientIp } from "@/lib/rateLimit";
 import { logger } from "@/lib/logger";
+import { DEFAULT_SYSTEM_PROMPT } from "@/lib/ai-config";
 
 export const dynamic = "force-dynamic";
 
@@ -21,9 +22,19 @@ const chatSchema = z.object({
 });
 
 export async function POST(request: NextRequest) {
+  const apiKey = process.env.AI_API_KEY ?? "";
+  const provider = process.env.AI_PROVIDER ?? "anthropic";
+  const model = process.env.AI_MODEL ?? "claude-haiku-4-5-20251001";
+
+  if (!apiKey) {
+    return NextResponse.json(
+      { success: false, error: "AI assistant is currently offline." },
+      { status: 503 },
+    );
+  }
+
   const ip = getClientIp(request);
   const { allowed } = rateLimit(`chat:${ip}`, 10, 60_000);
-
   if (!allowed) {
     return NextResponse.json(
       { success: false, error: "Too many requests. Please wait a moment." },
@@ -46,23 +57,6 @@ export async function POST(request: NextRequest) {
   const { messages } = parsed.data;
 
   try {
-    const setting = await db.aISetting.findFirst();
-
-    if (!setting?.enabled) {
-      return NextResponse.json(
-        { success: false, error: "AI assistant is currently offline." },
-        { status: 503 },
-      );
-    }
-
-    const apiKey = decryptApiKey(setting.apiKeyEnc);
-    if (!apiKey) {
-      return NextResponse.json(
-        { success: false, error: "AI assistant is not configured." },
-        { status: 503 },
-      );
-    }
-
     // Build system prompt with live catalogue context
     const catalogueItems = await db.catalogueItem.findMany({
       where: { published: true },
@@ -99,23 +93,14 @@ export async function POST(request: NextRequest) {
       ),
     ].join("\n");
 
-    const systemPrompt = [setting.systemPrompt || "", catalogueContext]
-      .filter(Boolean)
-      .join("\n\n");
+    const systemPrompt = [DEFAULT_SYSTEM_PROMPT, catalogueContext].join("\n\n");
 
-    // Sanitise messages
     const sanitisedMessages = messages.map((m) => ({
       role: m.role,
       content: sanitiseText(m.content),
     }));
 
-    const result = await runChat(
-      sanitisedMessages,
-      systemPrompt,
-      setting.provider,
-      setting.model,
-      apiKey,
-    );
+    const result = await runChat(sanitisedMessages, systemPrompt, provider, model, apiKey);
 
     // Log (fire and forget)
     db.aIChatLog

@@ -22,14 +22,6 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [aiOpen, setAiOpen] = useState(false);
-  const [aiEnabled, setAiEnabled] = useState(false);
-
-  useEffect(() => {
-    fetch("/api/chat/questions")
-      .then((r) => r.json())
-      .then((data) => setAiEnabled(data.enabled || data.questions?.length > 0))
-      .catch(() => {});
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -102,15 +94,13 @@ export function Navbar() {
           {/* Right side */}
           <div className="flex items-center gap-3">
             {/* Ask AI button */}
-            {aiEnabled && (
-              <button
-                onClick={() => setAiOpen(true)}
-                className="hidden md:inline-flex items-center gap-1.5 border border-gold/30 text-gold text-sm font-semibold px-3.5 py-2 rounded-lg hover:bg-gold/10 transition-colors"
-              >
-                <Sparkles className="h-3.5 w-3.5" />
-                Ask AI
-              </button>
-            )}
+            <button
+              onClick={() => setAiOpen(true)}
+              className="hidden md:inline-flex items-center gap-1.5 border border-gold/30 text-gold text-sm font-semibold px-3.5 py-2 rounded-lg hover:bg-gold/10 transition-colors"
+            >
+              <Sparkles className="h-3.5 w-3.5" />
+              Ask AI
+            </button>
 
             {/* RFQ CTA */}
             <Link

@@ -1,22 +1,33 @@
 import { NextResponse } from "next/server";
-import { db } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
-export async function GET() {
-  try {
-    const setting = await db.aISetting.findFirst();
-    const questions = await db.aIQuestion.findMany({
-      where: { enabled: true },
-      orderBy: { sortOrder: "asc" },
-      select: { id: true, text: true, answer: true },
-    });
+const QUESTIONS = [
+  {
+    id: "q1",
+    text: "What certifications do your products carry?",
+    answer: "Our products carry major international certifications including ISO 9001:2015, CE, EN standards, and ANSI Z359 for safety equipment. Visit our Certifications page for details."
+  },
+  {
+    id: "q2",
+    text: "How do I submit a Request for Quotation?",
+    answer: "To submit an RFQ, click the 'Request a Quote' button or visit /contact#rfq. Our procurement team will respond with a formal quote within 24 hours."
+  },
+  {
+    id: "q3",
+    text: "Which industries do you serve?",
+    answer: "VERTACORE serves major enterprise clients in Oil & Gas, Marine, Construction, Manufacturing, and Mining sectors worldwide."
+  },
+  {
+    id: "q4",
+    text: "Do you supply welding products?",
+    answer: "Yes, we provide a comprehensive range of welding systems, protective gear, and industrial consumables from leading global brands."
+  },
+];
 
-    return NextResponse.json({
-      enabled: setting?.enabled ?? false,
-      questions,
-    });
-  } catch {
-    return NextResponse.json({ enabled: false, questions: [] });
-  }
+export async function GET() {
+  return NextResponse.json({
+    enabled: !!process.env.AI_API_KEY,
+    questions: QUESTIONS,
+  });
 }
