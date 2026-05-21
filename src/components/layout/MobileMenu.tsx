@@ -114,6 +114,25 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               {item.label}
             </Link>
           ))}
+
+          {/* Ask AI (Mobile) */}
+          <button
+            onClick={() => {
+              onClose();
+              // We need a way to open the AI widget from here. 
+              // Since Navbar handles the state, we might need a custom event or shared state.
+              // For now, let's assume the user can click it in the navbar if they are on tablet+ 
+              // or we provide a direct link/action if possible.
+              window.dispatchEvent(new CustomEvent('open-ai-chat'));
+            }}
+            className="flex items-center justify-between w-full px-3 py-3 rounded-lg text-gold hover:bg-gold/10 transition-colors text-sm font-medium"
+          >
+            <span className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-gold animate-pulse" />
+              Ask AI Assistant
+            </span>
+            <ArrowRight className="h-4 w-4" />
+          </button>
         </nav>
 
         <div className="p-4 mt-2">

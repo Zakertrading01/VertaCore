@@ -6,7 +6,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center bg-navy-dark overflow-hidden"
+      className="relative min-h-[75vh] flex items-center bg-navy-dark overflow-hidden"
       aria-label="Hero"
     >
       {/* Background pattern — industrial grid */}
@@ -35,7 +35,7 @@ export function HeroSection() {
         aria-hidden="true"
       />
 
-      <div className="relative container-base w-full pt-32 pb-20">
+      <div className="relative container-base w-full pt-28 pb-12">
         <div className="max-w-3xl">
           {/* Label */}
           <div className="flex items-center gap-3 mb-6">
@@ -48,7 +48,7 @@ export function HeroSection() {
             <br />
             <span className="text-gold">Supply</span> For Demanding
             <br />
-            Operations.
+            <span className="text-surface">Operations.</span>
           </h1>
 
           {/* Gold accent line */}
@@ -62,7 +62,7 @@ export function HeroSection() {
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-3 mt-8">
+          <div className="flex flex-col sm:flex-row gap-3 mt-6">
             <Link
               href="/catalogue"
               className="inline-flex items-center justify-center gap-2 bg-gold text-navy font-semibold px-8 py-4 rounded-lg hover:bg-gold-muted transition-colors text-[16px]"
@@ -73,7 +73,7 @@ export function HeroSection() {
           </div>
 
           {/* Trust indicators */}
-          <div className="flex flex-wrap items-center gap-6 mt-10 pt-10 border-t border-steel/20">
+          <div className="flex flex-wrap items-center gap-6 mt-6 pt-6 border-t border-steel/20">
             <div className="text-center">
               <div className="text-h2 font-bold text-gold">ISO 9001:2015</div>
               <div className="text-xs text-surface/50 mt-1 uppercase tracking-wide">Certified</div>
@@ -90,12 +90,6 @@ export function HeroSection() {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
-        <div className="h-8 w-px bg-surface/40" />
-        <span className="text-[10px] uppercase tracking-widest text-surface/60">Scroll</span>
       </div>
     </section>
   );

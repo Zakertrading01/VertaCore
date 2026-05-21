@@ -39,6 +39,12 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
+    const handleOpenAI = () => setAiOpen(true);
+    window.addEventListener('open-ai-chat', handleOpenAI);
+    return () => window.removeEventListener('open-ai-chat', handleOpenAI);
+  }, []);
+
+  useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
@@ -52,43 +58,40 @@ export function Navbar() {
         )}
       >
         {/* Top Utility Bar (Dark Blue) */}
-        <div className="bg-[#112240] text-[16px] py-2.5 px-4 md:px-8 hidden md:flex justify-between items-center text-white/90 border-b border-white/5">
+        <div className="bg-[#112240] text-[15px] py-1.5 px-4 md:px-8 hidden md:flex justify-between items-center text-white/90 border-b border-white/5">
           <div className="flex items-center gap-2 text-gold font-bold">
-            <Phone className="w-5 h-5" />
+            <Phone className="w-4 h-4" />
             <span>Call Us: +1-855-VERTACORE</span>
           </div>
-          <div className="flex items-center gap-5 text-[15px] font-medium">
+          <div className="flex items-center gap-5 text-[14px] font-medium">
             <Link href="/#locations" className="flex items-center gap-1.5 hover:text-gold transition-colors">
-              <MapPin className="w-4.5 h-4.5" /> Locations
+              <MapPin className="w-4 h-4" /> Locations
             </Link>
             <span className="text-white/20">|</span>
             <Link href="/contact" className="flex items-center gap-1.5 hover:text-gold transition-colors">
-              <Mail className="w-4.5 h-4.5" /> Contact Us
+              <Mail className="w-4 h-4" /> Contact Us
             </Link>
             <span className="text-white/20">|</span>
-            <Link href="/contact#rfq" className="flex items-center gap-1.5 bg-[#1a365d] px-4 py-1.5 rounded text-gold hover:bg-[#234575] transition-colors font-bold">
-              <span className="text-xl leading-none">+</span> Special Offers
+            <Link href="/contact#rfq" className="flex items-center gap-1.5 bg-[#1a365d] px-3 py-1 rounded text-gold hover:bg-[#234575] transition-colors font-bold text-xs">
+              <span className="text-base leading-none">+</span> Special Offers
             </Link>
           </div>
         </div>
 
         {/* Main Navigation Bar (White Background) */}
-        <div className="flex items-stretch h-[72px] md:h-[80px] px-0">
-          
+        <div className="flex items-stretch h-[60px] md:h-[68px] px-0">
+
           {/* Logo Block (Dark Blue Background) */}
           <Link
             href="/"
             className="bg-[#0b1b33] flex items-center justify-center px-6 md:px-10 group"
             aria-label="VERTACORE — Home"
           >
-            <div className="flex items-center gap-3">
-              <div className="h-8 w-8 rounded bg-gold flex items-center justify-center flex-shrink-0">
-                <span className="text-navy font-black text-sm tracking-tighter">VC</span>
-              </div>
-              <span className="font-bold text-lg md:text-xl tracking-[0.12em] text-gold transition-colors uppercase">
-                VERTACORE
-              </span>
-            </div>
+            <img
+              src="/image.png"
+              alt="VERTACORE"
+              className="h-10 md:h-12 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop Nav Links (Stretch evenly across white space) */}
@@ -113,7 +116,7 @@ export function Navbar() {
             {aiEnabled && (
               <button
                 onClick={() => setAiOpen(true)}
-                className="hidden xl:flex items-center gap-2 border border-gold text-navy font-bold px-4 py-2 rounded-lg hover:bg-gold/10 transition-colors"
+                className="hidden md:flex items-center gap-2 border border-gold text-navy font-bold px-4 py-1.5 rounded-lg hover:bg-gold/10 transition-colors text-sm"
               >
                 <Sparkles className="h-4 w-4 text-gold" />
                 Ask AI
