@@ -49,7 +49,18 @@ const CATEGORY_DESCRIPTIONS: Record<string, string> = {
 };
 
 export default async function CataloguePage() {
-  const items = await db.catalogueItem.findMany({
+  type Item = {
+    id: string;
+    name: string;
+    description: string | null;
+    categoryGroup: string;
+    image: string | null;
+    certTags: string[];
+    brandName: string | null;
+    datasheetUrl: string | null;
+  };
+
+  const items = (await db.catalogueItem.findMany({
     where: { published: true },
     orderBy: { order: "asc" },
     select: {
@@ -65,22 +76,24 @@ export default async function CataloguePage() {
   }).catch((err) => {
     console.error("[Catalogue] DB Error fetching items:", err);
     return [];
-  });
+  })) as Item[];
 
 
   // Group by category
-  const grouped = CATEGORY_ORDER.reduce<
-    Record<string, typeof items>
-  >((acc, cat) => {
-    acc[cat] = items.filter((i) => i.categoryGroup === cat);
-    return acc;
-  }, {});
+  const grouped: Record<string, Item[]> = {};
 
-  // Also include any items with unknown categories
+  // Initialize known categories first to maintain order
+  CATEGORY_ORDER.forEach((cat) => {
+    grouped[cat] = items.filter((i) => i.categoryGroup === cat);
+  });
+
+  // Group any items with categories not in CATEGORY_ORDER
   const knownCategories = new Set(CATEGORY_ORDER);
   items.forEach((item) => {
     if (!knownCategories.has(item.categoryGroup)) {
-      grouped[item.categoryGroup] ??= [];
+      if (!grouped[item.categoryGroup]) {
+        grouped[item.categoryGroup] = [];
+      }
       grouped[item.categoryGroup].push(item);
     }
   });
