@@ -6,6 +6,8 @@ import { sanitiseText, sanitiseMultiline } from "@/lib/security";
 import { rateLimit, getClientIp } from "@/lib/rateLimit";
 import { logger } from "@/lib/logger";
 
+export const dynamic = "force-dynamic";
+
 const contactSchema = z.object({
   name: z.string().min(1).max(100),
   email: z.string().email(),

@@ -4,6 +4,8 @@ import { db } from "@/lib/db";
 import { rateLimit, getClientIp } from "@/lib/rateLimit";
 import { logger } from "@/lib/logger";
 
+export const dynamic = "force-dynamic";
+
 const schema = z.object({
   email: z.string().email(),
 });

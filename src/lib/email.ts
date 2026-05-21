@@ -1,6 +1,8 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResend() {
+  return new Resend(process.env.RESEND_API_KEY);
+}
 
 const FROM = process.env.EMAIL_FROM ?? "noreply@vertacore.com";
 const SALES = process.env.EMAIL_SALES ?? "sales@vertacore.com";
@@ -20,7 +22,7 @@ export interface RFQEmailData {
 }
 
 export async function sendRFQNotification(data: RFQEmailData) {
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: SALES,
     replyTo: data.email,
@@ -30,7 +32,7 @@ export async function sendRFQNotification(data: RFQEmailData) {
 }
 
 export async function sendRFQConfirmation(data: RFQEmailData) {
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: data.email,
     subject: `Your RFQ has been received — ${data.rfqNumber}`,
@@ -46,7 +48,7 @@ export async function sendContactNotification(data: {
   subject: string;
   message: string;
 }) {
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: SALES,
     replyTo: data.email,

@@ -7,6 +7,8 @@ import { sanitiseText, sanitiseMultiline } from "@/lib/security";
 import { rateLimit, getClientIp } from "@/lib/rateLimit";
 import { logger } from "@/lib/logger";
 
+export const dynamic = "force-dynamic";
+
 const rfqSchema = z.object({
   firstName: z.string().min(1).max(100),
   lastName: z.string().min(1).max(100),

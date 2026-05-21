@@ -6,6 +6,8 @@ import { sanitiseText } from "@/lib/security";
 import { rateLimit, getClientIp } from "@/lib/rateLimit";
 import { logger } from "@/lib/logger";
 
+export const dynamic = "force-dynamic";
+
 const chatSchema = z.object({
   messages: z
     .array(
