@@ -21,15 +21,22 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const brand = await db.brand.findUnique({ where: { slug } });
-  if (!brand) return {};
+  if (slug.includes('.')) return {};
 
-  return buildMetadata({
-    title: `${brand.name} — Industrial Equipment`,
-    description: brand.description ?? `VERTACORE supplies ${brand.name} products.`,
-    path: `/brands/${slug}`,
-    image: brand.logo ?? undefined,
-  });
+  try {
+    const brand = await db.brand.findUnique({ where: { slug } });
+    if (!brand) return {};
+
+    return buildMetadata({
+      title: `${brand.name} — Industrial Equipment`,
+      description: brand.description ?? `VERTACORE supplies ${brand.name} products.`,
+      path: `/brands/${slug}`,
+      image: brand.logo ?? undefined,
+    });
+  } catch (error) {
+    console.error(`[Brands] DB Error in generateMetadata for slug ${slug}:`, error);
+    return {};
+  }
 }
 
 export default async function BrandPage({
@@ -38,7 +45,15 @@ export default async function BrandPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const brand = await db.brand.findUnique({ where: { slug } });
+  if (slug.includes('.')) notFound();
+
+  let brand;
+  try {
+    brand = await db.brand.findUnique({ where: { slug } });
+  } catch (error) {
+    console.error(`[Brands] DB Error in BrandPage for slug ${slug}:`, error);
+    notFound();
+  }
   if (!brand) notFound();
 
   const breadcrumb = [

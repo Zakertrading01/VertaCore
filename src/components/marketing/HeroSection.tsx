@@ -5,6 +5,7 @@ import { SectionLabel } from "@/components/shared/SectionLabel";
 export function HeroSection() {
   return (
     <section
+      id="hero"
       className="relative min-h-screen flex items-center bg-navy-dark overflow-hidden"
       aria-label="Hero"
     >

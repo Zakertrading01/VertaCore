@@ -62,7 +62,11 @@ export default async function CataloguePage() {
       brandName: true,
       datasheetUrl: true,
     },
+  }).catch((err) => {
+    console.error("[Catalogue] DB Error fetching items:", err);
+    return [];
   });
+
 
   // Group by category
   const grouped = CATEGORY_ORDER.reduce<
@@ -94,6 +98,9 @@ export default async function CataloguePage() {
   const cataloguePDF = await db.cataloguePDF.findFirst({
     where: { published: true },
     orderBy: { createdAt: "desc" },
+  }).catch((err) => {
+    console.error("[Catalogue] DB Error fetching PDF:", err);
+    return null;
   });
 
   return (

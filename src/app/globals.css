@@ -246,24 +246,18 @@
 
   /* Container */
   .container-base {
-    max-width: 80rem;
+    width: 100%;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
-  @media (min-width: 640px) {
+  @media (min-width: 768px) {
     .container-base {
-      padding-left: 2rem;
-      padding-right: 2rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .container-base {
-      padding-left: 3rem;
-      padding-right: 3rem;
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
     }
   }
 

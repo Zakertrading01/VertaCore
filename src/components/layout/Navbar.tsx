@@ -2,122 +2,138 @@
 
 import { useState, useEffect, lazy, Suspense } from "react";
 import Link from "next/link";
-import { Menu, ArrowRight, Sparkles } from "lucide-react";
+import { Menu, Phone, MapPin, Mail, ChevronRight, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { NavDropdown } from "./NavDropdown";
 import { MobileMenu } from "./MobileMenu";
 
 const AskAIWidget = lazy(() =>
   import("@/components/shared/AskAIWidget").then((m) => ({ default: m.AskAIWidget })),
 );
 
+// Main nav links (logo row)
 const navLinks = [
+  { label: "Home", href: "/#hero" },
+  { label: "Solutions", href: "/solutions" },
   { label: "Catalogue", href: "/catalogue" },
-  { label: "Industries", href: "/industries" },
   { label: "About", href: "/about" },
-  { label: "Insights", href: "/insights" },
+  { label: "Brands", href: "/#brands" },
 ];
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [aiOpen, setAiOpen] = useState(false);
+  const [aiEnabled, setAiEnabled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    fetch("/api/chat/questions")
+      .then((r) => r.json())
+      .then((data) => setAiEnabled(data.enabled || data.questions?.length > 0))
+      .catch(() => { });
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
   return (
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-30 transition-all duration-300",
-          isScrolled
-            ? "bg-navy-dark/95 backdrop-blur-md border-b border-steel/30 shadow-lg"
-            : "bg-transparent",
+          "fixed top-0 left-0 right-0 z-30 transition-all duration-300 shadow-md",
+          "bg-white" // The main bar is white
         )}
       >
-        <nav
-          className="container-base flex items-center justify-between h-16 md:h-18"
-          aria-label="Primary navigation"
-        >
-          {/* Logo */}
+        {/* Top Utility Bar (Dark Blue) */}
+        <div className="bg-[#112240] text-[16px] py-2.5 px-4 md:px-8 hidden md:flex justify-between items-center text-white/90 border-b border-white/5">
+          <div className="flex items-center gap-2 text-gold font-bold">
+            <Phone className="w-5 h-5" />
+            <span>Call Us: +1-855-VERTACORE</span>
+          </div>
+          <div className="flex items-center gap-5 text-[15px] font-medium">
+            <Link href="/#locations" className="flex items-center gap-1.5 hover:text-gold transition-colors">
+              <MapPin className="w-4.5 h-4.5" /> Locations
+            </Link>
+            <span className="text-white/20">|</span>
+            <Link href="/contact" className="flex items-center gap-1.5 hover:text-gold transition-colors">
+              <Mail className="w-4.5 h-4.5" /> Contact Us
+            </Link>
+            <span className="text-white/20">|</span>
+            <Link href="/contact#rfq" className="flex items-center gap-1.5 bg-[#1a365d] px-4 py-1.5 rounded text-gold hover:bg-[#234575] transition-colors font-bold">
+              <span className="text-xl leading-none">+</span> Special Offers
+            </Link>
+          </div>
+        </div>
+
+        {/* Main Navigation Bar (White Background) */}
+        <div className="flex items-stretch h-[72px] md:h-[80px] px-0">
+          
+          {/* Logo Block (Dark Blue Background) */}
           <Link
             href="/"
-            className="flex items-center gap-3 group"
+            className="bg-[#0b1b33] flex items-center justify-center px-6 md:px-10 group"
             aria-label="VERTACORE — Home"
           >
-            <div className="flex items-center gap-2">
-              <div className="h-10 w-auto relative flex-shrink-0">
-                <img
-                  src="/image.png"
-                  alt="VERTACORE Logo"
-                  className="h-full w-auto object-contain"
-                />
+            <div className="flex items-center gap-3">
+              <div className="h-8 w-8 rounded bg-gold flex items-center justify-center flex-shrink-0">
+                <span className="text-navy font-black text-sm tracking-tighter">VC</span>
               </div>
+              <span className="font-bold text-lg md:text-xl tracking-[0.12em] text-gold transition-colors uppercase">
+                VERTACORE
+              </span>
             </div>
           </Link>
 
-          {/* Desktop nav */}
-          <div className="hidden lg:flex items-center gap-6">
-            <NavDropdown isScrolled={isScrolled} />
-
+          {/* Desktop Nav Links (Stretch evenly across white space) */}
+          <nav className="hidden lg:flex flex-1 items-stretch" aria-label="Primary navigation">
             {navLinks.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={cn(
-                  "text-sm font-medium transition-colors px-1 py-2",
-                  isScrolled
-                    ? "text-surface/80 hover:text-gold"
-                    : "text-surface/90 hover:text-gold",
-                )}
+                className="flex flex-1 items-center justify-center gap-2 text-[18px] md:text-[20px] font-bold text-navy hover:text-gold hover:bg-navy-dark active:bg-navy-dark transition-all duration-200 border-r border-gray-100 last:border-r-0"
               >
                 {item.label}
+                {item.label !== "Home" && (
+                  <ChevronRight className="h-4 w-4 opacity-40" />
+                )}
               </Link>
             ))}
-          </div>
+          </nav>
 
-          {/* Right side */}
-          <div className="flex items-center gap-3">
+          {/* Right Actions Block (Mobile Menu & Ask AI) */}
+          <div className="flex items-center gap-4 px-6 border-l border-gray-100 bg-white">
             {/* Ask AI button */}
-            <button
-              onClick={() => setAiOpen(true)}
-              className="hidden md:inline-flex items-center gap-1.5 border border-gold/30 text-gold text-sm font-semibold px-3.5 py-2 rounded-lg hover:bg-gold/10 transition-colors"
-            >
-              <Sparkles className="h-3.5 w-3.5" />
-              Ask AI
-            </button>
+            {aiEnabled && (
+              <button
+                onClick={() => setAiOpen(true)}
+                className="hidden xl:flex items-center gap-2 border border-gold text-navy font-bold px-4 py-2 rounded-lg hover:bg-gold/10 transition-colors"
+              >
+                <Sparkles className="h-4 w-4 text-gold" />
+                Ask AI
+              </button>
+            )}
 
             {/* Mobile menu button */}
             <button
-              className="lg:hidden p-2 text-surface/80 hover:text-gold transition-colors rounded-lg hover:bg-navy-light/30"
+              className="lg:hidden p-2 text-navy hover:text-gold transition-colors rounded-lg"
               onClick={() => setMobileOpen(true)}
               aria-label="Open navigation menu"
             >
-              <Menu className="h-5 w-5" />
+              <Menu className="h-7 w-7" />
             </button>
           </div>
-        </nav>
+        </div>
       </header>
 
       <MobileMenu isOpen={mobileOpen} onClose={() => setMobileOpen(false)} />
 
-      {/* Ask AI Widget */}
       {aiOpen && (
         <Suspense fallback={null}>
           <AskAIWidget isOpen={aiOpen} onClose={() => setAiOpen(false)} />
