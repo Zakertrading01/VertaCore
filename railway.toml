@@ -3,7 +3,7 @@ builder = "DOCKERFILE"
 dockerfilePath = "Dockerfile"
 
 [deploy]
-startCommand = "timeout 60 npx prisma migrate deploy; npm start"
+startCommand = "timeout 60 npx prisma migrate deploy; npx next start -H 0.0.0.0"
 healthcheckPath = "/api/ping"
 healthcheckTimeout = 300
 restartPolicyType = "ON_FAILURE"
