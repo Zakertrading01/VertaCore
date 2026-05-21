@@ -178,8 +178,8 @@ export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
       {/* Widget Side Panel */}
       <div
         className={cn(
-          "fixed right-0 top-[80px] md:top-[105px] bottom-0 z-[101] flex flex-col bg-navy border-l border-gold/20 shadow-2xl transition-transform duration-300 ease-out",
-          "w-full max-w-[400px] h-[calc(100vh-80px)] md:h-[calc(100vh-105px)]",
+          "fixed right-0 top-[80px] md:top-[93px] bottom-0 z-[101] flex flex-col bg-navy border-l border-gold/20 shadow-2xl transition-transform duration-300 ease-out",
+          "w-full max-w-[400px]",
           isOpen ? "translate-x-0" : "translate-x-full",
         )}
         role="dialog"
@@ -291,7 +291,7 @@ export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
         </div>
 
         {/* Input */}
-        <div className="flex-shrink-0 p-6 border-t border-steel/30 bg-navy-dark">
+        <div className="flex-shrink-0 p-6 pb-8 border-t border-steel/30 bg-navy-dark">
           <form onSubmit={handleSubmit} className="flex gap-2 items-end">
             <textarea
               ref={inputRef}
