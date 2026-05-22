@@ -10,6 +10,13 @@ export const PROVIDER_MODELS = {
     { id: "gpt-4o-mini", label: "GPT-4o Mini (Fast)" },
     { id: "gpt-4o", label: "GPT-4o (Balanced)" },
   ],
+  groq: [
+    { id: "llama-3.3-70b-versatile", label: "Llama 3.3 70B (Fast Free)" },
+    { id: "llama-3.1-8b-instant", label: "Llama 3.1 8B (Instant)" },
+  ],
+  grok: [
+    { id: "grok-beta", label: "Grok Beta (Advanced)" },
+  ],
 } as const;
 
 export type AIProvider = keyof typeof PROVIDER_MODELS;

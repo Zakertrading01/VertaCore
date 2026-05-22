@@ -57,8 +57,12 @@ export async function runChat(
   if (provider === "anthropic") {
     return runAnthropicChat(messages, systemPrompt, model, apiKey);
   }
-  if (provider === "openai") {
-    return runOpenAIChat(messages, systemPrompt, model, apiKey);
+  if (provider === "openai" || provider === "groq" || provider === "grok") {
+    let baseURL: string | undefined;
+    if (provider === "groq") baseURL = "https://api.groq.com/openai/v1";
+    if (provider === "grok") baseURL = "https://api.x.ai/v1";
+
+    return runOpenAIChat(messages, systemPrompt, model, apiKey, baseURL);
   }
   throw new Error(`Unknown provider: ${provider}`);
 }
@@ -90,9 +94,10 @@ async function runOpenAIChat(
   systemPrompt: string,
   model: string,
   apiKey: string,
+  baseURL?: string,
 ): Promise<RunChatResult> {
   const OpenAI = (await import("openai")).default;
-  const client = new OpenAI({ apiKey });
+  const client = new OpenAI({ apiKey, baseURL });
 
   const response = await client.chat.completions.create({
     model,

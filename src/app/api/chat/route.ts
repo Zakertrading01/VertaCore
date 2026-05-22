@@ -14,7 +14,7 @@ const chatSchema = z.object({
     .array(
       z.object({
         role: z.enum(["user", "assistant"]),
-        content: z.string().min(1).max(500),
+        content: z.string().min(1).max(5000),
       }),
     )
     .min(1)
