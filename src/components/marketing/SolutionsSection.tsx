@@ -43,7 +43,7 @@ const solutions = [
 
 export function SolutionsSection() {
   return (
-    <section className="section-padding bg-navy-dark relative overflow-hidden" aria-labelledby="solutions-heading">
+    <section className="section-padding !pt-10 bg-navy-dark relative overflow-hidden" aria-labelledby="solutions-heading">
       {/* Background Glows */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-navy-light/20 rounded-full blur-[150px] pointer-events-none" />
