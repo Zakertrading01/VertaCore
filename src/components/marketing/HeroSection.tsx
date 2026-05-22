@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, BookOpen, ShieldCheck, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, BookOpen, ShieldCheck, ChevronLeft, ChevronRight, Facebook, Linkedin, Youtube, Instagram } from "lucide-react";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 
 const slides = [
@@ -46,9 +46,8 @@ export function HeroSection() {
       {slides.map((slide, index) => (
         <div
           key={slide.id}
-          className={`absolute inset-0 z-0 transition-opacity duration-1000 ease-in-out ${
-            index === currentSlide ? "opacity-100" : "opacity-0 pointer-events-none"
-          }`}
+          className={`absolute inset-0 z-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
         >
           {slide.type === "image" ? (
             <Image
@@ -56,9 +55,8 @@ export function HeroSection() {
               alt={slide.alt!}
               fill
               priority={index === 0}
-              className={`object-cover object-center scale-105 ${
-                index === currentSlide ? "animate-pulse-slow" : ""
-              }`}
+              className={`object-cover object-center scale-105 ${index === currentSlide ? "animate-pulse-slow" : ""
+                }`}
               style={{ animationDuration: "20s" }}
             />
           ) : (
@@ -95,9 +93,38 @@ export function HeroSection() {
       </div>
 
       {/* Foreground Content */}
+      {/* Side Social Icons */}
+      <div className="absolute right-6 md:right-12 top-1/2 -translate-y-1/2 z-20 hidden md:flex flex-col gap-5">
+        {[
+          { icon: Facebook, href: "#", color: "#1877F2", label: "Facebook" },
+          { icon: Linkedin, href: "#", color: "#0A66C2", label: "LinkedIn" },
+          { icon: Youtube, href: "#", color: "#FF0000", label: "YouTube" },
+          { icon: Instagram, href: "#", color: "#E4405F", label: "Instagram" },
+        ].map((social, i) => {
+          const Icon = social.icon;
+          return (
+            <ScrollReveal
+              key={social.label}
+              delay={0.6 + (i * 0.1)}
+              direction="right"
+              distance={20}
+            >
+              <Link
+                href={social.href}
+                className="w-11 h-11 rounded-full bg-white flex items-center justify-center shadow-xl hover:scale-125 hover:bg-gold transition-all duration-300 group/social"
+                aria-label={social.label}
+                style={{ color: social.color }}
+              >
+                <Icon className="h-5 w-5 transition-colors group-hover/social:!text-navy-dark" />
+              </Link>
+            </ScrollReveal>
+          );
+        })}
+      </div>
+
       <div className="relative z-10 container-base w-full pt-28 pb-16 flex flex-col justify-center min-h-[90vh]">
         <div className="max-w-3xl relative mt-16">
-          
+
           <ScrollReveal delay={0.1}>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6 backdrop-blur-md shadow-lg hover:bg-white/10 transition-colors">
               <ShieldCheck className="h-3.5 w-3.5 text-gold" />
@@ -174,11 +201,10 @@ export function HeroSection() {
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`transition-all duration-300 rounded-full ${
-              index === currentSlide
-                ? "w-8 h-2 bg-gold"
-                : "w-2 h-2 bg-white/40 hover:bg-white/80"
-            }`}
+            className={`transition-all duration-300 rounded-full ${index === currentSlide
+              ? "w-8 h-2 bg-gold"
+              : "w-2 h-2 bg-white/40 hover:bg-white/80"
+              }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
