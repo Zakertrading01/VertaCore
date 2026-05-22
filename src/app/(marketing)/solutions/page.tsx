@@ -119,7 +119,7 @@ export default function SolutionsPage() {
       />
 
       {/* Page header */}
-      <header className="bg-navy-dark pt-32 pb-16">
+      <header className="bg-navy-dark pt-32 pb-8">
         <div className="container-base">
           <Breadcrumb items={breadcrumb} className="mb-6" />
           <SectionLabel className="mb-3">MRO Supply Capabilities</SectionLabel>
@@ -136,7 +136,7 @@ export default function SolutionsPage() {
       </header>
 
       {/* Solutions list */}
-      <section className="section-padding bg-graphite-subtle">
+      <section className="pt-10 pb-16 md:pb-24 bg-graphite-subtle">
         <div className="container-base">
           <div className="space-y-6">
             {solutions.map((solution, i) => {

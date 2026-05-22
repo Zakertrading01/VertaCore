@@ -60,7 +60,7 @@ export default function AboutPage() {
       />
 
       {/* Header */}
-      <header className="bg-navy-dark pt-32 pb-16">
+      <header className="bg-navy-dark pt-32 pb-8">
         <div className="container-base">
           <Breadcrumb items={breadcrumb} className="mb-6" />
           <SectionLabel className="mb-3">About VERTACORE</SectionLabel>
@@ -78,7 +78,7 @@ export default function AboutPage() {
       </header>
 
       {/* Company overview */}
-      <section className="section-padding bg-graphite-subtle">
+      <section className="pt-4 pb-16 md:pb-24 bg-graphite-subtle">
         <div className="container-base">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <ScrollReveal>

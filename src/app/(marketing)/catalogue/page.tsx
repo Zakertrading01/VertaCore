@@ -127,7 +127,7 @@ export default async function CataloguePage() {
       ))}
 
       {/* Header */}
-      <header className="bg-navy-dark pt-32 pb-16">
+      <header className="bg-navy-dark pt-32 pb-4">
         <div className="container-base">
           <Breadcrumb items={breadcrumb} className="mb-6" />
           <SectionLabel className="mb-3">Our Product Range</SectionLabel>
@@ -158,7 +158,7 @@ export default async function CataloguePage() {
       </header>
 
       {/* Categories */}
-      <section className="section-padding bg-graphite-subtle">
+      <section className="pt-6 pb-16 md:pb-24 bg-graphite-subtle">
         <div className="container-base space-y-16 md:space-y-20">
           {Object.entries(grouped).map(([category, categoryItems]) => {
             if (categoryItems.length === 0) return null;

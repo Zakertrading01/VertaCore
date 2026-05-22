@@ -44,13 +44,12 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
           {/* Brand column */}
           <div className="lg:col-span-4">
-            <Link href="/" className="inline-flex items-center gap-2 group mb-4">
-              <div className="h-7 w-7 rounded bg-gold flex items-center justify-center flex-shrink-0">
-                <span className="text-navy font-black text-xs tracking-tighter">VC</span>
-              </div>
-              <span className="font-bold text-[15px] tracking-[0.12em] text-gold uppercase">
-                VERTACORE
-              </span>
+            <Link href="/" className="inline-flex items-center group mb-4">
+              <img
+                src="/image.png"
+                alt="VERTACORE"
+                className="h-10 w-auto object-contain"
+              />
             </Link>
             <p className="text-sm text-steel-muted leading-relaxed max-w-xs">
               Premium MRO industrial supply and procurement. Certified safety equipment, welding systems, lifting & rigging, and industrial consumables for demanding operations worldwide.

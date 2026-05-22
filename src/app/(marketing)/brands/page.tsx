@@ -38,7 +38,7 @@ export default async function BrandsPage() {
       />
 
       {/* Header */}
-      <header className="bg-navy-dark pt-32 pb-16">
+      <header className="bg-navy-dark pt-32 pb-8">
         <div className="container-base">
           <Breadcrumb items={breadcrumb} className="mb-6" />
           <SectionLabel className="mb-3">Our Brand Network</SectionLabel>
@@ -55,7 +55,7 @@ export default async function BrandsPage() {
       </header>
 
       {/* Brands List/Grid */}
-      <section className="section-padding bg-graphite-subtle">
+      <section className="pt-4 pb-16 md:pb-24 bg-graphite-subtle">
         <div className="container-base">
           {brands.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
