@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, lazy, Suspense } from "react";
+import { useState, useEffect, lazy, Suspense, useRef } from "react";
 import Link from "next/link";
 import { Menu, Phone, MapPin, Mail, ChevronRight, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -24,6 +24,99 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [aiOpen, setAiOpen] = useState(false);
   const [aiEnabled, setAiEnabled] = useState(false);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let particles: {x: number, y: number, vx: number, vy: number, size: number}[] = [];
+    let animationFrameId: number;
+    let w = 0;
+    let h = 0;
+    let mouse = { x: -1000, y: -1000 };
+
+    const init = () => {
+      if (!canvas.parentElement) return;
+      w = canvas.width = canvas.parentElement.offsetWidth;
+      h = canvas.height = canvas.parentElement.offsetHeight;
+      particles = [];
+      // For a thin navbar, use a low density so it's not cluttered ("rombaniraya varuthu")
+      const particleCount = Math.floor(w / 35); 
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          vx: (Math.random() - 0.5) * 1.0, // Moderate movement
+          vy: (Math.random() - 0.5) * 0.5,
+          size: Math.random() * 2 + 1.5 // Slightly larger for visibility
+        });
+      }
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    };
+
+    const handleMouseLeave = () => {
+      mouse.x = -1000;
+      mouse.y = -1000;
+    };
+
+    const draw = () => {
+      ctx.clearRect(0, 0, w, h);
+      
+      for (let i = 0; i < particles.length; i++) {
+        let p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > w) p.vx *= -1;
+        if (p.y < 0 || p.y > h) p.vy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(56, 189, 248, 1)'; // Sky Blue particles (Dots)
+        ctx.fill();
+
+        let dxMouse = p.x - mouse.x;
+        let dyMouse = p.y - mouse.y;
+        let distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+        if (distMouse < 150) {
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(231, 200, 90, ${0.9 - distMouse / 150})`; // Bright Gold connections to mouse
+          ctx.lineWidth = 2;
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.stroke();
+
+          p.x += dxMouse * 0.01;
+          p.y += dyMouse * 0.01;
+        }
+
+        // Removed particle-to-particle connecting lines as user requested "only dots matum"
+      }
+      animationFrameId = requestAnimationFrame(draw);
+    };
+
+    init();
+    draw();
+
+    window.addEventListener('resize', init);
+    window.addEventListener('mousemove', handleMouseMove);
+    canvas.addEventListener('mouseleave', handleMouseLeave);
+    
+    return () => {
+      window.removeEventListener('resize', init);
+      window.removeEventListener('mousemove', handleMouseMove);
+      canvas.removeEventListener('mouseleave', handleMouseLeave);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
 
   useEffect(() => {
     fetch("/api/chat/questions")
@@ -53,10 +146,17 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-30 transition-all duration-300 shadow-md",
-          "bg-white" // The main bar is white
+          "fixed top-0 left-0 right-0 z-30 transition-all duration-500 shadow-md overflow-hidden",
+          isScrolled 
+            ? "bg-[#0b1b33]/80 backdrop-blur-xl border-b border-white/10" 
+            : "bg-white/10 backdrop-blur-md border-b border-white/20"
         )}
       >
+        {/* Particle Network Background Canvas */}
+        <canvas 
+          ref={canvasRef} 
+          className="absolute inset-0 w-full h-full pointer-events-none z-[-1] opacity-100" 
+        />
         {/* Top Utility Bar (Dark Blue) */}
         <div className="bg-[#112240] text-[13px] py-1 px-4 md:px-8 hidden md:flex justify-between items-center text-white/90 border-b border-white/5">
           <div className="flex items-center gap-2 text-gold font-bold">
@@ -100,36 +200,60 @@ export function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="flex flex-1 items-center justify-center gap-2 text-[15px] md:text-[16px] font-bold text-navy hover:text-gold hover:bg-navy-dark active:bg-navy-dark transition-all duration-200 border-r border-gray-100 last:border-r-0"
-              >
-                {item.label}
-                {item.label !== "Home" && (
-                  <ChevronRight className="h-4 w-4 opacity-40" />
+                className={cn(
+                  "group relative flex flex-1 items-center justify-center gap-2 text-[15px] md:text-[16px] font-bold transition-all duration-300 border-r last:border-r-0 overflow-hidden",
+                  "active:bg-white/5 active:duration-100", // Fast background response on click
+                  isScrolled ? "text-white hover:text-gold border-white/10 hover:bg-white/5" : "text-white hover:text-gold border-white/20 hover:bg-white/10"
                 )}
+              >
+                {/* Click Flash Effect */}
+                <span className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <span className="absolute w-[150%] h-[150%] bg-[radial-gradient(circle,rgba(255,215,0,0.3)_0%,transparent_70%)] opacity-0 group-active:opacity-100 scale-50 group-active:scale-100 transition-all duration-300 ease-out" />
+                </span>
+
+                {/* Background animation on hover */}
+                <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
+                
+                <span className="relative z-10 flex items-center gap-2 group-hover:scale-110 group-active:scale-90 group-active:text-white transition-all duration-300 cubic-bezier(0.4, 0, 0.2, 1)">
+                  {item.label}
+                  {item.label !== "Home" && (
+                    <ChevronRight className={cn(
+                      "h-4 w-4 transition-all duration-300 group-hover:translate-x-1 group-active:translate-x-3 group-active:scale-125 group-active:text-gold",
+                      isScrolled ? "opacity-40" : "opacity-60"
+                    )} />
+                  )}
+                </span>
+                
+                {/* Bottom line animation */}
+                <span className="absolute bottom-0 left-0 w-full h-[3px] bg-gold scale-x-0 group-hover:scale-x-100 origin-center transition-all duration-300 ease-out group-active:bg-white group-active:shadow-[0_0_15px_rgba(255,255,255,1)] group-active:h-[6px]" />
               </Link>
             ))}
           </nav>
 
           {/* Right Actions Block (Mobile Menu & Ask AI) */}
-          <div className="flex items-center gap-4 px-6 border-l border-gray-100 bg-white">
+          <div className={cn(
+            "flex items-center gap-4 px-6 border-l transition-colors duration-500",
+            isScrolled ? "border-white/10 bg-transparent" : "border-white/20 bg-transparent"
+          )}>
             {/* Ask AI button */}
             {aiEnabled && (
               <button
                 onClick={() => setAiOpen(true)}
-                className="hidden md:flex items-center gap-2 border border-gold text-navy font-bold px-4 py-1.5 rounded-lg hover:bg-gold/10 transition-colors text-sm"
+                className="hidden md:flex items-center gap-2 border border-gold text-white font-bold px-4 py-1.5 rounded-lg hover:bg-gold/20 transition-all duration-300 text-sm group relative overflow-hidden"
               >
-                <Sparkles className="h-4 w-4 text-gold" />
-                Ask AI
+                <span className="absolute inset-0 bg-gold/10 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-in-out" />
+                <Sparkles className="h-4 w-4 text-gold relative z-10 group-hover:rotate-12 transition-transform duration-300" />
+                <span className="relative z-10">Ask AI</span>
               </button>
             )}
 
             {/* Mobile menu button */}
             <button
-              className="lg:hidden p-2 text-navy hover:text-gold transition-colors rounded-lg"
+              className="lg:hidden p-2 text-white hover:text-gold hover:bg-white/10 transition-all duration-300 rounded-lg group"
               onClick={() => setMobileOpen(true)}
               aria-label="Open navigation menu"
             >
-              <Menu className="h-7 w-7" />
+              <Menu className="h-7 w-7 group-hover:scale-110 transition-transform duration-300" />
             </button>
           </div>
         </div>
