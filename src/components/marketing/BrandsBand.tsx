@@ -359,7 +359,14 @@ export function BrandsBand() {
                     className="flex items-center justify-center w-[140px] sm:w-[190px] h-[80px] sm:h-[110px] p-6 bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.5)] hover:shadow-gold/20 hover:-translate-y-2 transition-all duration-300 cursor-pointer group relative overflow-hidden"
                   >
                     <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-black/5" />
-                    <img src={`/brands/${b}.png`} alt={b} className="max-h-full w-full object-contain group-hover:scale-110 transition-transform relative z-10" />
+                    <img 
+                      src={`/brands/${b}.png`} 
+                      alt={b} 
+                      className={cn(
+                        "max-h-full w-full object-contain transition-transform relative z-10",
+                        b === "sakura" ? "scale-[1.8] group-hover:scale-[2.0]" : "group-hover:scale-110"
+                      )} 
+                    />
                   </div>
                 ))}
               </div>
