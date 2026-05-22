@@ -9,16 +9,16 @@ import { ScrollReveal } from "@/components/shared/ScrollReveal";
 const slides = [
   {
     id: 1,
-    type: "image",
-    src: "/images/hero-bg.png",
-    alt: "Industrial Facility at Sunset",
-  },
-  {
-    id: 2,
     type: "video",
     // Reliable industrial welding video
     src: "https://upload.wikimedia.org/wikipedia/commons/e/eb/The_sound_of_welding.webm",
     alt: "Industrial Welding Video",
+  },
+  {
+    id: 2,
+    type: "image",
+    src: "/images/hero-bg.png",
+    alt: "Industrial Facility at Sunset",
   },
 ];
 
@@ -77,19 +77,17 @@ export function HeroSection() {
       ))}
 
       {/* Slider Controls (Arrows) */}
-      <div className="absolute inset-y-0 left-4 md:left-8 flex items-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div className="absolute bottom-8 right-4 md:right-8 flex items-center gap-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <button
           onClick={prevSlide}
-          className="p-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white backdrop-blur-sm transition-all"
+          className="p-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white backdrop-blur-sm transition-all hover:scale-110 active:scale-95"
           aria-label="Previous slide"
         >
           <ChevronLeft className="h-6 w-6" />
         </button>
-      </div>
-      <div className="absolute inset-y-0 right-4 md:right-8 flex items-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <button
           onClick={nextSlide}
-          className="p-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white backdrop-blur-sm transition-all"
+          className="p-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white backdrop-blur-sm transition-all hover:scale-110 active:scale-95"
           aria-label="Next slide"
         >
           <ChevronRight className="h-6 w-6" />
@@ -110,16 +108,27 @@ export function HeroSection() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight mb-5 drop-shadow-xl">
-              Premium{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-gold-muted to-[#f9e596]">
-                Industrial Solutions
+            <h1 className="text-4xl md:text-6xl lg:text-[72px] font-black leading-[1.05] tracking-tighter mb-6 drop-shadow-2xl uppercase select-none flex flex-wrap">
+              <span className="flex text-white mr-3">
+                {"PREMIUM".split("").map((char, i) => (
+                  <span key={`p-${i}`} className="inline-block hover:scale-125 hover:-translate-y-2 hover:text-gold active:scale-90 transition-all duration-200 cursor-pointer">
+                    {char}
+                  </span>
+                ))}
+              </span>
+              <span className="hidden md:block w-full h-0"></span>
+              <span className="flex text-gold">
+                {"INDUSTRIAL SOLUTIONS".split("").map((char, i) => (
+                  <span key={`is-${i}`} className={`inline-block hover:scale-125 hover:-translate-y-2 hover:text-white active:scale-90 transition-all duration-200 cursor-pointer ${char === ' ' ? 'w-3 md:w-5' : ''}`}>
+                    {char}
+                  </span>
+                ))}
               </span>
             </h1>
           </ScrollReveal>
 
           <ScrollReveal delay={0.3}>
-            <p className="text-base md:text-lg text-white/80 max-w-xl leading-relaxed mb-8 font-medium">
+            <p className="text-base md:text-lg text-white/90 max-w-xl leading-relaxed mb-8 font-light tracking-wide cursor-pointer hover:text-white active:scale-[0.98] transition-all duration-200 select-none">
               A one-stop supply shop for top-rate products serving the welding, lifting, safety, and heavy manufacturing industries worldwide.
             </p>
           </ScrollReveal>

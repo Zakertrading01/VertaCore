@@ -107,6 +107,60 @@ const brandDetails: Record<string, { name: string; content: string[] }> = {
       "Product Range: Coated abrasives, surface conditioning products, resin bonded wheels and vitrified wheels.",
       "Standards: Supraflex products are comply with international standards like ISO 9001, OSHA, EN."
     ]
+  },
+  toyo: {
+    name: "TOYO",
+    content: [
+      "Japanese Engineering Technology that conforms to the exclusive EC Machinery Directive standards for all our products that we supply to the local and international markets. Our product range includes a wide range of lifting and winching products like chain hoists, lever hoists, push trolleys, hand pulling equipment, alloy steel chains and lifting accessories.",
+      "Zaker Trading LLC, Dubai, UAE is a supplier of TOYO Lifting products. Toyo chain block manufacturing co ltd, is a global leader in providing lifting products that is used by customers to lift, position and secure materials easily and safely. Leading Japanese manufacturers and fabricators of construction machinery, automobile and steel, trust the safe lifting solutions that are being provided by TOYO Lifting products. Toyo Lifting products offer high quality, sturdy construction, compact design, reliable & efficient operation.",
+      "TOYO is the global leader in providing products and application knowledge to help customers lift, position, or secure materials easily and safely.",
+      "Product Range: Electric chain hoist, electric trolley, manual chain hoist, manual lever hoist, push trolley, gear trolley, wire rope winch, beam clamp, vertical lifting clamp, horizontal lifting clamp, snatch block, wire rope cutter, hydraulic pallet truck, rack jack, drum lifter, electric chain hoist, electric trolley , manual chain hoist, manual lever hoist, push trolley, gear trolley, wire rope winch.",
+      "Standards: TOYO  lifting products are comply with international standards like EN, ANSI, ASTM, CE, TUV standards."
+    ]
+  },
+  toyolift: {
+    name: "TOYOLIFT",
+    content: [
+      "TOYOLIFT is a leading manufacturer of rigging hardware and material handling equipment. Our products range includes of shackles, clamps, chain hoist, lever hoist, electrical chain hoist, rack jack, wire rope winch, hand pallet truck and many more lifting and material handling equipment.",
+      "Zaker Trading LLC, Dubai, UAE is a supplier TOYOLIFT products. TOYOLIFT is a leading supplier for a complete range of high quality lifting products. It also has in its range rigging hardware and material handling equipment. The TOYOLIFT brand name is now synonymous with high quality products backed up with on time service. These products are used and trusted by people all over the world in the Marine, Offshore, Construction and Oilfield industries, among others. All TOYOLIFT products are manufactured to the relevant international standards, tested and certified. Our commitment to research and development leads to an ever expanding product range like Chain Hoist, Lever Hoist and Screw Pin Shackles. Our technology, experience, quality and efficiency are clearly reflected through consistency in our products and increasing the range of products under TOYOLIFT.",
+      "The TOYOLIFT brand name is now synonymous with high quality products backed up with on time service in the field of lifting and rigging.",
+      "When you use a genuine TOYOLIFT product, you are sure that is one of the best. Our commitment to research and development leads to an ever-expanding product range.",
+      "Product Range: Screw pin shackles, safety pin shackles, turn buckles, wire rope grips, horizontal pipe lifting clamp, electric chain hoist, electric wire rope hoist, hand pallet truck, horizontal plate lifting clamp, load binder lever type, load binder ratchet type, alloy steel chain, master link, connecting link us type and european type, grab hooks, clevis hooks, sorting hooks, wedge sockets, swivel hooks, barrel hooks, choker hooks.",
+      "Standards: TOYOLIFT products are comply with international standards like EN, ANSI, ASTM, CE, TUV, EN 361, EN360, EN 166, EN 352, EN 345, ASTM F2413, CUT, EN 388, EN 13157, EN 397, EN 175, EN 149, FFP2, N95, KN95, FFP3, EN 420, EN 11611, EN 14116, EN 11612, NFPA, UL, EN 361, EN 368, EN 355, EN 13688, EN 340, EN 1149, EN 61482, NFPA 2112, EN 407, EN 12477, EN 374 – Standards certified by reputed testing organizations like Intertek, TUV, BV, Bureau veritas, TUV sud, TUV nord, TUV rheinland, SGS, Velosi, Aitex, BTTG etc."
+    ]
+  },
+  liftek: {
+    name: "LIFTEK",
+    content: [
+      "Liftek Middle East’s premier single-location for lifting and rigging supplies. As a major supplier of rigging equipment to companies in various industries, we offer a wide variety of wire rope products, including cable laid grommets and steel wire rope. Our inventory also includes a wide selection of wire rope slings, chain slings, synthetic slings, full body safety harness and accessories, cargo lashing, mooring ropes, chain hoists and manual lifting equipment and much more.",
+      "Liftek is Zaker Trading LLC sister concern and is a well renowned name in the field of lifting. It is specialized in the field of manufacture of webbing slings, wire rope slings and chain slings and is equipped with state of the art manufacturing and testing facilities. Liftek is an associate member of the Lifting Equipment Engineers Association, LEEA, UK and is also certified under ISO 9001:2008 quality management system.",
+      "Liftek is an ISO 9001:2000 certified company, started the operations in November 2003 in the United Arab Emirates. In a short span of time, we have gained an outstanding reputation for being a reliable and efficient manufacturer of lifting, cargo lashing and safety equipment. Our factories in Dubai and Sharjah are equipped with the latest manufacturing and testing machines and equipment that ensure that a quality product reaches the customer every time.",
+      "Product Range: Steel wire ropes, grommet slings, wire rope slings, grade 80 chains, grade 100 chains, lifting chain slings, webbing slings, round slings, polyester flat webbing slings, top hook, bottom hook, selantic slings, safety harness, safety harness with lanyard, safety harness with rope lanyard, safety harness with double webbing lanyard and carabiner, connectors, lanyard, static ropes, cargo lashings, tow strap, pp rope.",
+      "Standards: Liftek products are comply with international standards like EN, ANSI, ASTM, CE, TUV standards."
+    ]
+  },
+  rigman: {
+    name: "RIGMAN",
+    content: [
+      "Rigman safety brand which represents robust quality and reliability giving the customer confidence and comfort while working in diverse environmental conditions. It offers a wide range of safety products, pertaining to personnel protective Equipment.",
+      "Our quality control department focuses on continuous improvement of quality based on market research and customer feedback. Rigman Safety provides various solutions under one roof thereby eliminating the need for multiple suppliers. The brand continues to grow rapidly by providing better customer service, better quality, competitive prices and easy order tracking.",
+      "Product Range: Head protection, hand protection, face protection, footwear, shoes, workwear, coverall, pant & shirt, evacuation system, rescue products, respiratory production, eye protection, fall protection, ear protection, rescue devices, flame retardant coverall, flame retardant winter jacket / parka, face protection.",
+      "Standards: Rigman safety products comply with all international standards like EN 11612, EN 11611, ATPV, HRC 2, NFPA 2112, NFPA 701, EN 61482, EN 1149-5, EN 352, EN 308, EN 166, EN 175, ANSI , ASTM F2413."
+    ]
+  },
+  tencate: {
+    name: "TENCATE",
+    content: [
+      "TenCate provides a wide range of high-quality industrial safety fabrics that combine protection, comfort and durability. Protective garments incorporating our fabrics are found in many sectors, including utilities and infrastructure, energy, oil and gas, chemical, metal, steel and mining, and manufacturing."
+    ]
+  },
+  "orris-safety": {
+    name: "ORRIS SAFETY",
+    content: [
+      "Orris Safety is a leading manufacturer of Personal Protection Equipment from Netherlands. Zaker Trading LLC is a supplier of Orris Safety products. All the products are manufactured in accordance with international norms and latest technology in compliance with international quality standards. The raw material we use to manufacture these products is sourced from reliable vendors. As per the different requirements of our clients, we offer these products in various specifications.",
+      "Product Range: Safety shoes, safety helmet, industrial workwear, fire retardant coverall, welding masks, face shield visor, reflective vests, safety spectacles, welding helmets, gloves, rescue items like fall arrestor, rescue winch, tripod and rescue descent device.",
+      "Standards: Orris Safety products are comply with all relevant international standards like OSHA, CE, BS, EN and ANSI."
+    ]
   }
 };
 
@@ -131,8 +185,8 @@ const brandsByCategory: Record<string, string[]> = {
     "sakura"
   ],
   abrasives: ["orkon", "supraflex"],
-  lifting: ["yale", "kito", "norton", "miller"],
-  safety: ["honeywell", "msa-safety", "petzfall", "msa-safety-2"],
+  lifting: ["toyo", "toyolift", "liftek"],
+  safety: ["rigman", "tencate", "orris-safety"],
 };
 
 export function BrandsBand() {
