@@ -302,6 +302,19 @@ export function BrandsBand() {
     };
   }, []);
 
+  // Close drawer on Escape key press
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedBrand(null);
+      }
+    };
+    if (selectedBrand) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedBrand]);
+
   return (
     <section
       id="brands"
