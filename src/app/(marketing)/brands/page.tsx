@@ -63,44 +63,32 @@ export default async function BrandsPage() {
                 <ScrollReveal key={brand.id} delay={i * 0.05}>
                   <div className="card-base flex flex-col h-full group">
                     <div className="p-6 flex flex-col h-full">
-                      <div className="flex items-center justify-between mb-6">
-                        {brand.logo ? (
-                          <div className="relative h-12 w-32">
-                            <Image
-                              src={brand.logo}
-                              alt={brand.name}
-                              fill
-                              className="object-contain object-left"
-                              sizes="128px"
-                            />
+                      <div className="flex items-start gap-4 flex-1 mb-6">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 mb-2">
+                            <h2 className="text-h3 font-bold text-surface group-hover:text-gold transition-colors">
+                              {brand.name}
+                            </h2>
+                            {brand.website && (
+                              <a href={brand.website} target="_blank" rel="noopener noreferrer" className="text-steel-muted hover:text-gold">
+                                <Globe className="h-3 w-3" />
+                              </a>
+                            )}
                           </div>
-                        ) : (
-                          <span className="text-xl font-bold text-surface/40">{brand.name}</span>
-                        )}
-                        {brand.website && (
-                          <a
-                            href={brand.website}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-2 rounded-lg bg-navy-light/10 text-steel-muted hover:text-gold transition-colors"
-                            aria-label={`${brand.name} website`}
-                          >
-                            <Globe className="h-4 w-4" />
-                          </a>
-                        )}
+                          {brand.description && (
+                            <p className="text-sm text-steel-muted leading-relaxed line-clamp-3">
+                              {brand.description}
+                            </p>
+                          )}
+                        </div>
+                        <div className="w-20 h-20 md:w-24 md:h-24 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                          <img
+                            src={brand.logo || `/brands/${brand.slug}.png`}
+                            alt={brand.name}
+                            className="max-w-full max-h-full object-contain"
+                          />
+                        </div>
                       </div>
-
-                      <h2 className="text-h3 font-bold text-surface mb-3 group-hover:text-gold transition-colors">
-                        {brand.name}
-                      </h2>
-
-                      {brand.description ? (
-                        <p className="text-sm text-steel-muted leading-relaxed mb-6 flex-1 line-clamp-3">
-                          {brand.description}
-                        </p>
-                      ) : (
-                        <div className="flex-1 mb-6" />
-                      )}
 
                       <div className="flex items-center justify-between mt-auto pt-4 border-t border-steel/10">
                         {brand.country && (
@@ -134,8 +122,19 @@ export default async function BrandsPage() {
               ].map((brand, i) => (
                 <ScrollReveal key={brand.slug} delay={i * 0.05}>
                   <div className="card-base p-6 flex flex-col h-full group">
-                    <h2 className="text-h3 font-bold text-surface mb-2 group-hover:text-gold transition-colors">{brand.name}</h2>
-                    <p className="text-sm text-steel-muted leading-relaxed mb-6 flex-1">{brand.description}</p>
+                    <div className="flex items-start gap-4 flex-1 mb-6">
+                      <div className="flex-1">
+                        <h2 className="text-h3 font-bold text-surface mb-2 group-hover:text-gold transition-colors">{brand.name}</h2>
+                        <p className="text-sm text-steel-muted leading-relaxed line-clamp-3">{brand.description}</p>
+                      </div>
+                      <div className="w-20 h-20 md:w-24 md:h-24 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                        <img
+                          src={`/brands/${brand.slug}.png`}
+                          alt={brand.name}
+                          className="max-w-full max-h-full object-contain"
+                        />
+                      </div>
+                    </div>
                     <div className="flex items-center justify-between mt-auto pt-4 border-t border-steel/10">
                       <span className="text-[10px] font-bold uppercase tracking-widest text-gold/60 bg-gold/5 px-2 py-1 rounded">
                         {brand.country}
