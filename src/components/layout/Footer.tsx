@@ -76,7 +76,7 @@ export function Footer() {
           </div>
 
           {/* Column 2: Popular Categories */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-3">
             <h3 className="text-xs font-bold uppercase tracking-widest text-surface/50 mb-4 pb-1 border-b border-steel/20">
               Popular Categories
             </h3>
@@ -91,21 +91,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: My Account */}
-          <div className="lg:col-span-2">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-surface/50 mb-4 pb-1 border-b border-steel/20">
-              My Account
-            </h3>
-            <ul className="space-y-2.5">
-              {myAccount.map((item) => (
-                <li key={item.label}>
-                  <Link href={item.href} className="text-sm text-steel-muted hover:text-gold transition-colors">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+
 
           {/* Column 4: Customer Care */}
           <div className="lg:col-span-2">
@@ -123,8 +109,8 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 5: Keep in Touch / Newsletter */}
-          <div className="lg:col-span-2 space-y-4">
+          {/* Column 4: Keep in Touch / Newsletter */}
+          <div className="lg:col-span-3 space-y-4">
             <h3 className="text-xs font-bold uppercase tracking-widest text-surface/50 mb-4 pb-1 border-b border-steel/20">
               Keep In Touch
             </h3>
