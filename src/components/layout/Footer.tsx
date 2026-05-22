@@ -116,18 +116,27 @@ export function Footer() {
 
             {/* Social Grid */}
             <div className="flex items-center gap-3.5 mb-4">
-              <a href="#" aria-label="Facebook" className="p-2 bg-navy-light/45 rounded-lg border border-steel/30 text-steel-muted hover:text-gold hover:border-gold/30 transition-all">
-                <Facebook className="h-4 w-4" />
-              </a>
-              <a href="#" aria-label="LinkedIn" className="p-2 bg-navy-light/45 rounded-lg border border-steel/30 text-steel-muted hover:text-gold hover:border-gold/30 transition-all">
-                <Linkedin className="h-4 w-4" />
-              </a>
-              <a href="#" aria-label="Instagram" className="p-2 bg-navy-light/45 rounded-lg border border-steel/30 text-steel-muted hover:text-gold hover:border-gold/30 transition-all">
-                <Instagram className="h-4 w-4" />
-              </a>
-              <a href="#" aria-label="YouTube" className="p-2 bg-navy-light/45 rounded-lg border border-steel/30 text-steel-muted hover:text-gold hover:border-gold/30 transition-all">
-                <Youtube className="h-4 w-4" />
-              </a>
+              {[
+                { icon: Facebook, color: "#1877F2", label: "Facebook", href: "https://facebook.com" },
+                { icon: Linkedin, color: "#0A66C2", label: "LinkedIn", href: "https://linkedin.com" },
+                { icon: Instagram, color: "#E4405F", label: "Instagram", href: "https://instagram.com" },
+                { icon: Youtube, color: "#FF0000", label: "YouTube", href: "https://youtube.com" },
+              ].map((social) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-lg hover:scale-110 hover:bg-gold transition-all duration-300 group/social"
+                    style={{ color: social.color }}
+                  >
+                    <Icon className="h-4 w-4 transition-colors group-hover/social:!text-navy-dark" />
+                  </a>
+                );
+              })}
             </div>
 
             <div className="pt-2">

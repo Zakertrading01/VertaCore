@@ -96,10 +96,10 @@ export function HeroSection() {
       {/* Side Social Icons */}
       <div className="absolute right-6 md:right-12 top-1/2 -translate-y-1/2 z-20 hidden md:flex flex-col gap-5">
         {[
-          { icon: Facebook, href: "#", color: "#1877F2", label: "Facebook" },
-          { icon: Linkedin, href: "#", color: "#0A66C2", label: "LinkedIn" },
-          { icon: Youtube, href: "#", color: "#FF0000", label: "YouTube" },
-          { icon: Instagram, href: "#", color: "#E4405F", label: "Instagram" },
+          { icon: Facebook, href: "https://facebook.com", color: "#1877F2", label: "Facebook" },
+          { icon: Linkedin, href: "https://linkedin.com", color: "#0A66C2", label: "LinkedIn" },
+          { icon: Youtube, href: "https://youtube.com", color: "#FF0000", label: "YouTube" },
+          { icon: Instagram, href: "https://instagram.com", color: "#E4405F", label: "Instagram" },
         ].map((social, i) => {
           const Icon = social.icon;
           return (
@@ -109,14 +109,16 @@ export function HeroSection() {
               direction="right"
               distance={20}
             >
-              <Link
+              <a
                 href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-11 h-11 rounded-full bg-white flex items-center justify-center shadow-xl hover:scale-125 hover:bg-gold transition-all duration-300 group/social"
                 aria-label={social.label}
                 style={{ color: social.color }}
               >
                 <Icon className="h-5 w-5 transition-colors group-hover/social:!text-navy-dark" />
-              </Link>
+              </a>
             </ScrollReveal>
           );
         })}
