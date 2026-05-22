@@ -138,61 +138,63 @@ export default function SolutionsPage() {
       {/* Solutions list */}
       <section className="pt-10 pb-16 md:pb-24 bg-graphite-subtle">
         <div className="container-base">
-          <div className="space-y-6">
+          <div className="flex flex-wrap justify-center gap-6">
             {solutions.map((solution, i) => {
               const Icon = solution.icon;
               return (
-                <ScrollReveal key={solution.slug} delay={i * 0.06}>
-                  <div className="card-base p-6 md:p-8">
-                    <div className="flex flex-col md:flex-row md:items-start gap-6">
-                      {/* Icon */}
-                      <div className="p-4 rounded-xl bg-navy-light/40 flex-shrink-0 self-start">
+                <ScrollReveal
+                  key={solution.slug}
+                  delay={i * 0.06}
+                  className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+                >
+                  <div className="card-base flex flex-col p-6 md:p-8 h-full">
+                    {/* Header: Icon + View Button */}
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="p-3.5 rounded-xl bg-navy-light/40 flex-shrink-0">
                         <Icon className="h-6 w-6 text-gold" />
                       </div>
+                      <Link
+                        href={`/solutions/${solution.slug}`}
+                        className="p-2.5 rounded-full bg-gold/10 text-gold hover:bg-gold hover:text-navy transition-all duration-300"
+                        aria-label={`View ${solution.title}`}
+                      >
+                        <ArrowRight className="h-5 w-5" />
+                      </Link>
+                    </div>
 
-                      {/* Content */}
-                      <div className="flex-1">
-                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
-                          <div>
-                            <h2 className="text-h2 font-bold text-surface">{solution.title}</h2>
-                            <p className="text-sm text-gold mt-1">{solution.subtitle}</p>
-                          </div>
-                          <Link
-                            href={`/solutions/${solution.slug}`}
-                            className="inline-flex items-center gap-2 bg-gold text-navy text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-gold-muted transition-colors flex-shrink-0"
-                          >
-                            View Solution
-                            <ArrowRight className="h-3.5 w-3.5" />
-                          </Link>
+                    {/* Title */}
+                    <div className="mb-4">
+                      <h2 className="text-h2 font-bold text-surface">{solution.title}</h2>
+                      <p className="text-sm text-gold mt-1">{solution.subtitle}</p>
+                    </div>
+
+                    <p className="text-sm text-surface/60 leading-relaxed mb-6 flex-1">
+                      {solution.description}
+                    </p>
+
+                    {/* Features list - compact */}
+                    <div className="space-y-2 mb-6">
+                      {solution.features.slice(0, 4).map((feature) => (
+                        <div
+                          key={feature}
+                          className="flex items-center gap-2 text-xs text-surface/70"
+                        >
+                          <span className="h-1 w-1 rounded-full bg-gold flex-shrink-0" />
+                          {feature}
                         </div>
+                      ))}
+                    </div>
 
-                        <p className="text-body text-surface/60 leading-relaxed mb-5">
-                          {solution.description}
-                        </p>
-
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mb-4">
-                          {solution.features.map((feature) => (
-                            <div
-                              key={feature}
-                              className="flex items-center gap-2 text-sm text-surface/70"
-                            >
-                              <span className="h-1 w-1 rounded-full bg-gold flex-shrink-0" />
-                              {feature}
-                            </div>
-                          ))}
-                        </div>
-
-                        <div className="flex flex-wrap gap-2">
-                          {solution.certifications.map((cert) => (
-                            <span
-                              key={cert}
-                              className="text-[11px] font-semibold uppercase tracking-wide px-2.5 py-1 rounded border border-gold/20 text-gold/70 bg-gold/5"
-                            >
-                              {cert}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
+                    {/* Certifications - compact */}
+                    <div className="flex flex-wrap gap-1.5 pt-4 border-t border-steel/20">
+                      {solution.certifications.map((cert) => (
+                        <span
+                          key={cert}
+                          className="text-[10px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded border border-gold/10 text-gold/60 bg-gold/5"
+                        >
+                          {cert}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </ScrollReveal>

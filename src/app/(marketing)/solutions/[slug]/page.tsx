@@ -132,7 +132,7 @@ export default async function SolutionPage({
       />
 
       {/* Overview */}
-      <section className="section-padding bg-graphite-subtle">
+      <section className="pt-4 pb-10 bg-graphite-subtle">
         <div className="container-base">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
             {/* Description */}
@@ -190,7 +190,7 @@ export default async function SolutionPage({
 
       {/* Featured catalogue items */}
       {catalogueItems.length > 0 && (
-        <section className="section-padding bg-navy">
+        <section className="pt-8 pb-16 bg-navy">
           <div className="container-base">
             <ScrollReveal>
               <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
@@ -222,7 +222,7 @@ export default async function SolutionPage({
       )}
 
       {/* FAQ section */}
-      <section className="section-padding bg-graphite-subtle">
+      <section className="pt-8 pb-16 bg-graphite-subtle">
         <div className="container-base max-w-3xl">
           <ScrollReveal>
             <SectionLabel className="mb-4">Frequently Asked</SectionLabel>

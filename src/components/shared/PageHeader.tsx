@@ -49,7 +49,7 @@ export function PageHeader({
       <div className="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/60 to-transparent" />
 
       {/* Content */}
-      <div className="relative container-base w-full py-16 md:py-20 lg:py-24">
+      <div className="relative container-base w-full pt-20 pb-4 md:pt-24 md:pb-5 lg:pt-28 lg:pb-6">
         {breadcrumb && breadcrumb.length > 0 && (
           <Breadcrumb items={breadcrumb} className="mb-6" />
         )}
