@@ -181,11 +181,6 @@ export function Footer() {
             <Link href="/privacy" className="hover:text-surface transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-surface transition-colors">Terms of Service</Link>
           </div>
-          <div className="flex items-center gap-4 text-[10px] tracking-wider uppercase font-semibold text-steel-muted/65">
-            <span>ASME Boiler Code</span>
-            <span>AWS Member</span>
-            <span>ANSI Compliant</span>
-          </div>
         </div>
       </div>
     </footer>
