@@ -146,7 +146,7 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-30 transition-all duration-500 shadow-md overflow-hidden",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-500 shadow-md overflow-hidden",
           isScrolled 
             ? "bg-[#0b1b33]/80 backdrop-blur-xl border-b border-white/10" 
             : "bg-white/10 backdrop-blur-md border-b border-white/20"
@@ -232,7 +232,7 @@ export function Navbar() {
 
           {/* Right Actions Block (Mobile Menu & Ask AI) */}
           <div className={cn(
-            "flex items-center gap-4 px-6 border-l transition-colors duration-500",
+            "flex items-center gap-4 px-6 border-l transition-colors duration-500 ml-auto",
             isScrolled ? "border-white/10 bg-transparent" : "border-white/20 bg-transparent"
           )}>
             {/* Ask AI button */}
