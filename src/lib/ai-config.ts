@@ -1,23 +1,35 @@
 // Safe for client import — no secrets, no server-only imports
 
-export const PROVIDER_MODELS = {
-  anthropic: [
-    { id: "claude-haiku-4-5-20251001", label: "Claude Haiku 4.5 (Fast)" },
-    { id: "claude-sonnet-4-6", label: "Claude Sonnet 4.6 (Balanced)" },
-    { id: "claude-opus-4-7", label: "Claude Opus 4.7 (Advanced)" },
-  ],
-  openai: [
-    { id: "gpt-4o-mini", label: "GPT-4o Mini (Fast)" },
-    { id: "gpt-4o", label: "GPT-4o (Balanced)" },
-  ],
-  groq: [
-    { id: "llama-3.3-70b-versatile", label: "Llama 3.3 70B (Fast Free)" },
-    { id: "llama-3.1-8b-instant", label: "Llama 3.1 8B (Instant)" },
-  ],
-  grok: [
-    { id: "grok-beta", label: "Grok Beta (Advanced)" },
-  ],
-} as const;
+export const PROVIDER_MODELS: Record<string, { label: string; models: { value: string; label: string }[] }> = {
+  anthropic: {
+    label: "Anthropic",
+    models: [
+      { value: "claude-haiku-4-5-20251001", label: "Claude Haiku 4.5 (Fast)" },
+      { value: "claude-sonnet-4-6", label: "Claude Sonnet 4.6 (Balanced)" },
+      { value: "claude-opus-4-7", label: "Claude Opus 4.7 (Advanced)" },
+    ],
+  },
+  openai: {
+    label: "OpenAI",
+    models: [
+      { value: "gpt-4o-mini", label: "GPT-4o Mini (Fast)" },
+      { value: "gpt-4o", label: "GPT-4o (Balanced)" },
+    ],
+  },
+  groq: {
+    label: "Groq",
+    models: [
+      { value: "llama-3.3-70b-versatile", label: "Llama 3.3 70B (Fast Free)" },
+      { value: "llama-3.1-8b-instant", label: "Llama 3.1 8B (Instant)" },
+    ],
+  },
+  grok: {
+    label: "xAI (Grok)",
+    models: [
+      { value: "grok-beta", label: "Grok Beta (Advanced)" },
+    ],
+  },
+};
 
 export type AIProvider = keyof typeof PROVIDER_MODELS;
 
