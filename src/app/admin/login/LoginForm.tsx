@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { useFormState, useFormStatus } from 'react-dom'
+import { useActionState, useEffect, useState } from 'react'
+import { useFormStatus } from 'react-dom'
 import { loginAction, type LoginState } from './actions'
 import { cn } from '@/lib/utils'
 
@@ -40,7 +40,7 @@ function SubmitButton() {
 }
 
 export function LoginForm() {
-  const [state, action] = useFormState(loginAction, initialState)
+  const [state, action] = useActionState(loginAction, initialState)
   const [showPassword, setShowPassword] = useState(false)
   const errorId = 'login-error'
   const hasError = Boolean(state.error)

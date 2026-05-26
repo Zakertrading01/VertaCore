@@ -1,15 +1,34 @@
 import { NextRequest, NextResponse } from "next/server";
 
+const SESSION_COOKIES = [
+  "authjs.session-token",
+  "__Secure-authjs.session-token",
+  "next-auth.session-token",
+  "__Secure-next-auth.session-token",
+];
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Never intercept the login page or NextAuth API routes — doing so causes
-  // an infinite redirect loop: login page has no cookie → redirect to login → repeat.
+  // On the login page, delete any stale session cookies from the browser response.
+  // cookies().delete() is forbidden in Server Components, so this is the only reliable
+  // place to clear them. A bad cookie (e.g. from a different environment) causes
+  // NextAuth to throw JWTSessionError on every request until the cookie is gone.
   if (
     pathname === "/admin/login" ||
     pathname.startsWith("/admin/login/") ||
     pathname.startsWith("/api/auth/")
   ) {
+    const hasStaleToken = SESSION_COOKIES.some((name) =>
+      request.cookies.has(name)
+    );
+    if (hasStaleToken) {
+      const response = NextResponse.next();
+      for (const name of SESSION_COOKIES) {
+        response.cookies.delete(name);
+      }
+      return response;
+    }
     return NextResponse.next();
   }
 

@@ -49,7 +49,12 @@ import { AdminLayoutWrapper } from '@/components/admin/AdminLayoutWrapper'
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   // Full session verification — this is the authoritative auth check.
   // Middleware provides the redirect shortcut but this is the real gate.
-  const session = await auth()
+  let session = null
+  try {
+    session = await auth()
+  } catch {
+    // Stale or undecryptable cookie — treat as logged out.
+  }
   if (!session) redirect('/admin/login')
 
   const userEmail = session.user?.email ?? 'Admin'

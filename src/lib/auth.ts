@@ -27,6 +27,15 @@ import { db } from '@/lib/db'
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   trustHost: true,
+  logger: {
+    error(error) {
+      // JWTSessionError means a stale/invalid cookie from another environment.
+      // This is caught and handled by try/catch in the login page and layout.
+      // Suppress the log noise — it's not an actionable error.
+      if ((error as { name?: string }).name === 'JWTSessionError') return
+      console.error('[auth]', error)
+    },
+  },
   providers: [
     Credentials({
       credentials: {

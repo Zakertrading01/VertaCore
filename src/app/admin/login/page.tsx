@@ -48,7 +48,13 @@ const BULLETS = [
 ]
 
 export default async function AdminLoginPage() {
-  const session = await auth()
+  let session = null
+  try {
+    session = await auth()
+  } catch {
+    // Stale or undecryptable cookie — middleware already deleted it from the
+    // browser response. Just render the login form on this request.
+  }
   if (session) redirect('/admin/')
 
   return (
