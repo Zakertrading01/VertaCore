@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import {
     DashboardIcon,
+    CatalogueIcon,
     ProductsIcon,
     CategoriesIcon,
     RFQIcon,
@@ -15,6 +16,7 @@ import {
 
 const ICON_MAP: Record<string, React.ElementType> = {
     DashboardIcon,
+    CatalogueIcon,
     ProductsIcon,
     CategoriesIcon,
     RFQIcon,
