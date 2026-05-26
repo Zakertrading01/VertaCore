@@ -49,10 +49,17 @@ export function AISettingsClient() {
   const [activeTab, setActiveTab] = useState<Tab>('settings')
   const [toast, setToast] = useState<{ msg: string; ok: boolean } | null>(null)
 
-  function showToast(msg: string, ok = true) {
+  const showToast = useCallback((msg: string, ok = true) => {
     setToast({ msg, ok })
     setTimeout(() => setToast(null), 3000)
-  }
+  }, [])
+
+  // Pre-warm API routes so Turbopack compiles them before the user switches tabs.
+  // Without this, the first request to an uncompiled route drops in dev (cpus:1).
+  useEffect(() => {
+    fetch('/api/admin/ai-questions').catch(() => {})
+    fetch('/api/admin/ai-logs').catch(() => {})
+  }, [])
 
   return (
     <div className="px-4 sm:px-8 py-8 w-full">
@@ -103,7 +110,7 @@ function SettingsTab({ showToast }: { showToast: (m: string, ok?: boolean) => vo
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch('/api/admin/ai-settings/')
+    fetch('/api/admin/ai-settings')
       .then(r => {
         if (!r.ok) throw new Error('Unauthorized or server error')
         return r.json()
@@ -126,7 +133,7 @@ function SettingsTab({ showToast }: { showToast: (m: string, ok?: boolean) => vo
   async function save() {
     setSaving(true)
     try {
-      const res = await fetch('/api/admin/ai-settings/', {
+      const res = await fetch('/api/admin/ai-settings', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -141,7 +148,7 @@ function SettingsTab({ showToast }: { showToast: (m: string, ok?: boolean) => vo
         showToast('Settings saved successfully')
         setApiKeyInput('')
         // Refresh to get updated masked key
-        const updated = await fetch('/api/admin/ai-settings/').then(r => r.json())
+        const updated = await fetch('/api/admin/ai-settings').then(r => r.json())
         setSettings(updated)
       } else {
         const err = await res.json()
@@ -311,11 +318,23 @@ function QuestionsTab({ showToast }: { showToast: (m: string, ok?: boolean) => v
     setLoading(true)
     setError(false)
     try {
-      const res = await fetch('/api/admin/ai-questions/')
+      const res = await fetch('/api/admin/ai-questions')
       if (!res.ok) throw new Error('Unauthorized or server error')
       const data = await res.json()
       setQuestions(data)
     } catch (err) {
+      if (err instanceof TypeError) {
+        // Network-level failure (TypeError: Failed to fetch) — Turbopack drops the
+        // connection on the first hit to an uncompiled route. Retry once after 800ms.
+        try {
+          await new Promise(r => setTimeout(r, 800))
+          const res = await fetch('/api/admin/ai-questions')
+          if (!res.ok) throw new Error('Unauthorized or server error')
+          const data = await res.json()
+          setQuestions(data)
+          return
+        } catch { /* fall through to error state below */ }
+      }
       console.error('Failed to load AI questions:', err)
       setError(true)
       showToast('Failed to load questions (unauthorized or network error)', false)
@@ -330,7 +349,7 @@ function QuestionsTab({ showToast }: { showToast: (m: string, ok?: boolean) => v
     if (!newText.trim()) return
     setGeneratingAI(true)
     try {
-      const res = await fetch('/api/chat/', {
+      const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -359,7 +378,7 @@ function QuestionsTab({ showToast }: { showToast: (m: string, ok?: boolean) => v
     if (!newText.trim()) return
     setAdding(true)
     try {
-      const res = await fetch('/api/admin/ai-questions/', {
+      const res = await fetch('/api/admin/ai-questions', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -386,7 +405,7 @@ function QuestionsTab({ showToast }: { showToast: (m: string, ok?: boolean) => v
 
   async function deleteQuestion(id: string) {
     try {
-      const res = await fetch(`/api/admin/ai-questions/${id}/`, { method: 'DELETE' })
+      const res = await fetch(`/api/admin/ai-questions/${id}`, { method: 'DELETE' })
       if (res.ok) {
         showToast('Question deleted')
         setQuestions(q => q.filter(x => x.id !== id))
@@ -402,7 +421,7 @@ function QuestionsTab({ showToast }: { showToast: (m: string, ok?: boolean) => v
   async function saveEdit(id: string) {
     if (!editText.trim()) return
     try {
-      const res = await fetch(`/api/admin/ai-questions/${id}/`, {
+      const res = await fetch(`/api/admin/ai-questions/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -425,7 +444,7 @@ function QuestionsTab({ showToast }: { showToast: (m: string, ok?: boolean) => v
 
   async function toggleEnabled(q: Question) {
     try {
-      const res = await fetch(`/api/admin/ai-questions/${q.id}/`, {
+      const res = await fetch(`/api/admin/ai-questions/${q.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: q.text, enabled: !q.enabled }),
@@ -632,7 +651,7 @@ function LogsTab() {
   useEffect(() => {
     setLoading(true)
     setError(false)
-    fetch(`/api/admin/ai-logs/?page=${page}`)
+    fetch(`/api/admin/ai-logs?page=${page}`)
       .then(r => {
         if (!r.ok) throw new Error('Unauthorized or server error')
         return r.json()
