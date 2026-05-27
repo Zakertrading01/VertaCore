@@ -32,7 +32,7 @@ export function Navbar() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    let particles: {x: number, y: number, vx: number, vy: number, size: number}[] = [];
+    let particles: { x: number, y: number, vx: number, vy: number, size: number }[] = [];
     let animationFrameId: number;
     let w = 0;
     let h = 0;
@@ -44,7 +44,7 @@ export function Navbar() {
       h = canvas.height = canvas.parentElement.offsetHeight;
       particles = [];
       // For a thin navbar, use a low density so it's not cluttered ("rombaniraya varuthu")
-      const particleCount = Math.floor(w / 35); 
+      const particleCount = Math.floor(w / 35);
       for (let i = 0; i < particleCount; i++) {
         particles.push({
           x: Math.random() * w,
@@ -69,7 +69,7 @@ export function Navbar() {
 
     const draw = () => {
       ctx.clearRect(0, 0, w, h);
-      
+
       for (let i = 0; i < particles.length; i++) {
         let p = particles[i];
         p.x += p.vx;
@@ -109,7 +109,7 @@ export function Navbar() {
     window.addEventListener('resize', init);
     window.addEventListener('mousemove', handleMouseMove);
     canvas.addEventListener('mouseleave', handleMouseLeave);
-    
+
     return () => {
       window.removeEventListener('resize', init);
       window.removeEventListener('mousemove', handleMouseMove);
@@ -147,15 +147,15 @@ export function Navbar() {
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500 shadow-md overflow-hidden",
-          isScrolled 
-            ? "bg-[#0b1b33]/80 backdrop-blur-xl border-b border-white/10" 
+          isScrolled
+            ? "bg-[#0b1b33]/80 backdrop-blur-xl border-b border-white/10"
             : "bg-white/10 backdrop-blur-md border-b border-white/20"
         )}
       >
         {/* Particle Network Background Canvas */}
-        <canvas 
-          ref={canvasRef} 
-          className="absolute inset-0 w-full h-full pointer-events-none z-[-1] opacity-100" 
+        <canvas
+          ref={canvasRef}
+          className="absolute inset-0 w-full h-full pointer-events-none z-[-1] opacity-100"
         />
         {/* Top Utility Bar (Dark Blue) */}
         <div className="bg-[#112240] text-[13px] py-1 px-4 md:px-8 hidden md:flex justify-between items-center text-white/90 border-b border-white/5">
@@ -173,7 +173,7 @@ export function Navbar() {
             </Link>
             <span className="text-white/20">|</span>
             <Link href="/contact" className="flex items-center gap-1.5 bg-[#1a365d] px-3 py-1 rounded text-gold hover:bg-[#234575] transition-colors font-bold text-xs">
-              <span className="text-base leading-none">+</span> Special Offers
+              <span className="text-base leading-none">+</span> Enquire Now
             </Link>
           </div>
         </div>
@@ -213,7 +213,7 @@ export function Navbar() {
 
                 {/* Background animation on hover */}
                 <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
-                
+
                 <span className="relative z-10 flex items-center gap-2 group-hover:scale-110 group-active:scale-90 group-active:text-white transition-all duration-300 cubic-bezier(0.4, 0, 0.2, 1)">
                   {item.label}
                   {item.label !== "Home" && (
@@ -223,7 +223,7 @@ export function Navbar() {
                     )} />
                   )}
                 </span>
-                
+
                 {/* Bottom line animation */}
                 <span className="absolute bottom-0 left-0 w-full h-[3px] bg-gold scale-x-0 group-hover:scale-x-100 origin-center transition-all duration-300 ease-out group-active:bg-white group-active:shadow-[0_0_15px_rgba(255,255,255,1)] group-active:h-[6px]" />
               </Link>
