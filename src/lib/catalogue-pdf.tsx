@@ -300,15 +300,26 @@ function CategorySection({ category, items }: { category: string; items: Catalog
 
   return (
     <View style={styles.section}>
-      <View style={styles.catHeader} wrap={false}>
-        <View style={styles.catDot} />
-        <Text style={styles.catName}>{category}</Text>
+      {/* Header + first row kept together so the heading never orphans at the bottom of a page */}
+      <View wrap={false}>
+        <View style={styles.catHeader}>
+          <View style={styles.catDot} />
+          <Text style={styles.catName}>{category}</Text>
+        </View>
+        {CATEGORY_DESCRIPTIONS[category] && (
+          <Text style={styles.catDesc}>{CATEGORY_DESCRIPTIONS[category]}</Text>
+        )}
+        {rows[0] && (
+          <View style={styles.gridRow}>
+            {rows[0].map((item) => (
+              <ItemCard key={item.id} item={item} />
+            ))}
+          </View>
+        )}
       </View>
-      {CATEGORY_DESCRIPTIONS[category] && (
-        <Text style={styles.catDesc}>{CATEGORY_DESCRIPTIONS[category]}</Text>
-      )}
+      {/* Remaining rows, each kept intact across page breaks */}
       <View style={styles.grid}>
-        {rows.map((row, i) => (
+        {rows.slice(1).map((row, i) => (
           <View key={i} style={styles.gridRow} wrap={false}>
             {row.map((item) => (
               <ItemCard key={item.id} item={item} />
