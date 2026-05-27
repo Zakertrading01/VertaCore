@@ -40,7 +40,7 @@ async function handleLogout() {
 const NAV_ITEMS = [
   { label: 'Dashboard', href: '/admin/', iconKey: 'DashboardIcon' },
   { label: 'Catalogue', href: '/admin/catalogue/', iconKey: 'CatalogueIcon' },
-  { label: 'Categories', href: '/admin/categories/', iconKey: 'CategoriesIcon' },
+  { label: 'Solutions', href: '/admin/categories/', iconKey: 'CategoriesIcon' },
   { label: 'AI Settings', href: '/admin/ai-settings/', iconKey: 'AIIcon' },
 ]
 

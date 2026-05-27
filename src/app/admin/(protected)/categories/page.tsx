@@ -48,7 +48,7 @@ export default function CategoriesPage() {
   useEffect(() => { load() }, [])
 
   async function handleDelete(id: string, name: string) {
-    if (!confirm(`Delete category "${name}"? This cannot be undone.`)) return
+    if (!confirm(`Delete solution "${name}"? This cannot be undone.`)) return
     setDeleting(id)
     setError(null)
 
@@ -68,8 +68,8 @@ export default function CategoriesPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-neutral-900">Categories</h1>
-          <p className="text-sm text-neutral-500 mt-1">Manage catalogue categories. Category names map to items on the public catalogue page.</p>
+          <h1 className="text-2xl font-bold text-neutral-900">Solutions</h1>
+          <p className="text-sm text-neutral-500 mt-1">Manage catalogue solutions. Solution names map to items on the public catalogue page.</p>
         </div>
         <Link
           href="/admin/categories/new"
@@ -78,7 +78,7 @@ export default function CategoriesPage() {
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
           </svg>
-          New Category
+          New Solution
         </Link>
       </div>
 
@@ -95,8 +95,8 @@ export default function CategoriesPage() {
           <div className="py-16 text-center text-sm text-neutral-400">Loading…</div>
         ) : categories.length === 0 ? (
           <div className="py-16 text-center">
-            <p className="text-neutral-400 mb-3">No categories yet.</p>
-            <Link href="/admin/categories/new" className="text-sm text-gold font-semibold hover:underline">Create your first category →</Link>
+            <p className="text-neutral-400 mb-3">No solutions yet.</p>
+            <Link href="/admin/categories/new" className="text-sm text-gold font-semibold hover:underline">Create your first solution →</Link>
           </div>
         ) : (
           <table className="w-full text-sm">
@@ -142,7 +142,7 @@ export default function CategoriesPage() {
                         onClick={() => handleDelete(cat.id, cat.name)}
                         disabled={deleting === cat.id || cat.itemCount > 0}
                         className="px-3 py-1.5 text-xs font-semibold text-red-600 border border-red-200 rounded-lg hover:bg-red-600 hover:text-white transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-                        title={cat.itemCount > 0 ? `Has ${cat.itemCount} items — reassign before deleting` : 'Delete category'}
+                        title={cat.itemCount > 0 ? `Has ${cat.itemCount} items — reassign before deleting` : 'Delete solution'}
                       >
                         {deleting === cat.id ? '…' : 'Delete'}
                       </button>
