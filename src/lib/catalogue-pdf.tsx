@@ -108,7 +108,8 @@ const styles = StyleSheet.create({
   catDesc: { fontSize: 7.5, color: MID_GREY, marginBottom: 10, lineHeight: 1.5 },
 
   // ── Item grid (3 columns) ──────────────────────────────
-  grid: { flexDirection: "row", flexWrap: "wrap", gap: 7 },
+  grid: { flexDirection: "column", gap: 0 },
+  gridRow: { flexDirection: "row", gap: 7, marginBottom: 7 },
   card: {
     width: "31.8%",
     backgroundColor: LIGHT_BG,
@@ -294,9 +295,12 @@ function ItemCard({ item }: { item: CatalogueItemWithData }) {
 }
 
 function CategorySection({ category, items }: { category: string; items: CatalogueItemWithData[] }) {
+  const rows: CatalogueItemWithData[][] = [];
+  for (let i = 0; i < items.length; i += 3) rows.push(items.slice(i, i + 3));
+
   return (
     <View style={styles.section}>
-      <View style={styles.catHeader}>
+      <View style={styles.catHeader} wrap={false}>
         <View style={styles.catDot} />
         <Text style={styles.catName}>{category}</Text>
       </View>
@@ -304,8 +308,12 @@ function CategorySection({ category, items }: { category: string; items: Catalog
         <Text style={styles.catDesc}>{CATEGORY_DESCRIPTIONS[category]}</Text>
       )}
       <View style={styles.grid}>
-        {items.map((item) => (
-          <ItemCard key={item.id} item={item} />
+        {rows.map((row, i) => (
+          <View key={i} style={styles.gridRow} wrap={false}>
+            {row.map((item) => (
+              <ItemCard key={item.id} item={item} />
+            ))}
+          </View>
         ))}
       </View>
     </View>
