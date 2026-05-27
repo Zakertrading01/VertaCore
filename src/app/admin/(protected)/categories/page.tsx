@@ -32,7 +32,7 @@ export default function CategoriesPage() {
   const router = useRouter()
   const [categories, setCategories] = useState<Category[]>([])
   const [loading, setLoading] = useState(true)
-  const [deleting, setDeleting] = useState<string | null>(null)
+
   const [error, setError] = useState<string | null>(null)
 
   async function load() {
@@ -47,21 +47,7 @@ export default function CategoriesPage() {
 
   useEffect(() => { load() }, [])
 
-  async function handleDelete(id: string, name: string) {
-    if (!confirm(`Delete solution "${name}"? This cannot be undone.`)) return
-    setDeleting(id)
-    setError(null)
 
-    const res = await fetch(`/api/admin/categories/${id}`, { method: 'DELETE' })
-    const data = await res.json().catch(() => ({}))
-
-    if (!res.ok) {
-      setError(data.error ?? 'Delete failed.')
-    } else {
-      await load()
-    }
-    setDeleting(null)
-  }
 
   return (
     <div className="px-4 sm:px-8 py-8 w-full">
@@ -138,14 +124,7 @@ export default function CategoriesPage() {
                       >
                         Edit
                       </button>
-                      <button
-                        onClick={() => handleDelete(cat.id, cat.name)}
-                        disabled={deleting === cat.id || cat.itemCount > 0}
-                        className="px-3 py-1.5 text-xs font-semibold text-red-600 border border-red-200 rounded-lg hover:bg-red-600 hover:text-white transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-                        title={cat.itemCount > 0 ? `Has ${cat.itemCount} items — reassign before deleting` : 'Delete solution'}
-                      >
-                        {deleting === cat.id ? '…' : 'Delete'}
-                      </button>
+
                     </div>
                   </td>
                 </tr>

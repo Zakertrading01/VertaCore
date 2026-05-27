@@ -32,7 +32,7 @@ export default function CataloguePage() {
   const router = useRouter()
   const [items, setItems] = useState<CatalogueItem[]>([])
   const [loading, setLoading] = useState(true)
-  const [deleting, setDeleting] = useState<string | null>(null)
+
   const [error, setError] = useState<string | null>(null)
   const [filterCategory, setFilterCategory] = useState('')
 
@@ -47,19 +47,7 @@ export default function CataloguePage() {
 
   useEffect(() => { load() }, [])
 
-  async function handleDelete(id: string, name: string) {
-    if (!confirm(`Delete "${name}"? This cannot be undone.`)) return
-    setDeleting(id)
-    setError(null)
-    const res = await fetch(`/api/admin/catalogue/${id}`, { method: 'DELETE' })
-    const data = await res.json().catch(() => ({}))
-    if (!res.ok) {
-      setError(data.error ?? 'Delete failed.')
-    } else {
-      await load()
-    }
-    setDeleting(null)
-  }
+
 
   const filtered = filterCategory ? items.filter((i) => i.categoryGroup === filterCategory) : items
 
@@ -171,13 +159,7 @@ export default function CataloguePage() {
                       >
                         Edit
                       </button>
-                      <button
-                        onClick={() => handleDelete(item.id, item.name)}
-                        disabled={deleting === item.id}
-                        className="px-3 py-1.5 text-xs font-semibold text-red-600 border border-red-200 rounded-lg hover:bg-red-600 hover:text-white transition-colors disabled:opacity-40"
-                      >
-                        {deleting === item.id ? '…' : 'Delete'}
-                      </button>
+
                     </div>
                   </td>
                 </tr>
