@@ -20,96 +20,15 @@ export const metadata: Metadata = buildMetadata({
   keywords: ["MRO solutions", "industrial supply", "safety systems", "welding supplier"],
 });
 
-const solutions = [
-  {
-    icon: Shield,
-    title: "Safety Systems",
-    slug: "safety-systems",
-    subtitle: "Certified PPE for industrial environments",
-    description:
-      "A comprehensive range of personal protective equipment and safety systems for Oil & Gas, Marine, Construction and Manufacturing operations. Every product certified to internationally recognised safety standards.",
-    features: [
-      "Head & Face Protection",
-      "Fall Protection Systems",
-      "Respiratory Protection",
-      "Hand & Foot Protection",
-      "Hi-Visibility Clothing",
-      "Fire-Resistant PPE",
-    ],
-    certifications: ["CE Mark", "EN 361", "EN 397", "ANSI Z359"],
-  },
-  {
-    icon: Flame,
-    title: "Welding Systems",
-    slug: "welding-systems",
-    subtitle: "Complete welding equipment and consumables",
-    description:
-      "SMAW, MIG/MAG, TIG and SAW welding machines and consumables from internationally recognised manufacturers. Suitable for structural fabrication, pipeline welding and maintenance operations.",
-    features: [
-      "SMAW / Stick Welding",
-      "MIG/MAG (GMAW) Systems",
-      "TIG (GTAW) Equipment",
-      "SAW (Submerged Arc)",
-      "Welding Consumables",
-      "Protective Equipment",
-    ],
-    certifications: ["AWS D1.1", "EN 499", "ISO 14341", "CE"],
-  },
-  {
-    icon: Link2,
-    title: "Lifting & Rigging",
-    slug: "lifting-rigging",
-    subtitle: "Certified lifting equipment for critical operations",
-    description:
-      "Chain hoists, lever blocks, wire rope slings, shackles, lifting beams and rigging accessories for offshore, marine, construction and industrial lifting operations.",
-    features: [
-      "Chain Hoists & Lever Blocks",
-      "Wire Rope Slings",
-      "Round Slings",
-      "Shackles & Swivels",
-      "Lifting Beams & Spreaders",
-      "Rigging Hardware",
-    ],
-    certifications: ["ASME B30", "EN 818", "EN 13414", "BS 3551"],
-  },
-  {
-    icon: Disc,
-    title: "Abrasives",
-    slug: "abrasives",
-    subtitle: "Surface preparation and finishing products",
-    description:
-      "Grinding discs, cutting wheels, flap discs and surface treatment products for fabrication shops, maintenance operations and site work. oSa and MPA certified.",
-    features: [
-      "Grinding Discs",
-      "Cutting Wheels",
-      "Flap Discs",
-      "Fibre Discs",
-      "Wire Brushes",
-      "Surface Conditioning",
-    ],
-    certifications: ["EN 12413", "oSa", "MPA", "CE"],
-  },
-  {
-    icon: Wrench,
-    title: "Industrial Tools",
-    slug: "industrial-tools",
-    subtitle: "Hand tools, power tools and measurement equipment",
-    description:
-      "Professional-grade hand tools, power tools, torque equipment and precision measurement instruments for industrial maintenance, fabrication and operations teams.",
-    features: [
-      "Hand Tools",
-      "Power Tools",
-      "Torque Equipment",
-      "Measurement Instruments",
-      "Test & Inspection",
-      "Workshop Equipment",
-    ],
-    certifications: ["ISO 9001", "CE", "Calibrated"],
-  },
-];
+import { db } from "@/lib/db";
 
-export default function SolutionsPage() {
+export default async function SolutionsPage() {
   const breadcrumb = [{ name: "Home", href: "/" }, { name: "Solutions", href: "/solutions" }];
+
+  const solutions = await db.category.findMany({
+    where: { published: true },
+    orderBy: [{ order: 'asc' }, { name: 'asc' }],
+  });
 
   return (
     <>
@@ -138,69 +57,52 @@ export default function SolutionsPage() {
       {/* Solutions list */}
       <section className="pt-10 pb-16 md:pb-24 bg-graphite-subtle">
         <div className="container-base">
-          <div className="flex flex-wrap justify-center gap-6">
-            {solutions.map((solution, i) => {
-              const Icon = solution.icon;
-              return (
-                <ScrollReveal
-                  key={solution.slug}
-                  delay={i * 0.06}
-                  className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
-                >
-                  <div className="card-base flex flex-col p-6 md:p-8 h-full">
-                    {/* Header: Icon + View Button */}
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="p-3.5 rounded-xl bg-navy-light/40 flex-shrink-0">
-                        <Icon className="h-6 w-6 text-gold" />
-                      </div>
-                      <Link
-                        href={`/solutions/${solution.slug}`}
-                        className="p-2.5 rounded-full bg-gold/10 text-gold hover:bg-gold hover:text-navy transition-all duration-300"
-                        aria-label={`View ${solution.title}`}
-                      >
-                        <ArrowRight className="h-5 w-5" />
-                      </Link>
-                    </div>
-
-                    {/* Title */}
-                    <div className="mb-4">
-                      <h2 className="text-h2 font-bold text-surface">{solution.title}</h2>
-                      <p className="text-sm text-gold mt-1">{solution.subtitle}</p>
-                    </div>
-
-                    <p className="text-sm text-surface/60 leading-relaxed mb-6 flex-1">
-                      {solution.description}
-                    </p>
-
-                    {/* Features list - compact */}
-                    <div className="space-y-2 mb-6">
-                      {solution.features.slice(0, 4).map((feature) => (
-                        <div
-                          key={feature}
-                          className="flex items-center gap-2 text-xs text-surface/70"
-                        >
-                          <span className="h-1 w-1 rounded-full bg-gold flex-shrink-0" />
-                          {feature}
+          {solutions.length === 0 ? (
+            <div className="text-center py-20">
+              <p className="text-surface/60">No solutions published yet.</p>
+            </div>
+          ) : (
+            <div className="flex flex-wrap gap-6 justify-start">
+              {solutions.map((solution, i) => {
+                return (
+                  <ScrollReveal
+                    key={solution.slug}
+                    delay={i * 0.06}
+                    className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+                  >
+                    <div className="card-base flex flex-col p-6 md:p-8 h-full">
+                      {/* Header: Icon + View Button */}
+                      <div className="flex items-center justify-between mb-6">
+                        <div className="p-3.5 rounded-xl bg-navy-light/40 flex-shrink-0 flex items-center justify-center w-12 h-12">
+                          {solution.icon ? (
+                            <span className="text-2xl">{solution.icon}</span>
+                          ) : (
+                            <span className="text-2xl">📦</span>
+                          )}
                         </div>
-                      ))}
-                    </div>
-
-                    {/* Certifications - compact */}
-                    <div className="flex flex-wrap gap-1.5 pt-4 border-t border-steel/20">
-                      {solution.certifications.map((cert) => (
-                        <span
-                          key={cert}
-                          className="text-[10px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded border border-gold/10 text-gold/60 bg-gold/5"
+                        <Link
+                          href={`/catalogue?category=${encodeURIComponent(solution.name)}`}
+                          className="p-2.5 rounded-full bg-gold/10 text-gold hover:bg-gold hover:text-navy transition-all duration-300"
+                          aria-label={`View ${solution.name}`}
                         >
-                          {cert}
-                        </span>
-                      ))}
+                          <ArrowRight className="h-5 w-5" />
+                        </Link>
+                      </div>
+
+                      {/* Title */}
+                      <div className="mb-4">
+                        <h2 className="text-h2 font-bold text-surface">{solution.name}</h2>
+                      </div>
+
+                      <p className="text-sm text-surface/60 leading-relaxed mb-6 flex-1">
+                        {solution.description || "Explore our certified industrial solutions."}
+                      </p>
                     </div>
-                  </div>
-                </ScrollReveal>
-              );
-            })}
-          </div>
+                  </ScrollReveal>
+                );
+              })}
+            </div>
+          )}
         </div>
       </section>
 
