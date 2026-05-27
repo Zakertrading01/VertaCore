@@ -116,10 +116,10 @@ const styles = StyleSheet.create({
     borderTopWidth: 2,
     borderTopColor: NAVY,
   },
-  cardImage: { width: "100%", height: 100 },
+  cardImage: { width: "100%", height: 130 },
   cardImagePlaceholder: {
     width: "100%",
-    height: 100,
+    height: 130,
     backgroundColor: "#D8E2EE",
     justifyContent: "center",
     alignItems: "center",
