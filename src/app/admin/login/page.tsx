@@ -64,7 +64,7 @@ export default async function AdminLoginPage() {
       <div className="hidden lg:flex lg:w-2/5 flex-col justify-between bg-navy px-10 py-10">
         <Link href="/">
           <Image
-            src="/logo.png"
+            src="/image.png"
             alt="VERTACORE"
             width={160}
             height={64}
@@ -114,7 +114,7 @@ export default async function AdminLoginPage() {
               <div className="mb-6 lg:hidden">
                 <Link href="/">
                   <Image
-                    src="/logo.png"
+                    src="/image.png"
                     alt="VERTACORE"
                     width={130}
                     height={52}
