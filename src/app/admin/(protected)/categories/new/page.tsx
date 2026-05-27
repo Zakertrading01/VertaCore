@@ -68,7 +68,7 @@ export default function NewCategoryPage() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
           </svg>
         </Link>
-        <h1 className="text-2xl font-bold text-neutral-900">New Category</h1>
+        <h1 className="text-2xl font-bold text-neutral-900">New Solution</h1>
       </div>
 
       {error && (
@@ -82,7 +82,7 @@ export default function NewCategoryPage() {
           <div className="flex items-center justify-between pb-4 border-b border-neutral-100">
             <div>
               <p className="text-sm font-semibold text-neutral-700">Status</p>
-              <p className="text-xs text-neutral-400 mt-0.5">Published categories appear in dropdowns when editing catalogue items.</p>
+              <p className="text-xs text-neutral-400 mt-0.5">Published solutions appear in dropdowns when editing catalogue items.</p>
             </div>
             <button
               type="button"
@@ -157,7 +157,7 @@ export default function NewCategoryPage() {
               rows={3}
               value={form.description}
               onChange={(e) => set('description', e.target.value)}
-              placeholder="Brief description of what this category covers…"
+              placeholder="Brief description of what this solution covers…"
               className="w-full px-4 py-2.5 border border-neutral-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy resize-none text-neutral-900"
             />
           </div>
@@ -169,7 +169,7 @@ export default function NewCategoryPage() {
             disabled={saving}
             className="px-6 py-2.5 bg-navy text-white text-sm font-semibold rounded-lg hover:bg-navy/90 transition-colors disabled:opacity-50"
           >
-            {saving ? 'Creating…' : 'Create Category'}
+            {saving ? 'Creating…' : 'Create Solution'}
           </button>
           <Link href="/admin/categories/" className="px-6 py-2.5 text-sm font-semibold text-neutral-600 hover:text-neutral-900 transition-colors">
             Cancel

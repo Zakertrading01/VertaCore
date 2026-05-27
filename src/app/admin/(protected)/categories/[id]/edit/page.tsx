@@ -93,9 +93,9 @@ export default function EditCategoryPage() {
           </svg>
         </Link>
         <div>
-          <h1 className="text-2xl font-bold text-neutral-900">Edit Category</h1>
+          <h1 className="text-2xl font-bold text-neutral-900">Edit Solution</h1>
           {itemCount > 0 && (
-            <p className="text-xs text-neutral-400 mt-0.5">{itemCount} catalogue item{itemCount !== 1 ? 's' : ''} in this category</p>
+            <p className="text-xs text-neutral-400 mt-0.5">{itemCount} catalogue item{itemCount !== 1 ? 's' : ''} in this solution</p>
           )}
         </div>
       </div>
