@@ -124,7 +124,7 @@ export default function CataloguePage() {
             <thead>
               <tr className="border-b border-neutral-100 bg-neutral-50">
                 <th className="text-left px-5 py-3 font-semibold text-neutral-500 uppercase tracking-wider text-xs">Item</th>
-                <th className="text-left px-5 py-3 font-semibold text-neutral-500 uppercase tracking-wider text-xs hidden sm:table-cell">Category</th>
+                <th className="text-left px-5 py-3 font-semibold text-neutral-500 uppercase tracking-wider text-xs hidden sm:table-cell">Solution</th>
                 <th className="text-left px-5 py-3 font-semibold text-neutral-500 uppercase tracking-wider text-xs hidden md:table-cell">Brand</th>
                 <th className="text-left px-5 py-3 font-semibold text-neutral-500 uppercase tracking-wider text-xs">Status</th>
                 <th className="px-5 py-3" />

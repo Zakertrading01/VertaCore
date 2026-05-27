@@ -171,7 +171,7 @@ export default function EditCatalogueItemPage() {
           {/* Category */}
           <div>
             <label className="block text-sm font-semibold text-neutral-700 mb-1.5">
-              Category <span className="text-red-500">*</span>
+              Solution <span className="text-red-500">*</span>
             </label>
             <select
               required
@@ -179,7 +179,7 @@ export default function EditCatalogueItemPage() {
               onChange={(e) => set('categoryGroup', e.target.value)}
               className="w-full px-4 py-2.5 border border-neutral-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy bg-white text-neutral-900"
             >
-              <option value="">Select a category…</option>
+              <option value="">Select a solution…</option>
               {categories.map((cat) => (
                 <option key={cat.id} value={cat.name}>{cat.name}</option>
               ))}
