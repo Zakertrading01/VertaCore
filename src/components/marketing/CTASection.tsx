@@ -85,7 +85,9 @@ export function CTASection() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
             <Link
-              href="/catalogue"
+              href="/api/catalogue"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-2 bg-gold text-navy font-bold px-10 py-4 rounded-xl hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300 text-[16px]"
             >
               <Download className="h-5 w-5 group-hover:-translate-y-0.5 transition-transform" />

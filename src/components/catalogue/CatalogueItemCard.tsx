@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Package } from "lucide-react";
 import { CertTag } from "./CertTag";
 import { DatasheetLink } from "./DatasheetLink";
+import { resolveImageUrl } from "@/lib/image-utils";
 import type { CatalogueItemCard as CatalogueItemCardType } from "@/types/db";
 
 interface CatalogueItemCardProps extends CatalogueItemCardType {
@@ -24,7 +25,7 @@ export function CatalogueItemCard({
       <div className="relative aspect-[4/3] bg-navy-light/30 overflow-hidden">
         {image ? (
           <Image
-            src={image}
+            src={resolveImageUrl(image) || image}
             alt={name}
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-105"

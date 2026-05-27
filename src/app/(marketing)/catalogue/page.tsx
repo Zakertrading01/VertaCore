@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Download } from "lucide-react";
+import { Download } from "lucide-react";
 import { db } from "@/lib/db";
 import { buildMetadata } from "@/lib/seo";
 import { catalogueItemListSchema, breadcrumbSchema } from "@/lib/schema";
@@ -108,13 +108,6 @@ export default async function CataloguePage() {
     breadcrumbSchema(breadcrumb),
   ];
 
-  const cataloguePDF = await db.cataloguePDF.findFirst({
-    where: { published: true },
-    orderBy: { createdAt: "desc" },
-  }).catch((err) => {
-    console.error("[Catalogue] DB Error fetching PDF:", err);
-    return null;
-  });
 
   return (
     <>
@@ -143,15 +136,15 @@ export default async function CataloguePage() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
-              {cataloguePDF && (
-                <Link
-                  href={`/api/catalogue?pdfId=${cataloguePDF.id}`}
-                  className="inline-flex items-center justify-center gap-2 bg-gold text-navy font-semibold px-6 py-3 rounded-lg hover:bg-gold-muted transition-colors text-sm"
-                >
-                  <Download className="h-4 w-4" />
-                  Download PDF Catalogue
-                </Link>
-              )}
+              <Link
+                href="/api/catalogue"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-gold text-navy font-semibold px-6 py-3 rounded-lg hover:bg-gold-muted transition-colors text-sm"
+              >
+                <Download className="h-4 w-4" />
+                Download PDF Catalogue
+              </Link>
             </div>
           </div>
         </div>

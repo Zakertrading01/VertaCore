@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
-  serverExternalPackages: ["@prisma/client"],
+  serverExternalPackages: ["@prisma/client", "@react-pdf/renderer", "sharp"],
   experimental: {
     // Limit to 1 worker to prevent module initialization race condition
     // in Next.js 16 Turbopack's app-page runtime during static generation
