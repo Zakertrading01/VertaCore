@@ -1,45 +1,38 @@
 import { db } from '@/lib/db'
+import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'
 
 async function getStats() {
-  const now = new Date()
-  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate())
-  const weekAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000)
-
   try {
     const [
-      totalRFQ,
-      newRFQ,
-      todayRFQ,
-      weekRFQ,
-      totalContact,
-      newContact,
+      totalCatalogueItems,
+      publishedItems,
+      totalCategories,
+      totalAIQuestions,
     ] = await Promise.all([
-      db.rFQ.count(),
-      db.rFQ.count({ where: { status: 'NEW' } }),
-      db.rFQ.count({ where: { createdAt: { gte: today } } }),
-      db.rFQ.count({ where: { createdAt: { gte: weekAgo } } }),
-      db.contactInquiry.count(),
-      db.contactInquiry.count({ where: { read: false } }),
+      db.catalogueItem.count(),
+      db.catalogueItem.count({ where: { published: true } }),
+      db.category.count(),
+      db.aIQuestion.count(),
     ])
 
-    return { totalRFQ, newRFQ, todayRFQ, weekRFQ, totalContact, newContact }
+    return { totalCatalogueItems, publishedItems, totalCategories, totalAIQuestions }
   } catch {
-    return { totalRFQ: 0, newRFQ: 0, todayRFQ: 0, weekRFQ: 0, totalContact: 0, newContact: 0 }
+    return { totalCatalogueItems: 0, publishedItems: 0, totalCategories: 0, totalAIQuestions: 0 }
   }
 }
 
-async function getRecentRFQ() {
+async function getRecentCatalogueItems() {
   try {
-    return await db.rFQ.findMany({
+    return await db.catalogueItem.findMany({
       take: 5,
       orderBy: { createdAt: 'desc' },
       select: {
         id: true,
-        company: true,
-        country: true,
-        status: true,
+        name: true,
+        categoryGroup: true,
+        published: true,
         createdAt: true,
       },
     })
@@ -48,30 +41,14 @@ async function getRecentRFQ() {
   }
 }
 
-const STATUS_CLASSES: Record<string, string> = {
-  NEW: 'bg-red-50 text-red-600 font-semibold',
-  REVIEWING: 'bg-gold/10 text-gold-muted font-semibold',
-  QUOTED: 'bg-blue-50 text-blue-600 font-semibold',
-  ACCEPTED: 'bg-green-50 text-green-600 font-semibold',
-  DECLINED: 'bg-gray-100 text-gray-600 font-semibold',
-}
-
-const STATUS_LABELS: Record<string, string> = {
-  NEW: 'New',
-  REVIEWING: 'Reviewing',
-  QUOTED: 'Quoted',
-  ACCEPTED: 'Accepted',
-  DECLINED: 'Declined',
-}
-
 export default async function AdminDashboardPage() {
-  const [stats, recent] = await Promise.all([getStats(), getRecentRFQ()])
+  const [stats, recent] = await Promise.all([getStats(), getRecentCatalogueItems()])
 
   const statCards = [
-    { label: 'Unread RFQs', value: stats.newRFQ, urgent: stats.newRFQ > 0 },
-    { label: 'RFQs Today', value: stats.todayRFQ },
-    { label: 'RFQs This Week', value: stats.weekRFQ },
-    { label: 'Unread Messages', value: stats.newContact, urgent: stats.newContact > 0 },
+    { label: 'Total Catalogue Items', value: stats.totalCatalogueItems },
+    { label: 'Published Items', value: stats.publishedItems },
+    { label: 'Total Categories', value: stats.totalCategories },
+    { label: 'AI Questions', value: stats.totalAIQuestions },
   ]
 
   return (
@@ -97,7 +74,7 @@ export default async function AdminDashboardPage() {
             <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1">
               {card.label}
             </p>
-            <p className={`text-3xl font-bold ${card.urgent ? 'text-red-600' : 'text-navy-dark'}`}>
+            <p className="text-3xl font-bold text-navy-dark">
               {card.value}
             </p>
           </div>
@@ -106,39 +83,39 @@ export default async function AdminDashboardPage() {
 
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
         <div className="px-6 py-5 border-b border-gray-100 flex items-center justify-between">
-          <h2 className="text-lg font-bold text-navy-dark">Recent RFQ Submissions</h2>
-          <button className="text-sm text-red-600 hover:text-red-700 font-medium transition-colors">
+          <h2 className="text-lg font-bold text-navy-dark">Recent Catalogue Items</h2>
+          <Link href="/admin/catalogue" className="text-sm text-gold hover:text-gold/80 font-medium transition-colors">
             View all →
-          </button>
+          </Link>
         </div>
 
         {recent.length === 0 ? (
           <p className="px-6 py-10 text-sm text-gray-400 text-center">
-            No submissions yet.
+            No items yet.
           </p>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead className="bg-gray-50/50">
                 <tr>
-                  <th scope="col" className="text-left px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-400">Company</th>
-                  <th scope="col" className="text-left px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-400">Country</th>
-                  <th scope="col" className="text-left px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-400">Date</th>
+                  <th scope="col" className="text-left px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-400">Name</th>
+                  <th scope="col" className="text-left px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-400">Category</th>
+                  <th scope="col" className="text-left px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-400">Date Added</th>
                   <th scope="col" className="text-left px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-400">Status</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
-                {recent.map(sub => (
-                  <tr key={sub.id} className="hover:bg-gray-50/50 transition-colors">
-                    <td className="px-6 py-4 font-medium text-navy-dark">{sub.company}</td>
-                    <td className="px-6 py-4 text-gray-500">{sub.country ?? 'Unknown'}</td>
+                {recent.map(item => (
+                  <tr key={item.id} className="hover:bg-gray-50/50 transition-colors">
+                    <td className="px-6 py-4 font-medium text-navy-dark">{item.name}</td>
+                    <td className="px-6 py-4 text-gray-500">{item.categoryGroup}</td>
                     <td className="px-6 py-4 text-gray-500">
-                      {sub.createdAt.toLocaleDateString('en-GB')}
+                      {item.createdAt.toLocaleDateString('en-GB')}
                     </td>
                     <td className="px-6 py-4">
-                      <span className={`inline-flex items-center px-2.5 py-1 text-xs rounded-full
-                                       ${STATUS_CLASSES[sub.status] ?? 'bg-gray-100 text-gray-600'}`}>
-                        {STATUS_LABELS[sub.status] ?? sub.status}
+                      <span className={`inline-flex items-center px-2.5 py-1 text-xs rounded-full font-semibold
+                                       ${item.published ? 'bg-emerald-100 text-emerald-700' : 'bg-neutral-100 text-neutral-600'}`}>
+                        {item.published ? 'Published' : 'Draft'}
                       </span>
                     </td>
                   </tr>
