@@ -126,6 +126,14 @@ export function LoginForm() {
         </div>
 
         <SubmitButton />
+        <div className="mt-4 pt-4 flex flex-col items-center gap-1.5">
+          <p className="text-center text-xs text-gray-500">
+            Powered by{' '}
+            <a href="https://aerixtech.com/" target="_blank" rel="noopener noreferrer" className="text-navy-dark hover:text-gold hover:underline font-medium transition-colors">
+              AerixTech
+            </a>
+          </p>
+        </div>
       </div>
     </form>
   )

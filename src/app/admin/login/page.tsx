@@ -133,9 +133,7 @@ export default async function AdminLoginPage() {
             </div>
           </div>
 
-          <p className="mt-5 text-center text-xs text-gray-500">
-            Access restricted to authorised personnel only.
-          </p>
+
         </div>
       </div>
 
