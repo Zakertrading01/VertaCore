@@ -17,7 +17,7 @@ const slides = [
   {
     id: 2,
     type: "image",
-    src: "/images/hero-bg.png",
+    src: "https://pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev/images/hero-bg.png",
     alt: "Industrial Facility at Sunset",
   },
 ];

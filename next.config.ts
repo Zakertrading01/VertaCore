@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
         hostname: "assets.vertacore.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev",
+        pathname: "/**",
+      },
     ],
     formats: ["image/avif", "image/webp"],
   },
