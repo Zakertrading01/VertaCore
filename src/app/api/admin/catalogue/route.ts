@@ -9,12 +9,12 @@ export const dynamic = 'force-dynamic'
 
 const CreateSchema = z.object({
   name: z.string().min(2).max(200),
-  description: z.string().max(2000).optional(),
+  description: z.string().max(2000).nullable().optional(),
   categoryGroup: z.string().min(1).max(100),
-  image: z.string().max(500).optional(),
+  image: z.string().max(500).nullable().optional(),
   certTags: z.array(z.string().max(100)).default([]),
-  brandName: z.string().max(100).optional(),
-  datasheetUrl: z.string().max(500).optional(),
+  brandName: z.string().max(100).nullable().optional(),
+  datasheetUrl: z.string().max(500).nullable().optional(),
   order: z.number().int().min(0).optional(),
   published: z.boolean().optional(),
 })
