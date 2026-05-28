@@ -21,7 +21,7 @@ const DEFAULT_QUESTIONS = [
   {
     id: "q2",
     text: "How do I purchase industrial equipment?",
-    answer: "To purchase equipment, technical teams can contact us directly at sales@vertacore.com with their requirements. We fulfill orders for Oil & Gas, Marine, and major industrial sectors worldwide."
+    answer: "To purchase equipment, technical teams can contact us directly at info@vertacore.ae with their requirements. We fulfill orders for Oil & Gas, Marine, and major industrial sectors worldwide."
   },
   {
     id: "q3",
@@ -97,7 +97,7 @@ export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
           {
             role: "assistant",
             content:
-              "The AI assistant is currently offline. Please contact our team directly at sales@vertacore.com.",
+              "The AI assistant is currently offline. Please contact our team directly at info@vertacore.ae.",
           },
         ]);
         setLoading(false);
@@ -122,7 +122,7 @@ export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
             ...prev,
             {
               role: "assistant",
-              content: "The AI assistant is currently offline. For immediate assistance, please email our technical team directly at sales@vertacore.com."
+              content: "The AI assistant is currently offline. For immediate assistance, please email our technical team directly at info@vertacore.ae."
             },
           ]);
           setLoading(false);
@@ -142,7 +142,7 @@ export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
           ...prev,
           {
             role: "assistant",
-            content: "I'm having trouble connecting to the AI service right now. Please try a suggested question above or reach us at sales@vertacore.com."
+            content: "I'm having trouble connecting to the AI service right now. Please try a suggested question above or reach us at info@vertacore.ae."
           },
         ]);
       } finally {

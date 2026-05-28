@@ -71,15 +71,15 @@ export function serviceSchema(data: {
     areaServed: "Global",
     ...(data.features && data.features.length > 0
       ? {
-          hasOfferCatalog: {
-            "@type": "OfferCatalog",
-            name: `${data.name} Range`,
-            itemListElement: data.features.map((f) => ({
-              "@type": "Offer",
-              itemOffered: { "@type": "Product", name: f },
-            })),
-          },
-        }
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: `${data.name} Range`,
+          itemListElement: data.features.map((f) => ({
+            "@type": "Offer",
+            itemOffered: { "@type": "Product", name: f },
+          })),
+        },
+      }
       : {}),
   };
 }
@@ -156,7 +156,7 @@ export function localBusinessSchema() {
     url: BASE_URL,
     description:
       "Premium MRO industrial supply and procurement company. ISO 9001:2015 certified.",
-    email: "sales@vertacore.com",
+    email: "info@vertacore.ae",
     priceRange: "$$$$",
     currenciesAccepted: "USD, AED",
     paymentAccepted: "Invoice",

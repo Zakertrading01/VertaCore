@@ -4,8 +4,8 @@ function getResend() {
   return new Resend(process.env.RESEND_API_KEY);
 }
 
-const FROM = process.env.EMAIL_FROM ?? "noreply@vertacore.com";
-const SALES = process.env.EMAIL_SALES ?? "sales@vertacore.com";
+const FROM = process.env.EMAIL_FROM ?? "noreply@vertacore.ae";
+const SALES = process.env.EMAIL_SALES ?? "info@vertacore.ae";
 
 export interface RFQEmailData {
   rfqNumber: string;

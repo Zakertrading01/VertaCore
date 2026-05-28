@@ -62,7 +62,7 @@ export default function ContactPage() {
             </div>
             <div className="flex items-center gap-2.5 text-sm text-steel-muted">
               <Mail className="h-4 w-4 text-gold" />
-              sales@vertacore.com
+              info@vertacore.ae
             </div>
           </div>
         </div>
@@ -90,10 +90,10 @@ export default function ContactPage() {
                         Email
                       </p>
                       <a
-                        href="mailto:sales@vertacore.com"
+                        href="mailto:info@vertacore.ae"
                         className="text-body text-gold hover:text-gold-muted transition-colors font-bold"
                       >
-                        sales@vertacore.com
+                        info@vertacore.ae
                       </a>
                     </div>
                     <div>
