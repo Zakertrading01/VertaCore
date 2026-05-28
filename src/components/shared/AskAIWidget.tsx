@@ -4,6 +4,8 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { X, Send, Sparkles, Loader2, ArrowRight as LucideArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { WidgetConfig, ChatMessage } from "@/types/api";
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 interface AskAIWidgetProps {
   isOpen: boolean;
@@ -213,8 +215,8 @@ export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
             <div className="h-6 w-6 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0 mt-0.5">
               <Sparkles className="h-3 w-3 text-gold" />
             </div>
-            <div className="bg-graphite border border-steel/40 rounded-2xl rounded-tl-sm px-3.5 py-2.5 max-w-[85%]">
-              <p className="text-sm text-surface/80 leading-relaxed">{WELCOME_MESSAGE}</p>
+            <div className="bg-graphite border border-steel/40 rounded-2xl rounded-tl-sm px-5 py-4 max-w-[92%] shadow-md">
+              <p className="text-[14px] text-surface/90 font-medium leading-[1.6]">{WELCOME_MESSAGE}</p>
             </div>
           </div>
 
@@ -241,6 +243,7 @@ export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
             </div>
           )}
 
+
           {/* Conversation messages */}
           {messages.map((message, i) => (
             <div
@@ -257,13 +260,29 @@ export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
               )}
               <div
                 className={cn(
-                  "rounded-2xl px-3.5 py-2.5 max-w-[85%] text-sm leading-relaxed",
+                  "rounded-2xl px-5 py-4 max-w-[92%] text-[14px] leading-[1.6] shadow-md",
                   message.role === "user"
-                    ? "bg-gold text-navy rounded-tr-sm font-medium"
-                    : "bg-graphite border border-steel/40 text-surface/80 rounded-tl-sm",
+                    ? "bg-gold text-navy rounded-tr-sm font-bold"
+                    : "bg-graphite border border-steel/40 text-surface/90 rounded-tl-sm",
                 )}
               >
-                {message.content}
+                {message.role === "assistant" ? (
+                  <div className="prose prose-invert prose-sm max-w-none 
+                    prose-p:leading-relaxed prose-p:mb-3 last:prose-p:mb-0
+                    prose-ul:my-3 prose-ul:list-disc prose-ul:pl-5
+                    prose-ol:my-3 prose-ol:list-decimal prose-ol:pl-5
+                    prose-li:my-1.5
+                    prose-strong:text-gold prose-strong:font-bold
+                    prose-headings:text-gold prose-headings:font-bold prose-headings:mt-4 prose-headings:mb-2
+                    prose-li:marker:text-gold/60
+                    text-surface/90 font-medium">
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                      {message.content}
+                    </ReactMarkdown>
+                  </div>
+                ) : (
+                  message.content
+                )}
               </div>
             </div>
           ))}
