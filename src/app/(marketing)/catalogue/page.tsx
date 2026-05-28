@@ -7,6 +7,7 @@ import { catalogueItemListSchema, breadcrumbSchema } from "@/lib/schema";
 import { SectionLabel } from "@/components/shared/SectionLabel";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { CatalogueGroup } from "@/components/catalogue/CatalogueGroup";
+import { CatalogueDownloadButton } from "@/components/catalogue/CatalogueClient";
 import { CTASection } from "@/components/marketing/CTASection";
 
 export const dynamic = 'force-dynamic';
@@ -136,16 +137,7 @@ export default async function CataloguePage() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
-              <Link
-                href="/api/catalogue"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-xl bg-gradient-to-br from-gold to-amber-500 px-6 py-3.5 text-sm font-bold text-navy shadow-[0_0_40px_-10px_rgba(234,179,8,0.4)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_60px_-15px_rgba(234,179,8,0.6)]"
-              >
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,transparent_0%,rgba(255,255,255,0.4)_50%,transparent_100%)] translate-x-[-150%] skew-x-[-30deg] transition-transform duration-700 ease-out group-hover:translate-x-[150%]"></div>
-                <Download className="h-4 w-4 transition-transform group-hover:scale-110 group-hover:-translate-y-0.5" />
-                <span className="relative z-10">Download PDF Catalogue</span>
-              </Link>
+              <CatalogueDownloadButton />
             </div>
           </div>
         </div>

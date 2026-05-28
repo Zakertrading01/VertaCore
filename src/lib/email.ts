@@ -40,6 +40,51 @@ export async function sendRFQConfirmation(data: RFQEmailData) {
   });
 }
 
+export async function sendCatalogueNotification(data: {
+  name: string;
+  email: string;
+  phone: string;
+  company: string;
+}) {
+  await getResend().emails.send({
+    from: FROM,
+    to: SALES,
+    replyTo: data.email,
+    subject: `Catalogue Request: ${data.company} — ${data.name}`,
+    html: `
+      <h2>New Catalogue Request</h2>
+      <p><strong>Name:</strong> ${data.name}</p>
+      <p><strong>Email:</strong> ${data.email}</p>
+      <p><strong>Phone:</strong> ${data.phone}</p>
+      <p><strong>Company:</strong> ${data.company}</p>
+      <hr />
+      <p>The user has requested the full industrial catalogue.</p>
+    `,
+  });
+}
+
+export async function sendCatalogueConfirmation(data: {
+  name: string;
+  email: string;
+}) {
+  await getResend().emails.send({
+    from: FROM,
+    to: data.email,
+    subject: "Your VERTACORE Catalogue Request",
+    html: `
+      <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #102544;">
+        <h1 style="color: #E7C85A;">VERTACORE</h1>
+        <p>Dear ${data.name},</p>
+        <p>Thank you for your interest in our industrial range. We have received your request for the <strong>VERTACORE Product Catalogue</strong>.</p>
+        <p>Our technical team is processing your request. You will receive the high-resolution PDF catalogue at this email address within <strong>1 business day</strong>.</p>
+        <p>If you have urgent procurement needs, please reach out to us directly at <a href="mailto:${SALES}">${SALES}</a>.</p>
+        <br />
+        <p>Best regards,<br />Technical Team<br />VERTACORE</p>
+      </div>
+    `,
+  });
+}
+
 export async function sendContactNotification(data: {
   name: string;
   email: string;

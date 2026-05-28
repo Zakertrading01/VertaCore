@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Download } from "lucide-react";
 import { SectionLabel } from "@/components/shared/SectionLabel";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
+import { CatalogueDownloadButton } from "@/components/catalogue/CatalogueClient";
 
 export function CTASection() {
   return (
@@ -35,7 +36,7 @@ export function CTASection() {
       {/* Cinematic "Video-Like" Ambient Background */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#0A1224] to-[#040A18] z-0" />
-        
+
         {/* NEW: Rotating Tech Rings for modern industrial/trading HUD feel */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-white/[0.03] rounded-full z-10" style={{ animation: 'spin-slow 40s linear infinite' }}>
           <div className="absolute top-0 left-1/2 w-4 h-4 bg-gold/20 rounded-full blur-[2px] -translate-x-1/2 -translate-y-1/2" />
@@ -53,7 +54,7 @@ export function CTASection() {
         {/* Video-like Sparks/Particles */}
         <div className="absolute inset-0 z-20">
           {[...Array(20)].map((_, i) => (
-            <div 
+            <div
               key={i}
               className="absolute w-1.5 h-1.5 bg-gold rounded-full shadow-[0_0_10px_2px_rgba(250,204,21,0.6)]"
               style={{
@@ -84,15 +85,10 @@ export function CTASection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-            <Link
-              href="/api/catalogue"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-2 bg-gold text-navy font-bold px-10 py-4 rounded-xl hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300 text-[16px]"
-            >
-              <Download className="h-5 w-5 group-hover:-translate-y-0.5 transition-transform" />
-              Download Catalogue
-            </Link>
+            <CatalogueDownloadButton
+              label="Download Catalogue"
+              className="px-10 py-4 text-[16px]"
+            />
           </div>
 
           {/* Trust indicators */}
