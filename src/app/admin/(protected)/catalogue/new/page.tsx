@@ -23,6 +23,7 @@ export default function NewCatalogueItemPage() {
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [certInput, setCertInput] = useState('')
+  const [showCertSuggestions, setShowCertSuggestions] = useState(false)
 
   const [form, setForm] = useState({
     name: '',
@@ -91,6 +92,7 @@ export default function NewCatalogueItemPage() {
   }
 
   const selectedCategory = categories.find((c) => c.name === form.categoryGroup)
+  const filteredSuggestions = CERT_SUGGESTIONS.filter(s => s.toLowerCase().includes(certInput.toLowerCase()) && !form.certTags.includes(s))
 
   return (
     <div className="px-4 sm:px-8 py-8 w-full max-w-2xl">
@@ -254,15 +256,37 @@ export default function NewCatalogueItemPage() {
               <input
                 type="text"
                 value={certInput}
-                onChange={(e) => setCertInput(e.target.value)}
+                onChange={(e) => {
+                  setCertInput(e.target.value)
+                  setShowCertSuggestions(true)
+                }}
+                onFocus={() => setShowCertSuggestions(true)}
+                onBlur={() => setShowCertSuggestions(false)}
                 onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); addCert() } }}
                 placeholder="Type a cert tag…"
-                list="cert-suggestions"
                 className="w-full px-4 py-2.5 border border-neutral-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy text-neutral-900"
               />
-              <datalist id="cert-suggestions">
-                {CERT_SUGGESTIONS.map((s) => <option key={s} value={s} />)}
-              </datalist>
+              {showCertSuggestions && filteredSuggestions.length > 0 && (
+                <div className="absolute z-10 w-full mt-1 bg-white border border-neutral-200 rounded-lg shadow-lg max-h-48 overflow-y-auto">
+                  {filteredSuggestions.map((s) => (
+                    <button
+                      key={s}
+                      type="button"
+                      onMouseDown={(e) => {
+                        e.preventDefault()
+                        if (!form.certTags.includes(s)) {
+                          set('certTags', [...form.certTags, s])
+                          setCertInput('')
+                          setShowCertSuggestions(false)
+                        }
+                      }}
+                      className="w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100 focus:bg-neutral-100 outline-none"
+                    >
+                      {s}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
             <button
               type="button"
