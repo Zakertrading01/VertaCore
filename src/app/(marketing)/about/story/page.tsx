@@ -32,7 +32,7 @@ export default function StoryPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema(breadcrumb)) }}
       />
 
-      <header className="bg-navy-dark pt-32 pb-16">
+      <header className="bg-navy-dark pt-16 lg:pt-32 pb-16">
         <div className="container-base">
           <Breadcrumb items={breadcrumb} className="mb-6" />
           <SectionLabel className="mb-3">Our Story</SectionLabel>

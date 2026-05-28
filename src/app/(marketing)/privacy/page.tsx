@@ -18,7 +18,7 @@ export default function PrivacyPage() {
 
   return (
     <>
-      <header className="bg-navy-dark pt-32 pb-2">
+      <header className="bg-navy-dark pt-16 lg:pt-32 pb-2">
         <div className="container-base">
           <Breadcrumb items={breadcrumb} className="mb-6" />
           <SectionLabel className="mb-3">Legal</SectionLabel>

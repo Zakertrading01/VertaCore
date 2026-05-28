@@ -38,7 +38,7 @@ export default async function SolutionsPage() {
       />
 
       {/* Page header */}
-      <header className="bg-navy-dark pt-32 pb-8">
+      <header className="bg-navy-dark pt-16 lg:pt-32 pb-8">
         <div className="container-base">
           <Breadcrumb items={breadcrumb} className="mb-6" />
           <SectionLabel className="mb-3">MRO Supply Capabilities</SectionLabel>

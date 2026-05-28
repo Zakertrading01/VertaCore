@@ -80,7 +80,7 @@ export default async function InsightPage({
       ))}
 
       {/* Header */}
-      <header className="bg-navy-dark pt-32 pb-12">
+      <header className="bg-navy-dark pt-16 lg:pt-32 pb-12">
         <div className="container-base max-w-4xl">
           <Breadcrumb items={breadcrumb} className="mb-6" />
 

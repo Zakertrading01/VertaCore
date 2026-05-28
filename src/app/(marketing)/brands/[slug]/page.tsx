@@ -82,7 +82,7 @@ export default async function BrandPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema(breadcrumb)) }}
       />
 
-      <header className="bg-navy-dark pt-32 pb-0">
+      <header className="bg-navy-dark pt-16 lg:pt-32 pb-0">
         <div className="container-base">
           <Breadcrumb items={breadcrumb} className="mb-8" />
           <div className="flex flex-col sm:flex-row sm:items-center gap-6">

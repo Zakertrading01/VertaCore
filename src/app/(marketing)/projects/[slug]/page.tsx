@@ -65,7 +65,7 @@ export default async function ProjectPage({
       />
 
       {/* Header */}
-      <header className="relative bg-navy-dark pt-32 pb-16 overflow-hidden">
+      <header className="relative bg-navy-dark pt-16 lg:pt-32 pb-16 overflow-hidden">
         {project.coverImage && (
           <>
             <Image
