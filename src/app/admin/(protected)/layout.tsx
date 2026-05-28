@@ -60,7 +60,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   const userEmail = session.user?.email ?? 'Admin'
 
   return (
-    <>
+    <div className="min-h-screen bg-neutral-100">
       <MobileNav
         items={NAV_ITEMS}
         userEmail={userEmail}
@@ -73,6 +73,6 @@ export default async function AdminLayout({ children }: { children: React.ReactN
       >
         {children}
       </AdminLayoutWrapper>
-    </>
+    </div>
   )
 }

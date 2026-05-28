@@ -19,10 +19,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="dark h-full"
+      className="dark h-full overflow-x-hidden"
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-[#0A1628] text-[#F8FAFC] antialiased">
+      <body className="h-full min-h-screen flex flex-col bg-[#0A1628] text-[#F8FAFC] antialiased">
         {children}
       </body>
     </html>

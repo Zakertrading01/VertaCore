@@ -52,7 +52,7 @@ export default async function AdminDashboardPage() {
   ]
 
   return (
-    <div className="p-8 max-w-6xl">
+    <div className="px-4 sm:px-8 py-8 max-w-6xl">
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-navy-dark">Dashboard</h1>
         <p className="text-base text-gray-500 mt-1">
@@ -94,35 +94,57 @@ export default async function AdminDashboardPage() {
             No items yet.
           </p>
         ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead className="bg-gray-50/50">
-                <tr>
-                  <th scope="col" className="text-left px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-400">Name</th>
-                  <th scope="col" className="text-left px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-400">Category</th>
-                  <th scope="col" className="text-left px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-400">Date Added</th>
-                  <th scope="col" className="text-left px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-400">Status</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100">
-                {recent.map(item => (
-                  <tr key={item.id} className="hover:bg-gray-50/50 transition-colors">
-                    <td className="px-6 py-4 font-medium text-navy-dark">{item.name}</td>
-                    <td className="px-6 py-4 text-gray-500">{item.categoryGroup}</td>
-                    <td className="px-6 py-4 text-gray-500">
-                      {item.createdAt.toLocaleDateString('en-GB')}
-                    </td>
-                    <td className="px-6 py-4">
-                      <span className={`inline-flex items-center px-2.5 py-1 text-xs rounded-full font-semibold
-                                       ${item.published ? 'bg-emerald-100 text-emerald-700' : 'bg-neutral-100 text-neutral-600'}`}>
-                        {item.published ? 'Published' : 'Draft'}
-                      </span>
-                    </td>
+          <>
+            {/* Mobile View (Cards) */}
+            <div className="grid grid-cols-1 divide-y divide-gray-100 sm:hidden">
+              {recent.map(item => (
+                <div key={item.id} className="p-4 flex flex-col gap-2">
+                  <div className="flex items-start justify-between">
+                    <p className="font-bold text-navy-dark leading-tight">{item.name}</p>
+                    <span className={`shrink-0 inline-flex items-center px-2 py-0.5 text-[10px] rounded-full font-bold uppercase tracking-wider
+                                     ${item.published ? 'bg-emerald-100 text-emerald-700' : 'bg-neutral-100 text-neutral-600'}`}>
+                      {item.published ? 'Published' : 'Draft'}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between text-xs text-gray-500">
+                    <p>{item.categoryGroup}</p>
+                    <p>{item.createdAt.toLocaleDateString('en-GB')}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Desktop View (Table) */}
+            <div className="hidden sm:block overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-gray-50/50">
+                  <tr>
+                    <th scope="col" className="text-left px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-400">Name</th>
+                    <th scope="col" className="text-left px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-400">Category</th>
+                    <th scope="col" className="text-left px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-400">Date Added</th>
+                    <th scope="col" className="text-left px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-400 text-right">Status</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {recent.map(item => (
+                    <tr key={item.id} className="hover:bg-gray-50/50 transition-colors">
+                      <td className="px-6 py-4 font-medium text-navy-dark">{item.name}</td>
+                      <td className="px-6 py-4 text-gray-500">{item.categoryGroup}</td>
+                      <td className="px-6 py-4 text-gray-500">
+                        {item.createdAt.toLocaleDateString('en-GB')}
+                      </td>
+                      <td className="px-6 py-4 text-right">
+                        <span className={`inline-flex items-center px-2.5 py-1 text-xs rounded-full font-semibold
+                                         ${item.published ? 'bg-emerald-100 text-emerald-700' : 'bg-neutral-100 text-neutral-600'}`}>
+                          {item.published ? 'Published' : 'Draft'}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
         )}
       </div>
     </div>
