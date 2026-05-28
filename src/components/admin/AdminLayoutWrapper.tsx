@@ -24,6 +24,32 @@ const ICON_MAP: Record<string, React.ElementType> = {
     AIIcon,
 }
 
+const getBreadcrumbs = (pathname: string) => {
+    const paths = pathname.split('/').filter(Boolean)
+    if (paths.length <= 1) return []
+
+    const breadcrumbs = []
+    let currentPath = ''
+
+    for (let i = 0; i < paths.length; i++) {
+        const p = paths[i]
+        currentPath += `/${p}`
+        
+        if (p === 'admin') continue
+        
+        let label = p.charAt(0).toUpperCase() + p.slice(1)
+        if (p === 'categories') label = 'Solutions'
+        else if (p === 'catalogue') label = 'Catalogue'
+        else if (p === 'ai-settings') label = 'AI Settings'
+        else if (p === 'new') label = 'New'
+        else if (p === 'edit') label = 'Edit'
+        else if (p.length > 20) label = 'Item'
+
+        breadcrumbs.push({ label, href: currentPath })
+    }
+    return breadcrumbs
+}
+
 interface NavItem {
     label: string
     href: string
@@ -186,7 +212,26 @@ export function AdminLayoutWrapper({
                         isDetailOpen ? "lg:pr-[512px]" : "lg:pr-0"
                     )}
                 >
-                    <main className="min-h-screen">
+                    <main className="min-h-screen flex flex-col">
+                        {pathname !== '/admin' && pathname !== '/admin/' && (
+                            <div className="px-4 sm:px-8 pt-6 pb-0">
+                                <div className="flex items-center gap-2 text-xs sm:text-sm text-neutral-400 font-medium">
+                                    <Link href="/admin" className="hover:text-gold transition-colors">Admin</Link>
+                                    {getBreadcrumbs(pathname).map((crumb, idx, arr) => (
+                                        <React.Fragment key={crumb.href}>
+                                            <span className="text-neutral-300">/</span>
+                                            {idx === arr.length - 1 ? (
+                                                <span className="text-navy font-semibold">{crumb.label}</span>
+                                            ) : (
+                                                <Link href={crumb.href} className="hover:text-gold transition-colors">
+                                                    {crumb.label}
+                                                </Link>
+                                            )}
+                                        </React.Fragment>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
                         {children}
                     </main>
                 </div>
