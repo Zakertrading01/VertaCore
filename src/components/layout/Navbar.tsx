@@ -168,11 +168,7 @@ export function Navbar() {
               <MapPin className="w-4 h-4" /> Locations
             </Link>
             <span className="text-white/20">|</span>
-            <Link href="/contact" className="flex items-center gap-1.5 hover:text-gold transition-colors">
-              <Mail className="w-4 h-4" /> Contact Us
-            </Link>
-            <span className="text-white/20">|</span>
-            <Link href="/contact" className="flex items-center gap-1.5 bg-[#1a365d] px-3 py-1 rounded text-gold hover:bg-[#234575] transition-colors font-bold text-xs">
+            <Link href="/catalogue" className="flex items-center gap-1.5 bg-[#1a365d] px-3 py-1 rounded text-gold hover:bg-[#234575] transition-colors font-bold text-xs">
               <span className="text-base leading-none">+</span> Enquire Now
             </Link>
           </div>
