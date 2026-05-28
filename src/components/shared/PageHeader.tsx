@@ -29,7 +29,7 @@ export function PageHeader({
   ctaHref,
 }: PageHeaderProps) {
   return (
-    <header className="relative overflow-hidden bg-navy-dark min-h-[400px] flex items-end">
+    <header className="relative overflow-hidden bg-navy-dark min-h-[300px] md:min-h-[400px] flex items-end">
       {/* Background image */}
       {coverImage && (
         <>
@@ -49,13 +49,13 @@ export function PageHeader({
       <div className="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/60 to-transparent" />
 
       {/* Content */}
-      <div className="relative container-base w-full pt-16 pb-4 md:pt-24 md:pb-5 lg:pt-28 lg:pb-6">
+      <div className="relative container-base w-full pt-20 pb-4 md:pt-16 md:pb-5 lg:pt-20 lg:pb-6">
         {breadcrumb && breadcrumb.length > 0 && (
-          <Breadcrumb items={breadcrumb} className="mb-6" />
+          <Breadcrumb items={breadcrumb} className="mb-3 md:mb-6" />
         )}
 
         {label && (
-          <div className="mb-4">
+          <div className="mb-2 md:mb-4">
             <SectionLabel>{label}</SectionLabel>
           </div>
         )}
@@ -65,7 +65,7 @@ export function PageHeader({
         </h1>
 
         {subtitle && (
-          <p className="mt-4 text-body text-surface/70 max-w-2xl leading-relaxed">
+          <p className="mt-2 md:mt-4 text-body text-surface/70 max-w-2xl leading-relaxed">
             {subtitle}
           </p>
         )}
