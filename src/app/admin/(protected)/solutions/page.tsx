@@ -37,7 +37,7 @@ export default function CategoriesPage() {
 
   async function load() {
     setLoading(true)
-    const res = await fetch('/api/admin/categories')
+    const res = await fetch('/api/admin/solutions')
     if (res.ok) {
       const data = await res.json()
       setCategories(data)
@@ -58,7 +58,7 @@ export default function CategoriesPage() {
           <p className="text-sm text-neutral-500 mt-1">Manage catalogue solutions. Solution names map to items on the public catalogue page.</p>
         </div>
         <Link
-          href="/admin/categories/new"
+          href="/admin/solutions/new"
           className="inline-flex items-center gap-2 px-4 py-2 bg-navy text-white text-sm font-semibold rounded-lg hover:bg-navy/90 transition-colors"
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
@@ -112,7 +112,7 @@ export default function CategoriesPage() {
               </div>
 
               <button
-                onClick={() => router.push(`/admin/categories/${cat.id}/edit`)}
+                onClick={() => router.push(`/admin/solutions/${cat.id}/edit`)}
                 className="w-full py-2.5 bg-neutral-50 text-navy text-sm font-bold rounded-lg border border-neutral-200 hover:bg-neutral-100 transition-colors"
               >
                 Edit Solution
@@ -129,7 +129,7 @@ export default function CategoriesPage() {
         ) : categories.length === 0 ? (
           <div className="py-16 text-center">
             <p className="text-neutral-400 mb-3">No solutions yet.</p>
-            <Link href="/admin/categories/new" className="text-sm text-gold font-semibold hover:underline">Create your first solution →</Link>
+            <Link href="/admin/solutions/new" className="text-sm text-gold font-semibold hover:underline">Create your first solution →</Link>
           </div>
         ) : (
           <table className="w-full text-sm">
@@ -166,7 +166,7 @@ export default function CategoriesPage() {
                   <td className="px-5 py-4">
                     <div className="flex items-center justify-end gap-2">
                       <button
-                        onClick={() => router.push(`/admin/categories/${cat.id}/edit`)}
+                        onClick={() => router.push(`/admin/solutions/${cat.id}/edit`)}
                         className="px-3 py-1.5 text-xs font-semibold text-neutral-600 border border-neutral-200 rounded-lg hover:border-navy hover:text-navy transition-colors"
                       >
                         Edit

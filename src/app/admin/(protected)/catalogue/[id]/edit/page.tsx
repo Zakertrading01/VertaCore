@@ -48,7 +48,7 @@ export default function EditCatalogueItemPage() {
     async function load() {
       const [itemRes, catRes] = await Promise.all([
         fetch(`/api/admin/catalogue/${id}`),
-        fetch('/api/admin/categories'),
+        fetch('/api/admin/solutions'),
       ])
       if (!itemRes.ok) { setLoading(false); return }
 

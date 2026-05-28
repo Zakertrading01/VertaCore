@@ -55,7 +55,7 @@ export default async function AdminLoginPage() {
     // Stale or undecryptable cookie — middleware already deleted it from the
     // browser response. Just render the login form on this request.
   }
-  if (session) redirect('/admin/')
+  if (session) redirect('/admin/dashboard')
 
   return (
     <div className="min-h-screen flex">

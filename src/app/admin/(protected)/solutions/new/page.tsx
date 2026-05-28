@@ -34,7 +34,7 @@ export default function NewCategoryPage() {
     setSaving(true)
     setError(null)
 
-    const res = await fetch('/api/admin/categories', {
+    const res = await fetch('/api/admin/solutions', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -55,7 +55,7 @@ export default function NewCategoryPage() {
       return
     }
 
-    router.push('/admin/categories/')
+    router.push('/admin/solutions/')
     router.refresh()
   }
 
@@ -63,7 +63,7 @@ export default function NewCategoryPage() {
     <div className="px-4 sm:px-8 py-8 w-full max-w-2xl">
       {/* Header */}
       <div className="flex items-center gap-3 mb-6">
-        <Link href="/admin/categories/" className="text-neutral-400 hover:text-neutral-700 transition-colors">
+        <Link href="/admin/solutions/" className="text-neutral-400 hover:text-neutral-700 transition-colors">
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
           </svg>
@@ -171,7 +171,7 @@ export default function NewCategoryPage() {
           >
             {saving ? 'Creating…' : 'Create Solution'}
           </button>
-          <Link href="/admin/categories/" className="px-6 py-2.5 text-sm font-semibold text-neutral-600 hover:text-neutral-900 transition-colors">
+          <Link href="/admin/solutions/" className="px-6 py-2.5 text-sm font-semibold text-neutral-600 hover:text-neutral-900 transition-colors">
             Cancel
           </Link>
         </div>

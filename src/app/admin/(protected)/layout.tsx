@@ -34,13 +34,13 @@ import { MobileNav } from '@/components/admin/MobileNav'
 // Server action for logout — inline in layout, no separate file needed.
 async function handleLogout() {
   'use server'
-  await signOut({ redirectTo: '/admin/login' })
+  await signOut({ redirectTo: '/admin' })
 }
 
 const NAV_ITEMS = [
-  { label: 'Dashboard', href: '/admin/', iconKey: 'DashboardIcon' },
+  { label: 'Dashboard', href: '/admin/dashboard/', iconKey: 'DashboardIcon' },
   { label: 'Catalogue', href: '/admin/catalogue/', iconKey: 'CatalogueIcon' },
-  { label: 'Solutions', href: '/admin/categories/', iconKey: 'CategoriesIcon' },
+  { label: 'Solutions', href: '/admin/solutions/', iconKey: 'CategoriesIcon' },
   { label: 'AI Settings', href: '/admin/ai-settings/', iconKey: 'AIIcon' },
 ]
 
@@ -55,7 +55,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   } catch {
     // Stale or undecryptable cookie — treat as logged out.
   }
-  if (!session) redirect('/admin/login')
+  if (!session) redirect('/admin')
 
   const userEmail = session.user?.email ?? 'Admin'
 

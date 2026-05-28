@@ -41,7 +41,7 @@ export default function NewCatalogueItemPage() {
   }
 
   useEffect(() => {
-    fetch('/api/admin/categories').then((r) => r.json()).then((data) => {
+    fetch('/api/admin/solutions').then((r) => r.json()).then((data) => {
       setCategories(data.filter((c: Category) => c.published))
     }).catch(() => {})
   }, [])
@@ -150,7 +150,7 @@ export default function NewCatalogueItemPage() {
             </label>
             {categories.length === 0 ? (
               <p className="text-sm text-amber-600">
-                No solutions found. <Link href="/admin/categories/new" className="underline">Create a solution first</Link>.
+                No solutions found. <Link href="/admin/solutions/new" className="underline">Create a solution first</Link>.
               </p>
             ) : (
               <select

@@ -15,8 +15,7 @@ export function middleware(request: NextRequest) {
   // place to clear them. A bad cookie (e.g. from a different environment) causes
   // NextAuth to throw JWTSessionError on every request until the cookie is gone.
   if (
-    pathname === "/admin/login" ||
-    pathname.startsWith("/admin/login/") ||
+    pathname === "/admin" ||
     pathname.startsWith("/api/auth/")
   ) {
     const hasStaleToken = SESSION_COOKIES.some((name) =>
@@ -35,7 +34,7 @@ export function middleware(request: NextRequest) {
   // Admin route protection — redirect to login if no session cookie present.
   // NextAuth v5 (Auth.js) uses "authjs.*" cookie names; v4 used "next-auth.*".
   // We check all variants so this works in dev, production, and Railway (HTTPS).
-  if (pathname.startsWith("/admin")) {
+  if (pathname.startsWith("/admin") && pathname !== "/admin") {
     const sessionToken =
       request.cookies.get("authjs.session-token")?.value ??
       request.cookies.get("__Secure-authjs.session-token")?.value ??
@@ -43,7 +42,7 @@ export function middleware(request: NextRequest) {
       request.cookies.get("__Secure-next-auth.session-token")?.value;
 
     if (!sessionToken) {
-      const loginUrl = new URL("/admin/login", request.url);
+      const loginUrl = new URL("/admin", request.url);
       loginUrl.searchParams.set("callbackUrl", pathname);
       return NextResponse.redirect(loginUrl);
     }
