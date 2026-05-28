@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Mail, Phone, Clock, MapPin, Facebook, Linkedin, Instagram, Youtube, Globe } from "lucide-react";
-import { NewsletterForm } from "@/components/forms/NewsletterForm";
+
 
 const popularCategories = [
   { title: "Safety Systems", href: "/solutions/safety-systems" },
@@ -44,17 +44,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
           {/* Brand column */}
           <div className="lg:col-span-4">
-            <Link href="/" className="inline-flex items-center group mb-4">
+            <Link href="/" className="inline-flex items-center group mb-1">
               <img
                 src="/image.png"
                 alt="VERTACORE"
                 className="h-10 w-auto object-contain"
               />
             </Link>
-            <p className="text-sm text-steel-muted leading-relaxed max-w-xs">
-              Premium MRO industrial supply and procurement. Certified safety equipment, welding systems, lifting & rigging, and industrial consumables for demanding operations worldwide.
-            </p>
-            <div className="space-y-3 pt-3 text-sm text-steel-muted">
+            <div className="space-y-3 text-sm text-steel-muted">
               <div className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 text-gold flex-shrink-0 mt-0.5" />
                 <span className="leading-relaxed">
@@ -147,11 +144,7 @@ export function Footer() {
               })}
             </div>
 
-            <div className="pt-2">
-              <span className="block text-xs font-semibold text-surface/80">Newsletter</span>
-              <p className="text-[11px] text-steel-muted mt-1 mb-3">Stay up to date with MRO supply news.</p>
-              <NewsletterForm compact />
-            </div>
+
           </div>
 
         </div>
