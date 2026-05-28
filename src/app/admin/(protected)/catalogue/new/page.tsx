@@ -24,6 +24,7 @@ export default function NewCatalogueItemPage() {
   const [error, setError] = useState<string | null>(null)
   const [certInput, setCertInput] = useState('')
   const [showCertSuggestions, setShowCertSuggestions] = useState(false)
+  const [showSolutionDropdown, setShowSolutionDropdown] = useState(false)
 
   const [form, setForm] = useState({
     name: '',
@@ -146,7 +147,7 @@ export default function NewCatalogueItemPage() {
           </div>
 
           {/* Category */}
-          <div>
+          <div className="relative">
             <label className="block text-sm font-semibold text-neutral-700 mb-1.5">
               Solution <span className="text-red-500">*</span>
             </label>
@@ -155,17 +156,53 @@ export default function NewCatalogueItemPage() {
                 No solutions found. <Link href="/admin/solutions/new" className="underline">Create a solution first</Link>.
               </p>
             ) : (
-              <select
-                required
-                value={form.categoryGroup}
-                onChange={(e) => set('categoryGroup', e.target.value)}
-                className="w-full px-4 py-2.5 border border-neutral-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy bg-white text-neutral-900"
-              >
-                <option value="">Select a solution…</option>
-                {categories.map((cat) => (
-                  <option key={cat.id} value={cat.name}>{cat.name}</option>
-                ))}
-              </select>
+              <>
+                <button
+                  type="button"
+                  onClick={() => setShowSolutionDropdown(!showSolutionDropdown)}
+                  onBlur={() => setShowSolutionDropdown(false)}
+                  className="w-full flex items-center justify-between px-4 py-2.5 border border-neutral-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy bg-white text-neutral-900"
+                >
+                  <span className="truncate">
+                    {form.categoryGroup || "Select a solution…"}
+                  </span>
+                  <svg className="w-4 h-4 text-neutral-500 shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  </svg>
+                </button>
+
+                {showSolutionDropdown && (
+                  <div className="absolute z-20 w-full mt-1 bg-white border border-neutral-200 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                    <button
+                      type="button"
+                      onMouseDown={(e) => {
+                        e.preventDefault()
+                        set('categoryGroup', '')
+                        setShowSolutionDropdown(false)
+                      }}
+                      className="w-full text-left px-4 py-2.5 text-sm text-neutral-500 hover:bg-neutral-100 outline-none"
+                    >
+                      Select a solution…
+                    </button>
+                    {categories.map((cat) => (
+                      <button
+                        key={cat.id}
+                        type="button"
+                        onMouseDown={(e) => {
+                          e.preventDefault()
+                          set('categoryGroup', cat.name)
+                          setShowSolutionDropdown(false)
+                        }}
+                        className={`w-full text-left px-4 py-2.5 text-sm outline-none ${
+                          form.categoryGroup === cat.name ? 'bg-navy/5 text-navy font-semibold' : 'text-neutral-700 hover:bg-neutral-100'
+                        }`}
+                      >
+                        {cat.name}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </>
             )}
           </div>
 
