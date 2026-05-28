@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, Phone, Clock, MapPin, Facebook, Linkedin, Instagram, Youtube } from "lucide-react";
+import { Mail, Phone, Clock, MapPin, Facebook, Linkedin, Instagram, Youtube, Globe } from "lucide-react";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 
 const popularCategories = [
@@ -54,14 +54,22 @@ export function Footer() {
             <p className="text-sm text-steel-muted leading-relaxed max-w-xs">
               Premium MRO industrial supply and procurement. Certified safety equipment, welding systems, lifting & rigging, and industrial consumables for demanding operations worldwide.
             </p>
-            <div className="space-y-2 pt-2">
-              <a href="mailto:sales@vertacore.com" className="flex items-center gap-2 text-sm text-steel-muted hover:text-gold transition-colors">
+            <div className="space-y-3 pt-3 text-sm text-steel-muted">
+              <div className="flex items-start gap-2">
+                <MapPin className="h-4 w-4 text-gold flex-shrink-0 mt-0.5" />
+                <span className="leading-relaxed">
+                  Office No.44, 11th Floor<br />
+                  Trustwell Properties Dar Al Salam Building<br />
+                  Near Al Madina Supermarket, Liwa Street, Corniche
+                </span>
+              </div>
+              <a href="mailto:info@vertacore.ae" className="flex items-center gap-2 hover:text-gold transition-colors">
                 <Mail className="h-4 w-4 text-gold flex-shrink-0" />
-                sales@vertacore.com
+                info@vertacore.ae
               </a>
-              <a href="tel:18559984875" className="flex items-center gap-2 text-sm text-steel-muted hover:text-gold transition-colors">
-                <Phone className="h-4 w-4 text-gold flex-shrink-0" />
-                +1-855-VERTACORE (Support)
+              <a href="https://www.vertacore.ae" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-gold transition-colors">
+                <Globe className="h-4 w-4 text-gold flex-shrink-0" />
+                www.vertacore.ae
               </a>
             </div>
 
