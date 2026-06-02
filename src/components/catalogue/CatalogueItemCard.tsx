@@ -22,7 +22,7 @@ export function CatalogueItemCard({
   return (
     <article className="card-base flex flex-col overflow-hidden group">
       {/* Image */}
-      <div className="relative aspect-[4/3] bg-navy-light/30 overflow-hidden">
+      <div className="relative aspect-video bg-white overflow-hidden">
         {image ? (
           <Image
             src={resolveImageUrl(image) || image}
@@ -40,19 +40,19 @@ export function CatalogueItemCard({
       </div>
 
       {/* Content */}
-      <div className="flex flex-col flex-1 p-4">
+      <div className="flex flex-col flex-1 p-3.5">
         {brandName && (
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-gold/70 mb-1">
+          <p className="text-[10px] font-semibold uppercase tracking-widest text-gold/70 mb-0.5">
             {brandName}
           </p>
         )}
 
-        <h3 className="text-[15px] font-semibold text-surface leading-snug mb-1">
+        <h3 className="text-[14px] font-semibold text-surface leading-snug mb-1">
           {name}
         </h3>
 
         {description && (
-          <p className="text-sm text-steel-muted leading-relaxed mb-3 line-clamp-2">
+          <p className="text-xs text-steel-muted leading-relaxed mb-2 line-clamp-2">
             {description}
           </p>
         )}
