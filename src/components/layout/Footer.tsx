@@ -28,13 +28,6 @@ const myAccount = [
   { label: "Customer Service", href: "/contact" },
 ];
 
-const branches = [
-  { name: "Houston, TX (HQ)", hours: "Mon - Fri: 7:30am - 4:30pm (CST)", phone: "713-555-0190" },
-  { name: "Chicago, IL", hours: "Mon - Fri: 7:30am - 4:30pm (CST)", phone: "312-555-0145" },
-  { name: "Rotterdam, NL", hours: "Mon - Fri: 8:00am - 5:00pm (CET)", phone: "+31 10 555 0122" },
-  { name: "Singapore", hours: "Mon - Fri: 8:00am - 5:00pm (SST)", phone: "+65 6777 0199" },
-  { name: "Aberdeen, UK", hours: "Mon - Fri: 8:00am - 5:00pm (GMT)", phone: "+44 1224 555190" },
-];
 
 export function Footer() {
   return (
@@ -149,30 +142,6 @@ export function Footer() {
 
         </div>
 
-        {/* 2. Branch Locations List (Weldstar Style) */}
-        <div id="locations" className="border-t border-steel/20 py-6 scroll-mt-24">
-          <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold/60 mb-4">
-            VERTACORE Branch Locations
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {branches.map((b) => (
-              <div key={b.name} className="p-4 rounded-lg bg-navy-light/20 border border-steel/30 hover:border-gold/15 transition-all">
-                <div className="flex items-center gap-1.5 mb-2">
-                  <MapPin className="h-3.5 w-3.5 text-gold flex-shrink-0" />
-                  <span className="text-[13px] font-bold text-surface">{b.name}</span>
-                </div>
-                <div className="flex items-center gap-1.5 text-xs text-steel-muted mb-1.5">
-                  <Clock className="h-3 w-3 flex-shrink-0" />
-                  <span>{b.hours}</span>
-                </div>
-                <a href={`tel:${b.phone.replace(/[^0-9+]/g, "")}`} className="flex items-center gap-1.5 text-xs text-gold/80 hover:text-gold transition-colors font-medium">
-                  <Phone className="h-3 w-3 flex-shrink-0" />
-                  <span>{b.phone}</span>
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
 
         {/* 3. Bottom Credits & Certifying Bodies */}
         <div className="border-t border-steel/20 py-2 mt-2 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-steel-muted">
