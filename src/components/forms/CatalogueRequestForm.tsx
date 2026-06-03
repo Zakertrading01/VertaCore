@@ -64,7 +64,7 @@ export function CatalogueRequestForm({ onSuccess }: CatalogueRequestFormProps) {
                     <CheckCircle className="h-8 w-8 text-gold" />
                 </div>
                 <h3 className="text-xl font-bold text-surface mb-2">Request Received</h3>
-                <p className="text-surface/60 max-w-xs mx-auto">
+                <p className="text-white max-w-xs mx-auto">
                     Thank you! We have received your request. You will receive the catalogue in your email within 24 business hours.
                 </p>
             </div>
@@ -74,7 +74,7 @@ export function CatalogueRequestForm({ onSuccess }: CatalogueRequestFormProps) {
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             <div className="space-y-1.5">
-                <label className="text-xs font-bold uppercase tracking-widest text-steel-muted ml-1">
+                <label className="text-xs font-bold uppercase tracking-widest text-gold ml-1">
                     Full Name
                 </label>
                 <input
@@ -92,7 +92,7 @@ export function CatalogueRequestForm({ onSuccess }: CatalogueRequestFormProps) {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                    <label className="text-xs font-bold uppercase tracking-widest text-steel-muted ml-1">
+                    <label className="text-xs font-bold uppercase tracking-widest text-gold ml-1">
                         Email Address
                     </label>
                     <input
@@ -108,7 +108,7 @@ export function CatalogueRequestForm({ onSuccess }: CatalogueRequestFormProps) {
                     )}
                 </div>
                 <div className="space-y-1.5">
-                    <label className="text-xs font-bold uppercase tracking-widest text-steel-muted ml-1">
+                    <label className="text-xs font-bold uppercase tracking-widest text-gold ml-1">
                         Phone Number
                     </label>
                     <input
@@ -126,7 +126,7 @@ export function CatalogueRequestForm({ onSuccess }: CatalogueRequestFormProps) {
             </div>
 
             <div className="space-y-1.5">
-                <label className="text-xs font-bold uppercase tracking-widest text-steel-muted ml-1">
+                <label className="text-xs font-bold uppercase tracking-widest text-gold ml-1">
                     Company Name
                 </label>
                 <input
@@ -169,7 +169,7 @@ export function CatalogueRequestForm({ onSuccess }: CatalogueRequestFormProps) {
                 </span>
             </button>
 
-            <p className="text-center text-[10px] text-surface/30">
+            <p className="text-center text-[10px] text-white/50">
                 By submitting, you agree to receive technical industrial documentation at the provided email.
             </p>
         </form>

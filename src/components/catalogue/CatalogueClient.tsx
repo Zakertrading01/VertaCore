@@ -33,7 +33,7 @@ export function CatalogueDownloadButton({ className, label = "Download PDF Catal
                 title="Catalogue Access Request"
             >
                 <div className="mb-6">
-                    <p className="text-sm text-surface/60 leading-relaxed">
+                    <p className="text-sm text-white leading-relaxed">
                         Please provide your details to receive the full **VERTACORE Industrial Equipment Catalogue**. A download link will be sent to your email within 24 business hours.
                     </p>
                 </div>
