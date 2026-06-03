@@ -139,17 +139,19 @@ export function WhyVertacoreSection() {
 
       {/* Why Verta Core Content */}
       <div className="container-base pt-10 pb-12 md:pt-16 md:pb-16 relative z-10">
-        <div className="max-w-4xl mb-10">
+        <div className="max-w-4xl mb-12">
           <ScrollReveal>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold/10 border border-gold/20 mb-4">
-              <div className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
-              <span className="text-[11px] font-bold tracking-widest text-gold uppercase">Why Verta Core</span>
+            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-sm shadow-[0_4px_20px_rgba(0,0,0,0.2)]">
+              <div className="w-2 h-2 rounded-full bg-gold animate-pulse shadow-[0_0_10px_2px_rgba(250,204,21,0.6)]" />
+              <span className="text-xs font-bold tracking-[0.2em] text-gold uppercase">Why Verta Core</span>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-5">
-              Supporting Industrial Growth Across the <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-yellow-200">UAE</span>
+            
+            <h2 className="text-3xl md:text-5xl lg:text-[54px] font-light text-white/80 tracking-tight leading-[1.2] mb-6">
+              Supporting <span className="font-bold text-white">Industrial Growth</span> <br className="hidden md:block"/>
+              Across the <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-gold to-yellow-200">UAE</span>
             </h2>
-            <div className="w-16 h-1.5 bg-gradient-to-r from-gold to-yellow-200 rounded-full mb-6" />
-            <p className="text-base md:text-lg text-white/70 leading-relaxed border-l-4 border-gold pl-5 py-1">
+            
+            <p className="text-lg md:text-[22px] text-white/60 leading-relaxed font-light max-w-3xl">
               From shutdown requirements to large-scale EPC projects, Verta Core is committed to delivering value-driven industrial solutions that support productivity, safety, and project success.
             </p>
           </ScrollReveal>
