@@ -442,17 +442,6 @@ async function main() {
     },
   });
 
-  const catalogueItems: never[] = [];
-
-  for (const item of catalogueItems) {
-    const existing = await db.catalogueItem.findFirst({ where: { name: item.name } });
-    if (existing) {
-      await db.catalogueItem.update({ where: { id: existing.id }, data: { ...item, published: true } });
-    } else {
-      await db.catalogueItem.create({ data: { ...item, published: true } });
-    }
-  }
-
   // ── Certifications ────────────────────────────────────────
   const certifications = [
     {
