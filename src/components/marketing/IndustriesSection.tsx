@@ -3,9 +3,7 @@ import {
   ArrowRight, 
   Droplets, 
   Anchor, 
-  HardHat, 
   Factory, 
-  Pickaxe, 
   Settings2, 
   Zap, 
   Building2 
@@ -20,46 +18,34 @@ const industries = [
     description: "Upstream, midstream and downstream operations",
   },
   {
-    name: "Marine",
-    slug: "marine",
-    icon: Anchor,
-    description: "Offshore platforms, vessels and shipyards",
-  },
-  {
-    name: "Construction",
-    slug: "construction",
-    icon: HardHat,
-    description: "Civil, structural and infrastructure projects",
-  },
-  {
-    name: "Manufacturing",
-    slug: "manufacturing",
-    icon: Factory,
-    description: "Plant operations and production facilities",
-  },
-  {
-    name: "Mining",
-    slug: "mining",
-    icon: Pickaxe,
-    description: "Surface and underground mining operations",
-  },
-  {
-    name: "Fabrication",
-    slug: "fabrication",
-    icon: Settings2,
-    description: "Steel fabrication and metalwork shops",
-  },
-  {
-    name: "Power & Energy",
-    slug: "power-energy",
-    icon: Zap,
-    description: "Power generation and energy infrastructure",
-  },
-  {
-    name: "Civil Engineering",
-    slug: "civil-engineering",
+    name: "EPC & Infrastructure Projects",
+    slug: "epc-infrastructure",
     icon: Building2,
-    description: "Bridges, tunnels and major civil works",
+    description: "Large-scale engineering, procurement, and construction",
+  },
+  {
+    name: "Petrochemical Facilities",
+    slug: "petrochemical",
+    icon: Factory,
+    description: "Chemical processing and refinement plants",
+  },
+  {
+    name: "Fabrication & Manufacturing",
+    slug: "fabrication-manufacturing",
+    icon: Settings2,
+    description: "Heavy metalwork and industrial production",
+  },
+  {
+    name: "Marine & Offshore",
+    slug: "marine-offshore",
+    icon: Anchor,
+    description: "Offshore platforms, shipyards, and vessels",
+  },
+  {
+    name: "Utilities & Industrial Operations",
+    slug: "utilities-industrial",
+    icon: Zap,
+    description: "Power generation and essential utility infrastructure",
   },
 ];
 
@@ -186,7 +172,7 @@ export function IndustriesSection() {
         </div>
 
         {/* Industries grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {industries.map((industry, i) => {
             const Icon = industry.icon;
             return (
