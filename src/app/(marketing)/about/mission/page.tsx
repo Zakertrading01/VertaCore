@@ -18,31 +18,13 @@ export const metadata: Metadata = buildMetadata({
   path: "/about/mission",
 });
 
-const values = [
-  {
-    icon: Shield,
-    title: "1. Quality Assurance",
-    content:
-      "Every product VERTACORE supplies carries verified certification documentation. We do not substitute unverified products. Our ISO 9001:2015 certification governs every step of the supply chain — from sourcing to delivery.",
-  },
-  {
-    icon: Target,
-    title: "2. Compliance-First",
-    content:
-      "Industrial buyers need products that comply with applicable safety standards for their specific environment. We ensure every item we supply is certified to the relevant EN, CE, ANSI, ASME or sector-specific standard for its intended use.",
-  },
-  {
-    icon: Handshake,
-    title: "3. Enterprise Partnership",
-    content:
-      "We treat every client relationship as a long-term partnership. That means investing time to understand procurement processes, maintaining responsiveness, and providing technical consultation — not just fulfilling orders.",
-  },
-  {
-    icon: Globe,
-    title: "4. Global Sourcing Reliability",
-    content:
-      "Our sourcing network gives clients access to internationally recognised manufacturers. When standard catalogue items do not meet specialist requirements, we source to specification — maintaining documentation standards throughout.",
-  },
+const coreValues = [
+  "Integrity",
+  "Reliability",
+  "Quality",
+  "Accountability",
+  "Customer Commitment",
+  "Operational Excellence",
 ];
 
 export default function MissionPage() {
@@ -59,60 +41,79 @@ export default function MissionPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema(breadcrumb)) }}
       />
 
-      <header className="bg-navy-dark pt-16 lg:pt-32 pb-16">
+      <header className="bg-navy-dark pt-16 lg:pt-32 pb-8">
         <div className="container-base">
           <Breadcrumb items={breadcrumb} className="mb-6" />
-          <SectionLabel className="mb-3">Mission &amp; Values</SectionLabel>
+          <SectionLabel className="mb-3">Company</SectionLabel>
           <h1 className="text-dlg font-bold text-surface max-w-2xl tracking-tight">
-            How we operate.
-            <br />
-            <span className="text-gold">What we stand for.</span>
+            Mission <span className="text-gold">Statement.</span>
           </h1>
         </div>
       </header>
 
-      {/* Mission statement */}
-      <section className="section-padding bg-navy">
-        <div className="container-base max-w-4xl">
-          <ScrollReveal>
-            <SectionLabel className="mb-4">Our Mission</SectionLabel>
-            <blockquote className="text-h1 font-bold text-surface leading-snug border-l-4 border-gold pl-8">
-              To be the most reliable MRO procurement partner for industrial
-              operations worldwide — supplying certified equipment, responding
-              with speed, and building lasting supply relationships built on
-              trust and transparency.
-            </blockquote>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Values */}
-      <section className="section-padding bg-graphite-subtle">
-        <div className="container-base max-w-4xl">
-          <ScrollReveal>
-            <SectionLabel className="mb-4">Operating Values</SectionLabel>
-            <h2 className="text-dmd font-bold text-surface mb-10 tracking-tight">
-              The principles behind every decision.
-            </h2>
-          </ScrollReveal>
-
-          <div className="space-y-6">
-            {values.map((value, i) => {
-              const Icon = value.icon;
-              return (
-                <ScrollReveal key={value.title} delay={i * 0.08}>
-                  <div className="card-base flex gap-5 p-6">
-                    <div className="p-3 rounded-xl bg-gold/10 flex-shrink-0 h-fit">
-                      <Icon className="h-5 w-5 text-gold" />
-                    </div>
-                    <div>
-                      <h3 className="text-[17px] font-bold text-surface mb-2">{value.title}</h3>
-                      <p className="text-body text-surface/65 leading-relaxed">{value.content}</p>
-                    </div>
+      {/* Unified Mission, Vision & Values Section */}
+      <section className="pt-8 pb-16 md:pt-12 md:pb-20 bg-navy">
+        <div className="container-base max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20">
+            
+            {/* Left Column: Mission & Vision */}
+            <div className="lg:col-span-7 space-y-12 md:space-y-16">
+              {/* Mission Statement */}
+              <ScrollReveal>
+                <div>
+                  <SectionLabel className="mb-6">Our Mission</SectionLabel>
+                  <div className="space-y-6 text-lg md:text-xl text-surface/90 leading-relaxed border-l-2 border-gold pl-6">
+                    <p>
+                      To be a trusted industrial solutions partner delivering quality, reliability, and operational value to the energy, industrial, and infrastructure sectors.
+                    </p>
+                    <p>
+                      We are committed to supporting our clients through dependable products, responsive service, technical expertise, and long-term partnerships built on integrity and performance.
+                    </p>
+                    <p>
+                      Our mission is to contribute to safer, more efficient, and more productive industrial operations by consistently delivering solutions that meet the highest standards of quality and professionalism.
+                    </p>
                   </div>
-                </ScrollReveal>
-              );
-            })}
+                </div>
+              </ScrollReveal>
+
+              {/* Vision Statement */}
+              <ScrollReveal delay={0.1}>
+                <div className="bg-navy-dark p-8 md:p-10 rounded-2xl border border-steel/10 relative overflow-hidden shadow-2xl shadow-black/20">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold/50 to-gold/10" />
+                  <SectionLabel className="mb-5">Our Vision</SectionLabel>
+                  <blockquote className="text-2xl md:text-3xl lg:text-[32px] font-bold text-surface leading-snug tracking-tight">
+                    "To become a recognized regional leader in industrial supply and project support solutions, known for excellence, trust, and customer commitment."
+                  </blockquote>
+                </div>
+              </ScrollReveal>
+            </div>
+
+            {/* Right Column: Core Values */}
+            <div className="lg:col-span-5">
+              <ScrollReveal delay={0.2} className="h-full">
+                <div className="card-glass p-8 md:p-10 h-full flex flex-col border-t-4 border-t-gold shadow-2xl shadow-black/20">
+                  <SectionLabel className="mb-4">Our Core Values</SectionLabel>
+                  <h2 className="text-2xl md:text-3xl font-bold text-surface mb-8 tracking-tight">
+                    The principles behind every decision.
+                  </h2>
+                  
+                  <div className="flex flex-col gap-4 mt-auto">
+                    {coreValues.map((value, i) => (
+                      <div 
+                        key={value} 
+                        className="flex items-center gap-5 p-4 md:p-5 rounded-xl bg-surface/5 hover:bg-surface/10 transition-colors border border-surface/5 group"
+                      >
+                        <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors">
+                          <div className="h-2 w-2 md:h-2.5 md:w-2.5 rounded-full bg-gold shadow-[0_0_10px_rgba(255,191,0,0.5)]" />
+                        </div>
+                        <h3 className="text-lg md:text-[19px] font-bold text-surface group-hover:text-gold transition-colors">{value}</h3>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
+
           </div>
         </div>
       </section>
