@@ -66,75 +66,78 @@ const testimonials = [
 
 export function WhyVertacoreSection() {
   const [expandedTestimonial, setExpandedTestimonial] = useState<number | null>(null);
-  const [particles, setParticles] = useState<any[]>([]);
-
-  useEffect(() => {
-    setParticles(
-      [...Array(40)].map(() => ({
-        size: Math.random() * 4 + 1,
-        left: Math.random() * 100,
-        top: Math.random() * 100 + 20,
-        duration: Math.random() * 15 + 15,
-        delay: Math.random() * -30,
-        opacity: Math.random() * 0.6 + 0.3,
-        pulseDuration: Math.random() * 3 + 2
-      }))
-    );
-  }, []);
 
   return (
     <>
     <section
-      className="relative overflow-hidden bg-[#050A14] border-t border-white/5"
+      className="relative overflow-hidden bg-[#020617] border-t border-white/5"
       aria-labelledby="why-vertacore-heading"
     >
       <style>{`
-        @keyframes gold-float {
-          0% { transform: translateY(100px) scale(0); opacity: 0; }
-          20% { transform: translateY(0px) scale(1); opacity: var(--p-opacity, 0.8); }
-          80% { transform: translateY(-400px) scale(1); opacity: var(--p-opacity, 0.8); }
-          100% { transform: translateY(-500px) scale(0); opacity: 0; }
+        @keyframes stream-y {
+          0% { transform: translateY(-100%); opacity: 0; }
+          10% { opacity: 1; }
+          90% { opacity: 1; }
+          100% { transform: translateY(200%); opacity: 0; }
         }
-        @keyframes gold-pulse {
-          0%, 100% { filter: brightness(1); }
-          50% { filter: brightness(1.5); box-shadow: 0 0 15px 4px rgba(250,204,21,0.6); }
+        @keyframes stream-x {
+          0% { transform: translateX(-100%); opacity: 0; }
+          10% { opacity: 1; }
+          90% { opacity: 1; }
+          100% { transform: translateX(200%); opacity: 0; }
+        }
+        @keyframes node-pulse {
+          0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+          50% { transform: translate(-50%, -50%) scale(1.5); opacity: 1; }
         }
       `}</style>
 
-      {/* Gold Particles Modern Background */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden bg-[#020617]">
+      {/* Fiber Optic Data Streams Background */}
+      <div className="absolute inset-0 z-0 overflow-hidden bg-[#030712]">
         
-        {/* Soft background lighting */}
-        <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-gold/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px]" />
-        
-        {/* Particles */}
-        <div className="absolute inset-0">
-          {particles.map((p, i) => (
-            <div
-              key={i}
-              className="absolute rounded-full bg-gold shadow-[0_0_8px_1px_rgba(250,204,21,0.5)]"
-              style={{
-                width: `${p.size}px`,
-                height: `${p.size}px`,
-                left: `${p.left}%`,
-                top: `${p.top}%`,
-                ['--p-opacity' as any]: p.opacity,
-                animation: `
-                  gold-float ${p.duration}s linear infinite,
-                  gold-pulse ${p.pulseDuration}s ease-in-out infinite
-                `,
-                animationDelay: `${p.delay}s, ${p.delay}s`
-              }}
-            />
-          ))}
+        {/* Base Grid Pattern */}
+        <div 
+          className="absolute inset-0 opacity-[0.015]"
+          style={{
+            backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)',
+            backgroundSize: '80px 80px',
+          }}
+        />
+
+        {/* Vertical Data Streams */}
+        <div className="absolute left-[15%] top-0 bottom-0 w-[1px] bg-white/[0.03]">
+          <div className="w-full h-[150px] bg-gradient-to-b from-transparent via-gold to-transparent" style={{ animation: 'stream-y 4s linear infinite' }} />
+        </div>
+        <div className="absolute left-[40%] top-0 bottom-0 w-[1px] bg-white/[0.03]">
+          <div className="w-full h-[250px] bg-gradient-to-b from-transparent via-blue-500 to-transparent" style={{ animation: 'stream-y 6s linear infinite 2s' }} />
+        </div>
+        <div className="absolute left-[70%] top-0 bottom-0 w-[1px] bg-white/[0.03]">
+          <div className="w-full h-[100px] bg-gradient-to-b from-transparent via-gold to-transparent" style={{ animation: 'stream-y 5s linear infinite 1s' }} />
+        </div>
+        <div className="absolute left-[85%] top-0 bottom-0 w-[1px] bg-white/[0.03]">
+          <div className="w-full h-[200px] bg-gradient-to-b from-transparent via-blue-400 to-transparent" style={{ animation: 'stream-y 7s linear infinite 3.5s' }} />
         </div>
 
-        {/* Ambient bottom glow grounding the particles */}
-        <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-gradient-to-t from-gold/10 to-transparent blur-[80px]" />
+        {/* Horizontal Data Streams */}
+        <div className="absolute top-[25%] left-0 right-0 h-[1px] bg-white/[0.03]">
+          <div className="h-full w-[200px] bg-gradient-to-r from-transparent via-blue-500 to-transparent" style={{ animation: 'stream-x 5s linear infinite 1s' }} />
+        </div>
+        <div className="absolute top-[60%] left-0 right-0 h-[1px] bg-white/[0.03]">
+          <div className="h-full w-[300px] bg-gradient-to-r from-transparent via-gold to-transparent" style={{ animation: 'stream-x 8s linear infinite 4s' }} />
+        </div>
+        <div className="absolute top-[85%] left-0 right-0 h-[1px] bg-white/[0.03]">
+          <div className="h-full w-[150px] bg-gradient-to-r from-transparent via-blue-400 to-transparent" style={{ animation: 'stream-x 6s linear infinite 2.5s' }} />
+        </div>
 
-        {/* Shadow overlay to ground the edges */}
-        <div className="absolute inset-0 shadow-[inset_0_0_150px_100px_#020617]" />
+        {/* Node Intersections */}
+        <div className="absolute top-[25%] left-[15%] w-2 h-2 bg-white/20 rounded-full shadow-[0_0_10px_white]" style={{ animation: 'node-pulse 3s ease-in-out infinite' }} />
+        <div className="absolute top-[60%] left-[40%] w-2 h-2 bg-gold/40 rounded-full shadow-[0_0_12px_#facc15]" style={{ animation: 'node-pulse 4s ease-in-out infinite 1s' }} />
+        <div className="absolute top-[25%] left-[70%] w-1.5 h-1.5 bg-blue-500/40 rounded-full shadow-[0_0_12px_#3b82f6]" style={{ animation: 'node-pulse 5s ease-in-out infinite 2s' }} />
+        <div className="absolute top-[85%] left-[85%] w-2 h-2 bg-gold/40 rounded-full shadow-[0_0_12px_#facc15]" style={{ animation: 'node-pulse 3.5s ease-in-out infinite 0.5s' }} />
+
+        {/* Ambient Glows to soften the sharp lines */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
       </div>
 
       {/* Why Verta Core Content */}
