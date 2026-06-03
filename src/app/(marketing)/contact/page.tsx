@@ -5,7 +5,7 @@ import { SectionLabel } from "@/components/shared/SectionLabel";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
-import { Mail, Clock, Shield } from "lucide-react";
+import { Mail, Clock, Shield, MapPin, Phone } from "lucide-react";
 
 export const dynamic = 'force-dynamic';
 
@@ -42,12 +42,10 @@ export default function ContactPage() {
           <Breadcrumb items={breadcrumb} className="mb-6" />
           <SectionLabel className="mb-3">Get in Touch</SectionLabel>
           <h1 className="text-dlg font-bold text-surface max-w-2xl tracking-tight">
-            Contact
-            <br />
-            <span className="text-gold">Our Technical Team.</span>
+            Contact <span className="text-gold">Our Technical Team.</span>
           </h1>
           <p className="mt-4 text-body text-surface/60 max-w-xl leading-relaxed">
-            Submit your enquiries and our technical team will respond within 24 business hours.
+            Whether you require industrial supply support, technical sourcing assistance, or project-related solutions, our team is ready to assist you.
           </p>
 
           {/* Contact signals */}
@@ -62,47 +60,115 @@ export default function ContactPage() {
             </div>
             <div className="flex items-center gap-2.5 text-sm text-steel-muted">
               <Mail className="h-4 w-4 text-gold" />
-              info@vertacore.ae
+              info@vertacore.com
             </div>
           </div>
         </div>
       </header>
 
-      {/* Forms */}
+      {/* Forms & Contact Info Grid */}
       <section className="pt-4 pb-16 md:pb-24 bg-graphite-subtle">
         <div className="container-base">
-          <div className="max-w-3xl mx-auto">
-            {/* Divider + Contact form */}
+          <div className="max-w-6xl mx-auto">
             <ScrollReveal>
-              <div className="card-glass p-8 md:p-10">
-                <SectionLabel className="mb-3">General Enquiry</SectionLabel>
-                <h2 className="text-h1 font-bold text-surface mb-2">Send a Message</h2>
-                <p className="text-sm text-surface/50 mb-8">
-                  For product enquiries, technical support, or partnership discussions.
-                </p>
-                <ContactForm />
-
-                {/* Direct contact info */}
-                <div className="mt-10 pt-8 border-t border-steel/20 space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="card-glass p-8 md:p-10 lg:p-12">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+                  
+                  {/* Left Side: Contact Information */}
+                  <div className="flex flex-col space-y-8 order-2 lg:order-1 pt-8 lg:pt-0 border-t border-steel/20 lg:border-t-0 lg:border-r lg:pr-12">
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-widest text-steel-muted mb-2">
-                        Email
-                      </p>
-                      <a
-                        href="mailto:info@vertacore.ae"
-                        className="text-body text-gold hover:text-gold-muted transition-colors font-bold"
-                      >
-                        info@vertacore.ae
-                      </a>
+                      <h3 className="text-2xl font-bold text-surface mb-1">Verta Core</h3>
+                      <p className="text-sm text-gold">Industrial Supply & Solutions</p>
                     </div>
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-widest text-steel-muted mb-2">
-                        Response Time
-                      </p>
-                      <p className="text-sm text-surface/60">Within 24 business hours</p>
+
+                    <div className="space-y-6">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-widest text-steel-muted mb-3">
+                          Contact Information
+                        </p>
+                        <div className="space-y-3 text-sm text-surface/80">
+                          <p className="flex items-start gap-3">
+                            <MapPin className="h-5 w-5 text-gold flex-shrink-0 mt-0.5" />
+                            <span className="leading-relaxed">Abu Dhabi, United Arab Emirates</span>
+                          </p>
+                          <p className="flex items-center gap-3">
+                            <Mail className="h-5 w-5 text-gold flex-shrink-0" />
+                            <a href="mailto:info@vertacore.com" className="hover:text-gold transition-colors">
+                              info@vertacore.com
+                            </a>
+                          </p>
+                          <p className="flex items-center gap-3">
+                            <Phone className="h-5 w-5 text-gold flex-shrink-0" />
+                            <a href="tel:+971XXXXX" className="hover:text-gold transition-colors">
+                              +971 XX XXX XXXX
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-widest text-steel-muted mb-3">
+                          Business Hours
+                        </p>
+                        <div className="space-y-1.5 text-sm text-surface/80">
+                          <p className="flex justify-between max-w-[260px]">
+                            <span>Monday – Friday</span>
+                            <span className="text-surface/60">8:00 AM – 6:00 PM</span>
+                          </p>
+                          <p className="flex justify-between max-w-[260px]">
+                            <span>Saturday</span>
+                            <span className="text-surface/60">8:00 AM – 12:30 PM</span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Send Us Your Requirement */}
+                    <div className="bg-navy-dark/30 p-6 rounded-lg border border-steel/10 flex flex-col justify-between mt-auto">
+                      <div>
+                        <h3 className="text-lg font-bold text-surface mb-2">Send Us Your Requirement</h3>
+                        <p className="text-sm text-surface/70 leading-relaxed mb-4">
+                          Our team will respond promptly to support your operational or project needs.
+                        </p>
+
+                        <ul className="space-y-2.5 text-sm text-surface/80">
+                          <li className="flex items-start gap-3">
+                            <div className="h-1.5 w-1.5 rounded-full bg-gold mt-1.5 flex-shrink-0" />
+                            Industrial Product Inquiries
+                          </li>
+                          <li className="flex items-start gap-3">
+                            <div className="h-1.5 w-1.5 rounded-full bg-gold mt-1.5 flex-shrink-0" />
+                            EPC Project Support
+                          </li>
+                          <li className="flex items-start gap-3">
+                            <div className="h-1.5 w-1.5 rounded-full bg-gold mt-1.5 flex-shrink-0" />
+                            Technical Sourcing Requests
+                          </li>
+                          <li className="flex items-start gap-3">
+                            <div className="h-1.5 w-1.5 rounded-full bg-gold mt-1.5 flex-shrink-0" />
+                            Vendor & Partnership Opportunities
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div className="pt-4 mt-5 border-t border-steel/20">
+                        <p className="text-xs font-medium italic text-gold leading-relaxed">
+                          Verta Core — Delivering Reliability for Industrial Excellence.
+                        </p>
+                      </div>
                     </div>
                   </div>
+
+                  {/* Right Side: Contact Form */}
+                  <div className="order-1 lg:order-2 flex flex-col justify-start">
+                    <SectionLabel className="mb-3">General Enquiry</SectionLabel>
+                    <h2 className="text-h1 font-bold text-surface mb-2">Send a Message</h2>
+                    <p className="text-sm text-surface/50 mb-8">
+                      For product enquiries, technical support, or partnership discussions.
+                    </p>
+                    <ContactForm />
+                  </div>
+
                 </div>
               </div>
             </ScrollReveal>
