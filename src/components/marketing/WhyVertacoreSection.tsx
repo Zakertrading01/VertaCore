@@ -146,12 +146,12 @@ export function WhyVertacoreSection() {
               <span className="text-xs font-bold tracking-[0.2em] text-gold uppercase">Why Verta Core</span>
             </div>
             
-            <h2 className="text-3xl md:text-5xl lg:text-[54px] font-light text-white/80 tracking-tight leading-[1.2] mb-6">
-              Supporting <span className="font-bold text-white">Industrial Growth</span> <br className="hidden md:block"/>
-              Across the <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-gold to-yellow-200">UAE</span>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tighter leading-[1.05] mb-6">
+              Supporting <span className="text-transparent bg-clip-text bg-gradient-to-br from-white to-white/40">Industrial Growth</span> <br className="hidden md:block"/>
+              Across the <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-yellow-200 to-yellow-500 drop-shadow-lg">UAE</span>
             </h2>
             
-            <p className="text-lg md:text-[22px] text-white/60 leading-relaxed font-light max-w-3xl">
+            <p className="text-lg md:text-xl text-white/60 leading-snug font-medium tracking-tight max-w-3xl">
               From shutdown requirements to large-scale EPC projects, Verta Core is committed to delivering value-driven industrial solutions that support productivity, safety, and project success.
             </p>
           </ScrollReveal>
