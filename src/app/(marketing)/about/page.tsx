@@ -63,159 +63,138 @@ export default function AboutPage() {
       <header className="bg-navy-dark pt-16 lg:pt-32 pb-8">
         <div className="container-base">
           <Breadcrumb items={breadcrumb} className="mb-6" />
-          <SectionLabel className="mb-3">About VERTACORE</SectionLabel>
+          <SectionLabel className="mb-3">Company</SectionLabel>
           <h1 className="text-dlg font-bold text-surface max-w-2xl tracking-tight">
-            A reliable procurement
-            <br />
-            <span className="text-gold">partner for industrial operations.</span>
+            About <span className="text-gold">Verta Core.</span>
           </h1>
-          <p className="mt-4 text-body text-surface/60 max-w-xl leading-relaxed">
-            VERTACORE is a premium MRO industrial supply and procurement company.
-            We deliver certified safety equipment, welding systems, lifting &amp;
-            rigging, and industrial consumables to enterprise clients worldwide.
-          </p>
         </div>
       </header>
 
-      {/* Company overview */}
-      <section className="pt-4 pb-16 md:pb-24 bg-graphite-subtle">
-        <div className="container-base">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            <ScrollReveal>
-              <SectionLabel className="mb-4">Who We Are</SectionLabel>
-              <h2 className="text-h1 font-bold text-surface mb-5">
-                Industrial supply done professionally.
-              </h2>
-              <div className="space-y-4 text-body text-surface/65 leading-relaxed">
-                <p>
-                  VERTACORE is a Maintenance, Repair &amp; Operations (MRO) supply and
-                  procurement company specialising in certified industrial equipment for
-                  demanding operational environments.
-                </p>
-                <p>
-                  Our supply range covers five core capability areas — Safety &amp; PPE,
-                  Welding Systems, Lifting &amp; Rigging, Abrasives, and Industrial Tools —
-                  serving Oil &amp; Gas, Marine, Construction, Manufacturing, Mining and
-                  Fabrication operations worldwide.
-                </p>
-                <p>
-                  VERTACORE operates as a trusted procurement partner rather than a
-                  transactional supplier. We work closely with procurement managers,
-                  HSE teams and site engineers to ensure the right certified products
-                  reach operations on time.
-                </p>
-              </div>
-
-              <div className="mt-8 inline-flex items-center gap-2.5 border border-gold/25 bg-gold/5 rounded-lg px-4 py-3">
-                <div className="h-2 w-2 rounded-full bg-gold flex-shrink-0" />
-                <span className="text-sm font-semibold text-gold">
-                  ISO 9001:2015 Quality Management System Certified
-                </span>
-              </div>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {[
-                { label: "500+", desc: "Products in supply range" },
-                { label: "10+", desc: "Industry sectors served" },
-                { label: "30+", desc: "Years of industrial expertise" },
-                { label: "24hr", desc: "Fast Technical Response" },
-              ].map((stat, i) => (
-                <ScrollReveal key={stat.label} delay={0.1 + i * 0.08}>
-                  <div className="card-base p-5 text-center">
-                    <div className="text-dmd font-bold text-gold">{stat.label}</div>
-                    <div className="text-sm text-steel-muted mt-2">{stat.desc}</div>
-                  </div>
-                </ScrollReveal>
-              ))}
+      {/* Company overview & Industries */}
+      <section className="pt-8 pb-4 md:pt-12 md:pb-8 bg-navy">
+        <div className="container-base max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+            
+            {/* Left: About Text */}
+            <div className="lg:col-span-7 space-y-10">
+              <ScrollReveal>
+                <SectionLabel className="mb-4">Who We Are</SectionLabel>
+                <h2 className="text-h1 font-bold text-surface mb-8 tracking-tight">
+                  Industrial supply done professionally.
+                </h2>
+                <div className="space-y-6 text-lg md:text-xl text-surface/90 leading-relaxed border-l-2 border-gold pl-6">
+                  <p>
+                    Verta Core is a dynamic industrial supply and solutions company positioned in Abu Dhabi, established to support the evolving demands of the oil & gas, energy, construction, and industrial sectors.
+                  </p>
+                  <p>
+                    Built on the principles of integrity, reliability, and performance, we provide high-quality industrial products and tailored supply solutions that help clients maintain operational excellence and project continuity.
+                  </p>
+                  <p>
+                    Our approach combines technical understanding, responsive customer service, and a commitment to long-term partnerships. We work closely with EPC contractors, ADNOC-associated projects, fabricators, and industrial clients to deliver dependable support in highly demanding environments.
+                  </p>
+                  <p>
+                    At Verta Core, we believe industrial supply is more than procurement — it is about building confidence, reducing operational risk, and ensuring every project receives the right solution at the right time.
+                  </p>
+                </div>
+              </ScrollReveal>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Mission */}
-      <section className="section-padding bg-navy">
-        <div className="container-base max-w-4xl">
-          <ScrollReveal>
-            <SectionLabel className="mb-4">Our Mission</SectionLabel>
-            <blockquote className="text-h1 font-bold text-surface leading-snug border-l-4 border-gold pl-8">
-              To be the most reliable MRO procurement partner for industrial
-              operations worldwide — supplying certified equipment, responding
-              with speed, and building lasting supply relationships built on
-              trust.
-            </blockquote>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Values */}
-      <section className="section-padding bg-graphite-subtle">
-        <div className="container-base">
-          <ScrollReveal>
-            <SectionLabel className="mb-3">Our Values</SectionLabel>
-            <h2 className="text-dmd font-bold text-surface mb-10 tracking-tight">
-              How we operate.
-            </h2>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
-            {values.map((value, i) => {
-              const Icon = value.icon;
-              return (
-                <ScrollReveal key={value.title} delay={i * 0.08}>
-                  <div className="card-base flex flex-col p-6 h-full">
-                    <div className="p-3 rounded-xl bg-gold/10 w-fit mb-4">
-                      <Icon className="h-5 w-5 text-gold" />
-                    </div>
-                    <h3 className="text-[17px] font-bold text-surface mb-2">{value.title}</h3>
-                    <p className="text-sm text-steel-muted leading-relaxed">{value.description}</p>
+            {/* Right: Industries We Serve */}
+            <div className="lg:col-span-5 space-y-8">
+              <ScrollReveal delay={0.1}>
+                <div className="card-glass p-8 md:p-10 border-t-4 border-t-gold shadow-2xl shadow-black/20">
+                  <SectionLabel className="mb-4">Sectors</SectionLabel>
+                  <h3 className="text-2xl md:text-3xl font-bold text-surface mb-8 tracking-tight">Industries We Serve</h3>
+                  <div className="flex flex-col gap-3.5">
+                    {[
+                      "Oil & Gas",
+                      "EPC & Infrastructure Projects",
+                      "Petrochemical Facilities",
+                      "Fabrication & Manufacturing",
+                      "Marine & Offshore",
+                      "Utilities & Industrial Operations",
+                    ].map((industry) => (
+                      <div key={industry} className="flex items-center gap-4 p-4 rounded-xl bg-surface/5 hover:bg-surface/10 border border-surface/5 transition-colors group">
+                        <div className="h-10 w-10 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors">
+                          <CheckCircle className="h-4 w-4 text-gold" />
+                        </div>
+                        <span className="text-[17px] font-bold text-surface group-hover:text-gold transition-colors">{industry}</span>
+                      </div>
+                    ))}
                   </div>
-                </ScrollReveal>
-              );
-            })}
+                </div>
+              </ScrollReveal>
+
+            </div>
+
           </div>
         </div>
       </section>
 
       {/* Sub-page links */}
-      <section className="py-12 bg-navy border-t border-steel/20">
-        <div className="container-base flex flex-col sm:flex-row gap-4">
-          <Link
-            href="/about/story"
-            className="flex-1 card-base p-6 group hover:border-gold/30 transition-colors"
-          >
-            <h3 className="text-[16px] font-bold text-surface mb-2 group-hover:text-gold transition-colors">
-              Our Story
-            </h3>
-            <p className="text-sm text-steel-muted">How VERTACORE was founded and built.</p>
-            <div className="flex items-center gap-1.5 mt-4 text-sm text-gold">
-              Read <ArrowRight className="h-3.5 w-3.5" />
-            </div>
-          </Link>
-          <Link
-            href="/about/mission"
-            className="flex-1 card-base p-6 group hover:border-gold/30 transition-colors"
-          >
-            <h3 className="text-[16px] font-bold text-surface mb-2 group-hover:text-gold transition-colors">
-              Mission &amp; Values
-            </h3>
-            <p className="text-sm text-steel-muted">The principles that guide every decision.</p>
-            <div className="flex items-center gap-1.5 mt-4 text-sm text-gold">
-              Read <ArrowRight className="h-3.5 w-3.5" />
-            </div>
-          </Link>
-          <Link
-            href="/certifications"
-            className="flex-1 card-base p-6 group hover:border-gold/30 transition-colors"
-          >
-            <h3 className="text-[16px] font-bold text-surface mb-2 group-hover:text-gold transition-colors">
-              Certifications
-            </h3>
-            <p className="text-sm text-steel-muted">ISO 9001:2015 and product standards.</p>
-            <div className="flex items-center gap-1.5 mt-4 text-sm text-gold">
-              View <ArrowRight className="h-3.5 w-3.5" />
-            </div>
-          </Link>
+      <section className="pb-16 md:pb-24 pt-4 bg-navy">
+        <div className="container-base max-w-7xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Link
+              href="/about/story"
+              className="group p-8 rounded-2xl bg-navy-dark border border-steel/10 hover:border-gold/30 hover:-translate-y-1 active:scale-95 transition-all duration-300 hover:shadow-2xl hover:shadow-gold/5 relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-500" />
+              
+              {/* Hover Particles */}
+              <div className="absolute top-10 right-14 w-1.5 h-1.5 bg-gold rounded-full opacity-0 group-hover:opacity-80 transition-all duration-700 translate-y-8 group-hover:-translate-y-4 shadow-[0_0_8px_rgba(255,191,0,0.8)]" />
+              <div className="absolute bottom-12 right-8 w-2 h-2 bg-gold/60 rounded-full opacity-0 group-hover:opacity-60 transition-all duration-1000 translate-x-4 group-hover:-translate-x-6 group-hover:-translate-y-8 blur-[1px]" />
+              <div className="absolute top-1/2 right-5 w-1 h-1 bg-gold rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:-translate-y-6 shadow-[0_0_5px_rgba(255,191,0,1)]" />
+
+              <h3 className="text-xl font-bold text-surface mb-3 group-hover:text-gold transition-colors relative z-10">
+                Our Story
+              </h3>
+              <p className="text-sm text-surface/60 leading-relaxed mb-6 relative z-10">How Verta Core was founded and built into an industry leader.</p>
+              <div className="flex items-center gap-2 text-sm font-semibold text-gold relative z-10">
+                Read full story <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+            
+            <Link
+              href="/about/mission"
+              className="group p-8 rounded-2xl bg-navy-dark border border-steel/10 hover:border-gold/30 hover:-translate-y-1 active:scale-95 transition-all duration-300 hover:shadow-2xl hover:shadow-gold/5 relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-500" />
+              
+              {/* Hover Particles */}
+              <div className="absolute top-10 right-14 w-1.5 h-1.5 bg-gold rounded-full opacity-0 group-hover:opacity-80 transition-all duration-700 translate-y-8 group-hover:-translate-y-4 shadow-[0_0_8px_rgba(255,191,0,0.8)]" />
+              <div className="absolute bottom-12 right-8 w-2 h-2 bg-gold/60 rounded-full opacity-0 group-hover:opacity-60 transition-all duration-1000 translate-x-4 group-hover:-translate-x-6 group-hover:-translate-y-8 blur-[1px]" />
+              <div className="absolute top-1/2 right-5 w-1 h-1 bg-gold rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:-translate-y-6 shadow-[0_0_5px_rgba(255,191,0,1)]" />
+
+              <h3 className="text-xl font-bold text-surface mb-3 group-hover:text-gold transition-colors relative z-10">
+                Mission &amp; Values
+              </h3>
+              <p className="text-sm text-surface/60 leading-relaxed mb-6 relative z-10">The principles that guide every decision and relationship.</p>
+              <div className="flex items-center gap-2 text-sm font-semibold text-gold relative z-10">
+                Explore values <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            <Link
+              href="/certifications"
+              className="group p-8 rounded-2xl bg-navy-dark border border-steel/10 hover:border-gold/30 hover:-translate-y-1 active:scale-95 transition-all duration-300 hover:shadow-2xl hover:shadow-gold/5 relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-500" />
+              
+              {/* Hover Particles */}
+              <div className="absolute top-10 right-14 w-1.5 h-1.5 bg-gold rounded-full opacity-0 group-hover:opacity-80 transition-all duration-700 translate-y-8 group-hover:-translate-y-4 shadow-[0_0_8px_rgba(255,191,0,0.8)]" />
+              <div className="absolute bottom-12 right-8 w-2 h-2 bg-gold/60 rounded-full opacity-0 group-hover:opacity-60 transition-all duration-1000 translate-x-4 group-hover:-translate-x-6 group-hover:-translate-y-8 blur-[1px]" />
+              <div className="absolute top-1/2 right-5 w-1 h-1 bg-gold rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:-translate-y-6 shadow-[0_0_5px_rgba(255,191,0,1)]" />
+
+              <h3 className="text-xl font-bold text-surface mb-3 group-hover:text-gold transition-colors relative z-10">
+                Certifications
+              </h3>
+              <p className="text-sm text-surface/60 leading-relaxed mb-6 relative z-10">ISO 9001:2015 standards and verified product documentation.</p>
+              <div className="flex items-center gap-2 text-sm font-semibold text-gold relative z-10">
+                View certs <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+          </div>
         </div>
       </section>
 

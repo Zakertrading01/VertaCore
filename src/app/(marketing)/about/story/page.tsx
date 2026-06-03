@@ -32,22 +32,20 @@ export default function StoryPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema(breadcrumb)) }}
       />
 
-      <header className="bg-navy-dark pt-16 lg:pt-32 pb-16">
+      <header className="bg-navy-dark pt-16 lg:pt-32 pb-8">
         <div className="container-base">
           <Breadcrumb items={breadcrumb} className="mb-6" />
           <SectionLabel className="mb-3">Our Story</SectionLabel>
           <h1 className="text-dlg font-bold text-surface max-w-2xl tracking-tight">
-            Built on reliability
-            <br />
-            <span className="text-gold">and operational trust.</span>
+            Built on reliability <span className="text-gold">and operational trust.</span>
           </h1>
         </div>
       </header>
 
-      <section className="section-padding bg-graphite-subtle">
+      <section className="pt-8 pb-16 md:pt-12 md:pb-24 bg-navy-dark">
         <div className="container-base max-w-3xl">
           <ScrollReveal>
-            <div className="space-y-6 text-body text-surface/70 leading-relaxed">
+            <div className="space-y-6 text-lg md:text-xl text-surface/80 leading-relaxed pl-6 border-l-2 border-gold">
               <p>
                 VERTACORE was founded with a clear mandate: to provide industrial
                 procurement teams with a supply partner they could rely on. One that
