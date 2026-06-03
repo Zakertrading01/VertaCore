@@ -2,39 +2,45 @@
 
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
-import { ChevronDown, Shield, Flame, Link2, Disc, Wrench } from "lucide-react";
+import { ChevronDown, Shield, Flame, Link2, Package, Cpu, Truck } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const solutions = [
   {
-    title: "Safety Systems",
-    slug: "safety-systems",
-    description: "PPE and certified safety equipment",
-    icon: Shield,
+    title: "Industrial Supply Solutions",
+    slug: "industrial-supply",
+    description: "MRO sourcing across multiple sectors",
+    icon: Package,
   },
   {
-    title: "Welding Systems",
-    slug: "welding-systems",
-    description: "SMAW, MIG/MAG, TIG, SAW",
+    title: "Welding & Fabrication Solutions",
+    slug: "welding-fabrication",
+    description: "Machines, consumables, cutting & electrodes",
     icon: Flame,
   },
   {
-    title: "Lifting & Rigging",
-    slug: "lifting-rigging",
-    description: "Chain hoists, wire rope, shackles",
+    title: "Safety & PPE Solutions",
+    slug: "safety-ppe",
+    description: "PPE and workplace safety compliance",
+    icon: Shield,
+  },
+  {
+    title: "Lifting & Material Handling",
+    slug: "lifting-handling",
+    description: "Lifting equipment and rigging accessories",
     icon: Link2,
   },
   {
-    title: "Abrasives",
-    slug: "abrasives",
-    description: "Grinding, cutting, surface treatment",
-    icon: Disc,
+    title: "Technical Procurement Support",
+    slug: "technical-procurement",
+    description: "Specialist sourcing via trusted networks",
+    icon: Cpu,
   },
   {
-    title: "Industrial Tools",
-    slug: "industrial-tools",
-    description: "Hand tools, power tools, measurement",
-    icon: Wrench,
+    title: "Project Supply & Logistics",
+    slug: "project-logistics",
+    description: "Coordinated supply for shutdowns & projects",
+    icon: Truck,
   },
 ];
 

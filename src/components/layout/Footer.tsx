@@ -5,11 +5,12 @@ import { Mail, Phone, Clock, MapPin, Facebook, Linkedin, Instagram, Youtube, Glo
 
 
 const popularCategories = [
-  { title: "Safety Systems", href: "/solutions/safety-systems" },
-  { title: "Welding Systems", href: "/solutions/welding-systems" },
-  { title: "Lifting & Rigging", href: "/solutions/lifting-rigging" },
-  { title: "Abrasives", href: "/solutions/abrasives" },
-  { title: "Industrial Tools", href: "/solutions/industrial-tools" },
+  { title: "Industrial Supply Solutions", href: "/solutions/industrial-supply" },
+  { title: "Welding & Fabrication Solutions", href: "/solutions/welding-fabrication" },
+  { title: "Safety & PPE Solutions", href: "/solutions/safety-ppe" },
+  { title: "Lifting & Material Handling", href: "/solutions/lifting-handling" },
+  { title: "Technical Procurement Support", href: "/solutions/technical-procurement" },
+  { title: "Project Supply & Logistics", href: "/solutions/project-logistics" },
 ];
 
 const customerCare = [

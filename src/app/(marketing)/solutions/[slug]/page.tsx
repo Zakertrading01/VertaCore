@@ -50,11 +50,12 @@ export default async function SolutionPage({
 
   // Get catalogue items for this solution's category
   const categoryGroupMap: Record<string, string> = {
-    "safety-systems": "Safety & PPE",
-    "welding-systems": "Welding",
-    "lifting-rigging": "Lifting & Rigging",
-    abrasives: "Abrasives",
-    "industrial-tools": "Industrial Tools",
+    "industrial-supply": "Industrial Supply",
+    "welding-fabrication": "Welding & Fabrication",
+    "safety-ppe": "Safety & PPE",
+    "lifting-handling": "Lifting & Material Handling",
+    "technical-procurement": "Technical Procurement",
+    "project-logistics": "Project Supply & Logistics",
   };
 
   const catalogueItems = await db.catalogueItem.findMany({

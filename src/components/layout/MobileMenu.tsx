@@ -6,11 +6,12 @@ import { X, ChevronDown, ChevronUp, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const solutions = [
-  { title: "Safety Systems", slug: "safety-systems" },
-  { title: "Welding Systems", slug: "welding-systems" },
-  { title: "Lifting & Rigging", slug: "lifting-rigging" },
-  { title: "Abrasives", slug: "abrasives" },
-  { title: "Industrial Tools", slug: "industrial-tools" },
+  { title: "Industrial Supply Solutions", slug: "industrial-supply" },
+  { title: "Welding & Fabrication Solutions", slug: "welding-fabrication" },
+  { title: "Safety & PPE Solutions", slug: "safety-ppe" },
+  { title: "Lifting & Material Handling", slug: "lifting-handling" },
+  { title: "Technical Procurement Support", slug: "technical-procurement" },
+  { title: "Project Supply & Logistics", slug: "project-logistics" },
 ];
 
 const navItems = [

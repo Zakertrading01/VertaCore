@@ -30,23 +30,26 @@ export const metadata: Metadata = buildMetadata({
 
 const CATEGORY_ORDER = [
   "Safety & PPE",
-  "Welding",
-  "Lifting & Rigging",
-  "Abrasives",
-  "Industrial Tools",
+  "Welding & Fabrication",
+  "Lifting & Material Handling",
+  "Industrial Supply",
+  "Technical Procurement",
+  "Project Supply & Logistics",
 ];
 
 const CATEGORY_DESCRIPTIONS: Record<string, string> = {
   "Safety & PPE":
-    "Personal protective equipment and safety systems certified to CE, EN, and ANSI standards for industrial and construction environments.",
-  Welding:
-    "SMAW, MIG/MAG, TIG and SAW welding machines and consumables suitable for structural fabrication, pipeline welding and maintenance.",
-  "Lifting & Rigging":
-    "Chain hoists, wire rope slings, shackles and rigging hardware certified to ASME B30, EN 818 and EN 13414 standards.",
-  Abrasives:
-    "Grinding discs, cutting wheels and flap discs from oSa and MPA certified manufacturers for surface preparation and finishing.",
-  "Industrial Tools":
-    "Professional hand tools, power tools and precision measurement equipment for industrial maintenance and fabrication.",
+    "Personal protective equipment and workplace safety products certified to CE, EN, and ANSI standards for industrial and construction environments.",
+  "Welding & Fabrication":
+    "Welding machines, consumables, electrodes, cutting solutions, and abrasives for structural fabrication, pipeline welding, and maintenance operations.",
+  "Lifting & Material Handling":
+    "Lifting equipment, rigging accessories, and material handling products certified to ASME B30, EN 818, and EN 13414 for safe industrial operations.",
+  "Industrial Supply":
+    "Comprehensive MRO products and industrial supplies sourced from trusted manufacturers for project, maintenance, and operational requirements.",
+  "Technical Procurement":
+    "Specialist tools, measurement equipment, and technical products sourced through our global manufacturer network.",
+  "Project Supply & Logistics":
+    "Coordinated supply solutions for shutdowns, projects, and operational timelines with dedicated logistics support.",
 };
 
 export default async function CataloguePage() {

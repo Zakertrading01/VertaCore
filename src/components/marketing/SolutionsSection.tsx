@@ -1,43 +1,50 @@
 import Link from "next/link";
-import { ArrowRight, Shield, Flame, Link2, Disc, Wrench, BookOpen } from "lucide-react";
+import { ArrowRight, Shield, Flame, Link2, Package, Cpu, Truck, BookOpen } from "lucide-react";
 import { SectionLabel } from "@/components/shared/SectionLabel";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 
 const solutions = [
   {
-    icon: Shield,
-    title: "Safety Systems",
-    slug: "safety-systems",
-    description: "Head, eye, hand and fall protection for the most demanding industrial environments.",
-    tags: ["CE Certified", "EN 361", "ANSI Z359"],
+    icon: Package,
+    title: "Industrial Supply Solutions",
+    slug: "industrial-supply",
+    description: "Comprehensive sourcing and supply of industrial products for project, maintenance, and operational requirements across multiple sectors.",
+    tags: ["MRO", "Multi-Sector", "Certified"],
   },
   {
     icon: Flame,
-    title: "Welding Systems",
-    slug: "welding-systems",
-    description: "SMAW, MIG/MAG, TIG and SAW welding machines and consumables from leading manufacturers.",
-    tags: ["AWS", "EN 499", "ISO 14341"],
+    title: "Welding & Fabrication Solutions",
+    slug: "welding-fabrication",
+    description: "Supply of welding machines, consumables, accessories, electrodes, cutting solutions, and fabrication support products designed for demanding industrial applications.",
+    tags: ["SMAW", "MIG/MAG", "TIG/SAW"],
+  },
+  {
+    icon: Shield,
+    title: "Safety & PPE Solutions",
+    slug: "safety-ppe",
+    description: "Reliable personal protective equipment and workplace safety products that support compliance, workforce protection, and operational safety standards.",
+    tags: ["CE Certified", "ANSI", "ISO 45001"],
   },
   {
     icon: Link2,
-    title: "Lifting & Rigging",
-    slug: "lifting-rigging",
-    description: "Chain hoists, lever blocks, wire rope slings, shackles and lifting accessories.",
-    tags: ["ASME B30", "EN 818", "BS 3551"],
+    title: "Lifting & Material Handling",
+    slug: "lifting-handling",
+    description: "Supply solutions for lifting equipment, rigging accessories, material handling products, and industrial support equipment for safe operational handling.",
+    tags: ["ASME B30", "EN 818", "Rigging"],
   },
   {
-    icon: Disc,
-    title: "Abrasives",
-    slug: "abrasives",
-    description: "Grinding discs, cutting wheels, flap discs and surface treatment products for fabrication.",
-    tags: ["EN 12413", "oSa", "MPA"],
+    icon: Cpu,
+    title: "Technical Procurement Support",
+    slug: "technical-procurement",
+    description: "Efficient sourcing support for specialized industrial requirements through an established network of trusted manufacturers and suppliers.",
+    tags: ["ISO 9001", "Global Sourcing"],
   },
   {
-    icon: Wrench,
-    title: "Industrial Tools",
-    slug: "industrial-tools",
-    description: "Hand tools, power tools and precision measurement equipment for site and workshop.",
-    tags: ["ISO 9001", "Calibrated"],
+    icon: Truck,
+    title: "Project Supply & Logistics Coordination",
+    slug: "project-logistics",
+    description: "Dedicated coordination and delivery support to ensure smooth supply execution for shutdowns, projects, and operational timelines.",
+    tags: ["Shutdown Projects", "On-Time Delivery"],
   },
 ];
 
@@ -53,18 +60,18 @@ export function SolutionsSection() {
         <div className="max-w-2xl mb-16">
           <ScrollReveal>
             <div className="inline-block px-3 py-1 mb-4 rounded-full bg-gold/10 border border-gold/20">
-              <SectionLabel className="!mb-0 text-gold">What We Supply</SectionLabel>
+              <SectionLabel className="!mb-0 text-gold">Our Services</SectionLabel>
             </div>
             <h2
               id="solutions-heading"
               className="text-dmd font-bold text-white tracking-tight leading-tight"
             >
-              Precision-sourced equipment
+              End-to-end industrial supply
               <br />
-              <span className="text-gradient-gold">for demanding environments.</span>
+              <span className="text-gradient-gold">for every operational need.</span>
             </h2>
             <p className="mt-5 text-body text-white/70 leading-relaxed">
-              Five core MRO capability areas. Every product certified, every supply traceable. Designed for maximum reliability and peak performance.
+              Six service areas covering the full scope of industrial supply — from sourcing and safety to lifting, welding, and project logistics.
             </p>
           </ScrollReveal>
         </div>

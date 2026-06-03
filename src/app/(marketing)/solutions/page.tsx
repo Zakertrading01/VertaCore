@@ -41,15 +41,15 @@ export default async function SolutionsPage() {
       <header className="bg-navy-dark pt-16 lg:pt-32 pb-8">
         <div className="container-base">
           <Breadcrumb items={breadcrumb} className="mb-6" />
-          <SectionLabel className="mb-3">MRO Supply Capabilities</SectionLabel>
+          <SectionLabel className="mb-3">Our Services</SectionLabel>
           <h1 className="text-dlg font-bold text-surface max-w-2xl tracking-tight">
-            Five core industrial
+            Industrial supply solutions
             <br />
-            <span className="text-gold">supply capabilities.</span>
+            <span className="text-gold">built around your operations.</span>
           </h1>
           <p className="mt-4 text-body text-surface/60 max-w-xl leading-relaxed">
-            VERTACORE supplies certified MRO equipment across five capability areas.
-            Every product meets international safety and quality standards.
+            Six dedicated service areas covering MRO supply, welding, safety, lifting,
+            specialist procurement, and project logistics coordination.
           </p>
         </div>
       </header>

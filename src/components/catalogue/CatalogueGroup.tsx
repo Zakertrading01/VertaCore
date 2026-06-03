@@ -4,11 +4,12 @@ import { CatalogueItemCard } from "./CatalogueItemCard";
 import type { CatalogueItemCard as CatalogueItemCardType } from "@/types/db";
 
 const SOLUTION_LINKS: Record<string, string> = {
-  "Safety & PPE": "/solutions/safety-systems",
-  "Welding": "/solutions/welding-systems",
-  "Lifting & Rigging": "/solutions/lifting-rigging",
-  "Abrasives": "/solutions/abrasives",
-  "Industrial Tools": "/solutions/industrial-tools",
+  "Safety & PPE": "/solutions/safety-ppe",
+  "Welding & Fabrication": "/solutions/welding-fabrication",
+  "Lifting & Material Handling": "/solutions/lifting-handling",
+  "Industrial Supply": "/solutions/industrial-supply",
+  "Technical Procurement": "/solutions/technical-procurement",
+  "Project Supply & Logistics": "/solutions/project-logistics",
 };
 
 interface CatalogueGroupProps {

@@ -7,13 +7,58 @@ async function main() {
   console.log("Seeding database...");
 
   // ── Solutions ─────────────────────────────────────────────
+  // Remove old slugs before upserting new ones
+  await db.solution.deleteMany({
+    where: {
+      slug: {
+        in: ["safety-systems", "welding-systems", "lifting-rigging", "abrasives", "industrial-tools"],
+      },
+    },
+  });
+
   const solutions = [
     {
-      slug: "safety-systems",
-      title: "Safety Systems",
-      subtitle: "Certified PPE for industrial environments",
+      slug: "industrial-supply",
+      title: "Industrial Supply Solutions",
+      subtitle: "Comprehensive sourcing across multiple industrial sectors",
       description:
-        "VERTACORE supplies a complete range of certified safety equipment trusted by Oil & Gas operators, marine contractors, and construction firms worldwide. Every product is verified against applicable EN, CE, and ANSI safety standards with full documentation available.",
+        "VERTACORE supplies certified industrial products for project, maintenance, and operational requirements across Oil & Gas, Marine, Construction, and Manufacturing sectors. Every product meets international safety and quality standards with full documentation available on request.",
+      icon: "Package",
+      features: [
+        "Project Supply",
+        "MRO Procurement",
+        "Multi-Sector Coverage",
+        "Certified Products",
+        "Operational Support",
+        "Global Sourcing",
+      ],
+      order: 1,
+      published: true,
+    },
+    {
+      slug: "welding-fabrication",
+      title: "Welding & Fabrication Solutions",
+      subtitle: "Welding machines, consumables, and fabrication support",
+      description:
+        "Supply of welding machines, consumables, accessories, electrodes, cutting solutions, and fabrication support products designed for demanding industrial applications. SMAW, MIG/MAG, TIG, and SAW processes covered with products from internationally recognised manufacturers.",
+      icon: "Flame",
+      features: [
+        "SMAW / Stick Welding",
+        "MIG/MAG (GMAW) Systems",
+        "TIG (GTAW) Equipment",
+        "SAW (Submerged Arc)",
+        "Welding Consumables",
+        "Cutting Solutions",
+      ],
+      order: 2,
+      published: true,
+    },
+    {
+      slug: "safety-ppe",
+      title: "Safety & PPE Solutions",
+      subtitle: "PPE and workplace safety products for industrial environments",
+      description:
+        "Reliable personal protective equipment and workplace safety products that support compliance, workforce protection, and operational safety standards. CE, EN, and ANSI certified products for Oil & Gas, Marine, Construction, and Manufacturing environments.",
       icon: "Shield",
       features: [
         "Head & Face Protection",
@@ -23,79 +68,61 @@ async function main() {
         "Hi-Visibility Clothing",
         "Fire-Resistant PPE",
       ],
-      order: 1,
-      published: true,
-    },
-    {
-      slug: "welding-systems",
-      title: "Welding Systems",
-      subtitle: "Complete welding equipment and consumables",
-      description:
-        "SMAW, MIG/MAG, TIG and SAW welding machines and consumables from internationally recognised manufacturers. Suitable for structural fabrication, pipeline welding, maintenance and offshore operations.",
-      icon: "Flame",
-      features: [
-        "SMAW / Stick Welding",
-        "MIG/MAG (GMAW) Systems",
-        "TIG (GTAW) Equipment",
-        "SAW (Submerged Arc)",
-        "Welding Consumables",
-        "Protective Equipment",
-      ],
-      order: 2,
-      published: true,
-    },
-    {
-      slug: "lifting-rigging",
-      title: "Lifting & Rigging",
-      subtitle: "Certified lifting equipment for critical operations",
-      description:
-        "Chain hoists, lever blocks, wire rope slings, shackles, lifting beams and rigging accessories certified to ASME B30, EN 818 and EN 13414. Suitable for offshore, marine, construction and industrial lifting operations.",
-      icon: "Link2",
-      features: [
-        "Chain Hoists & Lever Blocks",
-        "Wire Rope Slings",
-        "Round Slings",
-        "Shackles & Swivels",
-        "Lifting Beams & Spreaders",
-        "Rigging Hardware",
-      ],
       order: 3,
       published: true,
     },
     {
-      slug: "abrasives",
-      title: "Abrasives",
-      subtitle: "Surface preparation and finishing products",
+      slug: "lifting-handling",
+      title: "Lifting & Material Handling",
+      subtitle: "Certified lifting equipment and rigging accessories",
       description:
-        "Grinding discs, cutting wheels, flap discs and surface treatment products for fabrication shops, maintenance operations and site work. oSa and MPA certified products from internationally recognised manufacturers.",
-      icon: "Disc",
+        "Supply solutions for lifting equipment, rigging accessories, material handling products, and industrial support equipment for safe operational handling. Products certified to ASME B30, EN 818, and EN 13414 for offshore, marine, construction and industrial applications.",
+      icon: "Link2",
       features: [
-        "Grinding Discs",
-        "Cutting Wheels",
-        "Flap Discs",
-        "Fibre Discs",
-        "Wire Brushes",
-        "Surface Conditioning",
+        "Chain Hoists & Lever Blocks",
+        "Wire Rope Slings",
+        "Shackles & Swivels",
+        "Lifting Beams & Spreaders",
+        "Rigging Hardware",
+        "Material Handling Equipment",
       ],
       order: 4,
       published: true,
     },
     {
-      slug: "industrial-tools",
-      title: "Industrial Tools",
-      subtitle: "Hand tools, power tools and measurement equipment",
+      slug: "technical-procurement",
+      title: "Technical Procurement Support",
+      subtitle: "Specialized industrial sourcing through trusted networks",
       description:
-        "Professional-grade hand tools, power tools, torque equipment and precision measurement instruments for industrial maintenance, fabrication and operations teams across all industrial sectors.",
-      icon: "Wrench",
+        "Efficient sourcing support for specialized industrial requirements through an established network of trusted manufacturers and suppliers worldwide. ISO 9001:2015 certified procurement processes ensure quality, traceability, and compliance across all supply activities.",
+      icon: "Cpu",
       features: [
-        "Hand Tools",
-        "Power Tools",
-        "Torque Equipment",
-        "Measurement Instruments",
-        "Test & Inspection",
-        "Workshop Equipment",
+        "Specialist Sourcing",
+        "Global Manufacturer Network",
+        "Technical Specification Support",
+        "Compliance Documentation",
+        "Quality Verification",
+        "Cost Optimization",
       ],
       order: 5,
+      published: true,
+    },
+    {
+      slug: "project-logistics",
+      title: "Project Supply & Logistics Coordination",
+      subtitle: "Coordinated supply execution for shutdowns and projects",
+      description:
+        "Dedicated coordination and delivery support to ensure smooth supply execution for shutdowns, projects, and operational timelines. From procurement planning to final delivery, VERTACORE manages the full supply chain to meet your project schedule and budget requirements.",
+      icon: "Truck",
+      features: [
+        "Shutdown Supply Support",
+        "Project Coordination",
+        "Delivery Management",
+        "Inventory Planning",
+        "Multi-Vendor Coordination",
+        "Timeline Management",
+      ],
+      order: 6,
       published: true,
     },
   ];
@@ -105,6 +132,68 @@ async function main() {
       where: { slug: solution.slug },
       update: solution,
       create: solution,
+    });
+  }
+
+  // ── Categories (shown on /solutions listing page) ─────────
+  await db.category.deleteMany({});
+
+  const categories = [
+    {
+      name: "Safety & PPE",
+      slug: "safety-ppe",
+      description: "Personal protective equipment and workplace safety products that support compliance, workforce protection, and operational safety standards.",
+      icon: "🛡️",
+      order: 1,
+      published: true,
+    },
+    {
+      name: "Welding & Fabrication",
+      slug: "welding-fabrication",
+      description: "Welding machines, consumables, accessories, electrodes, cutting solutions, and fabrication support products.",
+      icon: "🔥",
+      order: 2,
+      published: true,
+    },
+    {
+      name: "Lifting & Material Handling",
+      slug: "lifting-handling",
+      description: "Lifting equipment, rigging accessories, material handling products, and industrial support equipment.",
+      icon: "⛓️",
+      order: 3,
+      published: true,
+    },
+    {
+      name: "Industrial Supply",
+      slug: "industrial-supply",
+      description: "Comprehensive sourcing and supply of industrial products for project, maintenance, and operational requirements across multiple sectors.",
+      icon: "📦",
+      order: 4,
+      published: true,
+    },
+    {
+      name: "Technical Procurement",
+      slug: "technical-procurement",
+      description: "Specialist sourcing for industrial requirements through an established network of trusted manufacturers and suppliers.",
+      icon: "🔧",
+      order: 5,
+      published: true,
+    },
+    {
+      name: "Project Supply & Logistics",
+      slug: "project-logistics",
+      description: "Coordinated delivery support for shutdowns, projects, and operational timelines.",
+      icon: "🚛",
+      order: 6,
+      published: true,
+    },
+  ];
+
+  for (const cat of categories) {
+    await db.category.upsert({
+      where: { slug: cat.slug },
+      update: cat,
+      create: cat,
     });
   }
 
@@ -202,7 +291,37 @@ async function main() {
 
   if (oilGas && marine && construction && manufacturing && mining && fabrication) {
     await db.solution.update({
-      where: { slug: "safety-systems" },
+      where: { slug: "industrial-supply" },
+      data: {
+        industries: {
+          connect: [
+            { id: oilGas.id },
+            { id: marine.id },
+            { id: construction.id },
+            { id: manufacturing.id },
+            { id: mining.id },
+            { id: fabrication.id },
+          ],
+        },
+      },
+    });
+
+    await db.solution.update({
+      where: { slug: "welding-fabrication" },
+      data: {
+        industries: {
+          connect: [
+            { id: oilGas.id },
+            { id: marine.id },
+            { id: fabrication.id },
+            { id: manufacturing.id },
+          ],
+        },
+      },
+    });
+
+    await db.solution.update({
+      where: { slug: "safety-ppe" },
       data: {
         industries: {
           connect: [
@@ -217,13 +336,27 @@ async function main() {
     });
 
     await db.solution.update({
-      where: { slug: "welding-systems" },
+      where: { slug: "lifting-handling" },
       data: {
         industries: {
           connect: [
             { id: oilGas.id },
             { id: marine.id },
-            { id: fabrication.id },
+            { id: construction.id },
+            { id: mining.id },
+          ],
+        },
+      },
+    });
+
+    await db.solution.update({
+      where: { slug: "technical-procurement" },
+      data: {
+        industries: {
+          connect: [
+            { id: oilGas.id },
+            { id: marine.id },
+            { id: construction.id },
             { id: manufacturing.id },
           ],
         },
@@ -231,13 +364,14 @@ async function main() {
     });
 
     await db.solution.update({
-      where: { slug: "lifting-rigging" },
+      where: { slug: "project-logistics" },
       data: {
         industries: {
           connect: [
             { id: oilGas.id },
             { id: marine.id },
             { id: construction.id },
+            { id: manufacturing.id },
             { id: mining.id },
           ],
         },
@@ -284,97 +418,59 @@ async function main() {
   ];
 
   // ── Catalogue Items ──────────────────────────────────────
+  // Remove old placeholder items that were replaced
+  await db.catalogueItem.deleteMany({
+    where: {
+      name: {
+        in: [
+          "3M SecureFit 400 Series Eyewear",
+          "MSA V-Gard Safety Helmet",
+          "Honeywell North 7700 Half Mask",
+          "Kito CB Series Chain Block",
+          "Crosby G-209 Screw Pin Shackle",
+          "Lincoln Electric Idealarc DC-600",
+          "ESAB Aristo 500ix",
+          "Norton Quantum3 Grinding Wheels",
+          "3M Cubitron II Flap Disc 967A",
+        ],
+      },
+    },
+  });
+
   const catalogueItems = [
     // Safety & PPE
     {
-      name: "3M SecureFit 400 Series Eyewear",
-      description: "Anti-scratch and anti-fog safety glasses with pressure diffusion temple technology.",
+      name: "RIGMAN Impact Protection Gloves",
+      description: "Heavy-duty mechanical protection gloves with reinforced impact-resistant TPR knuckle guards. Designed for oil & gas, construction, and fabrication operations.",
       categoryGroup: "Safety & PPE",
-      brandName: "3M",
-      image: "/images/catalogue/3m-glasses.png",
-      certTags: ["EN 166:2001", "CE"],
+      brandName: "RIGMAN",
+      image: "/images/catalogue/rigman-impact-gloves.png",
+      certTags: ["EN 388", "EN 420", "CE"],
       order: 1,
     },
     {
-      name: "MSA V-Gard Safety Helmet",
-      description: "Industry-leading protective helmet with Fas-Trac III suspension for superior comfort.",
+      name: "RIGMAN Full Body Safety Harness",
+      description: "Full body fall arrest harness with dorsal and sternal attachment points. Ergonomic design for extended wear in elevated work environments.",
       categoryGroup: "Safety & PPE",
-      brandName: "MSA Safety",
-      image: "/images/catalogue/msa-helmet.png",
-      certTags: ["EN 397", "ANSI/ISEA Z89.1"],
+      brandName: "RIGMAN",
+      image: "/images/catalogue/rigman-harness.png",
+      certTags: ["EN 361", "EN 362", "CE"],
       order: 2,
     },
     {
-      name: "Honeywell North 7700 Half Mask",
-      description: "Premium silicone half mask respirator for ultimate comfort and protection in industrial environments.",
+      name: "RIGMAN R16S3 Safety Boots",
+      description: "S3-rated safety boots with steel toe cap, anti-perforation midsole, and waterproof upper. Built for demanding industrial site conditions.",
       categoryGroup: "Safety & PPE",
-      brandName: "Honeywell",
-      image: "/images/catalogue/honeywell-mask.png",
-      certTags: ["NIOSH", "EN 140"],
+      brandName: "RIGMAN",
+      image: "/images/catalogue/rigman-r16s3-boots.png",
+      certTags: ["EN ISO 20345 S3", "CE"],
       order: 3,
     },
-    // Welding
-    {
-      name: "Lincoln Electric Idealarc DC-600",
-      description: "Rugged industrial DC multi-process welding power source for heavy fabrication and construction.",
-      categoryGroup: "Welding",
-      brandName: "Lincoln Electric",
-      image: "/images/catalogue/lincoln-dc600.png",
-      certTags: ["CSA", "NEMA", "CE"],
-      order: 4,
-    },
-    {
-      name: "ESAB Aristo 500ix",
-      description: "Heavy-duty pulsed secondary switched power source for high-quality MIG/MAG and TIG welding.",
-      categoryGroup: "Welding",
-      brandName: "ESAB",
-      image: "/images/catalogue/esab-aristo.png",
-      certTags: ["ISO 9001", "CE"],
-      order: 5,
-    },
-    // Lifting & Rigging
-    {
-      name: "Kito CB Series Chain Block",
-      description: "Robust hand chain hoist with shock-resistant gear casing and high-precision gears.",
-      categoryGroup: "Lifting & Rigging",
-      brandName: "Kito",
-      image: "/images/catalogue/kito-hoist.png",
-      certTags: ["ASME B30.16", "ISO 9001"],
-      order: 6,
-    },
-    {
-      name: "Crosby G-209 Screw Pin Shackle",
-      description: "Forged, quenched and tempered screw pin anchor shackle for critical lifting operations.",
-      categoryGroup: "Lifting & Rigging",
-      brandName: "Crosby",
-      image: "/images/catalogue/crosby-shackle.png",
-      certTags: ["RR-C-271F", "CE"],
-      order: 7,
-    },
-    // Abrasives
-    {
-      name: "Norton Quantum3 Grinding Wheels",
-      description: "High-performance ceramic alumina grinding wheels for faster metal removal and longer life.",
-      categoryGroup: "Abrasives",
-      brandName: "Norton",
-      image: "/images/catalogue/norton-wheel.png",
-      certTags: ["oSa", "EN 12413"],
-      order: 8,
-    },
-    {
-      name: "3M Cubitron II Flap Disc 967A",
-      description: "Engineered to cut faster and last longer than traditional ceramic abrasives.",
-      categoryGroup: "Abrasives",
-      brandName: "3M",
-      image: "/images/catalogue/cubitron-disc.png",
-      certTags: ["oSa", "ISO 9001"],
-      order: 9,
-    },
-    // Industrial Tools
+    // Technical Procurement
     {
       name: "DeWalt DCD996 Hammer Drill",
       description: "High-power, high-efficiency brushless motor delivers up to 75% more runtime vs. brushed.",
-      categoryGroup: "Industrial Tools",
+      categoryGroup: "Technical Procurement",
       brandName: "DeWalt",
       image: "/images/catalogue/dewalt-drill.png",
       certTags: ["UL", "CE"],
@@ -383,7 +479,7 @@ async function main() {
     {
       name: "Stanley FatMax Tape Measure",
       description: "Heavy-duty 8m/26ft tape measure with 3.3m standout and Mylar coated blade.",
-      categoryGroup: "Industrial Tools",
+      categoryGroup: "Technical Procurement",
       brandName: "Stanley",
       image: "/images/catalogue/stanley-tape.png",
       certTags: ["Class II"],
