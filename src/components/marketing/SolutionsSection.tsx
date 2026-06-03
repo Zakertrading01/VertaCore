@@ -87,7 +87,7 @@ export function SolutionsSection() {
                   className="card-base group flex flex-col p-8 h-full bg-navy/50 backdrop-blur-sm border-white/5 hover:border-gold/40 hover:bg-navy/80 transition-all duration-300 relative overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                  
+
                   <div className="flex items-start justify-between mb-6 relative z-10">
                     <div className="p-4 rounded-2xl bg-white/5 group-hover:bg-gold/10 group-hover:scale-110 transition-all duration-300">
                       <Icon className="h-6 w-6 text-white/70 group-hover:text-gold transition-colors" />
@@ -120,29 +120,6 @@ export function SolutionsSection() {
             );
           })}
 
-          {/* Browse catalogue card */}
-          <ScrollReveal delay={solutions.length * 0.1}>
-            <Link
-              href="/catalogue"
-              className="card-glass group flex flex-col items-center justify-center p-8 text-center h-full min-h-[280px] bg-gold/10 hover:bg-gold/20 border border-gold/20 hover:border-gold/40 transition-all duration-300 relative overflow-hidden rounded-2xl"
-            >
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gold/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-              
-              <div className="p-4 rounded-full bg-gold/20 mb-5 group-hover:scale-110 transition-transform duration-300 relative z-10">
-                <BookOpen className="h-8 w-8 text-gold" />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3 relative z-10">
-                Browse Full Catalogue
-              </h3>
-              <p className="text-sm text-white/70 mb-6 relative z-10 max-w-[200px]">
-                Explore our complete range of certified industrial equipment.
-              </p>
-              <span className="inline-flex items-center gap-2 text-sm font-semibold text-gold group-hover:text-white transition-colors relative z-10 bg-white/5 px-5 py-2.5 rounded-full group-hover:bg-gold/20">
-                View Catalogue
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </Link>
-          </ScrollReveal>
         </div>
       </div>
     </section>

@@ -432,60 +432,17 @@ async function main() {
           "ESAB Aristo 500ix",
           "Norton Quantum3 Grinding Wheels",
           "3M Cubitron II Flap Disc 967A",
+          "RIGMAN Impact Protection Gloves",
+          "RIGMAN Full Body Safety Harness",
+          "RIGMAN R16S3 Safety Boots",
+          "DeWalt DCD996 Hammer Drill",
+          "Stanley FatMax Tape Measure",
         ],
       },
     },
   });
 
-  const catalogueItems = [
-    // Safety & PPE
-    {
-      name: "RIGMAN Impact Protection Gloves",
-      description: "Heavy-duty mechanical protection gloves with reinforced impact-resistant TPR knuckle guards. Designed for oil & gas, construction, and fabrication operations.",
-      categoryGroup: "Safety & PPE",
-      brandName: "RIGMAN",
-      image: "/images/catalogue/rigman-impact-gloves.png",
-      certTags: ["EN 388", "EN 420", "CE"],
-      order: 1,
-    },
-    {
-      name: "RIGMAN Full Body Safety Harness",
-      description: "Full body fall arrest harness with dorsal and sternal attachment points. Ergonomic design for extended wear in elevated work environments.",
-      categoryGroup: "Safety & PPE",
-      brandName: "RIGMAN",
-      image: "/images/catalogue/rigman-harness.png",
-      certTags: ["EN 361", "EN 362", "CE"],
-      order: 2,
-    },
-    {
-      name: "RIGMAN R16S3 Safety Boots",
-      description: "S3-rated safety boots with steel toe cap, anti-perforation midsole, and waterproof upper. Built for demanding industrial site conditions.",
-      categoryGroup: "Safety & PPE",
-      brandName: "RIGMAN",
-      image: "/images/catalogue/rigman-r16s3-boots.png",
-      certTags: ["EN ISO 20345 S3", "CE"],
-      order: 3,
-    },
-    // Technical Procurement
-    {
-      name: "DeWalt DCD996 Hammer Drill",
-      description: "High-power, high-efficiency brushless motor delivers up to 75% more runtime vs. brushed.",
-      categoryGroup: "Technical Procurement",
-      brandName: "DeWalt",
-      image: "/images/catalogue/dewalt-drill.png",
-      certTags: ["UL", "CE"],
-      order: 10,
-    },
-    {
-      name: "Stanley FatMax Tape Measure",
-      description: "Heavy-duty 8m/26ft tape measure with 3.3m standout and Mylar coated blade.",
-      categoryGroup: "Technical Procurement",
-      brandName: "Stanley",
-      image: "/images/catalogue/stanley-tape.png",
-      certTags: ["Class II"],
-      order: 11,
-    },
-  ];
+  const catalogueItems: never[] = [];
 
   for (const item of catalogueItems) {
     const existing = await db.catalogueItem.findFirst({ where: { name: item.name } });
