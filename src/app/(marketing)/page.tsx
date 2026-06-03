@@ -79,9 +79,9 @@ export default async function HomePage() {
       <HeroSection />
       <BrandsBand />
       <SolutionsSection />
+      <WhyVertacoreSection />
       <IndustriesSection />
       <QualitySection />
-      <WhyVertacoreSection />
       <MetricsBand />
       <ProjectsSection projects={projects} />
       <InsightsSection insights={insights} />

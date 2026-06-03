@@ -70,225 +70,149 @@ export function WhyVertacoreSection() {
   return (
     <>
     <section
-      className="relative overflow-hidden bg-slate-50 border-t border-navy/5"
+      className="relative overflow-hidden bg-[#050A14] border-t border-white/5"
       aria-labelledby="why-vertacore-heading"
     >
       <style>{`
-        @keyframes float-slow {
-          0% { transform: translate(0px, 0px) rotate(0deg); }
-          50% { transform: translate(-30px, -20px) rotate(5deg); }
-          100% { transform: translate(0px, 0px) rotate(0deg); }
+        @keyframes gold-float {
+          0% { transform: translateY(100px) scale(0); opacity: 0; }
+          20% { transform: translateY(0px) scale(1); opacity: var(--p-opacity, 0.8); }
+          80% { transform: translateY(-400px) scale(1); opacity: var(--p-opacity, 0.8); }
+          100% { transform: translateY(-500px) scale(0); opacity: 0; }
         }
-        @keyframes float-slower {
-          0% { transform: translate(0px, 0px) scale(1); }
-          50% { transform: translate(20px, 30px) scale(1.1); }
-          100% { transform: translate(0px, 0px) scale(1); }
+        @keyframes gold-pulse {
+          0%, 100% { filter: brightness(1); }
+          50% { filter: brightness(1.5); box-shadow: 0 0 15px 4px rgba(250,204,21,0.6); }
         }
       `}</style>
 
-      {/* Subtle Animated Modern Light Background */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        <div 
-          className="absolute top-[-10%] left-[-10%] w-[800px] h-[800px] bg-blue-100/40 rounded-full blur-[120px]" 
-          style={{ animation: 'float-slow 20s ease-in-out infinite' }} 
-        />
-        <div 
-          className="absolute top-[20%] right-[-10%] w-[600px] h-[600px] bg-gold/10 rounded-full blur-[100px]" 
-          style={{ animation: 'float-slower 25s ease-in-out infinite' }} 
-        />
-        <div 
-          className="absolute bottom-[-10%] left-[20%] w-[700px] h-[700px] bg-indigo-50/50 rounded-full blur-[100px]" 
-          style={{ animation: 'float-slow 22s ease-in-out infinite reverse' }} 
-        />
-        {/* Subtle grid pattern overlay */}
-        <div 
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: 'radial-gradient(#020617 1px, transparent 1px)',
-            backgroundSize: '24px 24px',
-          }}
-        />
-      </div>
-
-      {/* 1. What We Do & Portal Registration (Side-by-Side) */}
-      <div className="container-base pt-6 pb-10 md:pt-10 md:pb-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-          {/* Left: What We Do */}
-          <div className="lg:col-span-7">
-            <ScrollReveal>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-navy/5 border border-navy/10 mb-6">
-                <div className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-                <span className="text-xs font-bold tracking-widest text-navy uppercase">Company Overview</span>
-              </div>
-              <h2
-                id="why-vertacore-heading"
-                className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-navy tracking-tight leading-tight mb-6"
-              >
-                What <span className="text-transparent bg-clip-text bg-gradient-to-r from-navy to-blue-600">We Do</span>
-              </h2>
-              <div className="w-20 h-1.5 bg-gradient-to-r from-gold to-yellow-200 rounded-full mb-8" />
-              
-              <div className="space-y-6 text-lg text-navy/70 leading-relaxed max-w-2xl">
-                <p>
-                  Since our founding, VERTACORE has been supplying demanding sectors with an extensive range of certified MRO supplies, welding machinery, safety equipment, and industrial consumables. 
-                </p>
-                <p>
-                  Whether you are a local engineering lead or a global procurement manager, we are committed to delivering the highest quality products and technical support to keep your operations running safely and efficiently.
-                </p>
-                <p className="text-base text-navy/50">
-                  Our experience and continuous technical training ensure that clients get the service, compliance standards, and up-to-date documentation that help improve their operational efficiency and bottom line.
-                </p>
-              </div>
-
-              <div className="flex flex-wrap gap-4 mt-10">
-                <Link
-                  href="/about"
-                  className="group inline-flex items-center gap-2 bg-white border border-navy/10 hover:border-gold/30 hover:shadow-lg text-navy font-semibold px-8 py-4 rounded-xl transition-all duration-300"
-                >
-                  About Us
-                  <ArrowRight className="w-4 h-4 text-navy/50 group-hover:text-gold transition-colors" />
-                </Link>
-                <Link
-                  href="/solutions"
-                  className="group inline-flex items-center gap-2 bg-navy hover:bg-gold text-white hover:text-navy font-semibold px-8 py-4 rounded-xl shadow-lg shadow-navy/20 transition-all duration-300"
-                >
-                  Our Services
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </ScrollReveal>
-          </div>
-
-          {/* Right: Register for Enterprise Account */}
-          <div className="lg:col-span-5 relative">
-            <ScrollReveal delay={0.15}>
-              <div className="absolute -inset-1 bg-gradient-to-r from-gold via-yellow-200 to-gold rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
-              <div className="relative bg-white/80 backdrop-blur-xl p-8 md:p-10 border border-white/40 shadow-2xl rounded-2xl overflow-hidden">
-                {/* Decorative corner glow */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 rounded-bl-full pointer-events-none" />
-
-                <h3 className="text-2xl font-bold text-navy mb-3">
-                  Enterprise Portal
-                </h3>
-                <p className="text-sm text-navy/60 mb-8 leading-relaxed">
-                  Gain exclusive access to contract pricing, fast technical support, and comprehensive digital documentation management.
-                </p>
-
-                <ul className="space-y-4 mb-10">
-                  {[
-                    "Contract & Discounted Pricing",
-                    "Dedicated Account Management",
-                    "Fast 24-Hour Technical Response",
-                    "Digital compliance & SDS library",
-                    "Customized reordering lists",
-                  ].map((benefit, i) => (
-                    <li key={i} className="flex items-start gap-3 text-[15px] font-medium text-navy/80">
-                      <div className="mt-0.5 p-1 rounded-full bg-gold/10">
-                        <CheckCircle className="h-4 w-4 text-gold flex-shrink-0" />
-                      </div>
-                      <span>{benefit}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <Link
-                  href="/contact"
-                  className="group flex items-center justify-between w-full bg-navy text-white font-bold px-6 py-4 rounded-xl hover:bg-gold hover:text-navy transition-colors duration-300 shadow-md"
-                >
-                  <span>Request Portal Access</span>
-                  <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-navy/10 transition-colors">
-                    <ArrowRight className="w-4 h-4" />
-                  </div>
-                </Link>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </div> {/* End container-base */}
-
-      {/* 2. Horizontal Services Marquee (Full Width Navy Theme) */}
-      <div className="w-full bg-navy py-10 border-y border-white/5 relative overflow-hidden z-10 shadow-2xl">
-        {/* Fading Edges for Dark Theme */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-navy to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-navy to-transparent z-10 pointer-events-none" />
+      {/* Gold Particles Modern Background */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden bg-[#020617]">
         
-        <style>{`
-          @keyframes slide-marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-        `}</style>
+        {/* Soft background lighting */}
+        <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-gold/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px]" />
         
-        <div 
-          className="flex w-max items-center" 
-          style={{ animation: 'slide-marquee 40s linear infinite' }}
-        >
-          {/* Render the array twice to create a seamless infinite loop effect */}
-          {[...services, ...services].map((srv, idx) => {
-            const Icon = srv.icon;
+        {/* Particles */}
+        <div className="absolute inset-0">
+          {[...Array(40)].map((_, i) => {
+            const size = Math.random() * 4 + 1; // 1px to 5px
+            const left = Math.random() * 100; // 0% to 100%
+            const top = Math.random() * 100 + 20; // start lower
+            const duration = Math.random() * 15 + 15; // 15s to 30s
+            const delay = Math.random() * -30; // Random start time
+            const opacity = Math.random() * 0.6 + 0.3; // 0.3 to 0.9
+            
             return (
-              <div key={idx} className="flex flex-col items-center justify-center p-2 w-[140px] md:w-[180px] hover:bg-white/5 transition-all group flex-shrink-0 rounded-xl cursor-pointer">
-                <div className="p-3 rounded-xl bg-white/5 shadow-sm border border-white/10 group-hover:bg-gold/20 group-hover:-translate-y-1 transition-all duration-300 mb-3">
-                  <Icon className="h-5 w-5 text-gold group-hover:scale-110 transition-transform duration-300" />
-                </div>
-                <span className="text-[11px] md:text-sm font-semibold text-white/80 group-hover:text-gold transition-colors text-center leading-tight px-2">
-                  {srv.name}
-                </span>
-              </div>
+              <div
+                key={i}
+                className="absolute rounded-full bg-gold shadow-[0_0_8px_1px_rgba(250,204,21,0.5)]"
+                style={{
+                  width: `${size}px`,
+                  height: `${size}px`,
+                  left: `${left}%`,
+                  top: `${top}%`,
+                  ['--p-opacity' as any]: opacity,
+                  animation: `
+                    gold-float ${duration}s linear infinite,
+                    gold-pulse ${Math.random() * 3 + 2}s ease-in-out infinite
+                  `,
+                  animationDelay: `${delay}s, ${delay}s`
+                }}
+              />
             );
           })}
         </div>
+
+        {/* Ambient bottom glow grounding the particles */}
+        <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-gradient-to-t from-gold/10 to-transparent blur-[80px]" />
+
+        {/* Shadow overlay to ground the edges */}
+        <div className="absolute inset-0 shadow-[inset_0_0_150px_100px_#020617]" />
       </div>
 
-      {/* 3. Three Core Focus Columns */}
-      <div className="relative pt-8 pb-12 md:pt-10 md:pb-16 border-b border-navy/5">
-        <div className="container-base relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <ScrollReveal delay={0.05}>
-              <div className="group flex flex-col h-full p-8 bg-white/70 backdrop-blur-xl border border-white shadow-xl hover:shadow-2xl hover:-translate-y-2 rounded-2xl transition-all duration-500 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-yellow-200 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-                <div className="p-4 rounded-xl bg-gradient-to-br from-gold/20 to-gold/5 w-fit mb-6 group-hover:scale-110 transition-transform duration-500 border border-gold/10">
-                  <Award className="h-6 w-6 text-gold" />
-                </div>
-                <h3 className="text-xl font-bold text-navy mb-3 group-hover:text-blue-600 transition-colors">
-                  Nuclear & High-Integrity QA
-                </h3>
-                <p className="text-[15px] text-navy/70 leading-relaxed">
-                  VERTACORE’s rigorous quality auditing and material certification pipeline allow us to service critical military, power, and high-pressure manufacturing operations globally.
-                </p>
-              </div>
-            </ScrollReveal>
+      {/* Why Verta Core Content */}
+      <div className="container-base pt-10 pb-12 md:pt-16 md:pb-16 relative z-10">
+        <div className="max-w-4xl mb-10">
+          <ScrollReveal>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold/10 border border-gold/20 mb-4">
+              <div className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
+              <span className="text-[11px] font-bold tracking-widest text-gold uppercase">Why Verta Core</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-5">
+              Supporting Industrial Growth Across the <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-yellow-200">UAE</span>
+            </h2>
+            <div className="w-16 h-1.5 bg-gradient-to-r from-gold to-yellow-200 rounded-full mb-6" />
+            <p className="text-base md:text-lg text-white/70 leading-relaxed border-l-4 border-gold pl-5 py-1">
+              From shutdown requirements to large-scale EPC projects, Verta Core is committed to delivering value-driven industrial solutions that support productivity, safety, and project success.
+            </p>
+          </ScrollReveal>
+        </div>
 
-            <ScrollReveal delay={0.15}>
-              <div className="group flex flex-col h-full p-8 bg-white/70 backdrop-blur-xl border border-white shadow-xl hover:shadow-2xl hover:-translate-y-2 rounded-2xl transition-all duration-500 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-yellow-200 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-                <div className="p-4 rounded-xl bg-gradient-to-br from-gold/20 to-gold/5 w-fit mb-6 group-hover:scale-110 transition-transform duration-500 border border-gold/10">
-                  <Globe className="h-6 w-6 text-gold" />
-                </div>
-                <h3 className="text-xl font-bold text-navy mb-3 group-hover:text-blue-600 transition-colors">
-                  Global Sourcing Network
-                </h3>
-                <p className="text-[15px] text-navy/70 leading-relaxed">
-                  We maintain a robust network of premium international manufacturers to procure specialized, standard-compliant MRO supplies that others cannot find.
-                </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* 1. Trusted Industrial Partner */}
+          <ScrollReveal delay={0.1}>
+            <div className="group flex flex-col h-full p-6 bg-white/5 backdrop-blur-md border border-white/10 hover:border-gold/40 hover:bg-white/10 hover:-translate-y-1.5 rounded-2xl transition-all duration-300 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-yellow-200 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+              <div className="p-3 rounded-xl bg-gold/10 w-fit mb-4 group-hover:scale-110 transition-transform duration-300 border border-gold/20">
+                <ShieldCheck className="h-5 w-5 text-gold" />
               </div>
-            </ScrollReveal>
+              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-gold transition-colors leading-snug">
+                Trusted Industrial Partner
+              </h3>
+              <p className="text-[14px] text-white/70 leading-relaxed">
+                We understand the demands of high-specification industrial projects and deliver solutions aligned with international standards and project requirements.
+              </p>
+            </div>
+          </ScrollReveal>
 
-            <ScrollReveal delay={0.25}>
-              <div className="group flex flex-col h-full p-8 bg-white/70 backdrop-blur-xl border border-white shadow-xl hover:shadow-2xl hover:-translate-y-2 rounded-2xl transition-all duration-500 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-yellow-200 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-                <div className="p-4 rounded-xl bg-gradient-to-br from-gold/20 to-gold/5 w-fit mb-6 group-hover:scale-110 transition-transform duration-500 border border-gold/10">
-                  <Users className="h-6 w-6 text-gold" />
-                </div>
-                <h3 className="text-xl font-bold text-navy mb-3 group-hover:text-blue-600 transition-colors">
-                  Agile, Independent Partner
-                </h3>
-                <p className="text-[15px] text-navy/70 leading-relaxed">
-                  We are scaled to handle procurement workflows for multinational corporations, yet remain nimble and independent to make rapid, custom delivery decisions when you need them.
-                </p>
+          {/* 2. Responsive Supply Chain */}
+          <ScrollReveal delay={0.2}>
+            <div className="group flex flex-col h-full p-6 bg-white/5 backdrop-blur-md border border-white/10 hover:border-gold/40 hover:bg-white/10 hover:-translate-y-1.5 rounded-2xl transition-all duration-300 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-yellow-200 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+              <div className="p-3 rounded-xl bg-gold/10 w-fit mb-4 group-hover:scale-110 transition-transform duration-300 border border-gold/20">
+                <Truck className="h-5 w-5 text-gold" />
               </div>
-            </ScrollReveal>
-          </div>
+              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-gold transition-colors leading-snug">
+                Responsive Supply Chain
+              </h3>
+              <p className="text-[14px] text-white/70 leading-relaxed">
+                Our agile sourcing network and operational efficiency enable timely delivery and dependable project support.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          {/* 3. Quality & Compliance Focused */}
+          <ScrollReveal delay={0.3}>
+            <div className="group flex flex-col h-full p-6 bg-white/5 backdrop-blur-md border border-white/10 hover:border-gold/40 hover:bg-white/10 hover:-translate-y-1.5 rounded-2xl transition-all duration-300 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-yellow-200 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+              <div className="p-3 rounded-xl bg-gold/10 w-fit mb-4 group-hover:scale-110 transition-transform duration-300 border border-gold/20">
+                <FileCheck className="h-5 w-5 text-gold" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-gold transition-colors leading-snug">
+                Quality & Compliance
+              </h3>
+              <p className="text-[14px] text-white/70 leading-relaxed">
+                We work with trusted manufacturers and globally recognized brands to ensure reliability, durability, and compliance.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          {/* 4. Industry-Focused Expertise */}
+          <ScrollReveal delay={0.4}>
+            <div className="group flex flex-col h-full p-6 bg-white/5 backdrop-blur-md border border-white/10 hover:border-gold/40 hover:bg-white/10 hover:-translate-y-1.5 rounded-2xl transition-all duration-300 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-yellow-200 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+              <div className="p-3 rounded-xl bg-gold/10 w-fit mb-4 group-hover:scale-110 transition-transform duration-300 border border-gold/20">
+                <Settings className="h-5 w-5 text-gold" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-gold transition-colors leading-snug">
+                Industry Expertise
+              </h3>
+              <p className="text-[14px] text-white/70 leading-relaxed">
+                Our team brings practical market knowledge tailored to oil & gas, fabrication, construction, and industrial operations.
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

@@ -132,28 +132,21 @@ export function HeroSection() {
         <div className="container-base">
           <div className="max-w-3xl pt-2 lg:pt-28">
 
-            <ScrollReveal delay={0.1}>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 mb-4 md:mb-6 backdrop-blur-md shadow-lg hover:bg-white/10 transition-colors">
-                <ShieldCheck className="h-3.5 w-3.5 text-gold" />
-                <span className="text-[10px] font-bold text-white tracking-[0.15em] uppercase">
-                  ISO 9001:2015 Certified
-                </span>
-              </div>
-            </ScrollReveal>
+
 
             <ScrollReveal delay={0.2}>
-              <h1 className="text-3xl md:text-6xl lg:text-[72px] font-black leading-[1.05] tracking-tighter mb-4 md:mb-6 drop-shadow-2xl uppercase select-none flex flex-wrap">
-                <span className="flex text-surface mr-3">
-                  {"PREMIUM".split("").map((char, i) => (
-                    <span key={`p-${i}`} className="inline-block hover:scale-125 hover:-translate-y-2 hover:text-gold active:scale-90 transition-all duration-200 cursor-pointer">
+              <h1 className="text-3xl md:text-5xl lg:text-[60px] font-black leading-[1.1] tracking-tighter mb-4 md:mb-6 drop-shadow-2xl select-none flex flex-wrap">
+                <span className="flex flex-wrap text-surface mr-3">
+                  {"Engineering Reliability.".split("").map((char, i) => (
+                    <span key={`er-${i}`} className={`inline-block hover:scale-125 hover:-translate-y-2 hover:text-gold active:scale-90 transition-all duration-200 cursor-pointer ${char === ' ' ? 'w-2 md:w-4' : ''}`}>
                       {char}
                     </span>
                   ))}
                 </span>
-                <span className="hidden md:block w-full h-0"></span>
-                <span className="flex text-gold">
-                  {"INDUSTRIAL SOLUTIONS".split("").map((char, i) => (
-                    <span key={`is-${i}`} className={`inline-block hover:scale-125 hover:-translate-y-2 hover:text-white active:scale-90 transition-all duration-200 cursor-pointer ${char === ' ' ? 'w-3 md:w-5' : ''}`}>
+                <span className="block w-full h-0"></span>
+                <span className="flex flex-wrap text-gold mt-1 lg:mt-2">
+                  {"Delivering Confidence.".split("").map((char, i) => (
+                    <span key={`dc-${i}`} className={`inline-block hover:scale-125 hover:-translate-y-2 hover:text-white active:scale-90 transition-all duration-200 cursor-pointer ${char === ' ' ? 'w-2 md:w-4' : ''}`}>
                       {char}
                     </span>
                   ))}
@@ -163,7 +156,7 @@ export function HeroSection() {
 
             <ScrollReveal delay={0.3}>
               <p className="text-sm md:text-lg text-white/70 lg:text-white/90 max-w-xl leading-relaxed mb-6 md:mb-8 font-light tracking-wide cursor-pointer hover:text-white active:scale-[0.98] transition-all duration-200 select-none">
-                A one-stop supply shop for top-rate products serving the welding, lifting, safety, and heavy manufacturing industries worldwide.
+                Industrial Solutions Built for Critical Projects.
               </p>
             </ScrollReveal>
 
