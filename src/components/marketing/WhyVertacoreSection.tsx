@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { CheckCircle, ShieldCheck, Truck, Wrench, Settings, BookOpen, FileCheck, Layers, Award, Users, Globe, CheckSquare, ArrowRight } from "lucide-react";
 import { SectionLabel } from "@/components/shared/SectionLabel";
@@ -66,6 +66,21 @@ const testimonials = [
 
 export function WhyVertacoreSection() {
   const [expandedTestimonial, setExpandedTestimonial] = useState<number | null>(null);
+  const [particles, setParticles] = useState<any[]>([]);
+
+  useEffect(() => {
+    setParticles(
+      [...Array(40)].map(() => ({
+        size: Math.random() * 4 + 1,
+        left: Math.random() * 100,
+        top: Math.random() * 100 + 20,
+        duration: Math.random() * 15 + 15,
+        delay: Math.random() * -30,
+        opacity: Math.random() * 0.6 + 0.3,
+        pulseDuration: Math.random() * 3 + 2
+      }))
+    );
+  }, []);
 
   return (
     <>
@@ -95,33 +110,24 @@ export function WhyVertacoreSection() {
         
         {/* Particles */}
         <div className="absolute inset-0">
-          {[...Array(40)].map((_, i) => {
-            const size = Math.random() * 4 + 1; // 1px to 5px
-            const left = Math.random() * 100; // 0% to 100%
-            const top = Math.random() * 100 + 20; // start lower
-            const duration = Math.random() * 15 + 15; // 15s to 30s
-            const delay = Math.random() * -30; // Random start time
-            const opacity = Math.random() * 0.6 + 0.3; // 0.3 to 0.9
-            
-            return (
-              <div
-                key={i}
-                className="absolute rounded-full bg-gold shadow-[0_0_8px_1px_rgba(250,204,21,0.5)]"
-                style={{
-                  width: `${size}px`,
-                  height: `${size}px`,
-                  left: `${left}%`,
-                  top: `${top}%`,
-                  ['--p-opacity' as any]: opacity,
-                  animation: `
-                    gold-float ${duration}s linear infinite,
-                    gold-pulse ${Math.random() * 3 + 2}s ease-in-out infinite
-                  `,
-                  animationDelay: `${delay}s, ${delay}s`
-                }}
-              />
-            );
-          })}
+          {particles.map((p, i) => (
+            <div
+              key={i}
+              className="absolute rounded-full bg-gold shadow-[0_0_8px_1px_rgba(250,204,21,0.5)]"
+              style={{
+                width: `${p.size}px`,
+                height: `${p.size}px`,
+                left: `${p.left}%`,
+                top: `${p.top}%`,
+                ['--p-opacity' as any]: p.opacity,
+                animation: `
+                  gold-float ${p.duration}s linear infinite,
+                  gold-pulse ${p.pulseDuration}s ease-in-out infinite
+                `,
+                animationDelay: `${p.delay}s, ${p.delay}s`
+              }}
+            />
+          ))}
         </div>
 
         {/* Ambient bottom glow grounding the particles */}

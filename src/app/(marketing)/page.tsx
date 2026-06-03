@@ -4,6 +4,7 @@ import { organizationSchema, websiteSchema } from "@/lib/schema";
 import { db } from "@/lib/db";
 import { HeroSection } from "@/components/marketing/HeroSection";
 import { BrandsBand } from "@/components/marketing/BrandsBand";
+import { IntroductionSection } from "@/components/marketing/IntroductionSection";
 import { SolutionsSection } from "@/components/marketing/SolutionsSection";
 import { IndustriesSection } from "@/components/marketing/IndustriesSection";
 import { QualitySection } from "@/components/marketing/QualitySection";
@@ -14,8 +15,6 @@ import { InsightsSection } from "@/components/marketing/InsightsSection";
 import { CTASection } from "@/components/marketing/CTASection";
 
 export const dynamic = 'force-dynamic';
-
-
 
 export const metadata: Metadata = buildMetadata({
   title: "VERTACORE — Certified Industrial MRO Supply",
@@ -78,8 +77,9 @@ export default async function HomePage() {
 
       <HeroSection />
       <BrandsBand />
-      <SolutionsSection />
+      <IntroductionSection />
       <WhyVertacoreSection />
+      <SolutionsSection />
       <IndustriesSection />
       <QualitySection />
       <MetricsBand />
