@@ -26,7 +26,7 @@ export default function TermsPage() {
             Terms of Service
           </h1>
           <p className="mt-4 text-body text-surface/60 max-w-xl leading-relaxed">
-            Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+            Effective Date: June 1, 2025
           </p>
         </div>
       </header>
@@ -36,33 +36,82 @@ export default function TermsPage() {
           <ScrollReveal>
             <div className="space-y-6 text-body text-surface/80 leading-relaxed">
               <p>
-                Welcome to VERTACORE. By accessing or using our website and services, you agree to be bound by these Terms of Service. Please read them carefully.
+                Welcome to VERTACORE. These Terms of Service govern your access to and use of our website at{" "}
+                <a href="https://www.vertacore.ae" className="text-gold hover:underline">https://www.vertacore.ae</a>{" "}
+                and any related services provided by VERTACORE. By accessing or using our website, you agree to be bound by these terms in full.
               </p>
 
               <h2 className="text-xl font-bold text-surface mt-10 mb-4">1. Acceptance of Terms</h2>
               <p>
-                By accessing this website, we assume you accept these terms and conditions in full. Do not continue to use VERTACORE's website if you do not accept all of the terms and conditions stated on this page.
+                By accessing this website, you confirm that you accept these terms and conditions in full and that you agree to comply with them. If you do not agree to these terms, you must not use our website.
               </p>
 
-              <h2 className="text-xl font-bold text-surface mt-10 mb-4">2. Use License</h2>
+              <h2 className="text-xl font-bold text-surface mt-10 mb-4">2. About VERTACORE</h2>
               <p>
-                Unless otherwise stated, VERTACORE and/or its licensors own the intellectual property rights for all material on VERTACORE. All intellectual property rights are reserved. You may view and/or print pages from https://www.vertacore.com for your own personal use subject to restrictions set in these terms and conditions.
+                VERTACORE is an industrial supply and trading company registered and operating in the United Arab Emirates. Our registered office is at Office No. 44, 11th Floor, Trustwell Properties Dar Al Salam Building, Liwa Street, Corniche, Abu Dhabi, UAE. We supply MRO products, safety equipment, welding consumables, lifting gear, and related industrial materials to commercial and industrial clients.
+              </p>
+
+              <h2 className="text-xl font-bold text-surface mt-10 mb-4">3. Use License</h2>
+              <p>
+                Unless otherwise stated, VERTACORE and/or its licensors own all intellectual property rights for material published on this website. All rights are reserved. You may view and/or print pages from{" "}
+                <a href="https://www.vertacore.ae" className="text-gold hover:underline">https://www.vertacore.ae</a>{" "}
+                for your own personal or internal business reference, subject to the restrictions in these terms.
               </p>
               <p>You must not:</p>
               <ul className="list-disc pl-5 space-y-2">
-                <li>Republish material from this website.</li>
-                <li>Sell, rent or sub-license material from this website.</li>
-                <li>Reproduce, duplicate or copy material from this website.</li>
+                <li>Republish, redistribute, or reproduce material from this website in any medium without prior written permission.</li>
+                <li>Sell, rent, or sub-license material from this website.</li>
+                <li>Use content from this website for any commercial purpose without authorisation.</li>
+                <li>Scrape, crawl, or systematically extract data from this website.</li>
+                <li>Use this website in any way that is unlawful or harmful to VERTACORE or any third party.</li>
               </ul>
 
-              <h2 className="text-xl font-bold text-surface mt-10 mb-4">3. Disclaimer</h2>
+              <h2 className="text-xl font-bold text-surface mt-10 mb-4">4. Requests for Quotation (RFQ)</h2>
               <p>
-                The materials on VERTACORE's website are provided on an 'as is' basis. VERTACORE makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
+                Submitting an RFQ through our website constitutes an enquiry only and does not create a binding purchase order or contract. All quotations issued by VERTACORE are subject to separate written confirmation and acceptance. Pricing, availability, and lead times are subject to change without notice until a formal purchase order is accepted by VERTACORE in writing.
               </p>
 
-              <h2 className="text-xl font-bold text-surface mt-10 mb-4">4. Governing Law</h2>
+              <h2 className="text-xl font-bold text-surface mt-10 mb-4">5. Accuracy of Information</h2>
               <p>
-                These terms and conditions are governed by and construed in accordance with the laws and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location.
+                VERTACORE endeavours to ensure that information on this website is accurate and up to date. However, product specifications, brand availability, certifications, and pricing displayed on this website are for reference purposes only and may change without notice. We do not warrant the completeness or accuracy of any information provided on this website.
+              </p>
+
+              <h2 className="text-xl font-bold text-surface mt-10 mb-4">6. Disclaimer of Warranties</h2>
+              <p>
+                The materials on VERTACORE&apos;s website are provided on an &apos;as is&apos; basis. VERTACORE makes no warranties, expressed or implied, and hereby disclaims all other warranties including, without limitation, implied warranties of merchantability, fitness for a particular purpose, or non-infringement of intellectual property rights. VERTACORE does not warrant that the website will be available uninterrupted, error-free, or free of viruses or other harmful components.
+              </p>
+
+              <h2 className="text-xl font-bold text-surface mt-10 mb-4">7. Limitation of Liability</h2>
+              <p>
+                To the fullest extent permitted by applicable UAE law, VERTACORE shall not be liable for any direct, indirect, incidental, consequential, or punitive damages arising from your use of, or inability to use, this website or its content. This includes, without limitation, loss of data, loss of profit, or business interruption, even if VERTACORE has been advised of the possibility of such damages.
+              </p>
+
+              <h2 className="text-xl font-bold text-surface mt-10 mb-4">8. Third-Party Links</h2>
+              <p>
+                This website may contain links to third-party websites. These links are provided for your convenience only. VERTACORE has no control over the content of those sites and accepts no responsibility for them or for any loss or damage that may arise from your use of them.
+              </p>
+
+              <h2 className="text-xl font-bold text-surface mt-10 mb-4">9. Privacy</h2>
+              <p>
+                Your use of this website is also governed by our{" "}
+                <a href="/privacy" className="text-gold hover:underline">Privacy Policy</a>,
+                which is incorporated into these terms by reference. By using this website, you consent to the processing of your personal data as described in our Privacy Policy.
+              </p>
+
+              <h2 className="text-xl font-bold text-surface mt-10 mb-4">10. Changes to Terms</h2>
+              <p>
+                VERTACORE reserves the right to revise these terms at any time. Revised terms will be posted on this page with an updated effective date. Your continued use of the website after any changes constitutes your acceptance of the new terms.
+              </p>
+
+              <h2 className="text-xl font-bold text-surface mt-10 mb-4">11. Governing Law & Jurisdiction</h2>
+              <p>
+                These terms and conditions are governed by and construed in accordance with the laws of the United Arab Emirates and the Emirate of Abu Dhabi. Any disputes arising in connection with these terms shall be subject to the exclusive jurisdiction of the courts of Abu Dhabi, UAE.
+              </p>
+
+              <h2 className="text-xl font-bold text-surface mt-10 mb-4">12. Contact</h2>
+              <p>
+                If you have any questions about these Terms of Service, please contact us at:{" "}
+                <a href="mailto:info@vertacore.ae" className="text-gold hover:underline">info@vertacore.ae</a>
               </p>
             </div>
           </ScrollReveal>
