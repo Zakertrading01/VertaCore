@@ -177,8 +177,8 @@ export function HeroSection() {
             <ScrollReveal delay={0.5}>
               <div className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-4 md:pt-8 border-t border-white/10 lg:border-none">
                 {[
-                  { value: "15+", label: "Years Experience" },
-                  { value: "500+", label: "Products Supplied" },
+                  { value: "30+", label: "Years Experience" },
+                  { value: "1500+", label: "Products Supplied" },
                   { value: "10+", label: "Industries Served" },
                   { value: "100%", label: "Certified Quality" },
                 ].map((stat, i) => (

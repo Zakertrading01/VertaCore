@@ -165,9 +165,14 @@ export function Navbar() {
             <span>Call Us: +971 XX XXX XXXX</span>
           </div>
           <div className="flex items-center gap-5 text-[14px] font-medium">
-            <Link href="#footer" className="flex items-center gap-1.5 hover:text-gold transition-colors">
+            <a 
+              href="https://maps.google.com/?q=Office+No.44,+11th+Floor,+Trustwell+Properties+Dar+Al+Salam+Building,+Liwa+Street,+Corniche,+Abu+Dhabi,+UAE"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 hover:text-gold transition-colors"
+            >
               <MapPin className="w-4 h-4" /> Locations
-            </Link>
+            </a>
             <span className="text-white/20">|</span>
             <Link href="/contact" className="flex items-center gap-1.5 bg-[#1a365d] px-3 py-1 rounded text-gold hover:bg-[#234575] transition-colors font-bold text-xs">
               <span className="text-base leading-none">+</span> Enquire Now

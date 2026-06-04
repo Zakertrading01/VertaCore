@@ -1,7 +1,7 @@
 import { AnimatedCounter } from "@/components/shared/AnimatedCounter";
 
 const metrics = [
-  { end: 500, suffix: "+", label: "Products Supplied" },
+  { end: 1500, suffix: "+", label: "Products Supplied" },
   { end: 10, suffix: "+", label: "Industries Served" },
   { end: 30, suffix: "+", label: "Years Experience" },
   { end: 24, suffix: "hr", label: "Average Response Time" },
