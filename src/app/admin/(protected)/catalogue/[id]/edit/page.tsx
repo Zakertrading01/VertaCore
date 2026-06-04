@@ -74,10 +74,11 @@ export default function EditCatalogueItemPage() {
   }, [id])
 
   function addCert() {
-    const tag = certInput.trim()
-    if (!tag || form.certTags.includes(tag)) { setCertInput(''); return }
-    set('certTags', [...form.certTags, tag])
+    const tags = certInput.split(',').map(t => t.trim()).filter(t => t && !form.certTags.includes(t))
+    if (tags.length === 0) { setCertInput(''); return }
+    set('certTags', [...form.certTags, ...tags])
     setCertInput('')
+    setShowCertSuggestions(false)
   }
 
   function removeCert(tag: string) {
@@ -118,7 +119,13 @@ export default function EditCatalogueItemPage() {
   }
 
   const selectedCategory = categories.find((c) => c.name === form.categoryGroup)
-  const filteredSuggestions = CERT_SUGGESTIONS.filter(s => s.toLowerCase().includes(certInput.toLowerCase()) && !form.certTags.includes(s))
+  const currentSearchTerm = certInput.split(',').pop()?.trim().toLowerCase() || ''
+  const pendingTags = certInput.split(',').map(t => t.trim()).filter(Boolean)
+  const filteredSuggestions = CERT_SUGGESTIONS.filter(s => 
+    s.toLowerCase().includes(currentSearchTerm) && 
+    !form.certTags.includes(s) &&
+    !pendingTags.includes(s)
+  )
 
   if (loading) return <div className="px-8 py-8 text-sm text-neutral-400">Loading…</div>
 
@@ -324,6 +331,7 @@ export default function EditCatalogueItemPage() {
                   setCertInput(e.target.value)
                   setShowCertSuggestions(true)
                 }}
+                onClick={() => setShowCertSuggestions(true)}
                 onFocus={() => setShowCertSuggestions(true)}
                 onBlur={() => setShowCertSuggestions(false)}
                 onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); addCert() } }}
@@ -338,11 +346,10 @@ export default function EditCatalogueItemPage() {
                       type="button"
                       onMouseDown={(e) => {
                         e.preventDefault()
-                        if (!form.certTags.includes(s)) {
-                          set('certTags', [...form.certTags, s])
-                          setCertInput('')
-                          setShowCertSuggestions(false)
-                        }
+                        const parts = certInput.split(',').map(t => t.trim())
+                        parts.pop()
+                        parts.push(s)
+                        setCertInput(parts.filter(Boolean).join(', ') + ', ')
                       }}
                       className="w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100 focus:bg-neutral-100 outline-none"
                     >
