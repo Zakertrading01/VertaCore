@@ -61,8 +61,9 @@ async function getHomeData() {
   return { projects, insights };
 }
 
+import { MaintenancePage } from "@/components/marketing/MaintenancePage";
+
 export default async function HomePage() {
-  const { projects, insights } = await getHomeData();
   const jsonLd = [organizationSchema(), websiteSchema()];
 
   return (
@@ -75,6 +76,9 @@ export default async function HomePage() {
         />
       ))}
 
+      <MaintenancePage />
+
+      {/* 
       <HeroSection />
 
       <IntroductionSection />
@@ -86,6 +90,7 @@ export default async function HomePage() {
       <ProjectsSection projects={projects} />
       <InsightsSection insights={insights} />
       <CTASection />
+      */}
     </>
   );
 }
