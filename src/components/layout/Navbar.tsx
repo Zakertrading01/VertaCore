@@ -165,7 +165,7 @@ export function Navbar() {
             <span>Call Us: +1-855-VERTACORE</span>
           </div>
           <div className="flex items-center gap-5 text-[14px] font-medium">
-            <Link href="/#locations" className="flex items-center gap-1.5 hover:text-gold transition-colors">
+            <Link href="#footer" className="flex items-center gap-1.5 hover:text-gold transition-colors">
               <MapPin className="w-4 h-4" /> Locations
             </Link>
             <span className="text-white/20">|</span>

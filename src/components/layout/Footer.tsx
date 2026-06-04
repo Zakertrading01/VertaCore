@@ -32,7 +32,7 @@ const myAccount = [
 
 export function Footer() {
   return (
-    <footer className="bg-navy-dark border-t border-steel/30" role="contentinfo">
+    <footer id="footer" className="bg-navy-dark border-t border-steel/30" role="contentinfo">
       {/* Main footer content */}
       <div className="container-base pt-10 md:pt-12 pb-4 md:pb-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">

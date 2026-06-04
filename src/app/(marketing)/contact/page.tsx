@@ -54,10 +54,7 @@ export default function ContactPage() {
               <Clock className="h-4 w-4 text-gold" />
               Response within 24 hours
             </div>
-            <div className="flex items-center gap-2.5 text-sm text-steel-muted">
-              <Shield className="h-4 w-4 text-gold" />
-              ISO 9001:2015 Certified
-            </div>
+
             <div className="flex items-center gap-2.5 text-sm text-steel-muted">
               <Mail className="h-4 w-4 text-gold" />
               info@vertacore.com
