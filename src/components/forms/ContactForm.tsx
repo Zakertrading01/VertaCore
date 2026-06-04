@@ -102,6 +102,8 @@ export function ContactForm({ className }: { className?: string }) {
     reset,
     watch,
     setValue,
+    setError,
+    clearErrors,
   } = useForm<FormData>({ 
     resolver: zodResolver(schema),
     defaultValues: { countryCode: "+1" }
@@ -109,6 +111,7 @@ export function ContactForm({ className }: { className?: string }) {
 
   const selectedCountryCode = watch("countryCode");
   const currentMaxLength = COUNTRY_MAX_LENGTHS[selectedCountryCode || "+1"] || 15;
+  const selectedCountryLabel = COUNTRY_CODES.find(c => c.code === (selectedCountryCode || "+1"))?.label || (selectedCountryCode || "+1");
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -127,6 +130,16 @@ export function ContactForm({ className }: { className?: string }) {
 
   const onSubmit = async (data: FormData) => {
     setServerError("");
+    
+    const rawVal = data.phone ? data.phone.replace(/\D/g, "") : "";
+    if (rawVal && rawVal.length < currentMaxLength) {
+      setError("phone", { 
+        type: "manual", 
+        message: `Please enter exactly ${currentMaxLength} digits for ${selectedCountryLabel}` 
+      });
+      return;
+    }
+
     try {
       const { countryCode, ...restData } = data;
       const submissionData = {
@@ -278,18 +291,39 @@ export function ContactForm({ className }: { className?: string }) {
               type="tel"
               {...register("phone", {
                 onChange: (e) => {
-                  let val = e.target.value.replace(/\D/g, "");
-                  if (val.length > currentMaxLength) {
-                    val = val.slice(0, currentMaxLength);
+                  const rawVal = e.target.value.replace(/\D/g, "");
+                  let val = rawVal;
+                  
+                  if (rawVal.length > currentMaxLength) {
+                    setError("phone", { 
+                      type: "manual", 
+                      message: `Maximum ${currentMaxLength} digits allowed for ${selectedCountryLabel}` 
+                    });
+                    val = rawVal.slice(0, currentMaxLength);
+                  } else {
+                    clearErrors("phone");
                   }
+                  
                   e.target.value = val;
+                },
+                onBlur: (e) => {
+                  const rawVal = e.target.value.replace(/\D/g, "");
+                  if (rawVal.length > 0 && rawVal.length < currentMaxLength) {
+                    setError("phone", { 
+                      type: "manual", 
+                      message: `Please enter exactly ${currentMaxLength} digits for ${selectedCountryLabel}` 
+                    });
+                  }
                 }
               })}
-              maxLength={currentMaxLength}
               placeholder={`${currentMaxLength} digits`}
-              className="flex-1 bg-navy-light/30 border-steel/40 text-surface placeholder:text-steel-muted focus:border-gold/60"
+              className={cn(
+                "flex-1 bg-navy-light/30 border-steel/40 text-surface placeholder:text-steel-muted focus:border-gold/60",
+                errors.phone && "border-error/60"
+              )}
             />
           </div>
+          {errors.phone && <p className="text-xs text-error">{errors.phone.message}</p>}
         </div>
       </div>
 
