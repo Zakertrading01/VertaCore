@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { db } from "@/lib/db";
-import { sendContactNotification } from "@/lib/email";
+import { sendContactNotification, sendContactConfirmation } from "@/lib/email";
 import { sanitiseText, sanitiseMultiline } from "@/lib/security";
 import { rateLimit, getClientIp } from "@/lib/rateLimit";
 import { logger } from "@/lib/logger";
@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
   const data = parsed.data;
 
   try {
-    await db.contactInquiry.create({
+    const inquiry = await db.contactInquiry.create({
       data: {
         name: sanitiseText(data.name),
         email: data.email.toLowerCase().trim(),
@@ -56,20 +56,29 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    sendContactNotification({
+    // Send notification to admin (Sales)
+    await sendContactNotification({
       name: data.name,
       email: data.email,
       company: data.company,
       phone: data.phone,
       subject: data.subject,
       message: data.message,
-    }).catch((err) => logger.error("Contact email failed", { error: String(err) }));
+    });
+
+    // Send confirmation to user
+    await sendContactConfirmation({
+      name: data.name,
+      email: data.email,
+      subject: data.subject,
+    }).catch((err) => logger.error("User contact confirmation failed", { error: String(err) }));
 
     return NextResponse.json({ success: true, message: "Message sent successfully." });
   } catch (err) {
-    logger.error("Contact creation failed", { error: String(err) });
+    logger.error("Contact submission error", { error: String(err) });
+    const errorMessage = err instanceof Error ? err.message : "Submission failed. Please try again.";
     return NextResponse.json(
-      { success: false, error: "Submission failed. Please try again." },
+      { success: false, error: errorMessage },
       { status: 500 },
     );
   }

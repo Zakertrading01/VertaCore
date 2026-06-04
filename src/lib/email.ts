@@ -93,7 +93,13 @@ export async function sendContactNotification(data: {
   subject: string;
   message: string;
 }) {
-  await getResend().emails.send({
+  console.log("Sending Contact Notification to Admin:", {
+    from: FROM,
+    to: SALES,
+    replyTo: data.email,
+  });
+
+  const res = await getResend().emails.send({
     from: FROM,
     to: SALES,
     replyTo: data.email,
@@ -109,6 +115,47 @@ export async function sendContactNotification(data: {
       <p>${data.message.replace(/\n/g, "<br />")}</p>
     `,
   });
+
+  if (res.error) {
+    console.error("Resend Error (Admin Notification):", res.error);
+    throw new Error(`Failed to send notification: ${res.error.message}`);
+  }
+
+  console.log("Contact Notification sent to Admin successfully:", res.data?.id);
+}
+
+export async function sendContactConfirmation(data: {
+  name: string;
+  email: string;
+  subject: string;
+}) {
+  console.log("Sending Contact Confirmation to User:", data.email);
+
+  const res = await getResend().emails.send({
+    from: FROM,
+    to: data.email,
+    subject: `Acknowledgement: ${data.subject}`,
+    html: `
+      <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #102544;">
+        <h1 style="color: #E7C85A;">VERTACORE</h1>
+        <p>Dear ${data.name},</p>
+        <p>Thank you for reaching out to us. We have received your message regarding "<strong>${data.subject}</strong>".</p>
+        <p>Our team will review your enquiry and get back to you within <strong>24 business hours</strong>.</p>
+        <p>If you have urgent procurement needs, please reach out to us directly at <a href="mailto:${SALES}">${SALES}</a>.</p>
+        <br />
+        <p>Best regards,<br />Team VERTACORE</p>
+      </div>
+    `,
+  });
+
+  if (res.error) {
+    console.error("Resend Error (User Confirmation):", res.error);
+    // We don't necessarily want to throw here if the admin notification already succeeded,
+    // but for debugging, we will.
+    throw new Error(`Failed to send confirmation: ${res.error.message}`);
+  }
+
+  console.log("Contact Confirmation sent to User successfully:", res.data?.id);
 }
 
 function buildRFQNotificationHtml(data: RFQEmailData): string {
