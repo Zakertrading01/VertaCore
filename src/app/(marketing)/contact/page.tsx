@@ -89,7 +89,12 @@ export default function ContactPage() {
                         <div className="space-y-3 text-sm text-surface/80">
                           <p className="flex items-start gap-3">
                             <MapPin className="h-5 w-5 text-gold flex-shrink-0 mt-0.5" />
-                            <span className="leading-relaxed">Abu Dhabi, United Arab Emirates</span>
+                            <span className="leading-relaxed">
+                              Office No.44, 11th Floor<br />
+                              Trustwell Properties Dar Al Salam Building<br />
+                              Near Al Madina Supermarket, Liwa Street, Corniche,<br />
+                              Abu Dhabi, United Arab Emirates
+                            </span>
                           </p>
                           <p className="flex items-center gap-3">
                             <Mail className="h-5 w-5 text-gold flex-shrink-0" />
