@@ -70,7 +70,7 @@ export function WhyVertacoreSection() {
   return (
     <>
     <section
-      className="relative overflow-hidden bg-[#020617] border-t border-white/5"
+      className="relative overflow-hidden bg-[#061022] border-t border-white/5"
       aria-labelledby="why-vertacore-heading"
     >
       <style>{`
@@ -93,7 +93,7 @@ export function WhyVertacoreSection() {
       `}</style>
 
       {/* Fiber Optic Data Streams Background */}
-      <div className="absolute inset-0 z-0 overflow-hidden bg-[#030712]">
+      <div className="absolute inset-0 z-0 overflow-hidden bg-gradient-to-b from-[#061022] to-[#0b1b33]">
         
         {/* Base Grid Pattern */}
         <div 

@@ -52,138 +52,53 @@ const solutions = [
 ];
 
 export function SolutionsSection() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    let particles: {x: number, y: number, vx: number, vy: number, size: number}[] = [];
-    let animationFrameId: number;
-    let w = 0;
-    let h = 0;
-    let mouse = { x: -1000, y: -1000 };
-
-    const init = () => {
-      if (!canvas.parentElement) return;
-      w = canvas.width = canvas.parentElement.offsetWidth;
-      h = canvas.height = canvas.parentElement.offsetHeight;
-      particles = [];
-      const particleCount = Math.min(Math.floor((w * h) / 10000), 150);
-      for (let i = 0; i < particleCount; i++) {
-        particles.push({
-          x: Math.random() * w,
-          y: Math.random() * h,
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5,
-          size: Math.random() * 2 + 1
-        });
-      }
-    };
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      mouse.x = e.clientX - rect.left;
-      mouse.y = e.clientY - rect.top;
-    };
-
-    const handleMouseLeave = () => {
-      mouse.x = -1000;
-      mouse.y = -1000;
-    };
-
-    const draw = () => {
-      ctx.clearRect(0, 0, w, h);
-      
-      for (let i = 0; i < particles.length; i++) {
-        let p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
-
-        if (p.x < 0 || p.x > w) p.vx *= -1;
-        if (p.y < 0 || p.y > h) p.vy *= -1;
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(125, 211, 252, 0.6)';
-        ctx.fill();
-
-        let dxMouse = p.x - mouse.x;
-        let dyMouse = p.y - mouse.y;
-        let distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
-        if (distMouse < 180) {
-          ctx.beginPath();
-          ctx.strokeStyle = `rgba(231, 200, 90, ${0.8 - distMouse / 225})`;
-          ctx.lineWidth = 2;
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(mouse.x, mouse.y);
-          ctx.stroke();
-
-          p.x += dxMouse * 0.005;
-          p.y += dyMouse * 0.005;
-        }
-
-        for (let j = i + 1; j < particles.length; j++) {
-          let p2 = particles[j];
-          let dx = p.x - p2.x;
-          let dy = p.y - p2.y;
-          let dist = Math.sqrt(dx * dx + dy * dy);
-
-          if (dist < 120) {
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(125, 211, 252, ${0.3 - dist / 400})`;
-            ctx.lineWidth = 1;
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.stroke();
-          }
-        }
-      }
-      animationFrameId = requestAnimationFrame(draw);
-    };
-
-    init();
-    draw();
-
-    window.addEventListener('resize', init);
-    window.addEventListener('mousemove', handleMouseMove);
-    canvas.addEventListener('mouseleave', handleMouseLeave);
-    
-    return () => {
-      window.removeEventListener('resize', init);
-      window.removeEventListener('mousemove', handleMouseMove);
-      canvas.removeEventListener('mouseleave', handleMouseLeave);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
-
   return (
-    <section className="section-padding !pt-10 bg-gradient-to-b from-[#0F172A] to-[#020617] relative overflow-hidden" aria-labelledby="solutions-heading">
-      {/* Canvas Particle Network Background */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0B1221] via-[#0F172A] to-[#020617] opacity-100" />
-        <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-100" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_#020617_120%)]" />
+    <section className="section-padding !pt-10 bg-white relative overflow-hidden" aria-labelledby="solutions-heading">
+      
+      <style>{`
+        @keyframes stripes-move {
+          0% { background-position: 0 0; }
+          100% { background-position: 56.57px 56.57px; }
+        }
+        .animated-stripes {
+          background-image: repeating-linear-gradient(
+            -45deg,
+            rgba(11, 27, 51, 0.02),
+            rgba(11, 27, 51, 0.02) 20px,
+            transparent 20px,
+            transparent 40px
+          );
+          background-size: 56.57px 56.57px;
+          animation: stripes-move 6s linear infinite;
+        }
+      `}</style>
+
+      {/* Modern Industrial Stripes Animated Background */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden bg-white">
+        <div className="absolute inset-0 -m-[100px] w-[calc(100%+200px)] h-[calc(100%+200px)] animated-stripes" />
+        {/* Soft radial fade out to make it subtle */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_30%,_#ffffff_95%)]" />
       </div>
 
       <div className="container-base relative z-10">
         {/* Header */}
-        <div className="max-w-2xl mb-16">
+        <div className="max-w-5xl mx-auto mb-16 text-center">
           <ScrollReveal>
-            <div className="inline-block px-3 py-1 mb-4 rounded-full bg-gold/10 border border-gold/20">
-              <SectionLabel className="!mb-0 text-gold">Our Services</SectionLabel>
+            <div className="inline-block px-4 py-2 mb-6 rounded-full bg-navy shadow-sm">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-gold animate-pulse" />
+                <span className="text-xs font-bold tracking-[0.2em] text-white uppercase">Our Services</span>
+              </div>
             </div>
             <h2
               id="solutions-heading"
-              className="text-dmd font-bold text-white tracking-tight leading-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-navy-dark tracking-tight leading-tight mb-6"
             >
               End-to-end industrial supply
-              <br />
-              <span className="text-gradient-gold">for every operational need.</span>
+              <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-yellow-500">for every operational need.</span>
             </h2>
-            <p className="mt-5 text-body text-white/70 leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
               Six service areas covering the full scope of industrial supply — from sourcing and safety to lifting, welding, and project logistics.
             </p>
           </ScrollReveal>
@@ -197,9 +112,25 @@ export function SolutionsSection() {
               <ScrollReveal key={solution.slug} delay={i * 0.1}>
                 <Link
                   href={`/solutions/${solution.slug}`}
-                  className="card-base group flex flex-col p-8 h-full bg-navy/50 backdrop-blur-sm border-white/5 hover:border-gold/40 hover:bg-navy/80 transition-all duration-300 relative overflow-hidden"
+                  className="group flex flex-col p-8 h-full bg-[#0b1b33] rounded-2xl shadow-xl border border-white/5 hover:border-gold/30 hover:bg-[#081326] hover:shadow-[0_10px_40px_rgba(250,204,21,0.15)] hover:-translate-y-1.5 active:scale-[0.98] transition-all duration-500 relative overflow-hidden"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  {/* Premium Hover Effects */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent group-hover:w-full transition-all duration-700 ease-out opacity-0 group-hover:opacity-100" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(250,204,21,0.15),_transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(59,130,246,0.1),_transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none delay-100" />
+
+                  {/* Corner Tech Particles */}
+                  <div className="absolute top-4 right-4 w-16 h-16 opacity-0 group-hover:opacity-100 group-active:scale-[2.5] group-active:opacity-0 transition-all duration-500 pointer-events-none">
+                    <div className="absolute top-0 right-2 w-1.5 h-1.5 bg-gold rounded-full shadow-[0_0_10px_#facc15] animate-[ping_1.5s_cubic-bezier(0,0,0.2,1)_infinite]" />
+                    <div className="absolute top-4 right-0 w-2 h-2 bg-gold rounded-full shadow-[0_0_12px_#facc15] animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
+                    <div className="absolute top-2 right-6 w-1 h-1 bg-white rounded-full shadow-[0_0_8px_white] animate-[bounce_2s_infinite]" />
+                  </div>
+                  
+                  <div className="absolute bottom-4 left-4 w-16 h-16 opacity-0 group-hover:opacity-100 group-active:scale-[2.5] group-active:opacity-0 transition-all duration-500 delay-75 pointer-events-none">
+                    <div className="absolute bottom-0 left-2 w-2 h-2 bg-blue-400 rounded-full shadow-[0_0_12px_#3b82f6] animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
+                    <div className="absolute bottom-4 left-0 w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_10px_white] animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]" />
+                    <div className="absolute bottom-2 left-6 w-1 h-1 bg-blue-400 rounded-full shadow-[0_0_8px_#3b82f6] animate-[bounce_2.5s_infinite]" />
+                  </div>
 
                   <div className="flex items-start justify-between mb-6 relative z-10">
                     <div className="p-4 rounded-2xl bg-white/5 group-hover:bg-gold/10 group-hover:scale-110 transition-all duration-300">
@@ -214,7 +145,7 @@ export function SolutionsSection() {
                     {solution.title}
                   </h3>
 
-                  <p className="text-sm text-white/60 leading-relaxed mb-6 flex-1 relative z-10 group-hover:text-white/80 transition-colors">
+                  <p className="text-sm text-white/70 leading-relaxed mb-6 flex-1 relative z-10 group-hover:text-white transition-colors">
                     {solution.description}
                   </p>
 
@@ -222,7 +153,7 @@ export function SolutionsSection() {
                     {solution.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-[11px] font-medium tracking-wider px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-white/60 group-hover:border-gold/20 group-hover:text-white/90 transition-all"
+                        className="text-[11px] font-medium tracking-wider px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-white/70 group-hover:border-gold/30 group-hover:text-gold transition-all"
                       >
                         {tag}
                       </span>
@@ -232,7 +163,6 @@ export function SolutionsSection() {
               </ScrollReveal>
             );
           })}
-
         </div>
       </div>
     </section>

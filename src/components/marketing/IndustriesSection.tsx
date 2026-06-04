@@ -52,7 +52,7 @@ const industries = [
 export function IndustriesSection() {
   return (
     <section
-      className="pt-8 pb-10 relative overflow-hidden bg-[#020617]"
+      className="pt-8 pb-10 relative overflow-hidden bg-[#061022]"
       aria-labelledby="industries-heading"
     >
       <style>{`
@@ -89,7 +89,7 @@ export function IndustriesSection() {
       <div className="absolute inset-0 z-0 overflow-hidden">
         {/* Base Gradient */}
         <div 
-          className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#0B152A] to-[#020617] bg-[length:200%_200%] opacity-90"
+          className="absolute inset-0 bg-gradient-to-r from-[#061022] via-[#0b1b33] to-[#061022] bg-[length:200%_200%] opacity-90"
           style={{ animation: 'sweep 20s ease-in-out infinite' }}
         />
         

@@ -194,10 +194,10 @@ export function IntroductionSection() {
               />
               
               {/* Inner Card */}
-              <div className="relative bg-[#050A14]/90 backdrop-blur-2xl h-full w-full rounded-[2.5rem] p-8 md:p-12 z-10 flex flex-col shadow-[inset_0_0_40px_rgba(250,204,21,0.05)] border border-white/5">
+              <div className="relative bg-[#0b1b33]/90 backdrop-blur-2xl h-full w-full rounded-[2.5rem] p-8 md:p-12 z-10 flex flex-col shadow-[inset_0_0_40px_rgba(250,204,21,0.05)] border border-white/5">
                 <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_left,rgba(250,204,21,0.1),transparent_50%)] pointer-events-none" />
                 
-                <div className="absolute top-6 right-8 text-[100px] font-black text-gold/10 group-hover:text-gold/30 leading-none select-none transition-all duration-700 group-hover:scale-110">
+                <div className="absolute top-6 right-8 text-[100px] font-black text-gold/25 group-hover:text-gold/50 leading-none select-none transition-all duration-700 group-hover:scale-110">
                   01
                 </div>
                 
@@ -227,10 +227,10 @@ export function IntroductionSection() {
               />
               
               {/* Inner Card */}
-              <div className="relative bg-[#050A14]/90 backdrop-blur-2xl h-full w-full rounded-[2.5rem] p-8 md:p-12 z-10 flex flex-col shadow-[inset_0_0_40px_rgba(59,130,246,0.05)] border border-white/5">
+              <div className="relative bg-[#0b1b33]/90 backdrop-blur-2xl h-full w-full rounded-[2.5rem] p-8 md:p-12 z-10 flex flex-col shadow-[inset_0_0_40px_rgba(59,130,246,0.05)] border border-white/5">
                 <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_bottom_right,rgba(59,130,246,0.1),transparent_50%)] pointer-events-none" />
                 
-                <div className="absolute bottom-6 right-8 text-[100px] font-black text-blue-500/10 group-hover:text-blue-500/30 leading-none select-none transition-all duration-700 group-hover:scale-110">
+                <div className="absolute bottom-6 right-8 text-[100px] font-black text-blue-500/25 group-hover:text-blue-400/50 leading-none select-none transition-all duration-700 group-hover:scale-110">
                   02
                 </div>
                 
