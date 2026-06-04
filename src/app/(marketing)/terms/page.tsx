@@ -18,7 +18,7 @@ export default function TermsPage() {
 
   return (
     <>
-      <header className="bg-navy-dark pt-16 lg:pt-32 pb-8">
+      <header className="bg-navy-dark pt-16 lg:pt-32 pb-2">
         <div className="container-base">
           <Breadcrumb items={breadcrumb} className="mb-6" />
           <SectionLabel className="mb-3">Legal</SectionLabel>
@@ -31,7 +31,7 @@ export default function TermsPage() {
         </div>
       </header>
 
-      <section className="pt-12 pb-24 md:pb-32 bg-graphite-subtle min-h-screen">
+      <section className="pt-4 pb-8 md:pb-12 bg-graphite-subtle">
         <div className="container-base max-w-3xl">
           <ScrollReveal>
             <div className="space-y-6 text-body text-surface/80 leading-relaxed">
