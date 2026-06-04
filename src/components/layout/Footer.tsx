@@ -51,7 +51,8 @@ export function Footer() {
                 <span className="leading-relaxed">
                   Office No.44, 11th Floor<br />
                   Trustwell Properties Dar Al Salam Building<br />
-                  Near Al Madina Supermarket, Liwa Street, Corniche
+                  Near Al Madina Supermarket, Liwa Street, Corniche,<br />
+                  Abu Dhabi, United Arab Emirates
                 </span>
               </div>
               <a href="mailto:info@vertacore.ae" className="flex items-center gap-2 hover:text-gold transition-colors">

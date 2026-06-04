@@ -3,7 +3,7 @@ import { buildMetadata } from "@/lib/seo";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
 import { db } from "@/lib/db";
 import { HeroSection } from "@/components/marketing/HeroSection";
-import { BrandsBand } from "@/components/marketing/BrandsBand";
+
 import { IntroductionSection } from "@/components/marketing/IntroductionSection";
 import { SolutionsSection } from "@/components/marketing/SolutionsSection";
 import { IndustriesSection } from "@/components/marketing/IndustriesSection";
@@ -76,12 +76,12 @@ export default async function HomePage() {
       ))}
 
       <HeroSection />
-      <BrandsBand />
+
       <IntroductionSection />
       <WhyVertacoreSection />
       <SolutionsSection />
       <IndustriesSection />
-      <QualitySection />
+      {/* <QualitySection /> */}
       <MetricsBand />
       <ProjectsSection projects={projects} />
       <InsightsSection insights={insights} />

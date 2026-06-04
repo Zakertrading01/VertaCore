@@ -247,7 +247,7 @@ export function BrandsBand() {
         // Draw particle
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(56, 189, 248, 1)'; // Solid bright Cyber blue
+        ctx.fillStyle = 'rgba(125, 211, 252, 0.6)'; // Soft light blue
         ctx.fill();
 
         // Connect to mouse
@@ -276,7 +276,7 @@ export function BrandsBand() {
 
           if (dist < 120) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(56, 189, 248, ${0.4 - dist / 300})`; // Much brighter blue lines
+            ctx.strokeStyle = `rgba(125, 211, 252, ${0.3 - dist / 400})`; // Soft light blue lines
             ctx.lineWidth = 1;
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);

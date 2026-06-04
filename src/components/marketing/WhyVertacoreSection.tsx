@@ -229,6 +229,7 @@ export function WhyVertacoreSection() {
     </section>
 
     {/* 4. Customer Testimonials (Dark Navy Neat Theme) */}
+    {false && (
     <section className="bg-navy relative overflow-hidden pt-10 pb-16 md:pt-12 md:pb-20">
       {/* Neat, Modern Static Background Pattern */}
       <div className="absolute inset-0 z-0">
@@ -289,6 +290,7 @@ export function WhyVertacoreSection() {
         </div>
       </div>
     </section>
+    )}
     </>
   );
 }
