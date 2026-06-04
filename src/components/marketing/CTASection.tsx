@@ -73,7 +73,7 @@ export function CTASection() {
         <ScrollReveal>
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6 backdrop-blur-md">
             <div className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-            <span className="text-xs font-bold tracking-widest text-gold uppercase">Get Started</span>
+            <span className="text-xs font-bold tracking-widest text-gold uppercase">Get in Touch</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
             Ready to source certified
@@ -93,10 +93,7 @@ export function CTASection() {
 
           {/* Trust indicators */}
           <div className="flex flex-wrap items-center justify-center gap-8 mt-12 text-sm font-medium text-white/50">
-            <span className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-gold shadow-[0_0_5px_rgba(250,204,21,0.8)]" />
-              ISO 9001:2015 Certified
-            </span>
+
             <span className="flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-gold shadow-[0_0_5px_rgba(250,204,21,0.8)]" />
               No obligation enquiry

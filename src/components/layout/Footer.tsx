@@ -65,13 +65,7 @@ export function Footer() {
               </a>
             </div>
 
-            {/* Cert Badge */}
-            <div className="inline-flex items-center gap-2 border border-gold/20 bg-gold/5 rounded-lg px-3 py-1.5 mt-2">
-              <div className="h-2 w-2 rounded-full bg-gold animate-pulse flex-shrink-0" />
-              <span className="text-[10px] font-bold text-gold tracking-wider uppercase">
-                ISO 9001:2015 CERTIFIED
-              </span>
-            </div>
+
           </div>
 
           {/* Column 2: Popular Categories */}
