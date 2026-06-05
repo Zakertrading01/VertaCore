@@ -11,9 +11,7 @@ import { CatalogueDownloadButton } from "@/components/catalogue/CatalogueClient"
 import { CTASection } from "@/components/marketing/CTASection";
 import { getCatalogueItems } from "@/lib/cached-queries";
 
-export const dynamic = 'force-dynamic';
-
-
+export const revalidate = 3600; // Cache for 1 hour
 
 export const metadata: Metadata = buildMetadata({
   title: "Industrial Product Catalogue",
@@ -67,24 +65,19 @@ export default async function CataloguePage() {
 
   const items = (await getCatalogueItems()) as Item[];
 
-
-  // Group by category
+  // Group by category more efficiently in a single pass
   const grouped: Record<string, Item[]> = {};
 
-  // Initialize known categories first to maintain order
-  CATEGORY_ORDER.forEach((cat) => {
-    grouped[cat] = items.filter((i) => i.categoryGroup === cat);
+  // Initialize categories in specific order
+  CATEGORY_ORDER.forEach(cat => {
+    grouped[cat] = [];
   });
 
-  // Group any items with categories not in CATEGORY_ORDER
-  const knownCategories = new Set(CATEGORY_ORDER);
-  items.forEach((item) => {
-    if (!knownCategories.has(item.categoryGroup)) {
-      if (!grouped[item.categoryGroup]) {
-        grouped[item.categoryGroup] = [];
-      }
-      grouped[item.categoryGroup].push(item);
+  items.forEach(item => {
+    if (!grouped[item.categoryGroup]) {
+      grouped[item.categoryGroup] = [];
     }
+    grouped[item.categoryGroup].push(item);
   });
 
   const breadcrumb = [
