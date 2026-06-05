@@ -5,6 +5,8 @@ import { auth } from '@/lib/auth'
 import { redirect } from 'next/navigation'
 import { LoginForm } from './LoginForm'
 
+import { ParticleBackground } from '@/components/shared/ParticleBackground'
+
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
@@ -61,8 +63,54 @@ export default async function AdminLoginPage() {
     <div className="min-h-screen flex">
 
       {/* ── Left panel ─────────────────────────────────────────────────────── */}
-      <div className="hidden lg:flex lg:w-2/5 flex-col justify-between bg-navy px-10 py-10">
-        <Link href="/">
+      <div className="relative overflow-hidden hidden lg:flex lg:w-2/5 flex-col justify-between bg-[#061022] px-10 py-10 border-r border-white/10 shadow-[20px_0_40px_-10px_rgba(0,0,0,0.3)]">
+        
+        {/* Animated Premium Background: Abstract Liquid Aurora + Grid */}
+        <style>{`
+          @keyframes aurora-1 {
+            0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 0.5; }
+            50% { transform: translate(-50px, 100px) scale(1.5) rotate(45deg); opacity: 0.8; }
+          }
+          @keyframes aurora-2 {
+            0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 0.4; }
+            50% { transform: translate(100px, -50px) scale(1.2) rotate(-30deg); opacity: 0.7; }
+          }
+          @keyframes grid-slide {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(40px); }
+          }
+        `}</style>
+        
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          {/* Base gradient sweep */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#061022] via-[#0b1b33] to-[#040a17]" />
+          
+          {/* Liquid Aurora Orbs */}
+          <div 
+            className="absolute -top-1/4 -right-1/4 w-[150%] h-[150%] rounded-[100%] bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.15)_0%,transparent_50%)] blur-[60px]"
+            style={{ animation: 'aurora-1 25s ease-in-out infinite' }}
+          />
+          <div 
+            className="absolute -bottom-1/4 -left-1/4 w-[120%] h-[120%] rounded-[100%] bg-[radial-gradient(ellipse_at_center,rgba(250,204,21,0.12)_0%,transparent_50%)] blur-[80px]"
+            style={{ animation: 'aurora-2 30s ease-in-out infinite reverse' }}
+          />
+
+          {/* Isometric Tech Grid */}
+          <div 
+            className="absolute inset-[-100%] opacity-[0.04]"
+            style={{
+              backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)',
+              backgroundSize: '40px 40px',
+              animation: 'grid-slide 15s linear infinite',
+              transform: 'perspective(500px) rotateX(60deg) translateY(-100px)',
+              transformOrigin: 'top center'
+            }}
+          />
+          
+          {/* Subtle Vignette */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#061022_120%)]" />
+        </div>
+        <Link href="/" className="relative z-10">
           <Image
             src="/image.png"
             alt="VERTACORE"
@@ -73,7 +121,7 @@ export default async function AdminLoginPage() {
           />
         </Link>
 
-        <div>
+        <div className="relative z-10">
           <h1 className="text-4xl font-bold text-white leading-tight mb-4">
             Industrial Solutions,<br />
             <span className="text-gold">fully under control.</span>
@@ -93,7 +141,7 @@ export default async function AdminLoginPage() {
           </ul>
         </div>
 
-        <p className="text-white/50 text-xs">
+        <p className="text-white/50 text-xs relative z-10 pointer-events-none">
           © {new Date().getFullYear()} Vertacore. Internal use only.
         </p>
       </div>
