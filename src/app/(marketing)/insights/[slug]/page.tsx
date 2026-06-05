@@ -3,24 +3,15 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, Clock, User } from "lucide-react";
-import { db } from "@/lib/db";
 import { buildMetadata } from "@/lib/seo";
 import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { SectionLabel } from "@/components/shared/SectionLabel";
 import { CTASection } from "@/components/marketing/CTASection";
 import { formatDate } from "@/lib/utils";
+import { getInsight } from "@/lib/cached-queries";
 
-export const revalidate = 3600;
-
-export async function generateStaticParams() {
-  try {
-    const insights = await db.insight.findMany({ select: { slug: true } });
-    return insights.map((i) => ({ slug: i.slug }));
-  } catch {
-    return [];
-  }
-}
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({
   params,
@@ -28,7 +19,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const insight = await db.insight.findUnique({ where: { slug } });
+  const insight = await getInsight(slug);
   if (!insight) return {};
 
   return buildMetadata({
@@ -50,9 +41,7 @@ export default async function InsightPage({
 }) {
   const { slug } = await params;
 
-  const insight = await db.insight.findUnique({
-    where: { slug, published: true },
-  });
+  const insight = await getInsight(slug);
 
   if (!insight) notFound();
 

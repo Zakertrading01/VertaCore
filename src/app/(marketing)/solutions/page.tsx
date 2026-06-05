@@ -8,7 +8,7 @@ import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { CTASection } from "@/components/marketing/CTASection";
 
-export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
 
 
 
@@ -20,15 +20,12 @@ export const metadata: Metadata = buildMetadata({
   keywords: ["MRO solutions", "industrial supply", "safety systems", "welding supplier"],
 });
 
-import { db } from "@/lib/db";
+import { getSolutionCategories } from "@/lib/cached-queries";
 
 export default async function SolutionsPage() {
   const breadcrumb = [{ name: "Home", href: "/" }, { name: "Solutions", href: "/solutions" }];
 
-  const solutions = await db.category.findMany({
-    where: { published: true },
-    orderBy: [{ order: 'asc' }, { name: 'asc' }],
-  });
+  const solutions = await getSolutionCategories();
 
   return (
     <>

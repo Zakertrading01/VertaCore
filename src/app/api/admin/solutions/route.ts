@@ -3,7 +3,7 @@ import { z } from 'zod'
 import { auth } from '@/lib/auth'
 import { checkCsrf, sanitiseText, slugify } from '@/lib/security'
 import { db } from '@/lib/db'
-import { revalidatePath } from 'next/cache'
+import { revalidateSolutions } from '@/lib/revalidate'
 
 export const dynamic = 'force-dynamic'
 
@@ -76,7 +76,7 @@ export async function POST(req: NextRequest) {
     },
   })
 
-  revalidatePath('/solutions')
+  revalidateSolutions()
 
   return NextResponse.json(category, { status: 201 })
 }

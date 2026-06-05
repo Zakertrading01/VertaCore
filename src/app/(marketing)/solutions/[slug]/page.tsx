@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowRight, CheckCircle, ArrowLeft } from "lucide-react";
-import { db } from "@/lib/db";
 import { buildMetadata } from "@/lib/seo";
 import { serviceSchema, breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { SectionLabel } from "@/components/shared/SectionLabel";
@@ -11,17 +10,9 @@ import { PageHeader } from "@/components/shared/PageHeader";
 import { CatalogueItemCard } from "@/components/catalogue/CatalogueItemCard";
 import { CTASection } from "@/components/marketing/CTASection";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
+import { getSolution, getSolutionCatalogueItems } from "@/lib/cached-queries";
 
-export const revalidate = 3600;
-
-export async function generateStaticParams() {
-  try {
-    const solutions = await db.solution.findMany({ select: { slug: true } });
-    return solutions.map((s) => ({ slug: s.slug }));
-  } catch {
-    return [];
-  }
-}
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({
   params,
@@ -29,7 +20,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const solution = await db.solution.findUnique({ where: { slug } });
+  const solution = await getSolution(slug);
   if (!solution) return {};
 
   return buildMetadata({
@@ -47,14 +38,10 @@ export default async function SolutionPage({
 }) {
   const { slug } = await params;
 
-  const solution = await db.solution.findUnique({
-    where: { slug, published: true },
-    include: { industries: true },
-  });
+  const solution = await getSolution(slug);
 
   if (!solution) notFound();
 
-  // Get catalogue items for this solution's category
   const categoryGroupMap: Record<string, string> = {
     "industrial-supply": "Industrial Supply",
     "welding-fabrication": "Welding & Fabrication",
@@ -64,24 +51,7 @@ export default async function SolutionPage({
     "project-logistics": "Project Supply & Logistics",
   };
 
-  const catalogueItems = await db.catalogueItem.findMany({
-    where: {
-      published: true,
-      categoryGroup: categoryGroupMap[slug] ?? undefined,
-    },
-    take: 6,
-    orderBy: { order: "asc" },
-    select: {
-      id: true,
-      name: true,
-      description: true,
-      categoryGroup: true,
-      image: true,
-      certTags: true,
-      brandName: true,
-      datasheetUrl: true,
-    },
-  });
+  const catalogueItems = await getSolutionCatalogueItems(categoryGroupMap[slug] ?? '');
 
   const breadcrumb = [
     { name: "Home", href: "/" },

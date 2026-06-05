@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
-import { db } from "@/lib/db";
+import { getHomeProjects, getHomeInsights } from "@/lib/cached-queries";
 import { HeroSection } from "@/components/marketing/HeroSection";
 
 import { IntroductionSection } from "@/components/marketing/IntroductionSection";
@@ -14,7 +14,7 @@ import { ProjectsSection } from "@/components/marketing/ProjectsSection";
 import { InsightsSection } from "@/components/marketing/InsightsSection";
 import { CTASection } from "@/components/marketing/CTASection";
 
-export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = buildMetadata({
   title: "VERTACORE — Certified Industrial MRO Supply",
@@ -34,30 +34,9 @@ export const metadata: Metadata = buildMetadata({
 
 async function getHomeData() {
   const [projects, insights] = await Promise.all([
-    db.project.findMany({
-      where: { published: true, featured: true },
-      take: 3,
-      orderBy: { completedAt: "desc" },
-      include: { industry: true },
-    }).catch(() => []),
-    db.insight.findMany({
-      where: { published: true },
-      take: 3,
-      orderBy: { publishedAt: "desc" },
-      select: {
-        id: true,
-        slug: true,
-        title: true,
-        excerpt: true,
-        coverImage: true,
-        author: true,
-        tags: true,
-        readTime: true,
-        publishedAt: true,
-      },
-    }).catch(() => []),
+    getHomeProjects(),
+    getHomeInsights(),
   ]);
-
   return { projects, insights };
 }
 

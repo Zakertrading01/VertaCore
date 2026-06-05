@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { db } from "@/lib/db";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema } from "@/lib/schema";
 import { SectionLabel } from "@/components/shared/SectionLabel";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { CTASection } from "@/components/marketing/CTASection";
+import { getIndustries } from "@/lib/cached-queries";
 
-export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
 
 
 
@@ -40,10 +40,7 @@ const fallbackIndustries = [
 ];
 
 export default async function IndustriesPage() {
-  let industries = await db.industry.findMany({
-    where: { published: true },
-    orderBy: { order: "asc" },
-  });
+  let industries = await getIndustries();
 
   if (industries.length === 0) industries = fallbackIndustries as typeof industries;
 

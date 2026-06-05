@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Clock, BookOpen } from "lucide-react";
-import { db } from "@/lib/db";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema } from "@/lib/schema";
 import { SectionLabel } from "@/components/shared/SectionLabel";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { formatDateShort } from "@/lib/utils";
+import { getInsights } from "@/lib/cached-queries";
 
-export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
 
 
 
@@ -23,22 +23,7 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default async function InsightsPage() {
-  const insights = await db.insight.findMany({
-    where: { published: true },
-    orderBy: { publishedAt: "desc" },
-    select: {
-      id: true,
-      slug: true,
-      title: true,
-      excerpt: true,
-      coverImage: true,
-      author: true,
-      tags: true,
-      readTime: true,
-      publishedAt: true,
-      featured: true,
-    },
-  });
+  const insights = await getInsights();
 
   const breadcrumb = [
     { name: "Home", href: "/" },

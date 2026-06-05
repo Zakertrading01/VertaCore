@@ -3,23 +3,14 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight, Globe } from "lucide-react";
-import { db } from "@/lib/db";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema } from "@/lib/schema";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { SectionLabel } from "@/components/shared/SectionLabel";
 import { CTASection } from "@/components/marketing/CTASection";
+import { getBrand } from "@/lib/cached-queries";
 
-export const revalidate = 3600;
-
-export async function generateStaticParams() {
-  try {
-    const brands = await db.brand.findMany({ select: { slug: true } });
-    return brands.map((b) => ({ slug: b.slug }));
-  } catch {
-    return [];
-  }
-}
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({
   params,
@@ -29,20 +20,15 @@ export async function generateMetadata({
   const { slug } = await params;
   if (slug.includes('.')) return {};
 
-  try {
-    const brand = await db.brand.findUnique({ where: { slug } });
-    if (!brand) return {};
+  const brand = await getBrand(slug);
+  if (!brand) return {};
 
-    return buildMetadata({
-      title: `${brand.name} — Industrial Equipment`,
-      description: brand.description ?? `VERTACORE supplies ${brand.name} products.`,
-      path: `/brands/${slug}`,
-      image: brand.logo ?? undefined,
-    });
-  } catch (error) {
-    console.error(`[Brands] DB Error in generateMetadata for slug ${slug}:`, error);
-    return {};
-  }
+  return buildMetadata({
+    title: `${brand.name} — Industrial Equipment`,
+    description: brand.description ?? `VERTACORE supplies ${brand.name} products.`,
+    path: `/brands/${slug}`,
+    image: brand.logo ?? undefined,
+  });
 }
 
 export default async function BrandPage({
@@ -53,12 +39,7 @@ export default async function BrandPage({
   const { slug } = await params;
   if (slug.includes('.')) notFound();
 
-  let brand;
-  try {
-    brand = await db.brand.findUnique({ where: { slug } });
-  } catch (error) {
-    console.error(`[Brands] DB Error in BrandPage for slug ${slug}:`, error);
-  }
+  let brand = await getBrand(slug);
 
   // Fallback for key brands if not in DB
   if (!brand) {

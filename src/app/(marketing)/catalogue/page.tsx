@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Download } from "lucide-react";
-import { db } from "@/lib/db";
 import { buildMetadata } from "@/lib/seo";
 import { catalogueItemListSchema, breadcrumbSchema } from "@/lib/schema";
 import { SectionLabel } from "@/components/shared/SectionLabel";
@@ -9,8 +8,9 @@ import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { CatalogueGroup } from "@/components/catalogue/CatalogueGroup";
 import { CatalogueDownloadButton } from "@/components/catalogue/CatalogueClient";
 import { CTASection } from "@/components/marketing/CTASection";
+import { getCatalogueItems } from "@/lib/cached-queries";
 
-export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
 
 
 
@@ -64,23 +64,7 @@ export default async function CataloguePage() {
     datasheetUrl: string | null;
   };
 
-  const items = (await db.catalogueItem.findMany({
-    where: { published: true },
-    orderBy: { order: "asc" },
-    select: {
-      id: true,
-      name: true,
-      description: true,
-      categoryGroup: true,
-      image: true,
-      certTags: true,
-      brandName: true,
-      datasheetUrl: true,
-    },
-  }).catch((err) => {
-    console.error("[Catalogue] DB Error fetching items:", err);
-    return [];
-  })) as Item[];
+  const items = (await getCatalogueItems()) as Item[];
 
 
   // Group by category

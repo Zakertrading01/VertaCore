@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ExternalLink, Globe } from "lucide-react";
-import { db } from "@/lib/db";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema } from "@/lib/schema";
 import { SectionLabel } from "@/components/shared/SectionLabel";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { CTASection } from "@/components/marketing/CTASection";
+import { getBrands } from "@/lib/cached-queries";
 
-export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = buildMetadata({
   title: "Brands & Partners",
@@ -21,9 +21,7 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default async function BrandsPage() {
-  const brands = await db.brand.findMany({
-    orderBy: [{ featured: "desc" }, { order: "asc" }],
-  });
+  const brands = await getBrands();
 
   const breadcrumb = [
     { name: "Home", href: "/" },

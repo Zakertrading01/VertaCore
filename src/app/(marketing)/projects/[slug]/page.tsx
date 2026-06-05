@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight, Building2 } from "lucide-react";
-import { db } from "@/lib/db";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema } from "@/lib/schema";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
@@ -12,17 +11,9 @@ import { CTASection } from "@/components/marketing/CTASection";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import type { ProjectMetric } from "@/types/db";
 import { formatDate } from "@/lib/utils";
+import { getProject } from "@/lib/cached-queries";
 
-export const revalidate = 3600;
-
-export async function generateStaticParams() {
-  try {
-    const projects = await db.project.findMany({ select: { slug: true } });
-    return projects.map((p) => ({ slug: p.slug }));
-  } catch {
-    return [];
-  }
-}
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({
   params,
@@ -30,7 +21,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const project = await db.project.findUnique({ where: { slug } });
+  const project = await getProject(slug);
   if (!project) return {};
 
   return buildMetadata({
@@ -48,10 +39,7 @@ export default async function ProjectPage({
 }) {
   const { slug } = await params;
 
-  const project = await db.project.findUnique({
-    where: { slug, published: true },
-    include: { industry: true, solutions: true },
-  });
+  const project = await getProject(slug);
 
   if (!project) notFound();
 

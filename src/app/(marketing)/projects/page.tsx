@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Building2 } from "lucide-react";
-import { db } from "@/lib/db";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema } from "@/lib/schema";
 import { SectionLabel } from "@/components/shared/SectionLabel";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { CTASection } from "@/components/marketing/CTASection";
+import { getProjects } from "@/lib/cached-queries";
 
-export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
 
 
 
@@ -23,11 +23,7 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default async function ProjectsPage() {
-  const projects = await db.project.findMany({
-    where: { published: true },
-    orderBy: [{ featured: "desc" }, { completedAt: "desc" }],
-    include: { industry: true },
-  });
+  const projects = await getProjects();
 
   const breadcrumb = [
     { name: "Home", href: "/" },

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowRight, ArrowLeft } from "lucide-react";
-import { db } from "@/lib/db";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema } from "@/lib/schema";
 import { SectionLabel } from "@/components/shared/SectionLabel";
@@ -10,17 +9,9 @@ import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { CTASection } from "@/components/marketing/CTASection";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
+import { getIndustry } from "@/lib/cached-queries";
 
-export const revalidate = 3600;
-
-export async function generateStaticParams() {
-  try {
-    const industries = await db.industry.findMany({ select: { slug: true } });
-    return industries.map((i) => ({ slug: i.slug }));
-  } catch {
-    return [];
-  }
-}
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({
   params,
@@ -28,7 +19,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const industry = await db.industry.findUnique({ where: { slug } });
+  const industry = await getIndustry(slug);
   if (!industry) return {};
 
   return buildMetadata({
@@ -47,13 +38,7 @@ export default async function IndustryPage({
 }) {
   const { slug } = await params;
 
-  const industry = await db.industry.findUnique({
-    where: { slug, published: true },
-    include: {
-      solutions: { where: { published: true } },
-      projects: { where: { published: true }, take: 2 },
-    },
-  });
+  const industry = await getIndustry(slug);
 
   if (!industry) notFound();
 
