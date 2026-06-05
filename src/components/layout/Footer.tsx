@@ -116,10 +116,10 @@ export function Footer() {
             {/* Social Grid */}
             <div className="flex items-center gap-3.5 mb-4">
               {[
-                { icon: Facebook, color: "#1877F2", label: "Facebook", href: "https://facebook.com" },
-                { icon: Linkedin, color: "#0A66C2", label: "LinkedIn", href: "https://linkedin.com" },
-                { icon: Instagram, color: "#E4405F", label: "Instagram", href: "https://instagram.com" },
-                { icon: Youtube, color: "#FF0000", label: "YouTube", href: "https://youtube.com" },
+                { icon: Facebook, bg: "bg-[#1877F2]", label: "Facebook", href: "https://facebook.com" },
+                { icon: Linkedin, bg: "bg-[#0A66C2]", label: "LinkedIn", href: "https://linkedin.com" },
+                { icon: Instagram, bg: "bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888]", label: "Instagram", href: "https://instagram.com" },
+                { icon: Youtube, bg: "bg-[#FF0000]", label: "YouTube", href: "https://youtube.com" },
               ].map((social) => {
                 const Icon = social.icon;
                 return (
@@ -129,10 +129,9 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-lg hover:scale-110 hover:bg-gold transition-all duration-300 group/social"
-                    style={{ color: social.color }}
+                    className={`w-10 h-10 rounded-full ${social.bg} flex items-center justify-center shadow-lg hover:scale-110 hover:opacity-80 transition-all duration-300`}
                   >
-                    <Icon className="h-4 w-4 transition-colors group-hover/social:!text-navy-dark" />
+                    <Icon className="h-5 w-5 text-white" />
                   </a>
                 );
               })}
