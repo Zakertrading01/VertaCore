@@ -11,53 +11,60 @@ const brands = [
 
 export function MaintenancePage() {
     return (
-        <div className="fixed inset-0 z-[100] bg-white flex flex-col font-sans selection:bg-gold selection:text-white overflow-y-auto">
+        <div className="fixed inset-0 z-[100] bg-[#0b1b33] flex flex-col font-sans selection:bg-gold selection:text-[#0b1b33] overflow-hidden">
             {/* Hero Section */}
-            <main className="relative flex-1 flex flex-col items-center justify-center p-6 bg-[#f8fafc]">
+            <main className="relative flex-1 flex flex-col items-center justify-center p-6 bg-transparent">
                 {/* Background Subtle Pattern */}
                 <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none"
-                    style={{ backgroundImage: 'radial-gradient(#0b1b33 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
+                    style={{ backgroundImage: 'radial-gradient(white 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
 
-                <div className="relative z-10 max-w-5xl w-full flex flex-col items-center">
-                    {/* Featured Image */}
-                    <div className="relative w-full max-w-2xl aspect-square rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.2)] border border-slate-200 animate-in fade-in zoom-in duration-1000">
-                        <img
-                            src="/maintenance.png"
-                            alt="Vertacore Under Maintenance"
-                            className="w-full h-full object-contain bg-white"
-                        />
-                    </div>
-
-                    {/* Message */}
-                    <div className="mt-12 text-center space-y-4 max-w-2xl px-6">
-                        <h2 className="text-3xl md:text-5xl font-black text-[#0b1b33] tracking-tight uppercase">
-                            Something <span className="text-gold">Great</span> is Coming
-                        </h2>
-                        <p className="text-slate-500 font-medium leading-relaxed">
-                            We are currently performing scheduled maintenance to enhance your experience.
-                            Our team is working hard to bring you the next generation of industrial MRO supply solutions.
-                        </p>
-                    </div>
-
-                    {/* Contact Shortcut */}
-                    <div className="mt-10 flex flex-col items-center gap-4">
-                        <div className="flex items-center gap-3">
-                            <div className="h-[1px] w-8 bg-slate-200" />
-                            <p className="text-[#0b1b33]/60 font-bold uppercase tracking-[0.2em] text-[10px]">Direct Support</p>
-                            <div className="h-[1px] w-8 bg-slate-200" />
+                <div className="relative z-10 max-w-7xl w-full flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-16 px-4 md:px-8">
+                    
+                    {/* Left Side: Text Content */}
+                    <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left space-y-8 max-w-2xl lg:pr-8">
+                        {/* Message */}
+                        <div className="space-y-4">
+                            <h2 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white tracking-tight uppercase leading-none">
+                                Something <br className="hidden lg:block" /><span className="text-gold">Great</span> is Coming
+                            </h2>
+                            <p className="text-base md:text-lg text-slate-300 font-medium leading-relaxed max-w-xl">
+                                We are currently performing scheduled maintenance to enhance your experience.
+                                Our team is working hard to bring you the next generation of industrial MRO supply solutions.
+                            </p>
                         </div>
-                        <a
-                            href="mailto:info@vertacore.ae"
-                            className="group relative px-8 py-3 bg-[#0b1b33] text-white rounded-xl font-bold transition-all hover:scale-105 hover:shadow-2xl overflow-hidden"
-                        >
-                            <span className="absolute inset-0 bg-gold translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                            <span className="relative z-10 group-hover:text-[#0b1b33]">info@vertacore.ae</span>
-                        </a>
+
+                        {/* Contact Shortcut */}
+                        <div className="flex flex-col items-center lg:items-start gap-4 w-full">
+                            <div className="flex items-center gap-3">
+                                <div className="h-[1px] w-8 bg-white/20 lg:hidden" />
+                                <p className="text-white/60 font-bold uppercase tracking-[0.2em] text-[10px] md:text-xs">Direct Support</p>
+                                <div className="h-[1px] w-16 bg-white/20 hidden lg:block" />
+                                <div className="h-[1px] w-8 bg-white/20 lg:hidden" />
+                            </div>
+                            <a
+                                href="mailto:info@vertacore.ae"
+                                className="group relative px-8 py-3.5 bg-white text-[#0b1b33] rounded-xl font-bold transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] overflow-hidden text-base inline-flex"
+                            >
+                                <span className="absolute inset-0 bg-gold translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                                <span className="relative z-10 group-hover:text-[#0b1b33]">info@vertacore.ae</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    {/* Right Side: Image */}
+                    <div className="flex-1 flex justify-center lg:justify-end w-full animate-in fade-in slide-in-from-right-8 duration-1000">
+                        <div className="relative w-full max-w-[280px] md:max-w-[400px] lg:max-w-[500px] xl:max-w-[600px] aspect-square rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10">
+                            <img
+                                src="/maintenance.png"
+                                alt="Vertacore Under Maintenance"
+                                className="w-full h-full object-contain bg-white"
+                            />
+                        </div>
                     </div>
                 </div>
             </main>
 
-            <div className="py-12 bg-[#f8fafc]" />
+
 
             <style jsx global>{`
         @keyframes subtle-bounce {
