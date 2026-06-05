@@ -133,7 +133,7 @@ export default function AboutPage() {
       {/* Sub-page links */}
       <section className="pb-16 md:pb-24 pt-4 bg-navy">
         <div className="container-base max-w-7xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <Link
               href="/about/story"
               className="group p-8 rounded-2xl bg-navy-dark border border-steel/10 hover:border-gold/30 hover:-translate-y-1 active:scale-95 transition-all duration-300 hover:shadow-2xl hover:shadow-gold/5 relative overflow-hidden"
@@ -171,26 +171,6 @@ export default function AboutPage() {
               <p className="text-sm text-surface/60 leading-relaxed mb-6 relative z-10">The principles that guide every decision and relationship.</p>
               <div className="flex items-center gap-2 text-sm font-semibold text-gold relative z-10">
                 Explore values <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-
-            <Link
-              href="/certifications"
-              className="group p-8 rounded-2xl bg-navy-dark border border-steel/10 hover:border-gold/30 hover:-translate-y-1 active:scale-95 transition-all duration-300 hover:shadow-2xl hover:shadow-gold/5 relative overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-500" />
-              
-              {/* Hover Particles */}
-              <div className="absolute top-10 right-14 w-1.5 h-1.5 bg-gold rounded-full opacity-0 group-hover:opacity-80 transition-all duration-700 translate-y-8 group-hover:-translate-y-4 shadow-[0_0_8px_rgba(255,191,0,0.8)]" />
-              <div className="absolute bottom-12 right-8 w-2 h-2 bg-gold/60 rounded-full opacity-0 group-hover:opacity-60 transition-all duration-1000 translate-x-4 group-hover:-translate-x-6 group-hover:-translate-y-8 blur-[1px]" />
-              <div className="absolute top-1/2 right-5 w-1 h-1 bg-gold rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:-translate-y-6 shadow-[0_0_5px_rgba(255,191,0,1)]" />
-
-              <h3 className="text-xl font-bold text-surface mb-3 group-hover:text-gold transition-colors relative z-10">
-                Certifications
-              </h3>
-              <p className="text-sm text-surface/60 leading-relaxed mb-6 relative z-10">ISO 9001:2015 standards and verified product documentation.</p>
-              <div className="flex items-center gap-2 text-sm font-semibold text-gold relative z-10">
-                View certs <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
               </div>
             </Link>
           </div>
