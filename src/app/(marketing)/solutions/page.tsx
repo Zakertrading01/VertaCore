@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { TapLink } from "@/components/shared/TapLink";
 import { ArrowRight, Shield, Flame, Link2, Disc, Wrench } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema } from "@/lib/schema";
@@ -67,35 +68,39 @@ export default async function SolutionsPage() {
                     delay={i * 0.06}
                     className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
                   >
-                    <div className="card-base flex flex-col p-6 md:p-8 h-full group transition-all duration-300 hover:-translate-y-1">
+                    <TapLink
+                      href={`/catalogue?category=${encodeURIComponent(solution.name)}`}
+                      className="card-base block flex-col p-6 md:p-8 h-full group transition-all duration-300 hover:-translate-y-1 focus:-translate-y-1 active:-translate-y-1 hover:border-gold/30 focus:border-gold/30 active:border-gold/30 outline-none relative overflow-hidden"
+                      tabIndex={0}
+                    >
+                      {/* Premium Hover Effects */}
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent group-hover:w-full group-focus:w-full group-active:w-full transition-all duration-700 ease-out opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100" />
+                      
                       {/* Header: Icon + View Button */}
-                      <div className="flex items-center justify-between mb-6">
-                        <div className="p-3.5 rounded-xl bg-navy-light/40 flex-shrink-0 flex items-center justify-center w-12 h-12">
+                      <div className="flex items-center justify-between mb-6 relative z-10">
+                        <div className="p-3.5 rounded-xl bg-navy-light/40 flex-shrink-0 flex items-center justify-center w-12 h-12 group-hover:scale-110 group-focus:scale-110 group-active:scale-110 group-hover:bg-gold/20 group-focus:bg-gold/20 group-active:bg-gold/20 transition-all duration-500">
                           {solution.icon ? (
-                            <span className="text-2xl">{solution.icon}</span>
+                            <span className="text-2xl group-hover:text-gold group-focus:text-gold group-active:text-gold transition-colors duration-500">{solution.icon}</span>
                           ) : (
-                            <span className="text-2xl">📦</span>
+                            <span className="text-2xl group-hover:text-gold group-focus:text-gold group-active:text-gold transition-colors duration-500">📦</span>
                           )}
                         </div>
-                        <Link
-                          href={`/catalogue?category=${encodeURIComponent(solution.name)}`}
-                          prefetch={false}
-                          className="p-2.5 rounded-full bg-gold/10 text-gold group-hover:bg-gold group-hover:text-navy transition-all duration-300"
-                          aria-label={`View ${solution.name}`}
+                        <div
+                          className="p-2.5 rounded-full bg-gold/10 text-gold group-hover:bg-gold group-hover:text-navy group-focus:bg-gold group-focus:text-navy group-active:bg-gold group-active:text-navy transition-all duration-300"
                         >
                           <ArrowRight className="h-5 w-5" />
-                        </Link>
+                        </div>
                       </div>
 
                       {/* Title */}
-                      <div className="mb-4">
-                        <h2 className="text-h2 font-bold text-surface group-hover:!text-gold transition-colors duration-300">{solution.name}</h2>
+                      <div className="mb-4 relative z-10">
+                        <h2 className="text-h2 font-bold text-surface group-hover:!text-gold group-focus:!text-gold group-active:!text-gold transition-colors duration-300">{solution.name}</h2>
                       </div>
 
-                      <p className="text-sm text-surface/60 leading-relaxed mb-6 flex-1 group-hover:!text-gold/80 transition-colors duration-300">
+                      <p className="text-sm text-surface/60 leading-relaxed mb-6 flex-1 group-hover:!text-gold/80 group-focus:!text-gold/80 group-active:!text-gold/80 transition-colors duration-300 relative z-10">
                         {solution.description || "Explore our certified industrial solutions."}
                       </p>
-                    </div>
+                    </TapLink>
                   </ScrollReveal>
                 );
               })}

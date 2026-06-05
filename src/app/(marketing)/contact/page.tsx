@@ -5,6 +5,7 @@ import { SectionLabel } from "@/components/shared/SectionLabel";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
+import { TapLink } from "@/components/shared/TapLink";
 import { Mail, Clock, Shield, MapPin, Phone } from "lucide-react";
 
 
@@ -85,29 +86,30 @@ export default function ContactPage() {
                         <div className="space-y-3 text-sm text-surface/80">
                           <p className="flex items-start gap-3">
                             <MapPin className="h-5 w-5 text-gold flex-shrink-0 mt-0.5" />
-                            <a
+                            <TapLink
                               href="https://maps.google.com/?q=Dar+Al+Salam+Building+Abu+Dhabi"
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="leading-relaxed hover:text-gold transition-colors duration-300"
+                              tabIndex={0}
+                              className="leading-relaxed hover:text-gold focus:text-gold active:text-gold outline-none transition-colors duration-300"
                             >
                               Office No.44, 11th Floor<br />
                               Dar Al Salam Building<br />
                               Near Al Madina Supermarket, Liwa Street, Corniche,<br />
                               Abu Dhabi, United Arab Emirates
-                            </a>
+                            </TapLink>
                           </p>
                           <p className="flex items-center gap-3">
                             <Mail className="h-5 w-5 text-gold flex-shrink-0" />
-                            <a href="mailto:info@vertacore.com" className="hover:text-gold transition-colors">
+                            <TapLink href="mailto:info@vertacore.com" tabIndex={0} className="hover:text-gold focus:text-gold active:text-gold outline-none transition-colors">
                               info@vertacore.com
-                            </a>
+                            </TapLink>
                           </p>
                           <p className="flex items-center gap-3">
                             <Phone className="h-5 w-5 text-gold flex-shrink-0" />
-                            <a href="tel:+971XXXXX" className="hover:text-gold transition-colors">
+                            <TapLink href="tel:+971XXXXX" tabIndex={0} className="hover:text-gold focus:text-gold active:text-gold outline-none transition-colors">
                               +971 XX XXX XXXX
-                            </a>
+                            </TapLink>
                           </p>
                         </div>
                       </div>
@@ -117,40 +119,39 @@ export default function ContactPage() {
                           Business Hours
                         </p>
                         <div className="space-y-1.5 text-sm text-surface/80">
-                          <p className="flex justify-between max-w-[260px] group hover:!text-gold transition-colors duration-300 cursor-default">
+                          <p tabIndex={0} className="flex justify-between max-w-[260px] group hover:!text-gold focus:!text-gold active:!text-gold outline-none transition-colors duration-300 cursor-default">
                             <span>Monday – Friday</span>
-                            <span className="text-surface/60 group-hover:!text-gold/80 transition-colors duration-300">8:00 AM – 6:00 PM</span>
+                            <span className="text-surface/60 group-hover:!text-gold/80 group-focus:!text-gold/80 group-active:!text-gold/80 transition-colors duration-300">8:00 AM – 6:00 PM</span>
                           </p>
-                          <p className="flex justify-between max-w-[260px] group hover:!text-gold transition-colors duration-300 cursor-default">
+                          <p tabIndex={0} className="flex justify-between max-w-[260px] group hover:!text-gold focus:!text-gold active:!text-gold outline-none transition-colors duration-300 cursor-default">
                             <span>Saturday</span>
-                            <span className="text-surface/60 group-hover:!text-gold/80 transition-colors duration-300">8:00 AM – 12:30 PM</span>
+                            <span className="text-surface/60 group-hover:!text-gold/80 group-focus:!text-gold/80 group-active:!text-gold/80 transition-colors duration-300">8:00 AM – 12:30 PM</span>
                           </p>
                         </div>
                       </div>
                     </div>
 
-                    {/* Send Us Your Requirement */}
-                    <div className="bg-navy-dark/30 p-6 rounded-lg border border-steel/10 flex flex-col justify-between mt-auto group hover:border-gold/30 transition-colors duration-300 cursor-default">
+                    <div tabIndex={0} className="bg-navy-dark/30 p-6 rounded-lg border border-steel/10 flex flex-col justify-between mt-auto group hover:border-gold/30 focus:border-gold/30 active:border-gold/30 outline-none transition-colors duration-300 cursor-default">
                       <div>
-                        <h3 className="text-lg font-bold text-surface mb-2 group-hover:!text-gold transition-colors duration-300">Send Us Your Requirement</h3>
-                        <p className="text-sm text-surface/70 leading-relaxed mb-4 group-hover:!text-gold/80 transition-colors duration-300">
+                        <h3 className="text-lg font-bold text-surface mb-2 group-hover:!text-gold group-focus:!text-gold group-active:!text-gold transition-colors duration-300">Send Us Your Requirement</h3>
+                        <p className="text-sm text-surface/70 leading-relaxed mb-4 group-hover:!text-gold/80 group-focus:!text-gold/80 group-active:!text-gold/80 transition-colors duration-300">
                           Our team will respond promptly to support your operational or project needs.
                         </p>
 
                         <ul className="space-y-2.5 text-sm text-surface/80">
-                          <li className="flex items-start gap-3 group-hover:!text-gold/90 transition-colors duration-300">
+                          <li className="flex items-start gap-3 group-hover:!text-gold/90 group-focus:!text-gold/90 group-active:!text-gold/90 transition-colors duration-300">
                             <div className="h-1.5 w-1.5 rounded-full bg-gold mt-1.5 flex-shrink-0" />
                             Industrial Product Inquiries
                           </li>
-                          <li className="flex items-start gap-3 group-hover:!text-gold/90 transition-colors duration-300">
+                          <li className="flex items-start gap-3 group-hover:!text-gold/90 group-focus:!text-gold/90 group-active:!text-gold/90 transition-colors duration-300">
                             <div className="h-1.5 w-1.5 rounded-full bg-gold mt-1.5 flex-shrink-0" />
                             EPC Project Support
                           </li>
-                          <li className="flex items-start gap-3 group-hover:!text-gold/90 transition-colors duration-300">
+                          <li className="flex items-start gap-3 group-hover:!text-gold/90 group-focus:!text-gold/90 group-active:!text-gold/90 transition-colors duration-300">
                             <div className="h-1.5 w-1.5 rounded-full bg-gold mt-1.5 flex-shrink-0" />
                             Technical Sourcing Requests
                           </li>
-                          <li className="flex items-start gap-3 group-hover:!text-gold/90 transition-colors duration-300">
+                          <li className="flex items-start gap-3 group-hover:!text-gold/90 group-focus:!text-gold/90 group-active:!text-gold/90 transition-colors duration-300">
                             <div className="h-1.5 w-1.5 rounded-full bg-gold mt-1.5 flex-shrink-0" />
                             Vendor & Partnership Opportunities
                           </li>

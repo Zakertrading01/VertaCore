@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { TapLink } from "@/components/shared/TapLink";
 import Image from "next/image";
 import { ArrowRight, ExternalLink, Globe } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
@@ -59,12 +60,12 @@ export default async function BrandsPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {brands.map((brand, i) => (
                 <ScrollReveal key={brand.id} delay={i * 0.05}>
-                  <div className="card-base flex flex-col h-full group">
+                  <TapLink href={`/brands/${brand.slug}`} tabIndex={0} className="card-base block flex-col h-full group outline-none focus:ring-2 focus:ring-gold active:ring-2 active:ring-gold transition-all duration-300">
                     <div className="p-6 flex flex-col h-full">
                       <div className="flex items-start gap-4 flex-1 mb-6">
                         <div className="flex-1">
                           <div className="flex items-center gap-2 mb-2">
-                            <h2 className="text-h3 font-bold text-surface group-hover:text-gold transition-colors">
+                            <h2 className="text-h3 font-bold text-surface group-hover:text-gold group-focus:text-gold group-active:text-gold transition-colors">
                               {brand.name}
                             </h2>
                             {brand.website && (
@@ -79,7 +80,7 @@ export default async function BrandsPage() {
                             </p>
                           )}
                         </div>
-                        <div className="w-20 h-20 md:w-24 md:h-24 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                        <div className="w-20 h-20 md:w-24 md:h-24 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 group-focus:scale-105 group-active:scale-105">
                           <img
                             src={brand.logo || `/brands/${brand.slug}.png`}
                             alt={brand.name}
@@ -94,16 +95,15 @@ export default async function BrandsPage() {
                             {brand.country}
                           </span>
                         )}
-                        <Link
-                          href={`/brands/${brand.slug}`}
-                          className="flex items-center gap-1.5 text-xs font-bold text-surface/60 hover:text-gold transition-colors"
+                        <span
+                          className="flex items-center gap-1.5 text-xs font-bold text-surface/60 group-hover:text-gold group-focus:text-gold group-active:text-gold transition-colors"
                         >
                           View Details
                           <ArrowRight className="h-3 w-3" />
-                        </Link>
+                        </span>
                       </div>
                     </div>
-                  </div>
+                  </TapLink>
                 </ScrollReveal>
               ))}
             </div>
@@ -119,13 +119,13 @@ export default async function BrandsPage() {
                 { name: "SAKURA", description: "Japanese pigment technology and tough industrial markers.", country: "Japan", slug: "sakura" },
               ].map((brand, i) => (
                 <ScrollReveal key={brand.slug} delay={i * 0.05}>
-                  <div className="card-base p-6 flex flex-col h-full group">
+                  <TapLink href={`/brands/${brand.slug}`} tabIndex={0} className="card-base block p-6 flex-col h-full group outline-none focus:ring-2 focus:ring-gold active:ring-2 active:ring-gold transition-all duration-300">
                     <div className="flex items-start gap-4 flex-1 mb-6">
                       <div className="flex-1">
-                        <h2 className="text-h3 font-bold text-surface mb-2 group-hover:text-gold transition-colors">{brand.name}</h2>
+                        <h2 className="text-h3 font-bold text-surface mb-2 group-hover:text-gold group-focus:text-gold group-active:text-gold transition-colors">{brand.name}</h2>
                         <p className="text-sm text-steel-muted leading-relaxed line-clamp-3">{brand.description}</p>
                       </div>
-                      <div className="w-20 h-20 md:w-24 md:h-24 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                      <div className="w-20 h-20 md:w-24 md:h-24 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 group-focus:scale-105 group-active:scale-105">
                         <img
                           src={`/brands/${brand.slug}.png`}
                           alt={brand.name}
@@ -137,15 +137,14 @@ export default async function BrandsPage() {
                       <span className="text-[10px] font-bold uppercase tracking-widest text-gold/60 bg-gold/5 px-2 py-1 rounded">
                         {brand.country}
                       </span>
-                      <Link
-                        href={`/brands/${brand.slug}`}
-                        className="flex items-center gap-1.5 text-xs font-bold text-surface/60 hover:text-gold transition-colors"
+                      <span
+                        className="flex items-center gap-1.5 text-xs font-bold text-surface/60 group-hover:text-gold group-focus:text-gold group-active:text-gold transition-colors"
                       >
                         View Details
                         <ArrowRight className="h-3 w-3" />
-                      </Link>
+                      </span>
                     </div>
-                  </div>
+                  </TapLink>
                 </ScrollReveal>
               ))}
             </div>

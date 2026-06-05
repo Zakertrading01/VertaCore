@@ -20,7 +20,7 @@ export function CatalogueItemCard({
   datasheetUrl,
 }: CatalogueItemCardProps) {
   return (
-    <article className="card-base flex flex-col overflow-hidden group">
+    <article tabIndex={0} className="card-base flex flex-col overflow-hidden group outline-none focus:ring-2 focus:ring-gold active:ring-2 active:ring-gold transition-all duration-300">
       {/* Image */}
       <div className="relative aspect-video bg-white overflow-hidden">
         {image ? (
@@ -28,7 +28,7 @@ export function CatalogueItemCard({
             src={resolveImageUrl(image) || image}
             alt={name}
             fill
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            className="object-cover transition-transform duration-300 group-hover:scale-105 group-focus:scale-105 group-active:scale-105"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             loading="lazy"
           />
@@ -47,12 +47,12 @@ export function CatalogueItemCard({
           </p>
         )}
 
-        <h3 className="text-[14px] font-semibold text-surface leading-snug mb-1 group-hover:!text-gold transition-colors duration-300">
+        <h3 className="text-[14px] font-semibold text-surface leading-snug mb-1 group-hover:!text-gold group-focus:!text-gold group-active:!text-gold transition-colors duration-300">
           {name}
         </h3>
 
         {description && (
-          <p className="text-xs text-steel-muted leading-relaxed mb-2 line-clamp-2 group-hover:!text-gold/80 transition-colors duration-300">
+          <p className="text-xs text-steel-muted leading-relaxed mb-2 line-clamp-2 group-hover:!text-gold/80 group-focus:!text-gold/80 group-active:!text-gold/80 transition-colors duration-300">
             {description}
           </p>
         )}
