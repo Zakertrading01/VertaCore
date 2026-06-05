@@ -11,9 +11,7 @@ import { CTASection } from "@/components/marketing/CTASection";
 import { getCatalogueItems } from "@/lib/cached-queries";
 import { ScrollToHash } from "@/components/shared/ScrollToHash";
 
-export const dynamic = 'force-dynamic';
-
-
+export const revalidate = 3600;
 
 export const metadata: Metadata = buildMetadata({
   title: "Industrial Product Catalogue",
@@ -133,9 +131,9 @@ export default async function CataloguePage() {
       </header>
 
       {/* Categories */}
-      <section className="pt-2 pb-16 md:pb-24 bg-graphite-subtle">
-        <div className="container-base space-y-8 md:space-y-10">
-          {Object.entries(grouped).map(([category, categoryItems]) => {
+      <section className="pt-6 pb-16 md:pb-24 bg-graphite-subtle">
+        <div className="container-base space-y-16 md:space-y-20">
+          {Object.entries(grouped).map(([category, categoryItems], groupIndex) => {
             if (categoryItems.length === 0) return null;
             
             return (
@@ -146,7 +144,7 @@ export default async function CataloguePage() {
                     {CATEGORY_DESCRIPTIONS[category]}
                   </p>
                 )}
-                <CatalogueGroup categoryGroup={category} items={categoryItems} />
+                <CatalogueGroup categoryGroup={category} items={categoryItems} firstGroup={groupIndex === 0} />
               </div>
             );
           })}

@@ -8,9 +8,7 @@ import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { CTASection } from "@/components/marketing/CTASection";
 
-export const dynamic = 'force-dynamic';
-
-
+export const revalidate = 3600;
 
 export const metadata: Metadata = buildMetadata({
   title: "Industrial MRO Solutions",

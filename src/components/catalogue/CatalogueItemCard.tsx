@@ -8,6 +8,7 @@ import type { CatalogueItemCard as CatalogueItemCardType } from "@/types/db";
 
 interface CatalogueItemCardProps extends CatalogueItemCardType {
   className?: string;
+  priority?: boolean;
 }
 
 export function CatalogueItemCard({
@@ -18,6 +19,7 @@ export function CatalogueItemCard({
   certTags,
   brandName,
   datasheetUrl,
+  priority = false,
 }: CatalogueItemCardProps) {
   return (
     <article className="card-base flex flex-col overflow-hidden group">
@@ -30,7 +32,8 @@ export function CatalogueItemCard({
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-105"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            loading="lazy"
+            priority={priority}
+            loading={priority ? "eager" : "lazy"}
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center">
