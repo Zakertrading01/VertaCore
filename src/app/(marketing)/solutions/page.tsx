@@ -8,7 +8,7 @@ import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { CTASection } from "@/components/marketing/CTASection";
 
-export const dynamic = 'force-dynamic';
+import { cacheTag, cacheLife } from "next/cache";
 
 
 
@@ -23,6 +23,11 @@ export const metadata: Metadata = buildMetadata({
 import { getSolutionCategories } from "@/lib/cached-queries";
 
 export default async function SolutionsPage() {
+  "use cache";
+  cacheLife("hours");
+  cacheTag("solutions");
+  cacheTag("catalogue");
+
   const breadcrumb = [{ name: "Home", href: "/" }, { name: "Solutions", href: "/solutions" }];
 
   const solutions = await getSolutionCategories();

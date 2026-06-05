@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
     // Limit to 1 worker to prevent module initialization race condition
     // in Next.js 16 Turbopack's app-page runtime during static generation
     cpus: 1,
+    useCache: true,
   },
   images: {
     remotePatterns: [

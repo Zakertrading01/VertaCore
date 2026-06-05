@@ -9,8 +9,7 @@ import { CatalogueGroup } from "@/components/catalogue/CatalogueGroup";
 import { CatalogueDownloadButton } from "@/components/catalogue/CatalogueClient";
 import { CTASection } from "@/components/marketing/CTASection";
 import { getCatalogueItems } from "@/lib/cached-queries";
-
-export const dynamic = 'force-dynamic';
+import { cacheTag, cacheLife } from "next/cache";
 
 
 
@@ -53,6 +52,10 @@ const CATEGORY_DESCRIPTIONS: Record<string, string> = {
 };
 
 export default async function CataloguePage() {
+  "use cache";
+  cacheLife("hours");
+  cacheTag("catalogue");
+
   type Item = {
     id: string;
     name: string;
