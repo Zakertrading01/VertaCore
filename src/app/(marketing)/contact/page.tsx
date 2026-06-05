@@ -86,13 +86,13 @@ export default function ContactPage() {
                           <p className="flex items-start gap-3">
                             <MapPin className="h-5 w-5 text-gold flex-shrink-0 mt-0.5" />
                             <a
-                              href="https://maps.google.com/?q=Trustwell+Properties+Dar+Al+Salam+Building+Abu+Dhabi"
+                              href="https://maps.google.com/?q=Dar+Al+Salam+Building+Abu+Dhabi"
                               target="_blank"
                               rel="noopener noreferrer"
                               className="leading-relaxed hover:text-gold transition-colors duration-300"
                             >
                               Office No.44, 11th Floor<br />
-                              Trustwell Properties Dar Al Salam Building<br />
+                              Dar Al Salam Building<br />
                               Near Al Madina Supermarket, Liwa Street, Corniche,<br />
                               Abu Dhabi, United Arab Emirates
                             </a>

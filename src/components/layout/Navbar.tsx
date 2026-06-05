@@ -168,7 +168,7 @@ export function Navbar() {
           </div>
           <div className="flex items-center gap-5 text-[14px] font-medium">
             <a 
-              href="https://maps.google.com/?q=Office+No.44,+11th+Floor,+Trustwell+Properties+Dar+Al+Salam+Building,+Liwa+Street,+Corniche,+Abu+Dhabi,+UAE"
+              href="https://maps.google.com/?q=Office+No.44,+11th+Floor,+Dar+Al+Salam+Building,+Liwa+Street,+Corniche,+Abu+Dhabi,+UAE"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 hover:text-gold transition-colors"

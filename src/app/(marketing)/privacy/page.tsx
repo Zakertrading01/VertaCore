@@ -48,7 +48,7 @@ export default function PrivacyPage() {
                     <span className="text-gold text-lg font-mono tracking-wider">01.</span> Who We Are
                   </h2>
                   <p className="text-surface/70 leading-relaxed pl-[3.25rem]">
-                    VERTACORE is an industrial supply and trading company registered in the United Arab Emirates. Our registered office is at Office No. 44, 11th Floor, Trustwell Properties Dar Al Salam Building, Liwa Street, Corniche, Abu Dhabi, UAE. For privacy-related matters, you can contact us at{" "}
+                    VERTACORE is an industrial supply and trading company registered in the United Arab Emirates. Our registered office is at Office No. 44, 11th Floor, Dar Al Salam Building, Liwa Street, Corniche, Abu Dhabi, UAE. For privacy-related matters, you can contact us at{" "}
                     <a href="mailto:info@vertacore.ae" className="text-gold hover:underline">info@vertacore.ae</a>.
                   </p>
                 </div>

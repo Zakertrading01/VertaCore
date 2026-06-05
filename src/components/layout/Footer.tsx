@@ -47,7 +47,7 @@ export function Footer() {
             </Link>
             <div className="space-y-3 text-sm text-white/90">
               <a 
-                href="https://maps.google.com/?q=Office+No.44,+11th+Floor,+Trustwell+Properties+Dar+Al+Salam+Building,+Liwa+Street,+Corniche,+Abu+Dhabi,+UAE"
+                href="https://maps.google.com/?q=Office+No.44,+11th+Floor,+Dar+Al+Salam+Building,+Liwa+Street,+Corniche,+Abu+Dhabi,+UAE"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-2 hover:text-gold transition-colors group/address"
@@ -55,7 +55,7 @@ export function Footer() {
                 <MapPin className="h-4 w-4 text-gold flex-shrink-0 mt-0.5 group-hover/address:scale-110 transition-transform" />
                 <span className="leading-relaxed">
                   Office No.44, 11th Floor<br />
-                  Trustwell Properties Dar Al Salam Building<br />
+                  Dar Al Salam Building<br />
                   Near Al Madina Supermarket, Liwa Street, Corniche,<br />
                   Abu Dhabi, United Arab Emirates
                 </span>

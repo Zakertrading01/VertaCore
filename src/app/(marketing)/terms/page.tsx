@@ -48,7 +48,7 @@ export default function TermsPage() {
 
               <h2 className="text-xl font-bold text-surface mt-10 mb-4">2. About VERTACORE</h2>
               <p>
-                VERTACORE is an industrial supply and trading company registered and operating in the United Arab Emirates. Our registered office is at Office No. 44, 11th Floor, Trustwell Properties Dar Al Salam Building, Liwa Street, Corniche, Abu Dhabi, UAE. We supply MRO products, safety equipment, welding consumables, lifting gear, and related industrial materials to commercial and industrial clients.
+                VERTACORE is an industrial supply and trading company registered and operating in the United Arab Emirates. Our registered office is at Office No. 44, 11th Floor, Dar Al Salam Building, Liwa Street, Corniche, Abu Dhabi, UAE. We supply MRO products, safety equipment, welding consumables, lifting gear, and related industrial materials to commercial and industrial clients.
               </p>
 
               <h2 className="text-xl font-bold text-surface mt-10 mb-4">3. Use License</h2>
