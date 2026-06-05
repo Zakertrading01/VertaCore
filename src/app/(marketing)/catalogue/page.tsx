@@ -10,6 +10,7 @@ import { CatalogueGroup } from "@/components/catalogue/CatalogueGroup";
 import { CatalogueDownloadButton } from "@/components/catalogue/CatalogueClient";
 import { CTASection } from "@/components/marketing/CTASection";
 import { getCatalogueItems } from "@/lib/cached-queries";
+import { ScrollToHash } from "@/components/shared/ScrollToHash";
 
 export const dynamic = 'force-dynamic';
 
@@ -100,6 +101,7 @@ export default async function CataloguePage() {
 
   return (
     <>
+      <ScrollToHash />
       {jsonLd.map((schema, i) => (
         <script
           key={i}
@@ -184,6 +186,7 @@ export default async function CataloguePage() {
         <div className="container-base space-y-16 md:space-y-20">
           {Object.entries(grouped).map(([category, categoryItems]) => {
             if (categoryItems.length === 0) return null;
+            
             return (
               <div key={category}>
                 {/* Category description */}
