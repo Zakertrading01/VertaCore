@@ -151,14 +151,14 @@ export default function CataloguePage() {
             <Link href="/admin/catalogue/new" className="text-sm text-gold font-semibold hover:underline">Add your first item →</Link>
           </div>
         ) : (
-          <table className="w-full text-sm">
+          <table className="w-full text-sm table-fixed">
             <thead>
               <tr className="border-b border-neutral-100 bg-neutral-50">
                 <th className="text-left px-5 py-3 font-semibold text-neutral-500 uppercase tracking-wider text-xs">Item</th>
                 <th className="text-left px-5 py-3 font-semibold text-neutral-500 uppercase tracking-wider text-xs hidden lg:table-cell">Solution</th>
                 <th className="text-left px-5 py-3 font-semibold text-neutral-500 uppercase tracking-wider text-xs hidden md:table-cell">Brand</th>
                 <th className="text-left px-5 py-3 font-semibold text-neutral-500 uppercase tracking-wider text-xs">Status</th>
-                <th className="px-5 py-3" />
+                <th className="w-24 px-5 py-3" />
               </tr>
             </thead>
             <tbody className="divide-y divide-neutral-100">
