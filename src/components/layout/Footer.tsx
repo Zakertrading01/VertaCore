@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { TapLink } from "@/components/shared/TapLink";
 import { Mail, Phone, Clock, MapPin, Facebook, Linkedin, Instagram, Youtube, Globe } from "lucide-react";
 
 
@@ -46,11 +47,12 @@ export function Footer() {
               />
             </Link>
             <div className="space-y-3 text-sm text-white/90">
-              <a 
+              <TapLink 
                 href="https://maps.google.com/?q=Office+No.44,+11th+Floor,+Dar+Al+Salam+Building,+Liwa+Street,+Corniche,+Abu+Dhabi,+UAE"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start gap-2 hover:text-gold transition-colors group/address"
+                tabIndex={0}
+                className="flex items-start gap-2 hover:text-gold focus:text-gold active:text-gold transition-colors outline-none group/address"
               >
                 <MapPin className="h-4 w-4 text-gold flex-shrink-0 mt-0.5 group-hover/address:scale-110 transition-transform" />
                 <span className="leading-relaxed">
@@ -59,15 +61,15 @@ export function Footer() {
                   Near Al Madina Supermarket, Liwa Street, Corniche,<br />
                   Abu Dhabi, United Arab Emirates
                 </span>
-              </a>
-              <a href="mailto:info@vertacore.ae" className="flex items-center gap-2 hover:text-gold transition-colors">
+              </TapLink>
+              <TapLink href="mailto:info@vertacore.ae" tabIndex={0} className="flex items-center gap-2 hover:text-gold focus:text-gold active:text-gold transition-colors outline-none">
                 <Mail className="h-4 w-4 text-gold flex-shrink-0" />
                 info@vertacore.ae
-              </a>
-              <a href="https://www.vertacore.ae" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-gold transition-colors">
+              </TapLink>
+              <TapLink href="https://www.vertacore.ae" target="_blank" rel="noopener noreferrer" tabIndex={0} className="flex items-center gap-2 hover:text-gold focus:text-gold active:text-gold transition-colors outline-none">
                 <Globe className="h-4 w-4 text-gold flex-shrink-0" />
                 www.vertacore.ae
-              </a>
+              </TapLink>
             </div>
 
 
@@ -81,9 +83,13 @@ export function Footer() {
             <ul className="space-y-2.5">
               {popularCategories.map((cat) => (
                 <li key={cat.title}>
-                  <Link href={cat.href} className="text-sm text-white/90 hover:text-gold transition-colors">
+                  <TapLink 
+                    href={cat.href} 
+                    tabIndex={0}
+                    className="text-sm text-white/90 hover:text-gold focus:text-gold active:text-gold transition-colors outline-none"
+                  >
                     {cat.title}
-                  </Link>
+                  </TapLink>
                 </li>
               ))}
             </ul>
@@ -99,9 +105,13 @@ export function Footer() {
             <ul className="space-y-2.5">
               {customerCare.map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className="text-sm text-white/90 hover:text-gold transition-colors">
+                  <TapLink 
+                    href={item.href} 
+                    tabIndex={0}
+                    className="text-sm text-white/90 hover:text-gold focus:text-gold active:text-gold transition-colors outline-none"
+                  >
                     {item.label}
-                  </Link>
+                  </TapLink>
                 </li>
               ))}
             </ul>
@@ -123,16 +133,17 @@ export function Footer() {
               ].map((social) => {
                 const Icon = social.icon;
                 return (
-                  <a
+                  <TapLink
                     key={social.label}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className={`w-10 h-10 rounded-full ${social.bg} flex items-center justify-center shadow-lg hover:scale-110 hover:opacity-80 transition-all duration-300`}
+                    tabIndex={0}
+                    className={`w-10 h-10 rounded-full ${social.bg} flex items-center justify-center shadow-lg hover:scale-110 hover:opacity-100 focus:scale-110 focus:opacity-100 active:scale-110 active:opacity-100 hover:ring-2 hover:ring-gold hover:ring-offset-2 hover:ring-offset-[#061022] hover:shadow-[0_0_20px_rgba(250,204,21,0.8)] focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-[#061022] focus:shadow-[0_0_20px_rgba(250,204,21,0.8)] active:ring-2 active:ring-gold active:ring-offset-2 active:ring-offset-[#061022] active:shadow-[0_0_20px_rgba(250,204,21,0.8)] outline-none transition-all duration-300`}
                   >
                     <Icon className="h-5 w-5 text-white" />
-                  </a>
+                  </TapLink>
                 );
               })}
             </div>
@@ -146,10 +157,10 @@ export function Footer() {
         {/* 3. Bottom Credits */}
         <div className="border-t border-steel/20 py-2 mt-2 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/90">
           <div className="flex flex-wrap items-center gap-4">
-            <span className="text-sm font-medium hover:text-gold transition-colors cursor-pointer">© {new Date().getFullYear()} VERTACORE Company, Inc. All Rights Reserved.</span>
+            <span tabIndex={0} className="text-sm font-medium hover:text-gold focus:text-gold active:text-gold transition-colors cursor-pointer outline-none">© {new Date().getFullYear()} VERTACORE Company, Inc. All Rights Reserved.</span>
             <span className="hidden sm:inline">|</span>
-            <Link href="/privacy" className="text-sm font-medium hover:text-gold transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="text-sm font-medium hover:text-gold transition-colors">Terms of Service</Link>
+            <TapLink href="/privacy" tabIndex={0} className="text-sm font-medium hover:text-gold focus:text-gold active:text-gold transition-colors outline-none">Privacy Policy</TapLink>
+            <TapLink href="/terms" tabIndex={0} className="text-sm font-medium hover:text-gold focus:text-gold active:text-gold transition-colors outline-none">Terms of Service</TapLink>
           </div>
         </div>
       </div>
