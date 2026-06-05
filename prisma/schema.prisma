@@ -250,6 +250,14 @@ enum AdminRole {
   EDITOR
 }
 
+// ─── SITE SETTINGS ────────────────────────────────────────
+
+model SiteSetting {
+  id              String   @id @default(cuid())
+  maintenanceMode Boolean  @default(true)
+  updatedAt       DateTime @updatedAt
+}
+
 // ─── ASK AI ───────────────────────────────────────────────
 
 model AISetting {

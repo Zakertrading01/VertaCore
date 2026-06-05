@@ -42,6 +42,7 @@ const NAV_ITEMS = [
   { label: 'Catalogue', href: '/admin/catalogue/', iconKey: 'CatalogueIcon' },
   { label: 'Solutions', href: '/admin/solutions/', iconKey: 'CategoriesIcon' },
   { label: 'AI Settings', href: '/admin/ai-settings/', iconKey: 'AIIcon' },
+  { label: 'Site Settings', href: '/admin/site-settings/', iconKey: 'SiteSettingsIcon' },
 ]
 
 import { AdminLayoutWrapper } from '@/components/admin/AdminLayoutWrapper'

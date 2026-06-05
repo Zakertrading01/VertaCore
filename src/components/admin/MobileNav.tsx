@@ -11,6 +11,7 @@ import {
   RFQIcon,
   ContactIcon,
   AIIcon,
+  SiteSettingsIcon,
 } from './Icons'
 
 const ICON_MAP: Record<string, React.ElementType> = {
@@ -20,6 +21,7 @@ const ICON_MAP: Record<string, React.ElementType> = {
   RFQIcon,
   ContactIcon,
   AIIcon,
+  SiteSettingsIcon,
 }
 
 interface NavItem {

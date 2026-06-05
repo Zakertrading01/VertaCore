@@ -12,6 +12,7 @@ import {
     RFQIcon,
     ContactIcon,
     AIIcon,
+    SiteSettingsIcon,
 } from './Icons'
 
 const ICON_MAP: Record<string, React.ElementType> = {
@@ -22,6 +23,7 @@ const ICON_MAP: Record<string, React.ElementType> = {
     RFQIcon,
     ContactIcon,
     AIIcon,
+    SiteSettingsIcon,
 }
 
 const getBreadcrumbs = (pathname: string) => {
@@ -41,6 +43,7 @@ const getBreadcrumbs = (pathname: string) => {
         if (p === 'categories') label = 'Solutions'
         else if (p === 'catalogue') label = 'Catalogue'
         else if (p === 'ai-settings') label = 'AI Settings'
+        else if (p === 'site-settings') label = 'Site Settings'
         else if (p === 'new') label = 'New'
         else if (p === 'edit') label = 'Edit'
         else if (p.length > 20) label = 'Item'

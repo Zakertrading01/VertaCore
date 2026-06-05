@@ -3,7 +3,6 @@ import { buildMetadata } from "@/lib/seo";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
 import { getHomeProjects, getHomeInsights } from "@/lib/cached-queries";
 import { HeroSection } from "@/components/marketing/HeroSection";
-
 import { IntroductionSection } from "@/components/marketing/IntroductionSection";
 import { SolutionsSection } from "@/components/marketing/SolutionsSection";
 import { IndustriesSection } from "@/components/marketing/IndustriesSection";
@@ -13,6 +12,8 @@ import { MetricsBand } from "@/components/marketing/MetricsBand";
 import { ProjectsSection } from "@/components/marketing/ProjectsSection";
 import { InsightsSection } from "@/components/marketing/InsightsSection";
 import { CTASection } from "@/components/marketing/CTASection";
+import { MaintenancePage } from "@/components/marketing/MaintenancePage";
+import { db } from "@/lib/db";
 
 export const dynamic = 'force-dynamic';
 
@@ -32,18 +33,23 @@ export const metadata: Metadata = buildMetadata({
   ],
 });
 
-async function getHomeData() {
-  const [projects, insights] = await Promise.all([
+async function getSiteMode() {
+  const setting = await db.siteSetting.findFirst();
+  return setting?.maintenanceMode ?? true;
+}
+
+export default async function HomePage() {
+  const [maintenanceMode, projects, insights] = await Promise.all([
+    getSiteMode(),
     getHomeProjects(),
     getHomeInsights(),
   ]);
-  return { projects, insights };
-}
 
-import { MaintenancePage } from "@/components/marketing/MaintenancePage";
-
-export default async function HomePage() {
   const jsonLd = [organizationSchema(), websiteSchema()];
+
+  if (maintenanceMode) {
+    return <MaintenancePage />;
+  }
 
   return (
     <>
@@ -54,12 +60,7 @@ export default async function HomePage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       ))}
-
-      <MaintenancePage />
-
-      {/* 
       <HeroSection />
-
       <IntroductionSection />
       <WhyVertacoreSection />
       <SolutionsSection />
@@ -69,7 +70,6 @@ export default async function HomePage() {
       <ProjectsSection projects={projects} />
       <InsightsSection insights={insights} />
       <CTASection />
-      */}
     </>
   );
 }
