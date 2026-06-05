@@ -14,8 +14,12 @@ import { formatDate } from "@/lib/utils";
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-  const insights = await db.insight.findMany({ select: { slug: true } });
-  return insights.map((i) => ({ slug: i.slug }));
+  try {
+    const insights = await db.insight.findMany({ select: { slug: true } });
+    return insights.map((i) => ({ slug: i.slug }));
+  } catch {
+    return [];
+  }
 }
 
 export async function generateMetadata({

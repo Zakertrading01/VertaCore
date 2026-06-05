@@ -15,8 +15,12 @@ import { ScrollReveal } from "@/components/shared/ScrollReveal";
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-  const solutions = await db.solution.findMany({ select: { slug: true } });
-  return solutions.map((s) => ({ slug: s.slug }));
+  try {
+    const solutions = await db.solution.findMany({ select: { slug: true } });
+    return solutions.map((s) => ({ slug: s.slug }));
+  } catch {
+    return [];
+  }
 }
 
 export async function generateMetadata({

@@ -16,8 +16,12 @@ import { formatDate } from "@/lib/utils";
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-  const projects = await db.project.findMany({ select: { slug: true } });
-  return projects.map((p) => ({ slug: p.slug }));
+  try {
+    const projects = await db.project.findMany({ select: { slug: true } });
+    return projects.map((p) => ({ slug: p.slug }));
+  } catch {
+    return [];
+  }
 }
 
 export async function generateMetadata({

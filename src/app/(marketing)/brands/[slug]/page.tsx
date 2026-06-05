@@ -13,8 +13,12 @@ import { CTASection } from "@/components/marketing/CTASection";
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-  const brands = await db.brand.findMany({ select: { slug: true } });
-  return brands.map((b) => ({ slug: b.slug }));
+  try {
+    const brands = await db.brand.findMany({ select: { slug: true } });
+    return brands.map((b) => ({ slug: b.slug }));
+  } catch {
+    return [];
+  }
 }
 
 export async function generateMetadata({
