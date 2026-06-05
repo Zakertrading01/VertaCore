@@ -202,6 +202,7 @@ export function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}
                 className={cn(
                   "group relative flex flex-1 items-center justify-center gap-2 text-[15px] md:text-[16px] font-bold transition-all duration-300 border-r last:border-r-0 overflow-hidden",
                   "active:bg-white/5 active:duration-100", // Fast background response on click

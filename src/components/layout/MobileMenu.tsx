@@ -172,7 +172,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 key={item.href}
                 href={item.href}
                 className="block px-3 py-3 rounded-lg text-surface/80 hover:text-gold hover:bg-navy-light/30 transition-colors text-sm font-medium"
-                onClick={onClose}
+                onClick={() => { onClose(); window.scrollTo({ top: 0, left: 0, behavior: "smooth" }); }}
               >
                 {item.label}
               </Link>
