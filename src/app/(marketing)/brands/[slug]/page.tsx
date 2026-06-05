@@ -10,10 +10,12 @@ import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { SectionLabel } from "@/components/shared/SectionLabel";
 import { CTASection } from "@/components/marketing/CTASection";
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
-
-
+export async function generateStaticParams() {
+  const brands = await db.brand.findMany({ select: { slug: true } });
+  return brands.map((b) => ({ slug: b.slug }));
+}
 
 export async function generateMetadata({
   params,

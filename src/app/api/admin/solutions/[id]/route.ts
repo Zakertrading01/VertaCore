@@ -3,6 +3,7 @@ import { z } from 'zod'
 import { auth } from '@/lib/auth'
 import { checkCsrf, sanitiseText } from '@/lib/security'
 import { db } from '@/lib/db'
+import { revalidatePath } from 'next/cache'
 
 export const dynamic = 'force-dynamic'
 
@@ -56,6 +57,8 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
     },
   })
 
+  revalidatePath('/solutions')
+
   return NextResponse.json(updated)
 }
 
@@ -79,5 +82,6 @@ export async function DELETE(req: NextRequest, { params }: { params: Promise<{ i
   }
 
   await db.category.delete({ where: { id } })
+  revalidatePath('/solutions')
   return NextResponse.json({ success: true })
 }

@@ -13,10 +13,12 @@ import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import type { ProjectMetric } from "@/types/db";
 import { formatDate } from "@/lib/utils";
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
-
-
+export async function generateStaticParams() {
+  const projects = await db.project.findMany({ select: { slug: true } });
+  return projects.map((p) => ({ slug: p.slug }));
+}
 
 export async function generateMetadata({
   params,

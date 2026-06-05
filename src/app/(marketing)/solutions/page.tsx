@@ -8,7 +8,7 @@ import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { CTASection } from "@/components/marketing/CTASection";
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 
 
@@ -82,6 +82,7 @@ export default async function SolutionsPage() {
                         </div>
                         <Link
                           href={`/catalogue?category=${encodeURIComponent(solution.name)}`}
+                          prefetch={false}
                           className="p-2.5 rounded-full bg-gold/10 text-gold hover:bg-gold hover:text-navy transition-all duration-300"
                           aria-label={`View ${solution.name}`}
                         >

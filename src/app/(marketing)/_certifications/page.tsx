@@ -10,7 +10,7 @@ import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { CTASection } from "@/components/marketing/CTASection";
 import { formatDate } from "@/lib/utils";
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 
 

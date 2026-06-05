@@ -10,7 +10,7 @@ import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { formatDateShort } from "@/lib/utils";
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 
 

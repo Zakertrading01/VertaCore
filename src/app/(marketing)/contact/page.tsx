@@ -7,7 +7,6 @@ import { ContactForm } from "@/components/forms/ContactForm";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { Mail, Clock, Shield, MapPin, Phone } from "lucide-react";
 
-export const dynamic = 'force-dynamic';
 
 
 export const metadata: Metadata = buildMetadata({

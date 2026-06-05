@@ -11,10 +11,12 @@ import { PageHeader } from "@/components/shared/PageHeader";
 import { CTASection } from "@/components/marketing/CTASection";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
-
-
+export async function generateStaticParams() {
+  const industries = await db.industry.findMany({ select: { slug: true } });
+  return industries.map((i) => ({ slug: i.slug }));
+}
 
 export async function generateMetadata({
   params,

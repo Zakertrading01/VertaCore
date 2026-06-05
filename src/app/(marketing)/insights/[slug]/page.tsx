@@ -11,10 +11,12 @@ import { SectionLabel } from "@/components/shared/SectionLabel";
 import { CTASection } from "@/components/marketing/CTASection";
 import { formatDate } from "@/lib/utils";
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
-
-
+export async function generateStaticParams() {
+  const insights = await db.insight.findMany({ select: { slug: true } });
+  return insights.map((i) => ({ slug: i.slug }));
+}
 
 export async function generateMetadata({
   params,

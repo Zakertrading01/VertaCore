@@ -14,7 +14,7 @@ import { ProjectsSection } from "@/components/marketing/ProjectsSection";
 import { InsightsSection } from "@/components/marketing/InsightsSection";
 import { CTASection } from "@/components/marketing/CTASection";
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 export const metadata: Metadata = buildMetadata({
   title: "VERTACORE — Certified Industrial MRO Supply",

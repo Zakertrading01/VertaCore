@@ -10,7 +10,7 @@ import { CatalogueGroup } from "@/components/catalogue/CatalogueGroup";
 import { CatalogueDownloadButton } from "@/components/catalogue/CatalogueClient";
 import { CTASection } from "@/components/marketing/CTASection";
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 
 

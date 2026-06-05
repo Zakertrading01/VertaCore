@@ -12,10 +12,12 @@ import { CatalogueItemCard } from "@/components/catalogue/CatalogueItemCard";
 import { CTASection } from "@/components/marketing/CTASection";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
-
-
+export async function generateStaticParams() {
+  const solutions = await db.solution.findMany({ select: { slug: true } });
+  return solutions.map((s) => ({ slug: s.slug }));
+}
 
 export async function generateMetadata({
   params,
