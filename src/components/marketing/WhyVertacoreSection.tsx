@@ -163,12 +163,12 @@ export function WhyVertacoreSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* 1. Trusted Industrial Partner */}
           <ScrollReveal delay={0.1}>
-            <div className="group flex flex-col h-full p-6 bg-white/5 backdrop-blur-md border border-white/10 hover:border-gold/40 hover:bg-white/10 hover:-translate-y-1.5 rounded-2xl transition-all duration-300 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-yellow-200 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-              <div className="p-3 rounded-xl bg-gold/10 w-fit mb-4 group-hover:scale-110 transition-transform duration-300 border border-gold/20">
+            <div tabIndex={0} className="group flex flex-col h-full p-6 bg-white/5 backdrop-blur-md border border-white/10 hover:border-gold/40 hover:bg-white/10 hover:-translate-y-1.5 focus:border-gold/40 focus:bg-white/10 focus:-translate-y-1.5 active:border-gold/40 active:bg-white/10 active:-translate-y-1.5 rounded-2xl transition-all duration-300 relative overflow-hidden outline-none cursor-pointer">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-yellow-200 transform origin-left scale-x-0 group-hover:scale-x-100 group-focus:scale-x-100 group-active:scale-x-100 transition-transform duration-500" />
+              <div className="p-3 rounded-xl bg-gold/10 w-fit mb-4 group-hover:scale-110 group-focus:scale-110 group-active:scale-110 transition-transform duration-300 border border-gold/20">
                 <ShieldCheck className="h-5 w-5 text-gold" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-gold transition-colors leading-snug">
+              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-gold group-focus:text-gold group-active:text-gold transition-colors leading-snug">
                 Trusted Industrial Partner
               </h3>
               <p className="text-[14px] text-white/70 leading-relaxed">
@@ -179,12 +179,12 @@ export function WhyVertacoreSection() {
 
           {/* 2. Responsive Supply Chain */}
           <ScrollReveal delay={0.2}>
-            <div className="group flex flex-col h-full p-6 bg-white/5 backdrop-blur-md border border-white/10 hover:border-gold/40 hover:bg-white/10 hover:-translate-y-1.5 rounded-2xl transition-all duration-300 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-yellow-200 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-              <div className="p-3 rounded-xl bg-gold/10 w-fit mb-4 group-hover:scale-110 transition-transform duration-300 border border-gold/20">
+            <div tabIndex={0} className="group flex flex-col h-full p-6 bg-white/5 backdrop-blur-md border border-white/10 hover:border-gold/40 hover:bg-white/10 hover:-translate-y-1.5 focus:border-gold/40 focus:bg-white/10 focus:-translate-y-1.5 active:border-gold/40 active:bg-white/10 active:-translate-y-1.5 rounded-2xl transition-all duration-300 relative overflow-hidden outline-none cursor-pointer">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-yellow-200 transform origin-left scale-x-0 group-hover:scale-x-100 group-focus:scale-x-100 group-active:scale-x-100 transition-transform duration-500" />
+              <div className="p-3 rounded-xl bg-gold/10 w-fit mb-4 group-hover:scale-110 group-focus:scale-110 group-active:scale-110 transition-transform duration-300 border border-gold/20">
                 <Truck className="h-5 w-5 text-gold" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-gold transition-colors leading-snug">
+              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-gold group-focus:text-gold group-active:text-gold transition-colors leading-snug">
                 Responsive Supply Chain
               </h3>
               <p className="text-[14px] text-white/70 leading-relaxed">
@@ -195,12 +195,12 @@ export function WhyVertacoreSection() {
 
           {/* 3. Quality & Compliance Focused */}
           <ScrollReveal delay={0.3}>
-            <div className="group flex flex-col h-full p-6 bg-white/5 backdrop-blur-md border border-white/10 hover:border-gold/40 hover:bg-white/10 hover:-translate-y-1.5 rounded-2xl transition-all duration-300 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-yellow-200 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-              <div className="p-3 rounded-xl bg-gold/10 w-fit mb-4 group-hover:scale-110 transition-transform duration-300 border border-gold/20">
+            <div tabIndex={0} className="group flex flex-col h-full p-6 bg-white/5 backdrop-blur-md border border-white/10 hover:border-gold/40 hover:bg-white/10 hover:-translate-y-1.5 focus:border-gold/40 focus:bg-white/10 focus:-translate-y-1.5 active:border-gold/40 active:bg-white/10 active:-translate-y-1.5 rounded-2xl transition-all duration-300 relative overflow-hidden outline-none cursor-pointer">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-yellow-200 transform origin-left scale-x-0 group-hover:scale-x-100 group-focus:scale-x-100 group-active:scale-x-100 transition-transform duration-500" />
+              <div className="p-3 rounded-xl bg-gold/10 w-fit mb-4 group-hover:scale-110 group-focus:scale-110 group-active:scale-110 transition-transform duration-300 border border-gold/20">
                 <FileCheck className="h-5 w-5 text-gold" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-gold transition-colors leading-snug">
+              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-gold group-focus:text-gold group-active:text-gold transition-colors leading-snug">
                 Quality & Compliance
               </h3>
               <p className="text-[14px] text-white/70 leading-relaxed">
@@ -211,12 +211,12 @@ export function WhyVertacoreSection() {
 
           {/* 4. Industry-Focused Expertise */}
           <ScrollReveal delay={0.4}>
-            <div className="group flex flex-col h-full p-6 bg-white/5 backdrop-blur-md border border-white/10 hover:border-gold/40 hover:bg-white/10 hover:-translate-y-1.5 rounded-2xl transition-all duration-300 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-yellow-200 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-              <div className="p-3 rounded-xl bg-gold/10 w-fit mb-4 group-hover:scale-110 transition-transform duration-300 border border-gold/20">
+            <div tabIndex={0} className="group flex flex-col h-full p-6 bg-white/5 backdrop-blur-md border border-white/10 hover:border-gold/40 hover:bg-white/10 hover:-translate-y-1.5 focus:border-gold/40 focus:bg-white/10 focus:-translate-y-1.5 active:border-gold/40 active:bg-white/10 active:-translate-y-1.5 rounded-2xl transition-all duration-300 relative overflow-hidden outline-none cursor-pointer">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-yellow-200 transform origin-left scale-x-0 group-hover:scale-x-100 group-focus:scale-x-100 group-active:scale-x-100 transition-transform duration-500" />
+              <div className="p-3 rounded-xl bg-gold/10 w-fit mb-4 group-hover:scale-110 group-focus:scale-110 group-active:scale-110 transition-transform duration-300 border border-gold/20">
                 <Settings className="h-5 w-5 text-gold" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-gold transition-colors leading-snug">
+              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-gold group-focus:text-gold group-active:text-gold transition-colors leading-snug">
                 Industry Expertise
               </h3>
               <p className="text-[14px] text-white/70 leading-relaxed">

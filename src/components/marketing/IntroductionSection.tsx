@@ -184,12 +184,13 @@ export function IntroductionSection() {
           {/* Panel 1: Industrial Supply (Gold Laser) */}
           <ScrollReveal delay={0.2}>
             <div 
-              className="relative overflow-hidden rounded-[2.5rem] p-[2px] w-full shadow-[0_0_60px_-15px_rgba(250,204,21,0.3)] group"
+              tabIndex={0}
+              className="relative overflow-hidden rounded-[2.5rem] p-[2px] w-full shadow-[0_0_60px_-15px_rgba(250,204,21,0.3)] group outline-none cursor-pointer"
               style={{ animation: 'float-panel 8s ease-in-out infinite' }}
             >
               {/* Spinning Laser Layer */}
               <div 
-                className="absolute inset-[-150%] w-[400%] h-[400%] mx-auto my-auto animate-[spin_5s_linear_infinite] opacity-70 group-hover:opacity-100 transition-opacity duration-500"
+                className="absolute inset-[-150%] w-[400%] h-[400%] mx-auto my-auto animate-[spin_5s_linear_infinite] opacity-70 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100 transition-opacity duration-500"
                 style={{ background: 'conic-gradient(from 0deg, transparent 0%, transparent 60%, rgba(250,204,21,1) 80%, transparent 100%)' }} 
               />
               
@@ -197,7 +198,7 @@ export function IntroductionSection() {
               <div className="relative bg-[#0b1b33]/90 backdrop-blur-2xl h-full w-full rounded-[2.5rem] p-8 md:p-12 z-10 flex flex-col shadow-[inset_0_0_40px_rgba(250,204,21,0.05)] border border-white/5">
                 <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_left,rgba(250,204,21,0.1),transparent_50%)] pointer-events-none" />
                 
-                <div className="absolute top-6 right-8 text-[100px] font-black text-gold/25 group-hover:text-gold/50 leading-none select-none transition-all duration-700 group-hover:scale-110">
+                <div className="absolute top-6 right-8 text-[100px] font-black text-gold/25 group-hover:text-gold/50 group-focus:text-gold/50 group-active:text-gold/50 leading-none select-none transition-all duration-700 group-hover:scale-110 group-focus:scale-110 group-active:scale-110">
                   01
                 </div>
                 
@@ -217,12 +218,13 @@ export function IntroductionSection() {
           {/* Panel 2: Enterprise Execution (Blue Laser) */}
           <ScrollReveal delay={0.4}>
             <div 
-              className="relative overflow-hidden rounded-[2.5rem] p-[2px] w-full shadow-[0_0_60px_-15px_rgba(59,130,246,0.3)] group"
+              tabIndex={0}
+              className="relative overflow-hidden rounded-[2.5rem] p-[2px] w-full shadow-[0_0_60px_-15px_rgba(59,130,246,0.3)] group outline-none cursor-pointer"
               style={{ animation: 'float-panel-alt 9s ease-in-out infinite' }}
             >
               {/* Spinning Laser Layer */}
               <div 
-                className="absolute inset-[-150%] w-[400%] h-[400%] mx-auto my-auto animate-[spin_6s_linear_infinite_reverse] opacity-70 group-hover:opacity-100 transition-opacity duration-500"
+                className="absolute inset-[-150%] w-[400%] h-[400%] mx-auto my-auto animate-[spin_6s_linear_infinite_reverse] opacity-70 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100 transition-opacity duration-500"
                 style={{ background: 'conic-gradient(from 0deg, transparent 0%, transparent 60%, rgba(59,130,246,1) 80%, transparent 100%)' }} 
               />
               
@@ -230,7 +232,7 @@ export function IntroductionSection() {
               <div className="relative bg-[#0b1b33]/90 backdrop-blur-2xl h-full w-full rounded-[2.5rem] p-8 md:p-12 z-10 flex flex-col shadow-[inset_0_0_40px_rgba(59,130,246,0.05)] border border-white/5">
                 <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_bottom_right,rgba(59,130,246,0.1),transparent_50%)] pointer-events-none" />
                 
-                <div className="absolute bottom-6 right-8 text-[100px] font-black text-blue-500/25 group-hover:text-blue-400/50 leading-none select-none transition-all duration-700 group-hover:scale-110">
+                <div className="absolute bottom-6 right-8 text-[100px] font-black text-blue-500/25 group-hover:text-blue-400/50 group-focus:text-blue-400/50 group-active:text-blue-400/50 leading-none select-none transition-all duration-700 group-hover:scale-110 group-focus:scale-110 group-active:scale-110">
                   02
                 </div>
                 

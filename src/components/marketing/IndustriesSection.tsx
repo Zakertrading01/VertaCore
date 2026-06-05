@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TapLink } from "@/components/shared/TapLink";
 import { 
   ArrowRight, 
   Droplets, 
@@ -177,33 +178,34 @@ export function IndustriesSection() {
             const Icon = industry.icon;
             return (
               <ScrollReveal key={industry.slug} delay={i * 0.05}>
-                <Link
+                <TapLink
                   href={`/industries/${industry.slug}`}
-                  className="group relative flex flex-col p-6 md:p-8 bg-white/5 hover:bg-white/10 border border-white/5 hover:border-gold/30 rounded-2xl transition-all duration-500 overflow-hidden h-full"
+                  tabIndex={0}
+                  className="group relative flex flex-col p-6 md:p-8 bg-white/5 hover:bg-white/10 focus:bg-white/10 active:bg-white/10 border border-white/5 hover:border-gold/30 focus:border-gold/30 active:border-gold/30 rounded-2xl transition-all duration-500 overflow-hidden h-full outline-none"
                 >
                   {/* Hover Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-gold/10 to-transparent opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100 transition-opacity duration-500" />
                   
                   <div className="relative z-10 flex flex-col h-full">
                     {/* Icon Container */}
-                    <div className="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-gold/20 transition-all duration-500">
-                      <Icon className="w-7 h-7 text-white/70 group-hover:text-gold transition-colors duration-500" />
+                    <div className="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:scale-110 group-focus:scale-110 group-active:scale-110 group-hover:bg-gold/20 group-focus:bg-gold/20 group-active:bg-gold/20 transition-all duration-500">
+                      <Icon className="w-7 h-7 text-white/70 group-hover:text-gold group-focus:text-gold group-active:text-gold transition-colors duration-500" />
                     </div>
                     
-                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-gold transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-gold group-focus:text-gold group-active:text-gold transition-colors duration-300">
                       {industry.name}
                     </h3>
-                    <p className="text-sm text-white/50 leading-relaxed group-hover:text-white/70 transition-colors duration-300 flex-1">
+                    <p className="text-sm text-white/50 leading-relaxed group-hover:text-white/70 group-focus:text-white/70 group-active:text-white/70 transition-colors duration-300 flex-1">
                       {industry.description}
                     </p>
                     
                     {/* Subtle arrow indicator */}
-                    <div className="mt-6 flex items-center opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
+                    <div className="mt-6 flex items-center opacity-0 -translate-x-4 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100 group-hover:translate-x-0 group-focus:translate-x-0 group-active:translate-x-0 transition-all duration-500">
                       <span className="text-xs font-bold text-gold tracking-widest uppercase mr-2">Explore</span>
                       <ArrowRight className="w-4 h-4 text-gold" />
                     </div>
                   </div>
-                </Link>
+                </TapLink>
               </ScrollReveal>
             );
           })}

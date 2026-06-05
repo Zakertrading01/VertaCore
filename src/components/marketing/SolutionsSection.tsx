@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import { TapLink } from "@/components/shared/TapLink";
 import { ArrowRight, Shield, Flame, Link2, Package, Cpu, Truck, BookOpen } from "lucide-react";
 import { SectionLabel } from "@/components/shared/SectionLabel";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
@@ -110,42 +111,43 @@ export function SolutionsSection() {
             const Icon = solution.icon;
             return (
               <ScrollReveal key={solution.slug} delay={i * 0.1}>
-                <Link
+                  <TapLink
                   href={`/solutions/${solution.slug}`}
-                  className="group flex flex-col p-8 h-full bg-[#0b1b33] rounded-2xl shadow-xl border border-white/5 hover:border-gold/30 hover:bg-[#081326] hover:shadow-[0_10px_40px_rgba(250,204,21,0.15)] hover:-translate-y-1.5 active:scale-[0.98] transition-all duration-500 relative overflow-hidden"
+                  tabIndex={0}
+                  className="group flex flex-col p-8 h-full bg-[#0b1b33] rounded-2xl shadow-xl border border-white/5 hover:border-gold/30 hover:bg-[#081326] hover:shadow-[0_10px_40px_rgba(250,204,21,0.15)] hover:-translate-y-1.5 focus:border-gold/30 focus:bg-[#081326] focus:shadow-[0_10px_40px_rgba(250,204,21,0.15)] focus:-translate-y-1.5 active:border-gold/30 active:bg-[#081326] active:shadow-[0_10px_40px_rgba(250,204,21,0.15)] active:-translate-y-1.5 active:scale-[0.98] transition-all duration-500 relative overflow-hidden outline-none"
                 >
                   {/* Premium Hover Effects */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent group-hover:w-full transition-all duration-700 ease-out opacity-0 group-hover:opacity-100" />
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(250,204,21,0.15),_transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(59,130,246,0.1),_transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none delay-100" />
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent group-hover:w-full group-focus:w-full group-active:w-full transition-all duration-700 ease-out opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(250,204,21,0.15),_transparent_60%)] opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(59,130,246,0.1),_transparent_60%)] opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100 transition-opacity duration-700 pointer-events-none delay-100" />
 
                   {/* Corner Tech Particles */}
-                  <div className="absolute top-4 right-4 w-16 h-16 opacity-0 group-hover:opacity-100 group-active:scale-[2.5] group-active:opacity-0 transition-all duration-500 pointer-events-none">
+                  <div className="absolute top-4 right-4 w-16 h-16 opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:scale-[2.5] group-active:opacity-0 transition-all duration-500 pointer-events-none">
                     <div className="absolute top-0 right-2 w-1.5 h-1.5 bg-gold rounded-full shadow-[0_0_10px_#facc15] animate-[ping_1.5s_cubic-bezier(0,0,0.2,1)_infinite]" />
                     <div className="absolute top-4 right-0 w-2 h-2 bg-gold rounded-full shadow-[0_0_12px_#facc15] animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
                     <div className="absolute top-2 right-6 w-1 h-1 bg-white rounded-full shadow-[0_0_8px_white] animate-[bounce_2s_infinite]" />
                   </div>
                   
-                  <div className="absolute bottom-4 left-4 w-16 h-16 opacity-0 group-hover:opacity-100 group-active:scale-[2.5] group-active:opacity-0 transition-all duration-500 delay-75 pointer-events-none">
+                  <div className="absolute bottom-4 left-4 w-16 h-16 opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:scale-[2.5] group-active:opacity-0 transition-all duration-500 delay-75 pointer-events-none">
                     <div className="absolute bottom-0 left-2 w-2 h-2 bg-blue-400 rounded-full shadow-[0_0_12px_#3b82f6] animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
                     <div className="absolute bottom-4 left-0 w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_10px_white] animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]" />
                     <div className="absolute bottom-2 left-6 w-1 h-1 bg-blue-400 rounded-full shadow-[0_0_8px_#3b82f6] animate-[bounce_2.5s_infinite]" />
                   </div>
 
                   <div className="flex items-start justify-between mb-6 relative z-10">
-                    <div className="p-4 rounded-2xl bg-white/5 group-hover:bg-gold/10 group-hover:scale-110 transition-all duration-300">
-                      <Icon className="h-6 w-6 text-white/70 group-hover:text-gold transition-colors" />
+                    <div className="p-4 rounded-2xl bg-white/5 group-hover:bg-gold/10 group-focus:bg-gold/10 group-active:bg-gold/10 group-hover:scale-110 group-focus:scale-110 group-active:scale-110 transition-all duration-300">
+                      <Icon className="h-6 w-6 text-white/70 group-hover:text-gold group-focus:text-gold group-active:text-gold transition-colors" />
                     </div>
-                    <div className="h-8 w-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-gold/20 transition-all duration-300">
-                      <ArrowRight className="h-4 w-4 text-white/40 group-hover:text-gold group-hover:-rotate-45 transition-all duration-300" />
+                    <div className="h-8 w-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-gold/20 group-focus:bg-gold/20 group-active:bg-gold/20 transition-all duration-300">
+                      <ArrowRight className="h-4 w-4 text-white/40 group-hover:text-gold group-focus:text-gold group-active:text-gold group-hover:-rotate-45 group-focus:-rotate-45 group-active:-rotate-45 transition-all duration-300" />
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-gold transition-colors relative z-10">
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-gold group-focus:text-gold group-active:text-gold transition-colors relative z-10">
                     {solution.title}
                   </h3>
 
-                  <p className="text-sm text-white/70 leading-relaxed mb-6 flex-1 relative z-10 group-hover:text-white transition-colors">
+                  <p className="text-sm text-white/70 leading-relaxed mb-6 flex-1 relative z-10 group-hover:text-white group-focus:text-white group-active:text-white transition-colors">
                     {solution.description}
                   </p>
 
@@ -153,13 +155,13 @@ export function SolutionsSection() {
                     {solution.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-[11px] font-medium tracking-wider px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-white/70 group-hover:border-gold/30 group-hover:text-gold transition-all"
+                        className="text-[11px] font-medium tracking-wider px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-white/70 group-hover:border-gold/30 group-focus:border-gold/30 group-active:border-gold/30 group-hover:text-gold group-focus:text-gold group-active:text-gold transition-all"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
-                </Link>
+                </TapLink>
               </ScrollReveal>
             );
           })}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TapLink } from "@/components/shared/TapLink";
 import Image from "next/image";
 import { ArrowRight, Clock, BookOpen } from "lucide-react";
 import { SectionLabel } from "@/components/shared/SectionLabel";
@@ -59,9 +60,10 @@ export function InsightsSection({ insights }: InsightsSectionProps) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {insights.map((insight, i) => (
             <ScrollReveal key={insight.id} delay={i * 0.1}>
-              <Link
+              <TapLink
                 href={`/insights/${insight.slug}`}
-                className="card-base flex flex-col overflow-hidden group h-full"
+                tabIndex={0}
+                className="card-base flex flex-col overflow-hidden group h-full outline-none"
               >
                 {/* Cover image */}
                 <div className="relative aspect-video bg-navy-light/30 overflow-hidden">
@@ -114,7 +116,7 @@ export function InsightsSection({ insights }: InsightsSectionProps) {
                     )}
                   </div>
                 </div>
-              </Link>
+              </TapLink>
             </ScrollReveal>
           ))}
         </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TapLink } from "@/components/shared/TapLink";
 import Image from "next/image";
 import { ArrowRight, Building2 } from "lucide-react";
 import { SectionLabel } from "@/components/shared/SectionLabel";
@@ -49,9 +50,10 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {projects.map((project, i) => (
             <ScrollReveal key={project.id} delay={i * 0.1}>
-              <Link
+              <TapLink
                 href={`/projects/${project.slug}`}
-                className="card-base flex flex-col overflow-hidden group"
+                tabIndex={0}
+                className="card-base flex flex-col overflow-hidden group outline-none"
               >
                 {/* Cover image */}
                 <div className="relative aspect-video bg-navy-light/30 overflow-hidden">
@@ -99,7 +101,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                     <ArrowRight className="h-4 w-4 text-gold flex-shrink-0 group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </div>
-              </Link>
+              </TapLink>
             </ScrollReveal>
           ))}
         </div>
