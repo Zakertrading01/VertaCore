@@ -73,7 +73,7 @@ export default function AboutPage() {
       <section className="pt-8 pb-4 md:pt-12 md:pb-8 bg-navy">
         <div className="container-base max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
-            
+
             {/* Left: About Text */}
             <div className="lg:col-span-7 space-y-10">
               <ScrollReveal>
@@ -134,12 +134,12 @@ export default function AboutPage() {
       <section className="pb-16 md:pb-24 pt-4 bg-navy">
         <div className="container-base max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <Link
-              href="/about/story"
-              className="group p-8 rounded-2xl bg-navy-dark border border-steel/10 hover:border-gold/30 hover:-translate-y-1 active:scale-95 transition-all duration-300 hover:shadow-2xl hover:shadow-gold/5 relative overflow-hidden"
+            {/* Our Story Link - Disabled temporarily */}
+            <div
+              className="cursor-default group p-8 rounded-2xl bg-navy-dark border border-steel/10 hover:border-gold/30 hover:-translate-y-1 active:scale-95 active:border-gold/30 active:bg-surface/10 transition-all duration-300 hover:bg-surface/10 group-hover:border-gold/30 group-hover:bg-surface/10 hover:shadow-2xl hover:shadow-gold/5 group-active:border-gold/30 group-active:bg-surface/10 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-500" />
-              
+
               {/* Hover Particles */}
               <div className="absolute top-10 right-14 w-1.5 h-1.5 bg-gold rounded-full opacity-0 group-hover:opacity-80 transition-all duration-700 translate-y-8 group-hover:-translate-y-4 shadow-[0_0_8px_rgba(255,191,0,0.8)]" />
               <div className="absolute bottom-12 right-8 w-2 h-2 bg-gold/60 rounded-full opacity-0 group-hover:opacity-60 transition-all duration-1000 translate-x-4 group-hover:-translate-x-6 group-hover:-translate-y-8 blur-[1px]" />
@@ -149,17 +149,17 @@ export default function AboutPage() {
                 Our Story
               </h3>
               <p className="text-sm text-surface/60 leading-relaxed mb-6 relative z-10">How Verta Core was founded and built into an industry leader.</p>
-              <div className="flex items-center gap-2 text-sm font-semibold text-gold relative z-10">
-                Read full story <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-            
+              {/* <div className="flex items-center gap-2 text-sm font-semibold text-gold relative z-10">
+                Coming Soon <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+              </div> */}
+            </div>
+
             <Link
               href="/about/mission"
               className="group p-8 rounded-2xl bg-navy-dark border border-steel/10 hover:border-gold/30 hover:-translate-y-1 active:scale-95 transition-all duration-300 hover:shadow-2xl hover:shadow-gold/5 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-500" />
-              
+
               {/* Hover Particles */}
               <div className="absolute top-10 right-14 w-1.5 h-1.5 bg-gold rounded-full opacity-0 group-hover:opacity-80 transition-all duration-700 translate-y-8 group-hover:-translate-y-4 shadow-[0_0_8px_rgba(255,191,0,0.8)]" />
               <div className="absolute bottom-12 right-8 w-2 h-2 bg-gold/60 rounded-full opacity-0 group-hover:opacity-60 transition-all duration-1000 translate-x-4 group-hover:-translate-x-6 group-hover:-translate-y-8 blur-[1px]" />
