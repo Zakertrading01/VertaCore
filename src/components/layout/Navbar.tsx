@@ -240,7 +240,7 @@ export function Navbar() {
             {/* Ask AI button */}
             {aiEnabled && (
               <button
-                onClick={() => setAiOpen(true)}
+                onClick={() => setAiOpen((prev) => !prev)}
                 className="hidden md:flex items-center gap-2 border border-gold text-white font-bold px-4 py-1.5 rounded-lg hover:bg-gold/20 transition-all duration-300 text-sm group relative overflow-hidden"
               >
                 <span className="absolute inset-0 bg-gold/10 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-in-out" />
