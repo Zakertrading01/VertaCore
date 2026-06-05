@@ -34,6 +34,7 @@ async function main() {
       ],
       order: 1,
       published: true,
+      coverImage: "https://pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev/solutions/industrial-supply-1.png",
     },
     {
       slug: "welding-fabrication",
@@ -106,6 +107,7 @@ async function main() {
       ],
       order: 5,
       published: true,
+      coverImage: "https://pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev/solutions/technical-procurement-1.png",
     },
     {
       slug: "project-logistics",
@@ -124,6 +126,7 @@ async function main() {
       ],
       order: 6,
       published: true,
+      coverImage: "https://pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev/solutions/project-logistics-1.png",
     },
   ];
 
@@ -441,6 +444,75 @@ async function main() {
       },
     },
   });
+
+  const catalogueItems = [
+    {
+      name: "Standard Pallet Rack System",
+      description: "Heavy-duty industrial shelving unit for palletized storage.",
+      categoryGroup: "Industrial Supply",
+      image: "https://pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev/solutions/industrial-supply-1.png",
+      certTags: ["ISO 9001", "EU Standards"],
+      brandName: "IndustrialForce",
+      published: true,
+      order: 1,
+    },
+    {
+      name: "Smart Inventory Tracker",
+      description: "Automated RFID tracking system for industrial supply chains.",
+      categoryGroup: "Industrial Supply",
+      image: "https://pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev/solutions/industrial-supply-2.png",
+      certTags: ["CE", "FCC"],
+      brandName: "TechLogix",
+      published: true,
+      order: 2,
+    },
+    {
+      name: "Global Procurement Tablet",
+      description: "Ruggedized tablet for managing technical sourcing and engineering specifications.",
+      categoryGroup: "Technical Procurement",
+      image: "https://pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev/solutions/technical-procurement-1.png",
+      certTags: ["IP67", "MIL-STD-810G"],
+      brandName: "SourcingPro",
+      published: true,
+      order: 1,
+    },
+    {
+      name: "Precision Milled Turbine Part",
+      description: "Custom-engineered mechanical component for high-stress industrial applications.",
+      categoryGroup: "Technical Procurement",
+      image: "https://pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev/solutions/technical-procurement-2.png",
+      certTags: ["EN 10204", "AS9100"],
+      brandName: "EngineeringHub",
+      published: true,
+      order: 2,
+    },
+    {
+      name: "Intermodal Container Coordinator",
+      description: "Advanced shipping container tracking and logistics management system.",
+      categoryGroup: "Project Supply & Logistics",
+      image: "https://pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev/solutions/project-logistics-1.png",
+      certTags: ["IMO", "ISO 14001"],
+      brandName: "PortLink",
+      published: true,
+      order: 1,
+    },
+    {
+      name: "Project Site Control Hub",
+      description: "Centralized logistics command center for large-scale industrial projects.",
+      categoryGroup: "Project Supply & Logistics",
+      image: "https://pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev/solutions/project-logistics-2.png",
+      certTags: ["Safety Certified"],
+      brandName: "ProjectSync",
+      published: true,
+      order: 2,
+    },
+  ];
+
+  for (const item of catalogueItems) {
+    await db.catalogueItem.create({
+      data: item,
+    });
+  }
 
   // ── Certifications ────────────────────────────────────────
   const certifications = [
