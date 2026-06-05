@@ -144,7 +144,7 @@ export function Footer() {
         </div>
 
 
-        {/* 3. Bottom Credits & Certifying Bodies */}
+        {/* 3. Bottom Credits */}
         <div className="border-t border-steel/20 py-2 mt-2 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/90">
           <div className="flex flex-wrap items-center gap-4">
             <span className="text-sm font-medium hover:text-gold transition-colors cursor-pointer">© {new Date().getFullYear()} VERTACORE Company, Inc. All Rights Reserved.</span>

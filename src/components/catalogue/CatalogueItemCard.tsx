@@ -74,7 +74,7 @@ export function CatalogueItemCard({
         <div className="flex items-center justify-between mt-auto pt-3 border-t border-steel/20">
           <div className="flex items-center gap-2 text-[11px] font-semibold text-steel-muted uppercase tracking-wider">
             <Package className="h-3 w-3" />
-            Certified Supply
+            Premium Supply
           </div>
 
           {datasheetUrl && <DatasheetLink url={datasheetUrl} />}

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, lazy, Suspense, useRef } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, Phone, MapPin, Mail, ChevronRight, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { MobileMenu } from "./MobileMenu";
@@ -26,6 +27,7 @@ export function Navbar() {
   const [aiOpen, setAiOpen] = useState(false);
   const [aiEnabled, setAiEnabled] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -198,7 +200,9 @@ export function Navbar() {
 
           {/* Desktop Nav Links (Stretch evenly across white space) */}
           <nav className="hidden lg:flex flex-1 items-stretch" aria-label="Primary navigation">
-            {navLinks.map((item) => (
+            {navLinks.map((item) => {
+              const isActive = item.label === "Home" ? pathname === "/" : pathname.startsWith(item.href);
+              return (
               <Link
                 key={item.href}
                 href={item.href}
@@ -206,7 +210,8 @@ export function Navbar() {
                 className={cn(
                   "group relative flex flex-1 items-center justify-center gap-2 text-[15px] md:text-[16px] font-bold transition-all duration-300 border-r last:border-r-0 overflow-hidden",
                   "active:bg-white/5 active:duration-100", // Fast background response on click
-                  isScrolled ? "text-white hover:text-gold border-white/10 hover:bg-white/5" : "text-white hover:text-gold border-white/20 hover:bg-white/10"
+                  isActive ? "text-gold" : "text-white", // Active route highlight
+                  isScrolled ? "hover:text-gold border-white/10 hover:bg-white/5" : "hover:text-gold border-white/20 hover:bg-white/10"
                 )}
               >
                 {/* Click Flash Effect */}
@@ -228,9 +233,12 @@ export function Navbar() {
                 </span>
 
                 {/* Bottom line animation */}
-                <span className="absolute bottom-0 left-0 w-full h-[3px] bg-gold scale-x-0 group-hover:scale-x-100 origin-center transition-all duration-300 ease-out group-active:bg-white group-active:shadow-[0_0_15px_rgba(255,255,255,1)] group-active:h-[6px]" />
+                <span className={cn(
+                  "absolute bottom-0 left-0 w-full bg-gold origin-center transition-all duration-300 ease-out group-active:bg-white group-active:shadow-[0_0_15px_rgba(255,255,255,1)]",
+                  isActive ? "h-[4px] scale-x-100" : "h-[3px] scale-x-0 group-hover:scale-x-100 group-active:h-[6px]"
+                )} />
               </Link>
-            ))}
+            )})}
           </nav>
 
           {/* Right Actions Block (Mobile Menu & Ask AI) */}

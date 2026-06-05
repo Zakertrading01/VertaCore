@@ -13,7 +13,7 @@ import { CTASection } from "@/components/marketing/CTASection";
 export const metadata: Metadata = buildMetadata({
   title: "About VERTACORE",
   description:
-    "VERTACORE is a premium MRO industrial supply and procurement company. ISO 9001:2015 certified with deep expertise across Oil & Gas, Marine, Construction, and Manufacturing.",
+    "VERTACORE is a premium MRO industrial supply and procurement company with deep expertise across Oil & Gas, Marine, Construction, and Manufacturing.",
   path: "/about",
   keywords: ["about VERTACORE", "industrial supplier company", "MRO procurement company"],
 });
@@ -23,7 +23,7 @@ const values = [
     icon: Award,
     title: "Quality Without Compromise",
     description:
-      "We supply only certified equipment that meets internationally recognised standards. Our ISO 9001:2015 certification reflects a systematic commitment to quality in every transaction.",
+      "We supply only certified equipment that meets internationally recognised standards. This reflects a systematic commitment to quality in every transaction.",
   },
   {
     icon: CheckCircle,

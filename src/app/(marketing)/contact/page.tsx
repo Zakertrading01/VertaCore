@@ -12,7 +12,7 @@ import { Mail, Clock, Shield, MapPin, Phone } from "lucide-react";
 export const metadata: Metadata = buildMetadata({
   title: "Contact Us",
   description:
-    "Get in touch with the VERTACORE team for industrial equipment enquiries and technical support. ISO 9001:2015 certified.",
+    "Get in touch with the VERTACORE team for industrial equipment enquiries and technical support.",
   path: "/contact",
   keywords: ["contact VERTACORE", "industrial supply contact", "technical support"],
 });

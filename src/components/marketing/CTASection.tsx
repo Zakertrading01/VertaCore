@@ -76,7 +76,7 @@ export function CTASection() {
             <span className="text-xs font-bold tracking-widest text-gold uppercase">Get in Touch</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-            Ready to source certified
+            Ready to source premium
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-yellow-200">industrial equipment?</span>
           </h2>

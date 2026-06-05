@@ -299,10 +299,7 @@ export function RFQForm({ prefillItem, source, className }: RFQFormProps) {
             <Shield className="h-3 w-3 text-gold" />
             We respond within 24 hours
           </span>
-          <span className="flex items-center gap-1">
-            <Shield className="h-3 w-3 text-gold" />
-            ISO 9001:2015 Certified
-          </span>
+
           <span className="flex items-center gap-1">
             <Shield className="h-3 w-3 text-gold" />
             No obligation

@@ -45,7 +45,7 @@ VERTACORE supplies:
 - Industrial Tools: hand tools, power tools, measurement and testing equipment
 
 Key facts:
-- ISO 9001:2015 certified supplier
+
 - All products meet international standards: CE, EN, ANSI, and sector-specific standards
 - Serves: Oil & Gas, Marine, Construction, Manufacturing, Mining, Fabrication
 - No public pricing — all enquiries via Request for Quotation (RFQ)

@@ -15,8 +15,8 @@ interface AskAIWidgetProps {
 const DEFAULT_QUESTIONS = [
   {
     id: "q1",
-    text: "What certifications do your products carry?",
-    answer: "Our products carry major international certifications including ISO 9001:2015, CE, EN standards, and ANSI Z359 for safety equipment. Visit our Certifications page for details."
+    text: "What standards do your products meet?",
+    answer: "Our products carry major international certifications including CE, EN standards, and ANSI Z359 for safety equipment."
   },
   {
     id: "q2",
@@ -36,7 +36,7 @@ const DEFAULT_QUESTIONS = [
 ];
 
 const WELCOME_MESSAGE =
-  "Hi, I'm VERTACORE AI. I can help with product information, certifications, and technical industrial sourcing enquiries. How can I help?";
+  "Hi, I'm VERTACORE AI. I can help with product information and technical industrial sourcing enquiries. How can I help?";
 
 export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
   const [config, setConfig] = useState<WidgetConfig>({ enabled: true, questions: DEFAULT_QUESTIONS });

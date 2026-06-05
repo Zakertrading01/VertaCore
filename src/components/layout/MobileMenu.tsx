@@ -2,7 +2,8 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { X, ArrowRight } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { X, ArrowRight, Phone, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -21,6 +22,7 @@ interface MobileMenuProps {
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (!isOpen) return;
@@ -105,7 +107,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     // Use window instead of canvas for mobile touch/mouse events so it tracks everywhere in the menu
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('touchmove', (e) => {
-      if(e.touches.length > 0) {
+      if (e.touches.length > 0) {
         const rect = canvas.getBoundingClientRect();
         mouse.x = e.touches[0].clientX - rect.left;
         mouse.y = e.touches[0].clientY - rect.top;
@@ -163,20 +165,51 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               <X className="h-5 w-5" />
             </button>
           </div>
+          {/* Mobile Top Utility Bar */}
+          <div className="p-4 border-b border-steel/20 flex flex-col gap-4">
+            <div className="flex items-center gap-2 text-gold font-bold">
+              <Phone className="w-4 h-4" />
+              <span>Call Us: +971 XX XXX XXXX</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Link
+                href="https://maps.google.com/?q=Office+No.44,+11th+Floor,+Trustwell+Properties+Dar+Al+Salam+Building,+Liwa+Street,+Corniche,+Abu+Dhabi,+UAE"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 hover:text-gold hover:bg-navy-light/30 transition-colors"
+              >
+                <MapPin className="w-4 h-4" /> Locations
+              </Link>
+              <Link
+                href="/contact"
+                className="flex items-center gap-1 text-sm font-semibold bg-gold text-navy py-1 px-2 rounded hover:bg-gold/90 transition-colors"
+                onClick={onClose}
+              >
+                Enquire
+                <ArrowRight className="h-3 w-3 ml-1" />
+              </Link>
+            </div>
+          </div>
 
           {/* Nav */}
           <nav className="p-4 space-y-1">
             {/* Main nav items */}
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="block px-3 py-3 rounded-lg text-surface/80 hover:text-gold hover:bg-navy-light/30 transition-colors text-sm font-medium"
-                onClick={() => { onClose(); window.scrollTo({ top: 0, left: 0, behavior: "smooth" }); }}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isActive = item.label === "Home" ? pathname === "/" : pathname.startsWith(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "block px-3 py-3 rounded-lg hover:text-gold hover:bg-navy-light/30 transition-colors text-sm font-medium",
+                    isActive ? "text-gold bg-navy-light/20" : "text-surface/80"
+                  )}
+                  onClick={onClose}
+                >
+                  {item.label}
+                </Link>
+              )
+            })}
 
             {/* Ask AI (Mobile) */}
             <button

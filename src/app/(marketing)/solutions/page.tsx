@@ -15,7 +15,7 @@ export const dynamic = 'force-dynamic';
 export const metadata: Metadata = buildMetadata({
   title: "Industrial MRO Solutions",
   description:
-    "Five core MRO supply capability areas: safety systems, welding, lifting & rigging, abrasives and industrial tools. ISO 9001:2015 certified.",
+    "Five core MRO supply capability areas: safety systems, welding, lifting & rigging, abrasives and industrial tools.",
   path: "/solutions",
   keywords: ["MRO solutions", "industrial supply", "safety systems", "welding supplier"],
 });

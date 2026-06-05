@@ -75,7 +75,7 @@ export default function StoryPage() {
               </p>
 
               <p>
-                ISO 9001:2015 certified. Operationally reliable. Built for industrial
+                Operationally reliable. Built for industrial
                 procurement teams that cannot compromise.
               </p>
             </div>

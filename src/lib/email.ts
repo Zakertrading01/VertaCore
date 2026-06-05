@@ -211,7 +211,7 @@ function buildRFQConfirmationHtml(data: RFQEmailData): string {
     <p style="color: #64748b; line-height: 1.6;">Our technical team will review your requirements and respond within <strong>24 business hours</strong>.</p>
     <p style="color: #64748b; line-height: 1.6;">If you have urgent requirements or wish to speak with our team directly, please contact us at <a href="mailto:${SALES}" style="color: #102544;">${SALES}</a>.</p>
     <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid #e2e8f0; text-align: center;">
-      <p style="color: #94a3b8; font-size: 12px; margin: 0;">VERTACORE — ISO 9001:2015 Certified Industrial Supply</p>
+      <p style="color: #94a3b8; font-size: 12px; margin: 0;">VERTACORE — Premium Industrial Supply</p>
       <p style="color: #94a3b8; font-size: 12px; margin: 4px 0 0;"><a href="https://vertacore.com" style="color: #94a3b8;">vertacore.com</a></p>
     </div>
   </div>

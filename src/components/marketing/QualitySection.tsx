@@ -5,11 +5,6 @@ import { ScrollReveal } from "@/components/shared/ScrollReveal";
 
 const certifications = [
   {
-    name: "ISO 9001:2015",
-    body: "International Organization for Standardization",
-    description: "Quality management system certification for consistent supply chain excellence.",
-  },
-  {
     name: "CE Marking",
     body: "European Conformity",
     description: "European safety, health and environmental protection standards compliance.",
@@ -77,7 +72,7 @@ export function QualitySection() {
             <ScrollReveal>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-navy/5 border border-navy/10 mb-6">
                 <div className="w-2 h-2 rounded-full bg-gold" />
-                <span className="text-xs font-bold tracking-widest text-navy uppercase">Certified. Compliant. Trusted.</span>
+                <span className="text-xs font-bold tracking-widest text-navy uppercase">Premium. Compliant. Trusted.</span>
               </div>
               <h2
                 id="quality-heading"
@@ -90,18 +85,12 @@ export function QualitySection() {
                 </span>
               </h2>
               <p className="mt-6 text-lg text-navy/70 leading-relaxed max-w-lg">
-                VERTACORE is ISO 9001:2015 certified. Every item we supply is verified
+                Every item we supply is verified
                 against internationally recognised quality and safety standards, with full
                 documentation available on request.
               </p>
 
-              <Link
-                href="/certifications"
-                className="group inline-flex items-center gap-3 mt-8 px-6 py-3 bg-navy hover:bg-gold text-white hover:text-navy font-semibold rounded-xl transition-all duration-300"
-              >
-                View Our Certifications
-                <ArrowRight className="h-4 w-4" />
-              </Link>
+
             </ScrollReveal>
           </div>
 

@@ -155,7 +155,7 @@ export function localBusinessSchema() {
     name: "VERTACORE",
     url: BASE_URL,
     description:
-      "Premium MRO industrial supply and procurement company. ISO 9001:2015 certified.",
+      "Premium MRO industrial supply and procurement company.",
     email: "info@vertacore.ae",
     priceRange: "$$$$",
     currenciesAccepted: "USD, AED",

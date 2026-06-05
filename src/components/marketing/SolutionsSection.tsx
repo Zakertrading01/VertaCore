@@ -12,7 +12,7 @@ const solutions = [
     title: "Industrial Supply Solutions",
     slug: "industrial-supply",
     description: "Comprehensive sourcing and supply of industrial products for project, maintenance, and operational requirements across multiple sectors.",
-    tags: ["MRO", "Multi-Sector", "Certified"],
+    tags: ["MRO", "Multi-Sector", "Premium"],
   },
   {
     icon: Flame,
@@ -26,7 +26,7 @@ const solutions = [
     title: "Safety & PPE Solutions",
     slug: "safety-ppe",
     description: "Reliable personal protective equipment and workplace safety products that support compliance, workforce protection, and operational safety standards.",
-    tags: ["CE Certified", "ANSI", "ISO 45001"],
+    tags: ["CE Marked", "ANSI", "ISO 45001"],
   },
   {
     icon: Link2,

@@ -180,7 +180,7 @@ export function HeroSection() {
                   { value: "30+", label: "Years Experience" },
                   { value: "1500+", label: "Products Supplied" },
                   { value: "10+", label: "Industries Served" },
-                  { value: "100%", label: "Certified Quality" },
+                  { value: "100%", label: "Premium Quality" },
                 ].map((stat, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <div className="text-xl md:text-2xl font-black text-white drop-shadow-md">{stat.value}</div>
