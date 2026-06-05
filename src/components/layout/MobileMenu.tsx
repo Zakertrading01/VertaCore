@@ -185,7 +185,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 className="flex items-center gap-1 text-sm font-semibold bg-gold text-navy py-1 px-2 rounded hover:bg-gold/90 transition-colors"
                 onClick={onClose}
               >
-                Enquire
+                Enquire Now
                 <ArrowRight className="h-3 w-3 ml-1" />
               </Link>
             </div>
@@ -201,9 +201,9 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "block px-3 py-3 rounded-lg hover:text-gold hover:bg-navy-light/30 transition-colors text-sm font-medium",
-                    isActive ? "text-gold bg-navy-light/20" : "text-surface/80"
-                  )}
+                  "block px-3 py-3 rounded-lg hover:text-gold hover:bg-navy-light/30 active:text-gold active:bg-navy-light/30 transition-colors text-sm font-medium",
+                  isActive ? "text-gold bg-navy-light/20" : "text-surface/80"
+                )}
                   onClick={onClose}
                 >
                   {item.label}
