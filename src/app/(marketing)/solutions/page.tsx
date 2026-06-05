@@ -67,7 +67,7 @@ export default async function SolutionsPage() {
                     delay={i * 0.06}
                     className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
                   >
-                    <div className="card-base flex flex-col p-6 md:p-8 h-full">
+                    <div className="card-base flex flex-col p-6 md:p-8 h-full group transition-all duration-300 hover:-translate-y-1">
                       {/* Header: Icon + View Button */}
                       <div className="flex items-center justify-between mb-6">
                         <div className="p-3.5 rounded-xl bg-navy-light/40 flex-shrink-0 flex items-center justify-center w-12 h-12">
@@ -80,7 +80,7 @@ export default async function SolutionsPage() {
                         <Link
                           href={`/catalogue?category=${encodeURIComponent(solution.name)}`}
                           prefetch={false}
-                          className="p-2.5 rounded-full bg-gold/10 text-gold hover:bg-gold hover:text-navy transition-all duration-300"
+                          className="p-2.5 rounded-full bg-gold/10 text-gold group-hover:bg-gold group-hover:text-navy transition-all duration-300"
                           aria-label={`View ${solution.name}`}
                         >
                           <ArrowRight className="h-5 w-5" />
@@ -89,10 +89,10 @@ export default async function SolutionsPage() {
 
                       {/* Title */}
                       <div className="mb-4">
-                        <h2 className="text-h2 font-bold text-surface">{solution.name}</h2>
+                        <h2 className="text-h2 font-bold text-surface group-hover:!text-gold transition-colors duration-300">{solution.name}</h2>
                       </div>
 
-                      <p className="text-sm text-surface/60 leading-relaxed mb-6 flex-1">
+                      <p className="text-sm text-surface/60 leading-relaxed mb-6 flex-1 group-hover:!text-gold/80 transition-colors duration-300">
                         {solution.description || "Explore our certified industrial solutions."}
                       </p>
                     </div>

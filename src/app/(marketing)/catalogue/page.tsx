@@ -166,10 +166,7 @@ export default async function CataloguePage() {
           <p className="text-body text-surface/60 mb-6">
             All our products are certified and meet international quality standards.
           </p>
-          <div className="flex items-center justify-center gap-2 text-gold font-semibold uppercase tracking-widest text-xs">
-            <span className="h-2 w-2 rounded-full bg-gold" />
-            ISO 9001:2015 Certified
-          </div>
+
         </div>
       </section>
     </>

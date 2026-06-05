@@ -47,12 +47,12 @@ export function CatalogueItemCard({
           </p>
         )}
 
-        <h3 className="text-[14px] font-semibold text-surface leading-snug mb-1">
+        <h3 className="text-[14px] font-semibold text-surface leading-snug mb-1 group-hover:!text-gold transition-colors duration-300">
           {name}
         </h3>
 
         {description && (
-          <p className="text-xs text-steel-muted leading-relaxed mb-2 line-clamp-2">
+          <p className="text-xs text-steel-muted leading-relaxed mb-2 line-clamp-2 group-hover:!text-gold/80 transition-colors duration-300">
             {description}
           </p>
         )}
