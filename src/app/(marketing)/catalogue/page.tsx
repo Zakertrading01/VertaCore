@@ -5,6 +5,7 @@ import { buildMetadata } from "@/lib/seo";
 import { catalogueItemListSchema, breadcrumbSchema } from "@/lib/schema";
 import { SectionLabel } from "@/components/shared/SectionLabel";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
+import { ParticleBackground } from "@/components/shared/ParticleBackground";
 import { CatalogueGroup } from "@/components/catalogue/CatalogueGroup";
 import { CatalogueDownloadButton } from "@/components/catalogue/CatalogueClient";
 import { CTASection } from "@/components/marketing/CTASection";
@@ -108,9 +109,57 @@ export default async function CataloguePage() {
       ))}
 
       {/* Header */}
-      <header className="bg-navy-dark pt-16 lg:pt-32 pb-4">
-        <div className="container-base">
-          <Breadcrumb items={breadcrumb} className="mb-6" />
+        <header className="bg-navy-dark pt-16 lg:pt-32 pb-0 overflow-hidden relative">
+          <style>{`
+            @keyframes sweep {
+              0% { background-position: 0% 50%; }
+              50% { background-position: 100% 50%; }
+              100% { background-position: 0% 50%; }
+            }
+            @keyframes grid-pan {
+              0% { transform: translateY(0); }
+              100% { transform: translateY(40px); }
+            }
+            @keyframes float-dust {
+              0% { transform: translateY(0) scale(1); opacity: 0; }
+              20% { opacity: 0.8; }
+              80% { opacity: 0.8; }
+              100% { transform: translateY(-100px) scale(0.5); opacity: 0; }
+            }
+            @keyframes pulse-glow {
+              0%, 100% { opacity: 0.2; transform: scale(1); }
+              50% { opacity: 0.5; transform: scale(1.2); }
+            }
+          `}</style>
+          
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            {/* Animated Gradient Sweep */}
+            <div 
+              className="absolute inset-0 bg-gradient-to-r from-navy-dark via-[#0d2242] to-navy-dark bg-[length:200%_200%]"
+              style={{ animation: 'sweep 15s ease-in-out infinite' }}
+            />
+            
+            {/* Animated Tech Grid */}
+            <div 
+              className="absolute -top-[40px] left-0 right-0 bottom-0 opacity-[0.08]"
+              style={{
+                backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)',
+                backgroundSize: '40px 40px',
+                animation: 'grid-pan 15s linear infinite',
+              }}
+            />
+            
+            {/* Glowing Orbs */}
+            <div className="absolute top-0 right-1/4 w-[300px] h-[300px] bg-gold/10 rounded-full blur-[80px]" style={{ animation: 'pulse-glow 6s ease-in-out infinite' }} />
+            <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px]" style={{ animation: 'pulse-glow 8s ease-in-out infinite 2s' }} />
+
+            {/* Interactive Particle Network */}
+            <ParticleBackground className="absolute inset-0 w-full h-full opacity-80 mix-blend-screen pointer-events-auto" />
+          </div>
+
+          <div className="absolute inset-y-0 left-0 w-1.5 bg-gold animate-pulse shadow-[0_0_15px_rgba(250,204,21,0.8)] z-10"></div>
+          <div className="container-base relative z-10">
+            <Breadcrumb items={breadcrumb} className="mb-2" />
           <SectionLabel className="mb-3">Our Product Range</SectionLabel>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="max-w-2xl">
