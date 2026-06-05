@@ -51,14 +51,31 @@ export function MaintenancePage() {
                         </div>
                     </div>
 
-                    {/* Right Side: Image */}
+                    {/* Right Side: Image with Floating Emojis */}
                     <div className="flex-1 flex justify-center lg:justify-end w-full animate-in fade-in slide-in-from-right-8 duration-1000">
-                        <div className="relative w-full max-w-[280px] md:max-w-[400px] lg:max-w-[500px] xl:max-w-[600px] aspect-square rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10">
-                            <img
-                                src="/maintenance.png"
-                                alt="Vertacore Under Maintenance"
-                                className="w-full h-full object-contain bg-white"
-                            />
+                        <div className="relative w-full max-w-[280px] md:max-w-[400px] lg:max-w-[500px] xl:max-w-[600px] aspect-square">
+                            
+                            {/* The Image */}
+                            <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 z-20 bg-white">
+                                <img
+                                    src="/maintenance.png"
+                                    alt="Vertacore Under Maintenance"
+                                    className="w-full h-full object-contain"
+                                />
+                            </div>
+
+                            {/* Floating emojis around the image with Modern Neon Glow */}
+                            <div className="absolute -top-10 -left-8 md:-top-16 md:-left-12 text-6xl md:text-[5rem] animate-float-2 z-30 pointer-events-none drop-shadow-[0_0_30px_rgba(0,255,255,0.9)]">
+                                ⚙️
+                            </div>
+                            
+                            {/* Moved the wrench to a new position with a pink neon glow */}
+                            <div className="absolute top-1/3 -right-10 md:top-1/2 md:-right-16 text-5xl md:text-7xl animate-float-3 z-30 pointer-events-none drop-shadow-[0_0_30px_rgba(255,0,255,0.9)]" style={{ animationDelay: '1s' }}>
+                                🛠️
+                            </div>
+                            
+                            {/* Subtle Central Glow Behind Image */}
+                            <div className="absolute inset-0 bg-gold/20 blur-[80px] lg:blur-[100px] rounded-full pointer-events-none z-10" />
                         </div>
                     </div>
                 </div>
@@ -71,6 +88,13 @@ export function MaintenancePage() {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(-10px); }
         }
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        .animate-float-1 { animation: float 6s ease-in-out infinite; }
+        .animate-float-2 { animation: float 8s ease-in-out infinite 1s; }
+        .animate-float-3 { animation: float 7s ease-in-out infinite 2s; }
       `}</style>
         </div>
     );
