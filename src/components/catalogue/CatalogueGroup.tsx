@@ -15,10 +15,9 @@ const SOLUTION_LINKS: Record<string, string> = {
 interface CatalogueGroupProps {
   categoryGroup: string;
   items: CatalogueItemCardType[];
-  firstGroup?: boolean;
 }
 
-export function CatalogueGroup({ categoryGroup, items, firstGroup }: CatalogueGroupProps) {
+export function CatalogueGroup({ categoryGroup, items }: CatalogueGroupProps) {
   const solutionLink = SOLUTION_LINKS[categoryGroup];
 
   return (
@@ -48,8 +47,8 @@ export function CatalogueGroup({ categoryGroup, items, firstGroup }: CatalogueGr
 
       {/* Items grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-        {items.map((item, i) => (
-          <CatalogueItemCard key={item.id} {...item} priority={firstGroup && i < 3} />
+        {items.map((item) => (
+          <CatalogueItemCard key={item.id} {...item} />
         ))}
       </div>
 
