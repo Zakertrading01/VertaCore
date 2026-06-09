@@ -107,8 +107,8 @@ export default function ContactPage() {
                           </p>
                           <p className="flex items-center gap-3">
                             <Phone className="h-5 w-5 text-gold flex-shrink-0" />
-                            <TapLink href="tel:+971XXXXX" tabIndex={0} className="hover:text-gold focus:text-gold active:text-gold outline-none transition-colors">
-                              +971 XX XXX XXXX
+                            <TapLink href="tel:+97128864430" tabIndex={0} className="hover:text-gold focus:text-gold active:text-gold outline-none transition-colors">
+                              +971 02 886 4430
                             </TapLink>
                           </p>
                         </div>

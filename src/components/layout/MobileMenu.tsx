@@ -169,7 +169,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           <div className="p-4 border-b border-steel/20 flex flex-col gap-4">
             <div className="flex items-center gap-2 text-gold font-bold">
               <Phone className="w-4 h-4" />
-              <span>Call Us: +971 XX XXX XXXX</span>
+              <span>Call Us: +971 02 886 4430</span>
             </div>
             <div className="flex items-center gap-2">
               <Link

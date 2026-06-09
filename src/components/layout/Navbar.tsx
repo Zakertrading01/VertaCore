@@ -164,7 +164,7 @@ export function Navbar() {
         <div className="bg-[#112240] text-[13px] py-1 px-4 md:px-8 hidden md:flex justify-between items-center text-white/90 border-b border-white/5">
           <div className="flex items-center gap-2 text-gold font-bold">
             <Phone className="w-4 h-4" />
-            <span>Call Us: +971 XX XXX XXXX</span>
+            <span>Call Us: +971 02 886 4430</span>
           </div>
           <div className="flex items-center gap-5 text-[14px] font-medium">
             <a 
