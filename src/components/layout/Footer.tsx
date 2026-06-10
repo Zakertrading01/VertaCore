@@ -157,7 +157,7 @@ export function Footer() {
         {/* 3. Bottom Credits */}
         <div className="border-t border-steel/20 py-2 mt-2 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/90">
           <div className="flex flex-wrap items-center gap-4">
-            <span tabIndex={0} className="text-sm font-medium hover:text-gold focus:text-gold active:text-gold transition-colors cursor-pointer outline-none">© {new Date().getFullYear()} VERTACORE Company, Inc. All Rights Reserved.</span>
+            <span tabIndex={0} className="text-sm font-medium hover:text-gold focus:text-gold active:text-gold transition-colors cursor-pointer outline-none">© {new Date().getFullYear()} Verta Core General Trading. All Rights Reserved.</span>
             <span className="hidden sm:inline">|</span>
             <TapLink href="/privacy" tabIndex={0} className="text-sm font-medium hover:text-gold focus:text-gold active:text-gold transition-colors outline-none">Privacy Policy</TapLink>
             <TapLink href="/terms" tabIndex={0} className="text-sm font-medium hover:text-gold focus:text-gold active:text-gold transition-colors outline-none">Terms of Service</TapLink>
