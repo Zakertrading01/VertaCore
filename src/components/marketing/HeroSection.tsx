@@ -29,7 +29,7 @@ const slides = [
   {
     id: 4,
     type: "image",
-    src: "/images/hero-slide-3.png",
+    src: "/images/hero-slide-4.jpeg",
     alt: "Premium Quality Feature",
   },
 ];
