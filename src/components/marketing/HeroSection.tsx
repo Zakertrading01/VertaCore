@@ -65,6 +65,20 @@ export function HeroSection() {
     return () => clearInterval(timer);
   }, []);
 
+  // Keyboard navigation for slider
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+      } else if (e.key === "ArrowRight") {
+        setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   const nextSlide = () => setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   const prevSlide = () => setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
 
@@ -238,15 +252,15 @@ export function HeroSection() {
       {/* Slider Controls (Arrows) — Bottom Right on Mobile/Desktop */}
       <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8 flex items-center gap-3 md:gap-4 z-30 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 pointer-events-auto cursor-pointer">
         <button
-          onClick={prevSlide}
-          className="p-2.5 md:p-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white backdrop-blur-md transition-all hover:scale-110 active:scale-95 cursor-pointer"
+          onClick={(e) => { prevSlide(); e.currentTarget.blur(); }}
+          className="p-2.5 md:p-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white backdrop-blur-md transition-all hover:scale-110 active:scale-95 outline-none focus:outline-none cursor-pointer"
           aria-label="Previous slide"
         >
           <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
         </button>
         <button
-          onClick={nextSlide}
-          className="p-2.5 md:p-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white backdrop-blur-md transition-all hover:scale-110 active:scale-95 cursor-pointer"
+          onClick={(e) => { nextSlide(); e.currentTarget.blur(); }}
+          className="p-2.5 md:p-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white backdrop-blur-md transition-all hover:scale-110 active:scale-95 outline-none focus:outline-none cursor-pointer"
           aria-label="Next slide"
         >
           <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
