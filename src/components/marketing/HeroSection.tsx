@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, BookOpen, ShieldCheck, ChevronLeft, ChevronRight, Facebook, Linkedin, Youtube, Instagram } from "lucide-react";
@@ -56,6 +56,33 @@ const slides = [
 
 export function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const [loadedSlides, setLoadedSlides] = useState<Set<number>>(new Set([0, 1]));
+
+  useEffect(() => {
+    setLoadedSlides((prev) => {
+      const newSet = new Set(prev);
+      newSet.add(currentSlide);
+      newSet.add((currentSlide + 1) % slides.length);
+      return newSet;
+    });
+  }, [currentSlide]);
+
+  useEffect(() => {
+    slides.forEach((slide, index) => {
+      if (slide.type === "video") {
+        const video = videoRefs.current[index];
+        if (video) {
+          if (index === currentSlide) {
+            video.currentTime = 0;
+            video.play().catch((e) => console.log("Video play failed:", e));
+          } else {
+            video.pause();
+          }
+        }
+      }
+    });
+  }, [currentSlide]);
 
   // Auto-play slides every 10 seconds
   useEffect(() => {
@@ -108,8 +135,11 @@ export function HeroSection() {
               />
             ) : (
               <video
-                src={slide.src}
-                autoPlay
+                ref={(el) => {
+                  videoRefs.current[index] = el;
+                }}
+                src={loadedSlides.has(index) ? slide.src : undefined}
+                preload={index === currentSlide || index === (currentSlide + 1) % slides.length ? "auto" : "none"}
                 muted
                 loop
                 playsInline
