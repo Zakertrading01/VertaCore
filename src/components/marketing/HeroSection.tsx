@@ -20,6 +20,18 @@ const slides = [
     src: "https://pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev/images/hero-bg.png",
     alt: "Industrial Facility at Sunset",
   },
+  {
+    id: 3,
+    type: "video",
+    src: "/videos/8963855-uhd_3840_2160_25fps.mp4",
+    alt: "Video Slide 3",
+  },
+  {
+    id: 4,
+    type: "video",
+    src: "/videos/14378496_3840_2160_24fps.mp4",
+    alt: "Video Slide 4",
+  },
 ];
 
 export function HeroSection() {
