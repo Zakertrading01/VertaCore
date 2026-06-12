@@ -12,6 +12,7 @@ const slides = [
     type: "video",
     // Reliable industrial welding video
     src: "https://upload.wikimedia.org/wikipedia/commons/e/eb/The_sound_of_welding.webm",
+    poster: undefined as string | undefined,
     alt: "Industrial Welding Video",
     title1: "Engineering Reliability.",
     title2: "Delivering Confidence.",
@@ -33,7 +34,8 @@ const slides = [
   {
     id: 3,
     type: "video",
-    src: "/videos/14378496_3840_2160_24fps.mp4",
+    src: "/videos/hero-slide-3.mp4",
+    poster: "/images/hero-slide-3-poster.jpg",
     alt: "Video Slide 3",
     title1: "Secure Every",
     title2: "Heavy Lift.",
@@ -139,6 +141,7 @@ export function HeroSection() {
                   videoRefs.current[index] = el;
                 }}
                 src={loadedSlides.has(index) ? slide.src : undefined}
+                poster={slide.poster}
                 preload={index === currentSlide || index === (currentSlide + 1) % slides.length ? "auto" : "none"}
                 muted
                 loop
