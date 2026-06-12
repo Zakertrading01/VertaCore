@@ -34,8 +34,7 @@ const slides = [
   {
     id: 3,
     type: "video",
-    src: "/videos/hero-slide-3.mp4",
-    poster: "/images/hero-slide-3-poster.jpg",
+    src: "/videos/14378496_compressed.mp4",
     alt: "Video Slide 3",
     title1: "Secure Every",
     title2: "Heavy Lift.",
@@ -66,6 +65,7 @@ export function HeroSection() {
       const newSet = new Set(prev);
       newSet.add(currentSlide);
       newSet.add((currentSlide + 1) % slides.length);
+      newSet.add((currentSlide - 1 + slides.length) % slides.length);
       return newSet;
     });
   }, [currentSlide]);
@@ -135,20 +135,19 @@ export function HeroSection() {
                 className={`object-cover object-center ${index === currentSlide ? "animate-pulse-slow" : ""}`}
                 style={{ animationDuration: "20s" }}
               />
-            ) : (
+            ) : loadedSlides.has(index) ? (
               <video
                 ref={(el) => {
                   videoRefs.current[index] = el;
                 }}
-                src={loadedSlides.has(index) ? slide.src : undefined}
-                poster={slide.poster}
-                preload={index === currentSlide || index === (currentSlide + 1) % slides.length ? "auto" : "none"}
+                src={slide.src}
+                preload="auto"
                 muted
                 loop
                 playsInline
                 className="absolute inset-0 w-full h-full object-cover"
               />
-            )}
+            ) : null}
             {/* Desktop-only Gradient Overlay */}
             <div className="hidden lg:block absolute inset-0 bg-black/20 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
 
@@ -170,8 +169,8 @@ export function HeroSection() {
               <h1 className={`text-3xl md:text-5xl lg:text-[60px] leading-[1.1] mb-4 md:mb-6 drop-shadow-2xl select-none flex flex-wrap transition-colors duration-500 ${slides[currentSlide].fontClass || ''}`}>
                 <span className="flex flex-wrap text-surface mr-3">
                   {slides[currentSlide].title1.split("").map((char, i) => (
-                    <span 
-                      key={`er-${currentSlide}-${i}`} 
+                    <span
+                      key={`er-${currentSlide}-${i}`}
                       className={`inline-block hover:scale-125 hover:-translate-y-2 hover:text-gold active:scale-90 duration-200 cursor-pointer ${char === ' ' ? 'w-2 md:w-4' : ''} ${slides[currentSlide].animationClass}`}
                       style={{ animationDelay: `${i * 0.04}s` }}
                     >
@@ -182,8 +181,8 @@ export function HeroSection() {
                 <span className="block w-full h-0"></span>
                 <span className="flex flex-wrap text-gold mt-1 lg:mt-2">
                   {slides[currentSlide].title2.split("").map((char, i) => (
-                    <span 
-                      key={`dc-${currentSlide}-${i}`} 
+                    <span
+                      key={`dc-${currentSlide}-${i}`}
                       className={`inline-block hover:scale-125 hover:-translate-y-2 hover:text-white active:scale-90 duration-200 cursor-pointer ${char === ' ' ? 'w-2 md:w-4' : ''} ${slides[currentSlide].animationClass}`}
                       style={{ animationDelay: `${(slides[currentSlide].title1.length + i) * 0.04}s` }}
                     >
