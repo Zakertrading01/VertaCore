@@ -7,7 +7,7 @@ import { X, ArrowRight, Phone, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { label: "Home", href: "/#hero" },
+  { label: "Home", href: "/" },
   { label: "Solutions", href: "/solutions" },
   { label: "Catalogue", href: "/catalogue" },
   { label: "Brands", href: "/brands" },

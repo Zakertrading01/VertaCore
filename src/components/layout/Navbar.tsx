@@ -13,7 +13,7 @@ const AskAIWidget = lazy(() =>
 
 // Main nav links (logo row)
 const navLinks = [
-  { label: "Home", href: "/#hero" },
+  { label: "Home", href: "/" },
   { label: "Solutions", href: "/solutions" },
   { label: "Catalogue", href: "/catalogue" },
   { label: "Brands", href: "/brands" },
