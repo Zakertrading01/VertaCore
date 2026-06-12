@@ -34,7 +34,7 @@ const slides = [
   {
     id: 3,
     type: "video",
-    src: "/videos/14378496_compressed.mp4",
+    src: "https://pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev/videos/hero-slide-3.mp4",
     alt: "Video Slide 3",
     title1: "Secure Every",
     title2: "Heavy Lift.",
