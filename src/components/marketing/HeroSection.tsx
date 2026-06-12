@@ -23,14 +23,14 @@ const slides = [
   {
     id: 3,
     type: "video",
-    src: "/videos/8963855-uhd_3840_2160_25fps.mp4",
+    src: "/videos/14378496_3840_2160_24fps.mp4",
     alt: "Video Slide 3",
   },
   {
     id: 4,
-    type: "video",
-    src: "/videos/14378496_3840_2160_24fps.mp4",
-    alt: "Video Slide 4",
+    type: "image",
+    src: "/images/hero-slide-3.png",
+    alt: "Premium Quality Feature",
   },
 ];
 
@@ -68,6 +68,7 @@ export function HeroSection() {
                 alt={slide.alt!}
                 fill
                 priority={index === 0}
+                quality={100}
                 className={`object-cover object-center ${index === currentSlide ? "animate-pulse-slow" : ""}`}
                 style={{ animationDuration: "20s" }}
               />
@@ -120,23 +121,7 @@ export function HeroSection() {
           })}
         </div>
 
-        {/* Slider Controls (Arrows) — Bottom Right on Mobile/Desktop */}
-        <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8 flex items-center gap-3 md:gap-4 z-20 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
-          <button
-            onClick={prevSlide}
-            className="p-2.5 md:p-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white backdrop-blur-md transition-all hover:scale-110 active:scale-95"
-            aria-label="Previous slide"
-          >
-            <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
-          </button>
-          <button
-            onClick={nextSlide}
-            className="p-2.5 md:p-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white backdrop-blur-md transition-all hover:scale-110 active:scale-95"
-            aria-label="Next slide"
-          >
-            <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
-          </button>
-        </div>
+
       </div>
 
       {/* ── Content Container (Bottom on Mobile, Centered on Desktop) ── */}
