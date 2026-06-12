@@ -49,7 +49,7 @@ const slides = [
     title1: "Commitment To",
     title2: "Absolute Safety.",
     description: "Protecting your workforce with premium Vertacore safety solutions.",
-    fontClass: "font-cinzel tracking-wider uppercase font-bold",
+    fontClass: "font-montserrat font-black tracking-tighter",
     animationClass: "animate-flip-in-letter",
   },
 ];
@@ -109,38 +109,6 @@ export function HeroSection() {
             <div className="lg:hidden absolute inset-0 bg-black/10" />
           </div>
         ))}
-
-        {/* Floating Social Icons (Over the media on Mobile & Desktop) */}
-        <div className="absolute right-4 md:right-12 top-1/2 -translate-y-1/2 z-20 flex flex-col gap-4 md:gap-5 scale-90 md:scale-100">
-          {[
-            { icon: Facebook, href: "https://facebook.com", color: "#1877F2", label: "Facebook" },
-            { icon: Linkedin, href: "https://linkedin.com", color: "#0A66C2", label: "LinkedIn" },
-            { icon: Youtube, href: "https://youtube.com", color: "#FF0000", label: "YouTube" },
-            { icon: Instagram, href: "https://instagram.com", color: "#E4405F", label: "Instagram" },
-          ].map((social, i) => {
-            const Icon = social.icon;
-            return (
-              <ScrollReveal
-                key={social.label}
-                delay={0.6 + (i * 0.1)}
-                direction="right"
-                distance={20}
-              >
-                <a
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 md:w-11 md:h-11 rounded-full bg-white flex items-center justify-center shadow-2xl hover:scale-125 hover:bg-gold transition-all duration-300 group/social"
-                  aria-label={social.label}
-                  style={{ color: social.color }}
-                >
-                  <Icon className="h-4.5 w-4.5 md:h-5 md:w-5 transition-colors group-hover/social:!text-navy-dark" />
-                </a>
-              </ScrollReveal>
-            );
-          })}
-        </div>
-
 
       </div>
 
@@ -222,7 +190,7 @@ export function HeroSection() {
       </div>
 
       {/* Slider Indicators (Dots) — Hidden on mobile as we have arrows and a split layout */}
-      <div className="hidden lg:flex absolute bottom-8 left-1/2 -translate-x-1/2 items-center gap-3 z-20">
+      <div className="hidden lg:flex absolute bottom-8 left-1/2 -translate-x-1/2 items-center gap-3 z-30">
         {slides.map((_, index) => (
           <button
             key={index}
@@ -234,6 +202,55 @@ export function HeroSection() {
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
+      </div>
+
+      {/* Floating Social Icons (Over the media on Mobile & Desktop) */}
+      <div className="absolute right-4 md:right-12 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-4 md:gap-5 scale-90 md:scale-100 pointer-events-auto">
+        {[
+          { icon: Facebook, href: "https://facebook.com", color: "#1877F2", label: "Facebook" },
+          { icon: Linkedin, href: "https://linkedin.com", color: "#0A66C2", label: "LinkedIn" },
+          { icon: Youtube, href: "https://youtube.com", color: "#FF0000", label: "YouTube" },
+          { icon: Instagram, href: "https://instagram.com", color: "#E4405F", label: "Instagram" },
+        ].map((social, i) => {
+          const Icon = social.icon;
+          return (
+            <ScrollReveal
+              key={social.label}
+              delay={0.6 + (i * 0.1)}
+              direction="right"
+              distance={20}
+            >
+              <a
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 md:w-11 md:h-11 rounded-full bg-white flex items-center justify-center shadow-2xl hover:scale-125 hover:bg-gold transition-all duration-300 group/social"
+                aria-label={social.label}
+                style={{ color: social.color }}
+              >
+                <Icon className="h-4.5 w-4.5 md:h-5 md:w-5 transition-colors group-hover/social:!text-navy-dark" />
+              </a>
+            </ScrollReveal>
+          );
+        })}
+      </div>
+
+      {/* Slider Controls (Arrows) — Bottom Right on Mobile/Desktop */}
+      <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8 flex items-center gap-3 md:gap-4 z-30 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 pointer-events-auto cursor-pointer">
+        <button
+          onClick={prevSlide}
+          className="p-2.5 md:p-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white backdrop-blur-md transition-all hover:scale-110 active:scale-95 cursor-pointer"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="p-2.5 md:p-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white backdrop-blur-md transition-all hover:scale-110 active:scale-95 cursor-pointer"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
+        </button>
       </div>
     </section>
   );
