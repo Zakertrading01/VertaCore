@@ -62,11 +62,10 @@ export function HeroSection() {
 
   useEffect(() => {
     setLoadedSlides((prev) => {
-      const next = (currentSlide + 1) % slides.length;
-      if (prev.has(currentSlide) && prev.has(next)) return prev;
       const newSet = new Set(prev);
       newSet.add(currentSlide);
-      newSet.add(next);
+      newSet.add((currentSlide + 1) % slides.length);
+      newSet.add((currentSlide - 1 + slides.length) % slides.length);
       return newSet;
     });
   }, [currentSlide]);
@@ -77,9 +76,7 @@ export function HeroSection() {
         const video = videoRefs.current[index];
         if (video) {
           if (index === currentSlide) {
-            if (video.readyState > 0) {
-              video.currentTime = 0;
-            }
+            video.currentTime = 0;
             video.play().catch((e) => console.log("Video play failed:", e));
           } else {
             video.pause();
@@ -87,9 +84,7 @@ export function HeroSection() {
         }
       }
     });
-    // Re-run once the source actually gets attached (loadedSlides update),
-    // otherwise play() can fire before the <video src> is set and never retry.
-  }, [currentSlide, loadedSlides]);
+  }, [currentSlide]);
 
   // Auto-play slides every 10 seconds
   useEffect(() => {
