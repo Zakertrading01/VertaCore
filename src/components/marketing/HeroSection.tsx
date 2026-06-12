@@ -13,24 +13,44 @@ const slides = [
     // Reliable industrial welding video
     src: "https://upload.wikimedia.org/wikipedia/commons/e/eb/The_sound_of_welding.webm",
     alt: "Industrial Welding Video",
+    title1: "Engineering Reliability.",
+    title2: "Delivering Confidence.",
+    description: "Industrial Solutions Built for Critical Projects.",
+    fontClass: "font-montserrat font-black tracking-tighter",
+    animationClass: "animate-reveal-letter",
   },
   {
     id: 2,
     type: "image",
     src: "https://pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev/images/hero-bg.png",
     alt: "Industrial Facility at Sunset",
+    title1: "Next-Gen",
+    title2: "Welding Armor.",
+    description: "State-of-the-art protective wear designed to conquer extreme thermal environments.",
+    fontClass: "font-montserrat font-black tracking-tighter",
+    animationClass: "animate-drop-in-letter",
   },
   {
     id: 3,
     type: "video",
     src: "/videos/14378496_3840_2160_24fps.mp4",
     alt: "Video Slide 3",
+    title1: "Secure Every",
+    title2: "Heavy Lift.",
+    description: "Premium rigging and lifting equipment engineered for absolute operational control.",
+    fontClass: "font-montserrat font-black tracking-tighter",
+    animationClass: "animate-zoom-in-letter",
   },
   {
     id: 4,
     type: "image",
     src: "/images/hero-slide-4.jpeg",
     alt: "Premium Quality Feature",
+    title1: "Commitment To",
+    title2: "Absolute Safety.",
+    description: "Protecting your workforce with premium Vertacore safety solutions.",
+    fontClass: "font-cinzel tracking-wider uppercase font-bold",
+    animationClass: "animate-flip-in-letter",
   },
 ];
 
@@ -131,19 +151,27 @@ export function HeroSection() {
 
 
 
-            <ScrollReveal delay={0.2}>
-              <h1 className="text-3xl md:text-5xl lg:text-[60px] font-black leading-[1.1] tracking-tighter mb-4 md:mb-6 drop-shadow-2xl select-none flex flex-wrap">
+            <ScrollReveal delay={0.2} key={`title-${currentSlide}`}>
+              <h1 className={`text-3xl md:text-5xl lg:text-[60px] leading-[1.1] mb-4 md:mb-6 drop-shadow-2xl select-none flex flex-wrap transition-colors duration-500 ${slides[currentSlide].fontClass || ''}`}>
                 <span className="flex flex-wrap text-surface mr-3">
-                  {"Engineering Reliability.".split("").map((char, i) => (
-                    <span key={`er-${i}`} className={`inline-block hover:scale-125 hover:-translate-y-2 hover:text-gold active:scale-90 transition-all duration-200 cursor-pointer ${char === ' ' ? 'w-2 md:w-4' : ''}`}>
+                  {slides[currentSlide].title1.split("").map((char, i) => (
+                    <span 
+                      key={`er-${currentSlide}-${i}`} 
+                      className={`inline-block hover:scale-125 hover:-translate-y-2 hover:text-gold active:scale-90 duration-200 cursor-pointer ${char === ' ' ? 'w-2 md:w-4' : ''} ${slides[currentSlide].animationClass}`}
+                      style={{ animationDelay: `${i * 0.04}s` }}
+                    >
                       {char}
                     </span>
                   ))}
                 </span>
                 <span className="block w-full h-0"></span>
                 <span className="flex flex-wrap text-gold mt-1 lg:mt-2">
-                  {"Delivering Confidence.".split("").map((char, i) => (
-                    <span key={`dc-${i}`} className={`inline-block hover:scale-125 hover:-translate-y-2 hover:text-white active:scale-90 transition-all duration-200 cursor-pointer ${char === ' ' ? 'w-2 md:w-4' : ''}`}>
+                  {slides[currentSlide].title2.split("").map((char, i) => (
+                    <span 
+                      key={`dc-${currentSlide}-${i}`} 
+                      className={`inline-block hover:scale-125 hover:-translate-y-2 hover:text-white active:scale-90 duration-200 cursor-pointer ${char === ' ' ? 'w-2 md:w-4' : ''} ${slides[currentSlide].animationClass}`}
+                      style={{ animationDelay: `${(slides[currentSlide].title1.length + i) * 0.04}s` }}
+                    >
                       {char}
                     </span>
                   ))}
@@ -151,9 +179,9 @@ export function HeroSection() {
               </h1>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.3}>
+            <ScrollReveal delay={0.3} key={`desc-${currentSlide}`}>
               <p className="text-sm md:text-lg text-white/70 lg:text-white/90 max-w-xl leading-relaxed mb-6 md:mb-8 font-light tracking-wide cursor-pointer hover:text-white active:scale-[0.98] transition-all duration-200 select-none">
-                Industrial Solutions Built for Critical Projects.
+                {slides[currentSlide].description}
               </p>
             </ScrollReveal>
 
