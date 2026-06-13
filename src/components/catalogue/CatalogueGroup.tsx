@@ -28,7 +28,7 @@ export function CatalogueGroup({ categoryGroup, items }: CatalogueGroupProps) {
           <div className="h-px w-8 bg-gold" />
           <h2
             id={`group-${categoryGroup.toLowerCase().replace(/\s+/g, "-")}`}
-            className="text-h3 font-bold text-surface"
+            className="text-h3 font-bold text-surface scroll-mt-24 md:scroll-mt-32"
           >
             {categoryGroup}
           </h2>

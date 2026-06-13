@@ -69,7 +69,7 @@ export default async function SolutionsPage() {
                     className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
                   >
                     <TapLink
-                      href={`/catalogue?category=${encodeURIComponent(solution.name)}`}
+                      href={`/catalogue?category=${encodeURIComponent(solution.name)}#group-${solution.name.toLowerCase().replace(/\s+/g, "-")}`}
                       className="card-base block flex-col p-6 md:p-8 h-full group transition-all duration-300 hover:-translate-y-1 focus:-translate-y-1 active:-translate-y-1 hover:border-gold/30 focus:border-gold/30 active:border-gold/30 outline-none relative overflow-hidden"
                       tabIndex={0}
                     >

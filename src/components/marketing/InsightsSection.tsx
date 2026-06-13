@@ -27,7 +27,7 @@ export function InsightsSection({ insights }: InsightsSectionProps) {
 
   return (
     <section
-      className="section-padding bg-navy-dark"
+      className="pt-6 pb-12 md:pt-10 md:pb-20 lg:pt-12 lg:pb-24 bg-navy-dark"
       aria-labelledby="insights-heading"
     >
       <div className="container-base">

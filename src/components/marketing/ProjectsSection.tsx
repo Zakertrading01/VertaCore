@@ -17,7 +17,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
 
   return (
     <section
-      className="section-padding bg-[#FAF9F6]"
+      className="pt-6 pb-12 md:pt-10 md:pb-20 lg:pt-12 lg:pb-24 bg-[#FAF9F6]"
       aria-labelledby="projects-heading"
     >
       <div className="container-base">
