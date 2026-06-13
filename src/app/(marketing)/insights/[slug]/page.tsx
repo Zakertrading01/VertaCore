@@ -29,7 +29,7 @@ export async function generateMetadata({
     image: insight.coverImage ?? undefined,
     type: "article",
     keywords: insight.tags,
-    publishedAt: insight.publishedAt?.toISOString(),
+    publishedAt: insight.publishedAt ? new Date(insight.publishedAt).toISOString() : undefined,
     author: insight.author,
   });
 }
@@ -58,8 +58,10 @@ export default async function InsightPage({
       slug: insight.slug,
       coverImage: insight.coverImage ?? undefined,
       author: insight.author,
-      publishedAt: insight.publishedAt?.toISOString() ?? insight.createdAt.toISOString(),
-      updatedAt: insight.updatedAt.toISOString(),
+      publishedAt: insight.publishedAt
+        ? new Date(insight.publishedAt).toISOString()
+        : new Date(insight.createdAt).toISOString(),
+      updatedAt: new Date(insight.updatedAt).toISOString(),
     }),
     breadcrumbSchema(breadcrumb),
   ];
