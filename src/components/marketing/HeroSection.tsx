@@ -114,11 +114,11 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative h-[100dvh] lg:h-screen flex flex-col lg:flex-row items-stretch bg-black overflow-hidden group"
+      className="relative min-h-[100dvh] lg:min-h-screen flex flex-col lg:flex-row items-stretch bg-black overflow-hidden group"
       aria-label="Hero"
     >
-      {/* ── Media Container (Top on Mobile, Full on Desktop) ── */}
-      <div className="relative h-[42vh] lg:h-auto lg:absolute lg:inset-0 z-0">
+      {/* ── Media Container (Full background on all devices) ── */}
+      <div className="absolute inset-0 z-0">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
@@ -148,18 +148,15 @@ export function HeroSection() {
                 className="absolute inset-0 w-full h-full object-cover"
               />
             ) : null}
-            {/* Desktop-only Gradient Overlay */}
-            <div className="hidden lg:block absolute inset-0 bg-black/20 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
-
-            {/* Mobile-only subtle dark overlay to help social icons pop if needed */}
-            <div className="lg:hidden absolute inset-0 bg-black/10" />
+            {/* Overlay for all devices to ensure text readability */}
+            <div className="absolute inset-0 bg-black/30 lg:bg-black/20 bg-gradient-to-r from-black/80 lg:from-black/70 via-black/50 lg:via-black/40 to-black/20 lg:to-transparent" />
           </div>
         ))}
 
       </div>
 
-      {/* ── Content Container (Bottom on Mobile, Centered on Desktop) ── */}
-      <div className="relative z-10 w-full flex-1 lg:flex-none flex flex-col justify-center bg-navy-dark lg:bg-transparent py-4 md:py-8 lg:py-0 lg:min-h-screen">
+      {/* ── Content Container (Centered on all devices) ── */}
+      <div className="relative z-10 w-full flex-1 flex flex-col justify-center bg-transparent py-16 md:py-24 lg:py-0 lg:min-h-screen">
         <div className="container-base">
           <div className="max-w-3xl pt-2 lg:pt-28">
 
