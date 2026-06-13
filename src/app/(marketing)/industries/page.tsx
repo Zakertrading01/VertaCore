@@ -30,13 +30,13 @@ export const metadata: Metadata = buildMetadata({
 // Fallback static industries for when DB has no data
 const fallbackIndustries = [
   { id: "1", slug: "oil-gas", name: "Oil & Gas", icon: "🛢", description: "Upstream, midstream and downstream operations", coverImage: null, published: true },
-  { id: "2", slug: "marine", name: "Marine", icon: "⚓", description: "Offshore platforms, vessels and shipyards", coverImage: null, published: true },
+  { id: "2", slug: "marine", name: "Marine & Offshore", icon: "⚓", description: "Offshore platforms, vessels and shipyards", coverImage: null, published: true },
   { id: "3", slug: "construction", name: "Construction", icon: "🏗", description: "Civil, structural and infrastructure projects", coverImage: null, published: true },
-  { id: "4", slug: "manufacturing", name: "Manufacturing", icon: "🏭", description: "Plant operations and production facilities", coverImage: null, published: true },
+  { id: "4", slug: "manufacturing", name: "Petrochemical Facilities", icon: "🧪", description: "Chemical processing and refinement plants", coverImage: null, published: true },
   { id: "5", slug: "mining", name: "Mining", icon: "⛏", description: "Surface and underground mining operations", coverImage: null, published: true },
-  { id: "6", slug: "fabrication", name: "Fabrication", icon: "⚙", description: "Steel fabrication and metalwork shops", coverImage: null, published: true },
-  { id: "7", slug: "power-energy", name: "Power & Energy", icon: "⚡", description: "Power generation and energy infrastructure", coverImage: null, published: true },
-  { id: "8", slug: "civil-engineering", name: "Civil Engineering", icon: "🌉", description: "Bridges, tunnels and major civil works", coverImage: null, published: true },
+  { id: "6", slug: "fabrication", name: "Fabrication & Manufacturing", icon: "⚙", description: "Heavy metalwork and industrial production", coverImage: null, published: true },
+  { id: "7", slug: "power-energy", name: "Utilities & Industrial Operations", icon: "⚡", description: "Power generation and essential utility infrastructure", coverImage: null, published: true },
+  { id: "8", slug: "civil-engineering", name: "EPC & Infrastructure Projects", icon: "🏗", description: "Large-scale engineering, procurement, and construction", coverImage: null, published: true },
 ];
 
 export default async function IndustriesPage() {

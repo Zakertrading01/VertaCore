@@ -213,7 +213,7 @@ async function main() {
     },
     {
       slug: "marine",
-      name: "Marine",
+      name: "Marine & Offshore",
       description:
         "Safety and operational equipment for offshore platforms, vessels, shipyards and marine construction. Marine-grade certified products available.",
       icon: "⚓",
@@ -231,10 +231,10 @@ async function main() {
     },
     {
       slug: "manufacturing",
-      name: "Manufacturing",
+      name: "Petrochemical Facilities",
       description:
-        "MRO supply for plant operations, production facilities and manufacturing environments. Covering safety, welding, abrasives and industrial tools.",
-      icon: "🏭",
+        "Certified MRO supply for petrochemical processing and refinement plants. Equipment and consumables meeting plant safety, hazardous-area and process compliance requirements.",
+      icon: "🧪",
       order: 4,
       published: true,
     },
@@ -249,28 +249,28 @@ async function main() {
     },
     {
       slug: "fabrication",
-      name: "Fabrication",
+      name: "Fabrication & Manufacturing",
       description:
-        "Welding systems, abrasives and industrial tools for steel fabrication shops, metalwork facilities and structural fabrication projects.",
+        "Welding systems, abrasives, industrial tools and MRO supply for fabrication shops, metalwork facilities and manufacturing plants — from structural fabrication through to production-line operations.",
       icon: "⚙",
       order: 6,
       published: true,
     },
     {
       slug: "power-energy",
-      name: "Power & Energy",
+      name: "Utilities & Industrial Operations",
       description:
-        "Safety and MRO supply for power generation plants, energy infrastructure and utilities. Electrical safety equipment and operational tools.",
+        "Safety and MRO supply for power generation plants, utilities and essential industrial operations infrastructure. Electrical safety equipment and operational tools for critical facilities.",
       icon: "⚡",
       order: 7,
       published: true,
     },
     {
       slug: "civil-engineering",
-      name: "Civil Engineering",
+      name: "EPC & Infrastructure Projects",
       description:
-        "Equipment for bridges, tunnels, dams and major civil works. Lifting gear, safety systems and industrial tools for large-scale civil projects.",
-      icon: "🌉",
+        "Certified MRO and project supply for large-scale engineering, procurement and construction (EPC) programmes. Lifting gear, safety systems and industrial tools for bridges, tunnels, dams and major infrastructure builds.",
+      icon: "🏗",
       order: 8,
       published: true,
     },
