@@ -114,11 +114,11 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-[100dvh] lg:min-h-screen flex flex-col lg:flex-row items-stretch bg-black overflow-hidden group"
+      className="relative min-h-[100dvh] md:min-h-screen flex flex-col md:flex-row items-stretch bg-black overflow-hidden group"
       aria-label="Hero"
     >
-      {/* ── Media Container (Full background on all devices) ── */}
-      <div className="absolute inset-0 z-0">
+      {/* ── Media Container (Top on Mobile, Full on Desktop) ── */}
+      <div className="relative h-[45vh] md:h-auto md:absolute md:inset-0 z-0">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
@@ -148,15 +148,15 @@ export function HeroSection() {
                 className="absolute inset-0 w-full h-full object-cover"
               />
             ) : null}
-            {/* Overlay for all devices to ensure text readability */}
-            <div className="absolute inset-0 bg-black/30 lg:bg-black/20 bg-gradient-to-r from-black/80 lg:from-black/70 via-black/50 lg:via-black/40 to-black/20 lg:to-transparent" />
+            {/* Overlay (Subtle on mobile, Dark Gradient on Desktop for text readability) */}
+            <div className="absolute inset-0 bg-black/10 md:bg-black/20 md:bg-gradient-to-r md:from-black/80 md:via-black/50 md:to-transparent" />
           </div>
         ))}
 
       </div>
 
-      {/* ── Content Container (Centered on all devices) ── */}
-      <div className="relative z-10 w-full flex-1 flex flex-col justify-center bg-transparent py-16 md:py-24 lg:py-0 lg:min-h-screen">
+      {/* ── Content Container (Bottom on Mobile, Centered on Desktop) ── */}
+      <div className="relative z-10 w-full flex-1 md:flex-none flex flex-col justify-start md:justify-center bg-navy-dark md:bg-transparent py-10 md:py-0 md:min-h-screen">
         <div className="container-base">
           <div className="max-w-3xl pt-2 lg:pt-28">
 
@@ -248,7 +248,7 @@ export function HeroSection() {
       </div>
 
       {/* Floating Social Icons (Over the media on Mobile & Desktop) */}
-      <div className="absolute right-4 md:right-12 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-4 md:gap-5 scale-90 md:scale-100 pointer-events-auto">
+      <div className="absolute right-4 md:right-12 top-[22.5vh] md:top-1/2 -translate-y-1/2 z-30 flex flex-col gap-4 md:gap-5 scale-90 md:scale-100 pointer-events-auto">
         {[
           { icon: Facebook, href: "https://facebook.com", color: "#1877F2", label: "Facebook" },
           { icon: Linkedin, href: "https://linkedin.com", color: "#0A66C2", label: "LinkedIn" },
