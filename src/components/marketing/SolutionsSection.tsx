@@ -27,7 +27,7 @@ const solutions = [
     title: "Safety & PPE Solutions",
     slug: "safety-ppe",
     description: "Reliable personal protective equipment and workplace safety products that support compliance, workforce protection, and operational safety standards.",
-    tags: ["CE Marked", "ANSI", "ISO 45001"],
+    tags: ["CE Marked", "ANSI", "ISO 45001", "ICV"],
   },
   {
     icon: Link2,
