@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import { X, Send, Sparkles, Loader2, ArrowRight as LucideArrowRight } from "lucide-react";
+import { X, Send, Sparkles, Loader2, ArrowRight as LucideArrowRight, Trash } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { WidgetConfig, ChatMessage } from "@/types/api";
 import ReactMarkdown from 'react-markdown';
@@ -199,13 +199,25 @@ export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
               <p className="text-xs text-steel-muted">Procurement assistant</p>
             </div>
           </div>
-          <button
-            onClick={onClose}
-            className="p-2 text-surface/50 hover:text-gold transition-colors rounded-xl hover:bg-navy-light/30 border border-transparent hover:border-gold/20"
-            aria-label="Close AI assistant"
-          >
-            <X className="h-5 w-5" />
-          </button>
+          <div className="flex items-center gap-2">
+            {messages.length > 0 && (
+              <button
+                onClick={() => { setMessages([]); setError(""); }}
+                className="p-2 text-surface/50 hover:text-error transition-colors rounded-xl hover:bg-error/10 border border-transparent hover:border-error/20"
+                aria-label="Clear conversation"
+                title="Clear conversation"
+              >
+                <Trash className="h-4 w-4" />
+              </button>
+            )}
+            <button
+              onClick={onClose}
+              className="p-2 text-surface/50 hover:text-gold transition-colors rounded-xl hover:bg-navy-light/30 border border-transparent hover:border-gold/20"
+              aria-label="Close AI assistant"
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </div>
         </div>
 
         {/* Messages */}
