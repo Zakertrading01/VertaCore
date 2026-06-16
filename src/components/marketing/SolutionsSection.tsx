@@ -41,7 +41,7 @@ const solutions = [
     title: "Technical Procurement Support",
     slug: "technical-procurement",
     description: "Efficient sourcing support for specialized industrial requirements through an established network of trusted manufacturers and suppliers.",
-    tags: ["ISO 9001", "Global Sourcing"],
+    tags: ["ISO 9001", "ICV", "Global Sourcing"],
   },
   {
     icon: Truck,

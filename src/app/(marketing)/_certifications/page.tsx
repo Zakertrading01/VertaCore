@@ -17,10 +17,10 @@ export const revalidate = 3600;
 export const metadata: Metadata = buildMetadata({
   title: "Certifications & Quality Standards",
   description:
-    "VERTACORE is ISO 9001:2015 certified. Every product we supply meets internationally recognised safety and quality standards including CE, EN, and ANSI.",
+    "VERTACORE is ISO 9001:2015 and ICV certified. Every product we supply meets internationally recognised safety and quality standards including CE, EN, and ANSI.",
   path: "/certifications",
   keywords: [
-    "ISO 9001 certified supplier",
+    "ISO 9001 and ICV certified supplier",
     "CE certified industrial equipment",
     "EN standards supplier",
     "industrial quality certifications",
@@ -29,9 +29,9 @@ export const metadata: Metadata = buildMetadata({
 
 const faqs = [
   {
-    question: "Is VERTACORE ISO 9001:2015 certified?",
+    question: "Is VERTACORE ISO 9001:2015 and ICV certified?",
     answer:
-      "Yes. VERTACORE holds ISO 9001:2015 certification from an internationally accredited certification body. Our quality management system governs sourcing, supply chain management, and customer service processes.",
+      "Yes. VERTACORE holds ISO 9001:2015 and ICV certifications from internationally accredited certification bodies. Our quality management system governs sourcing, supply chain management, and customer service processes.",
   },
   {
     question: "Can I download certificates for products VERTACORE supplies?",
@@ -145,6 +145,12 @@ export default async function CertificationsPage() {
                   body: "International Organization for Standardization",
                   description:
                     "Quality management system certification ensuring consistent service and supply chain excellence across all operations.",
+                },
+                {
+                  name: "ICV Certified",
+                  body: "In-Country Value",
+                  description:
+                    "Recognized ICV certification demonstrating our contribution to the local economy, local supplier development, and Emiratization.",
                 },
                 {
                   name: "CE Marking",

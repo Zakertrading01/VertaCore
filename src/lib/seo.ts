@@ -72,6 +72,7 @@ export const defaultMetadata: Metadata = {
     "welding systems",
     "lifting rigging",
     "ISO 9001 certified",
+    "ICV certified",
     "industrial procurement",
     "PPE supplier",
   ],

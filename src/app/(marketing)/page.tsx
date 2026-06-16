@@ -29,6 +29,7 @@ export const metadata: Metadata = buildMetadata({
     "welding systems supplier",
     "lifting rigging equipment",
     "ISO 9001 industrial supply",
+    "ICV certified supply",
     "industrial procurement",
   ],
 });

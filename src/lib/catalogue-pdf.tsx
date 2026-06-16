@@ -229,7 +229,7 @@ function PageHeader() {
 function Footer() {
   return (
     <View style={styles.footer} fixed>
-      <Text style={styles.footerLeft}>© Vertacore Industrial Supply · ISO 9001:2015 Certified · No Obligation Enquiry</Text>
+      <Text style={styles.footerLeft}>© Vertacore Industrial Supply · ISO 9001:2015 CERTIFIED · ICV CERTIFIED · No Obligation Enquiry</Text>
       <Text style={styles.footerRight} render={({ pageNumber }) => `Page ${pageNumber}`} />
     </View>
   );
@@ -250,7 +250,7 @@ function CoverPage({ year }: { year: string }) {
       </View>
       <View style={styles.coverBottom}>
         <Text style={styles.coverYear}>{year}</Text>
-        <Text style={styles.coverCert}>ISO 9001:2015 CERTIFIED · NO OBLIGATION ENQUIRY</Text>
+        <Text style={styles.coverCert}>ISO 9001:2015 CERTIFIED · ICV CERTIFIED · NO OBLIGATION ENQUIRY</Text>
       </View>
     </Page>
   );

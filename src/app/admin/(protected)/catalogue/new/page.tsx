@@ -13,7 +13,7 @@ interface Category {
 
 const CERT_SUGGESTIONS = [
   'CE', 'EN ISO 20345', 'EN 397', 'ANSI Z87.1', 'ANSI Z89.1',
-  'EN 388', 'EN 374', 'EN 471', 'EN 14116', 'ISO 9001',
+  'EN 388', 'EN 374', 'EN 471', 'EN 14116', 'ISO 9001', 'ICV',
   'ASME B30', 'EN 818', 'EN 13414', 'oSa', 'MPA',
 ]
 

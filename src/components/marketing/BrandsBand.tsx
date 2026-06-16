@@ -105,7 +105,7 @@ const brandDetails: Record<string, { name: string; content: string[] }> = {
       "Supraflex is a manufacturer of abrasive items like cutting & grinding discs are from India. Zaker Trading LLC, Dubai, UAE is a supplier and authorized distributor of Supraflex products.",
       "We develop and produce high quality grinding, cutting and polishing products for our customers, many of whom are global leaders in construction, engineering and commerce. Providing superior quality products and service at competitive prices has led to our rapid growth. Supraflex stocks over 50 different types of abrasive items.",
       "Product Range: Coated abrasives, surface conditioning products, resin bonded wheels and vitrified wheels.",
-      "Standards: Supraflex products are comply with international standards like ISO 9001, OSHA, EN."
+      "Standards: Supraflex products are comply with international standards like ISO 9001, ICV, OSHA, EN."
     ]
   },
   toyo: {
