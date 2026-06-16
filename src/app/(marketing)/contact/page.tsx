@@ -121,7 +121,7 @@ export default function ContactPage() {
                         <div className="space-y-1.5 text-sm text-surface/80">
                           <p tabIndex={0} className="flex justify-between max-w-[260px] group hover:!text-gold focus:!text-gold active:!text-gold outline-none transition-colors duration-300 cursor-default">
                             <span>Monday – Friday</span>
-                            <span className="text-surface/60 group-hover:!text-gold/80 group-focus:!text-gold/80 group-active:!text-gold/80 transition-colors duration-300">8:00 AM – 6:00 PM</span>
+                            <span className="text-surface/60 group-hover:!text-gold/80 group-focus:!text-gold/80 group-active:!text-gold/80 transition-colors duration-300">8:00 AM – 5:00 PM</span>
                           </p>
                           <p tabIndex={0} className="flex justify-between max-w-[260px] group hover:!text-gold focus:!text-gold active:!text-gold outline-none transition-colors duration-300 cursor-default">
                             <span>Saturday</span>
