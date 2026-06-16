@@ -70,6 +70,18 @@ export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
     if (isOpen) setTimeout(() => inputRef.current?.focus(), 200);
   }, [isOpen]);
 
+  // Close on Escape key
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, [isOpen, onClose]);
+
   const sendMessage = useCallback(
     async (text: string, predefinedAnswer?: string | null) => {
       const trimmed = text.trim();

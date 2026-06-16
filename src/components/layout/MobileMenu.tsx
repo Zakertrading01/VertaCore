@@ -115,10 +115,16 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     });
     canvas.addEventListener('mouseleave', handleMouseLeave);
 
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleEsc);
+
     return () => {
       window.removeEventListener('resize', init);
       window.removeEventListener('mousemove', handleMouseMove);
       canvas.removeEventListener('mouseleave', handleMouseLeave);
+      window.removeEventListener('keydown', handleEsc);
       cancelAnimationFrame(animationFrameId);
     };
   }, [isOpen]);
