@@ -173,7 +173,7 @@ export function Navbar() {
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 hover:text-gold transition-colors"
             >
-              <MapPin className="w-4 h-4" /> Locations
+              <MapPin className="w-4 h-4" /> Location
             </a>
             <span className="text-white/20">|</span>
             <Link href="/contact" className="flex items-center gap-1.5 bg-[#1a365d] px-3 py-1 rounded text-gold hover:bg-[#234575] transition-colors font-bold text-xs">

@@ -178,7 +178,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 hover:text-gold hover:bg-navy-light/30 transition-colors"
               >
-                <MapPin className="w-4 h-4" /> Locations
+                <MapPin className="w-4 h-4" /> Location
               </Link>
               <Link
                 href="/contact"
