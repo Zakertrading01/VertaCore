@@ -12,11 +12,15 @@ export async function GET() {
   if (!session) return NextResponse.json({ error: 'Unauthorized.' }, { status: 401 })
 
   const setting = await db.siteSetting.findFirst()
-  return NextResponse.json({ maintenanceMode: setting?.maintenanceMode ?? true })
+  return NextResponse.json({
+    maintenanceMode: setting?.maintenanceMode ?? true,
+    showSocials: setting?.showSocials ?? true,
+  })
 }
 
 const UpdateSchema = z.object({
-  maintenanceMode: z.boolean(),
+  maintenanceMode: z.boolean().optional(),
+  showSocials: z.boolean().optional(),
 })
 
 export async function PUT(req: NextRequest) {
@@ -39,7 +43,7 @@ export async function PUT(req: NextRequest) {
   const existing = await db.siteSetting.findFirst()
   const setting = existing
     ? await db.siteSetting.update({ where: { id: existing.id }, data: parsed.data })
-    : await db.siteSetting.create({ data: parsed.data })
+    : await db.siteSetting.create({ data: { maintenanceMode: true, showSocials: true, ...parsed.data } })
 
-  return NextResponse.json({ maintenanceMode: setting.maintenanceMode })
+  return NextResponse.json({ maintenanceMode: setting.maintenanceMode, showSocials: setting.showSocials })
 }

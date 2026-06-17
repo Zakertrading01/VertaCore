@@ -34,14 +34,17 @@ export const metadata: Metadata = buildMetadata({
   ],
 });
 
-async function getSiteMode() {
+async function getSiteSettings() {
   const setting = await db.siteSetting.findFirst();
-  return setting?.maintenanceMode ?? true;
+  return {
+    maintenanceMode: setting?.maintenanceMode ?? true,
+    showSocials: setting?.showSocials ?? true,
+  };
 }
 
 export default async function HomePage() {
-  const [maintenanceMode, projects, insights] = await Promise.all([
-    getSiteMode(),
+  const [{ maintenanceMode, showSocials }, projects, insights] = await Promise.all([
+    getSiteSettings(),
     getHomeProjects(),
     getHomeInsights(),
   ]);
@@ -61,7 +64,7 @@ export default async function HomePage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       ))}
-      <HeroSection />
+      <HeroSection showSocials={showSocials} />
       <IntroductionSection />
       <WhyVertacoreSection />
       <SolutionsSection />

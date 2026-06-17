@@ -55,7 +55,7 @@ const slides = [
   },
 ];
 
-export function HeroSection() {
+export function HeroSection({ showSocials = true }: { showSocials?: boolean }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const [loadedSlides, setLoadedSlides] = useState<Set<number>>(new Set([0, 1]));
@@ -248,35 +248,37 @@ export function HeroSection() {
       </div>
 
       {/* Floating Social Icons (Over the media on Mobile & Desktop) */}
-      <div className="absolute right-4 md:right-12 top-[22.5vh] md:top-1/2 -translate-y-1/2 z-30 flex flex-col gap-4 md:gap-5 scale-90 md:scale-100 pointer-events-auto">
-        {[
-          { icon: Facebook, href: "https://facebook.com", color: "#1877F2", label: "Facebook" },
-          { icon: Linkedin, href: "https://linkedin.com", color: "#0A66C2", label: "LinkedIn" },
-          { icon: Youtube, href: "https://youtube.com", color: "#FF0000", label: "YouTube" },
-          { icon: Instagram, href: "https://instagram.com", color: "#E4405F", label: "Instagram" },
-        ].map((social, i) => {
-          const Icon = social.icon;
-          return (
-            <ScrollReveal
-              key={social.label}
-              delay={0.6 + (i * 0.1)}
-              direction="right"
-              distance={20}
-            >
-              <a
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 md:w-11 md:h-11 rounded-full bg-white flex items-center justify-center shadow-2xl hover:scale-125 hover:bg-gold transition-all duration-300 group/social"
-                aria-label={social.label}
-                style={{ color: social.color }}
+      {showSocials && (
+        <div className="absolute right-4 md:right-12 top-[max(30vh,180px)] md:top-1/2 -translate-y-1/2 z-30 flex flex-col gap-3 md:gap-5 scale-[0.8] md:scale-100 pointer-events-auto origin-right">
+          {[
+            { icon: Facebook, href: "https://facebook.com", color: "#1877F2", label: "Facebook" },
+            { icon: Linkedin, href: "https://linkedin.com", color: "#0A66C2", label: "LinkedIn" },
+            { icon: Youtube, href: "https://youtube.com", color: "#FF0000", label: "YouTube" },
+            { icon: Instagram, href: "https://instagram.com", color: "#E4405F", label: "Instagram" },
+          ].map((social, i) => {
+            const Icon = social.icon;
+            return (
+              <ScrollReveal
+                key={social.label}
+                delay={0.6 + (i * 0.1)}
+                direction="right"
+                distance={20}
               >
-                <Icon className="h-4.5 w-4.5 md:h-5 md:w-5 transition-colors group-hover/social:!text-navy-dark" />
-              </a>
-            </ScrollReveal>
-          );
-        })}
-      </div>
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 md:w-11 md:h-11 rounded-full bg-white flex items-center justify-center shadow-2xl hover:scale-125 hover:bg-gold transition-all duration-300 group/social"
+                  aria-label={social.label}
+                  style={{ color: social.color }}
+                >
+                  <Icon className="h-4.5 w-4.5 md:h-5 md:w-5 transition-colors group-hover/social:!text-navy-dark" />
+                </a>
+              </ScrollReveal>
+            );
+          })}
+        </div>
+      )}
 
       {/* Slider Controls (Arrows) — Bottom Right on Mobile/Desktop */}
       <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8 flex items-center gap-3 md:gap-4 z-30 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 pointer-events-auto cursor-pointer">

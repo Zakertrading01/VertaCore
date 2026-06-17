@@ -31,7 +31,7 @@ const myAccount = [
 ];
 
 
-export function Footer() {
+export function Footer({ showSocials = true }: { showSocials?: boolean }) {
   return (
     <footer id="footer" className="bg-navy-dark border-t border-steel/30" role="contentinfo">
       {/* Main footer content */}
@@ -118,38 +118,38 @@ export function Footer() {
           </div>
 
           {/* Column 4: Keep in Touch / Newsletter */}
-          <div className="lg:col-span-3 space-y-4">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-white mb-4 pb-1 border-b border-steel/20">
-              Keep In Touch
-            </h3>
+          {showSocials && (
+            <div className="lg:col-span-3 space-y-4">
+              <h3 className="text-xs font-bold uppercase tracking-widest text-white mb-4 pb-1 border-b border-steel/20">
+                Keep In Touch
+              </h3>
 
-            {/* Social Grid */}
-            <div className="flex items-center gap-3.5 mb-4">
-              {[
-                { icon: Facebook, bg: "bg-[#1877F2]", label: "Facebook", href: "https://facebook.com" },
-                { icon: Linkedin, bg: "bg-[#0A66C2]", label: "LinkedIn", href: "https://linkedin.com" },
-                { icon: Instagram, bg: "bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888]", label: "Instagram", href: "https://instagram.com" },
-                { icon: Youtube, bg: "bg-[#FF0000]", label: "YouTube", href: "https://youtube.com" },
-              ].map((social) => {
-                const Icon = social.icon;
-                return (
-                  <TapLink
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                    tabIndex={0}
-                    className={`w-10 h-10 rounded-full ${social.bg} flex items-center justify-center shadow-lg hover:scale-110 hover:opacity-100 focus:scale-110 focus:opacity-100 active:scale-110 active:opacity-100 hover:ring-2 hover:ring-gold hover:ring-offset-2 hover:ring-offset-[#061022] hover:shadow-[0_0_20px_rgba(250,204,21,0.8)] focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-[#061022] focus:shadow-[0_0_20px_rgba(250,204,21,0.8)] active:ring-2 active:ring-gold active:ring-offset-2 active:ring-offset-[#061022] active:shadow-[0_0_20px_rgba(250,204,21,0.8)] outline-none transition-all duration-300`}
-                  >
-                    <Icon className="h-5 w-5 text-white" />
-                  </TapLink>
-                );
-              })}
+              {/* Social Grid */}
+              <div className="flex items-center gap-3.5 mb-4">
+                {[
+                  { icon: Facebook, bg: "bg-[#1877F2]", label: "Facebook", href: "https://facebook.com" },
+                  { icon: Linkedin, bg: "bg-[#0A66C2]", label: "LinkedIn", href: "https://linkedin.com" },
+                  { icon: Instagram, bg: "bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888]", label: "Instagram", href: "https://instagram.com" },
+                  { icon: Youtube, bg: "bg-[#FF0000]", label: "YouTube", href: "https://youtube.com" },
+                ].map((social) => {
+                  const Icon = social.icon;
+                  return (
+                    <TapLink
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.label}
+                      tabIndex={0}
+                      className={`w-10 h-10 rounded-full ${social.bg} flex items-center justify-center shadow-lg hover:scale-110 hover:opacity-100 focus:scale-110 focus:opacity-100 active:scale-110 active:opacity-100 hover:ring-2 hover:ring-gold hover:ring-offset-2 hover:ring-offset-[#061022] hover:shadow-[0_0_20px_rgba(250,204,21,0.8)] focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-[#061022] focus:shadow-[0_0_20px_rgba(250,204,21,0.8)] active:ring-2 active:ring-gold active:ring-offset-2 active:ring-offset-[#061022] active:shadow-[0_0_20px_rgba(250,204,21,0.8)] outline-none transition-all duration-300`}
+                    >
+                      <Icon className="h-5 w-5 text-white" />
+                    </TapLink>
+                  );
+                })}
+              </div>
             </div>
-
-
-          </div>
+          )}
 
         </div>
 

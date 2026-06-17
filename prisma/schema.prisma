@@ -255,6 +255,7 @@ enum AdminRole {
 model SiteSetting {
   id              String   @id @default(cuid())
   maintenanceMode Boolean  @default(true)
+  showSocials     Boolean  @default(true)
   updatedAt       DateTime @updatedAt
 }
 
