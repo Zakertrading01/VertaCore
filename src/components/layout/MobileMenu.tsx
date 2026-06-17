@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { X, ArrowRight, Phone, MapPin } from "lucide-react";
+import { X, ArrowRight, Phone, MapPin, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -23,6 +23,8 @@ interface MobileMenuProps {
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pathname = usePathname();
+  const [clickedHref, setClickedHref] = useState<string | null>(null);
+  const [touchingHref, setTouchingHref] = useState<string | null>(null);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -182,14 +184,36 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 href="https://maps.google.com/?q=Office+No.44,+11th+Floor,+Dar+Al+Salam+Building,+Liwa+Street,+Corniche,+Abu+Dhabi,+UAE"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 hover:text-gold hover:bg-navy-light/30 transition-colors"
+                className={cn(
+                  "flex items-center gap-1.5 transition-colors",
+                  (touchingHref === "location" || clickedHref === "location") ? "text-gold bg-navy-light/30" : "hover:text-gold hover:bg-navy-light/30"
+                )}
+                onTouchStart={() => setTouchingHref("location")}
+                onTouchEnd={() => setTouchingHref(null)}
+                onTouchCancel={() => setTouchingHref(null)}
+                onClick={(e) => {
+                  setClickedHref("location");
+                  setTimeout(() => setClickedHref(null), 300);
+                }}
               >
                 <MapPin className="w-4 h-4" /> Location
               </Link>
               <Link
                 href="/contact"
-                className="flex items-center gap-1 text-sm font-semibold bg-gold text-navy py-1 px-2 rounded hover:bg-gold/90 transition-colors"
-                onClick={onClose}
+                className={cn(
+                  "flex items-center gap-1 text-sm font-semibold text-navy py-1 px-2 rounded transition-colors",
+                  (touchingHref === "/contact-btn" || clickedHref === "/contact-btn") ? "bg-gold/90" : "bg-gold"
+                )}
+                onTouchStart={() => setTouchingHref("/contact-btn")}
+                onTouchEnd={() => setTouchingHref(null)}
+                onTouchCancel={() => setTouchingHref(null)}
+                onClick={() => {
+                  setClickedHref("/contact-btn");
+                  setTimeout(() => {
+                    onClose();
+                    setClickedHref(null);
+                  }, 200);
+                }}
               >
                 Enquire Now
                 <ArrowRight className="h-3 w-3 ml-1" />
@@ -202,28 +226,82 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             {/* Main nav items */}
             {navItems.map((item) => {
               const isActive = item.label === "Home" ? pathname === "/" : pathname.startsWith(item.href);
+              const isInteracting = touchingHref === item.href || clickedHref === item.href;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
                   className={cn(
-                  "block px-3 py-3 rounded-lg hover:text-gold hover:bg-navy-light/30 active:text-gold active:bg-navy-light/30 transition-colors text-sm font-medium",
-                  isActive ? "text-gold bg-navy-light/20" : "text-surface/80"
-                )}
-                  onClick={onClose}
+                    "group relative block px-4 py-4 rounded-lg overflow-hidden transition-all duration-300 border-b border-steel/10 last:border-b-0",
+                    isActive || isInteracting ? "text-gold bg-white/5" : "text-surface/80 hover:bg-white/5"
+                  )}
+                  onTouchStart={() => setTouchingHref(item.href)}
+                  onTouchEnd={() => setTouchingHref(null)}
+                  onTouchCancel={() => setTouchingHref(null)}
+                  onClick={() => {
+                    setClickedHref(item.href);
+                    setTimeout(() => {
+                      onClose();
+                      setClickedHref(null);
+                    }, 300);
+                  }}
                 >
-                  {item.label}
+                  {/* Click Flash Effect */}
+                  <span className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <span className={cn(
+                      "absolute w-[150%] h-[150%] bg-[radial-gradient(circle,rgba(255,215,0,0.3)_0%,transparent_70%)] opacity-0 scale-50 transition-all duration-300 ease-out",
+                      isInteracting ? "opacity-100 scale-100" : ""
+                    )} />
+                  </span>
+
+                  {/* Background animation on touch/hover */}
+                  <span className={cn(
+                    "absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] transition-transform duration-700 ease-in-out",
+                    isInteracting ? "translate-x-[100%]" : ""
+                  )} />
+
+                  <span className={cn(
+                    "relative z-10 flex items-center justify-between transition-all duration-300",
+                    isInteracting ? "scale-[1.02] px-2" : ""
+                  )}>
+                    <span className="flex items-center gap-2 font-bold text-[15px]">
+                      {item.label}
+                    </span>
+                    {item.label !== "Home" && (
+                      <ChevronRight className={cn(
+                        "h-5 w-5 transition-all duration-300",
+                        isInteracting ? "translate-x-1 scale-110 text-gold" : "opacity-40"
+                      )} />
+                    )}
+                  </span>
+
+                  {/* Bottom line animation */}
+                  <span className={cn(
+                    "absolute bottom-0 left-0 w-full origin-center transition-all duration-300 ease-out",
+                    isActive || isInteracting
+                      ? "h-[3px] bg-gold scale-x-100 shadow-[0_0_10px_rgba(255,215,0,0.5)]" 
+                      : "h-[2px] bg-gold/50 scale-x-0"
+                  )} />
                 </Link>
               )
             })}
 
-            {/* Ask AI (Mobile) */}
             <button
+              onTouchStart={() => setTouchingHref("ai-assistant")}
+              onTouchEnd={() => setTouchingHref(null)}
+              onTouchCancel={() => setTouchingHref(null)}
               onClick={() => {
-                onClose();
-                window.dispatchEvent(new CustomEvent('open-ai-chat'));
+                setClickedHref("ai-assistant");
+                setTimeout(() => {
+                  onClose();
+                  setClickedHref(null);
+                  window.dispatchEvent(new CustomEvent('open-ai-chat'));
+                }, 200);
               }}
-              className="flex items-center justify-between w-full px-3 py-3 rounded-lg text-gold hover:bg-gold/10 transition-colors text-sm font-medium mt-4"
+              className={cn(
+                "flex items-center justify-between w-full px-3 py-3 rounded-lg text-gold transition-colors text-sm font-medium mt-4",
+                (touchingHref === "ai-assistant" || clickedHref === "ai-assistant") ? "bg-gold/10" : ""
+              )}
             >
               <span className="flex items-center gap-2">
                 <span className="h-2 w-2 rounded-full bg-gold animate-pulse" />
@@ -236,8 +314,20 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           <div className="p-4 mt-2">
             <Link
               href="/catalogue"
-              className="flex items-center justify-center gap-2 w-full bg-gold text-navy font-semibold py-3 rounded-lg hover:bg-gold-muted transition-colors"
-              onClick={onClose}
+              className={cn(
+                "flex items-center justify-center gap-2 w-full text-navy font-semibold py-3 rounded-lg transition-colors",
+                (touchingHref === "/catalogue-btn" || clickedHref === "/catalogue-btn") ? "bg-gold-muted" : "bg-gold"
+              )}
+              onTouchStart={() => setTouchingHref("/catalogue-btn")}
+              onTouchEnd={() => setTouchingHref(null)}
+              onTouchCancel={() => setTouchingHref(null)}
+              onClick={() => {
+                setClickedHref("/catalogue-btn");
+                setTimeout(() => {
+                  onClose();
+                  setClickedHref(null);
+                }, 200);
+              }}
             >
               Browse Catalogue
               <ArrowRight className="h-4 w-4" />

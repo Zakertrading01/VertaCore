@@ -26,6 +26,7 @@ export default function RootLayout({
     <html
       lang="en"
       className="dark h-full overflow-x-hidden"
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <body className={`h-full min-h-screen flex flex-col bg-[#0A1628] text-[#F8FAFC] antialiased ${cinzel.variable} ${playfair.variable} ${outfit.variable} ${montserrat.variable}`}>
