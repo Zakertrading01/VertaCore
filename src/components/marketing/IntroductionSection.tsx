@@ -182,10 +182,10 @@ export function IntroductionSection() {
         <div className="w-full max-w-6xl mx-auto mt-12 relative z-10 px-4 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 text-left">
           
           {/* Panel 1: Industrial Supply (Gold Laser) */}
-          <ScrollReveal delay={0.2}>
+          <ScrollReveal delay={0.2} className="h-full">
             <div 
               tabIndex={0}
-              className="relative overflow-hidden rounded-[2.5rem] p-[2px] w-full shadow-[0_0_60px_-15px_rgba(250,204,21,0.3)] group outline-none cursor-pointer"
+              className="relative overflow-hidden rounded-[2.5rem] p-[2px] w-full h-full shadow-[0_0_60px_-15px_rgba(250,204,21,0.3)] group outline-none cursor-pointer"
               style={{ animation: 'float-panel 8s ease-in-out infinite' }}
             >
               {/* Spinning Laser Layer */}
@@ -216,10 +216,10 @@ export function IntroductionSection() {
           </ScrollReveal>
 
           {/* Panel 2: Enterprise Execution (Blue Laser) */}
-          <ScrollReveal delay={0.4}>
+          <ScrollReveal delay={0.4} className="h-full">
             <div 
               tabIndex={0}
-              className="relative overflow-hidden rounded-[2.5rem] p-[2px] w-full shadow-[0_0_60px_-15px_rgba(59,130,246,0.3)] group outline-none cursor-pointer"
+              className="relative overflow-hidden rounded-[2.5rem] p-[2px] w-full h-full shadow-[0_0_60px_-15px_rgba(59,130,246,0.3)] group outline-none cursor-pointer"
               style={{ animation: 'float-panel-alt 9s ease-in-out infinite' }}
             >
               {/* Spinning Laser Layer */}
