@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { TapLink } from "@/components/shared/TapLink";
 import Image from "next/image";
-import { ArrowRight, ExternalLink, Globe } from "lucide-react";
+import { ArrowRight, ExternalLink, Globe, ShieldCheck, FileCheck, Layers, Zap, Cpu } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema } from "@/lib/schema";
 import { SectionLabel } from "@/components/shared/SectionLabel";
@@ -10,6 +10,7 @@ import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { CTASection } from "@/components/marketing/CTASection";
 import { getBrands } from "@/lib/cached-queries";
+import { ClickParticles } from "@/components/shared/ClickParticles";
 
 export const dynamic = 'force-dynamic';
 
@@ -37,122 +38,346 @@ export default async function BrandsPage() {
       />
 
       {/* Header */}
-      <header className="bg-navy-dark pt-16 lg:pt-32 pb-8">
+      <header className="bg-navy-dark pt-16 lg:pt-32 pb-16">
         <div className="container-base">
-          <Breadcrumb items={breadcrumb} className="mb-6" />
-          <SectionLabel className="mb-3">Our Brand Network</SectionLabel>
-          <h1 className="text-dlg font-bold text-surface max-w-2xl tracking-tight">
-            Sourced from
-            <br />
-            <span className="text-gold">recognised global brands.</span>
-          </h1>
-          <p className="mt-4 text-body text-surface/60 max-w-xl leading-relaxed">
-            VERTACORE sources from manufacturers recognised for quality, compliance
-            and reliability. Our brand network is a direct signal of our sourcing standards.
-          </p>
+          <Breadcrumb items={breadcrumb} className="mb-8" />
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Left Side: Title */}
+            <div className="lg:col-span-5">
+              <ScrollReveal>
+                <h1 className="text-4xl md:text-5xl lg:text-[4.5rem] font-extrabold tracking-tight leading-[1.1] mb-6 text-surface">
+                  Global Sourcing <br />
+                  <span className="relative inline-block mt-2">
+                    {/* Glowing animated backdrop */}
+                    <span className="absolute inset-0 blur-lg text-[#FFD700] opacity-50 animate-pulse" aria-hidden="true">
+                      Excellence.
+                    </span>
+                    {/* Sharp foreground text */}
+                    <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-gold to-[#FFD700] drop-shadow-sm">
+                      Excellence.
+                    </span>
+                  </span>
+                </h1>
+                <p className="text-xl md:text-2xl font-medium text-surface/90 leading-snug border-l-2 border-gold pl-5">
+                  Delivering Quality Through a Trusted International Supply Network.
+                </p>
+              </ScrollReveal>
+            </div>
+
+            <div className="lg:col-span-7">
+              <div className="relative p-8 md:p-12 rounded-[2.5rem] bg-gradient-to-b from-surface/10 to-transparent border border-white/10 shadow-2xl backdrop-blur-md overflow-hidden">
+                {/* Decorative Glow */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+                
+                <div className="relative z-10 space-y-8">
+                  <ScrollReveal delay={0.1}>
+                    <p className="text-xl md:text-[1.35rem] font-medium text-surface leading-relaxed">
+                      Verta Core partners with carefully selected manufacturers across key global markets to provide <span className="text-gold font-bold">reliable products &amp; solutions</span> for the energy, oil &amp; gas, infrastructure, fabrication, and industrial sectors.
+                    </p>
+                  </ScrollReveal>
+                  
+                  <div className="w-16 h-px bg-gradient-to-r from-gold to-transparent opacity-50"></div>
+                  
+                  <ScrollReveal delay={0.2}>
+                    <p className="text-lg md:text-xl text-surface/70 leading-relaxed font-light">
+                      Our sourcing philosophy is built on one principle: <strong className="font-medium text-surface">every product supplied must meet the standards of quality, performance, and reliability expected by mission-critical projects.</strong> Through a robust international network, we connect our clients with proven industrial solutions that support operational continuity and project success.
+                    </p>
+                  </ScrollReveal>
+                  
+                  <ScrollReveal delay={0.3}>
+                    <div className="bg-white/5 rounded-2xl p-6 border border-white/5 relative overflow-hidden group hover:bg-white/10 transition-colors duration-300">
+                      <div className="absolute left-0 top-0 bottom-0 w-1 bg-gold"></div>
+                      <p className="text-base md:text-lg text-surface/80 leading-relaxed pl-2">
+                        Whether supporting EPC contractors, ADNOC projects, fabrication facilities, or industrial operators, our focus remains the same—<span className="text-white font-medium">delivering dependable products backed by technical expertise and responsive service.</span> This positioning aligns with the company’s industrial supply focus and existing service offerings.
+                      </p>
+                    </div>
+                  </ScrollReveal>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </header>
 
-      {/* Brands List/Grid */}
-      <section className="pt-4 pb-16 md:pb-24 bg-graphite-subtle">
-        <div className="container-base">
-          {brands.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {brands.map((brand, i) => (
-                <ScrollReveal key={brand.id} delay={i * 0.05}>
-                  <TapLink href={`/brands/${brand.slug}`} tabIndex={0} className="card-base block flex-col h-full group outline-none focus:ring-2 focus:ring-gold active:ring-2 active:ring-gold transition-all duration-300">
-                    <div className="p-6 flex flex-col h-full">
-                      <div className="flex items-start gap-4 flex-1 mb-6">
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-2">
-                            <h2 className="text-h3 font-bold text-surface group-hover:text-gold group-focus:text-gold group-active:text-gold transition-colors">
-                              {brand.name}
-                            </h2>
-                            {brand.website && (
-                              <a href={brand.website} target="_blank" rel="noopener noreferrer" className="text-steel-muted hover:text-gold">
-                                <Globe className="h-3 w-3" />
-                              </a>
-                            )}
-                          </div>
-                          {brand.description && (
-                            <p className="text-sm text-steel-muted leading-relaxed line-clamp-3">
-                              {brand.description}
-                            </p>
-                          )}
-                        </div>
-                        <div className="w-20 h-20 md:w-24 md:h-24 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 group-focus:scale-105 group-active:scale-105">
-                          <img
-                            src={brand.logo || `/brands/${brand.slug}.png`}
-                            alt={brand.name}
-                            className="max-w-full max-h-full object-contain"
-                          />
-                        </div>
-                      </div>
 
-                      <div className="flex items-center justify-between mt-auto pt-4 border-t border-steel/10">
-                        {brand.country && (
-                          <span className="text-[10px] font-bold uppercase tracking-widest text-gold/60 bg-gold/5 px-2 py-1 rounded">
-                            {brand.country}
-                          </span>
-                        )}
-                        <span
-                          className="flex items-center gap-1.5 text-xs font-bold text-surface/60 group-hover:text-gold group-focus:text-gold group-active:text-gold transition-colors"
-                        >
-                          View Details
-                          <ArrowRight className="h-3 w-3" />
-                        </span>
-                      </div>
-                    </div>
-                  </TapLink>
-                </ScrollReveal>
-              ))}
-            </div>
-          ) : (
-            /* Static Managed Fallback if DB is empty */
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                { name: "TECHWELD", description: "Leading manufacturer and supplier of professional welding accessories, tools and tackles.", country: "United Kingdom", slug: "techweld", logo: "/brands/techweld.jpeg" },
-                { name: "GEOTEX", description: "European standards welding curtains, blankets and protection systems.", country: "Netherlands", slug: "geotex", logo: "/brands/geotex.jpeg" },
-                { name: "WELDMAN", description: "Welding products for oilfield, construction and marine industries.", country: "Global", slug: "weldman", logo: "/brands/weldman.jpeg" },
-                { name: "SUPERON", description: "High-quality welding consumables and protective coatings.", country: "Global", slug: "superon", logo: "/brands/superon.jpeg" },
-                { name: "GASIQ", description: "Swedish manufacturer of equipment for gas welding and control.", country: "Sweden", slug: "gasiq", logo: "/brands/gasiq.jpeg" },
-                { name: "SAKURA", description: "Japanese pigment technology and tough industrial markers.", country: "Japan", slug: "sakura", logo: "/brands/sakura.jpeg" },
-              ].map((brand, i) => (
-                <ScrollReveal key={brand.slug} delay={i * 0.05}>
-                  <TapLink href={`/brands/${brand.slug}`} tabIndex={0} className="card-base block p-6 flex-col h-full group outline-none focus:ring-2 focus:ring-gold active:ring-2 active:ring-gold transition-all duration-300">
-                    <div className="flex items-start gap-4 flex-1 mb-6">
-                      <div className="flex-1">
-                        <h2 className="text-h3 font-bold text-surface mb-2 group-hover:text-gold group-focus:text-gold group-active:text-gold transition-colors">{brand.name}</h2>
-                        <p className="text-sm text-steel-muted leading-relaxed line-clamp-3">{brand.description}</p>
-                      </div>
-                      <div className="w-20 h-20 md:w-24 md:h-24 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 group-focus:scale-105 group-active:scale-105">
-                        <img
-                          src={brand.logo}
-                          alt={brand.name}
-                          className="max-w-full max-h-full object-contain"
-                        />
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-between mt-auto pt-4 border-t border-steel/10">
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-gold/60 bg-gold/5 px-2 py-1 rounded">
-                        {brand.country}
-                      </span>
-                      <span
-                        className="flex items-center gap-1.5 text-xs font-bold text-surface/60 group-hover:text-gold group-focus:text-gold group-active:text-gold transition-colors"
-                      >
-                        View Details
-                        <ArrowRight className="h-3 w-3" />
-                      </span>
-                    </div>
-                  </TapLink>
-                </ScrollReveal>
-              ))}
-            </div>
-          )}
+
+      {/* Why Our Sourcing Network Matters */}
+      <section className="pt-12 pb-8 bg-navy border-t border-white/5 relative overflow-hidden">
+        {/* Background ambient light */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-gold/5 blur-[120px] rounded-full pointer-events-none"></div>
+        
+        <div className="container-base relative z-10">
+          <div className="text-center max-w-4xl mx-auto mb-12">
+            <ScrollReveal>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-surface mb-6 tracking-tight whitespace-nowrap">
+                Why Our Sourcing <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-[#FFD700] drop-shadow-[0_0_15px_rgba(255,215,0,0.4)]">Network Matters</span>
+              </h2>
+            </ScrollReveal>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            {/* Card 1 */}
+            <ScrollReveal delay={0.1}>
+              <ClickParticles className="group bg-surface/5 border border-gold/20 p-6 rounded-2xl h-full shadow-[0_0_15px_rgba(255,215,0,0.1)] hover:shadow-[0_0_30px_rgba(255,215,0,0.25)] hover:bg-surface/10 hover:border-gold/40 transition-all duration-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-gold/10 transition-all duration-500">
+                  <ShieldCheck className="w-5 h-5 text-gold" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold text-surface mb-3 group-hover:text-gold transition-colors">Quality-Driven Selection</h3>
+                <p className="text-white leading-relaxed text-base md:text-lg">
+                  We work with manufacturers and suppliers that demonstrate consistent product quality, manufacturing excellence, and compliance with internationally recognized standards.
+                </p>
+              </ClickParticles>
+            </ScrollReveal>
+            
+            {/* Card 2 */}
+            <ScrollReveal delay={0.2}>
+              <ClickParticles className="group bg-surface/5 border border-gold/20 p-6 rounded-2xl h-full shadow-[0_0_15px_rgba(255,215,0,0.1)] hover:shadow-[0_0_30px_rgba(255,215,0,0.25)] hover:bg-surface/10 hover:border-gold/40 transition-all duration-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-gold/10 transition-all duration-500">
+                  <Globe className="w-5 h-5 text-gold" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold text-surface mb-3 group-hover:text-gold transition-colors">Global Reach, Local Support</h3>
+                <p className="text-white leading-relaxed text-base md:text-lg">
+                  Our sourcing network spans multiple international markets, enabling us to identify the right solutions while providing local support, faster response times, and efficient project coordination.
+                </p>
+              </ClickParticles>
+            </ScrollReveal>
+
+            {/* Card 3 */}
+            <ScrollReveal delay={0.3}>
+              <ClickParticles className="group bg-surface/5 border border-gold/20 p-6 rounded-2xl h-full shadow-[0_0_15px_rgba(255,215,0,0.1)] hover:shadow-[0_0_30px_rgba(255,215,0,0.25)] hover:bg-surface/10 hover:border-gold/40 transition-all duration-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-gold/10 transition-all duration-500">
+                  <FileCheck className="w-5 h-5 text-gold" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold text-surface mb-3 group-hover:text-gold transition-colors">Compliance &amp; Traceability</h3>
+                <p className="text-white leading-relaxed text-base md:text-lg">
+                  We understand the stringent requirements of industrial and energy-sector projects. Our procurement processes prioritize documentation, traceability, and adherence to project specifications.
+                </p>
+              </ClickParticles>
+            </ScrollReveal>
+
+            {/* Card 4 */}
+            <ScrollReveal delay={0.4}>
+              <ClickParticles className="group bg-surface/5 border border-gold/20 p-6 rounded-2xl h-full shadow-[0_0_15px_rgba(255,215,0,0.1)] hover:shadow-[0_0_30px_rgba(255,215,0,0.25)] hover:bg-surface/10 hover:border-gold/40 transition-all duration-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-gold/10 transition-all duration-500">
+                  <Layers className="w-5 h-5 text-gold" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold text-surface mb-3 group-hover:text-gold transition-colors">Reliable Supply Continuity</h3>
+                <p className="text-white leading-relaxed text-base md:text-lg">
+                  By maintaining strong relationships across our supplier network, we help clients mitigate procurement risks, reduce delays, and maintain operational efficiency.
+                </p>
+              </ClickParticles>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 
-      <CTASection />
+
+
+      {/* Industries & Commitment */}
+      <section className="pt-8 pb-4 md:pb-6 bg-navy-dark">
+        <div className="container-base">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <ScrollReveal>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface/5 border border-white/10 mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold shadow-[0_0_5px_rgba(255,215,0,0.5)]"></span>
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-surface/80">Sectors</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-surface mb-8 tracking-tight">Industries We Support</h2>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5">
+                {[
+                  "Oil & Gas",
+                  "Energy & Utilities",
+                  "EPC & Infrastructure Projects",
+                  "Fabrication & Manufacturing",
+                  "Marine & Offshore",
+                  "Petrochemical Facilities",
+                  "Industrial Maintenance"
+                ].map((item, idx) => (
+                  <li key={idx} className="group flex items-center gap-4 bg-surface/5 px-5 py-4 rounded-xl border border-white/5 hover:border-gold/40 hover:bg-gold/5 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-[0_0_20px_rgba(255,215,0,0.15)]">
+                    <div className="w-2 h-2 rounded-full bg-gold/50 group-hover:bg-gold group-hover:scale-150 transition-all duration-300 flex-shrink-0 shadow-[0_0_5px_rgba(255,215,0,0.5)]" />
+                    <span className="font-medium text-surface/90 text-sm md:text-base group-hover:text-gold transition-colors duration-300">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.2}>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface/5 border border-white/10 mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold shadow-[0_0_5px_rgba(255,215,0,0.5)]"></span>
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-surface/80">Philosophy</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-surface mb-8 tracking-tight">Our Commitment</h2>
+              
+              <div className="relative p-8 md:p-10 rounded-[2rem] bg-surface/5 border border-white/5 backdrop-blur-md shadow-2xl overflow-hidden group hover:border-gold/20 transition-all duration-500">
+                <div className="absolute top-0 left-0 bottom-0 w-1.5 bg-gradient-to-b from-gold via-gold/50 to-transparent group-hover:w-2 transition-all duration-500"></div>
+                <div className="absolute top-0 right-0 w-48 h-48 bg-gold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                
+                <div className="relative z-10 space-y-6 text-base md:text-lg text-surface/70 leading-relaxed pl-2 font-light">
+                  <p className="text-white font-medium text-lg md:text-xl leading-snug">
+                    At Verta Core, supplier selection is not based solely on availability—<span className="text-gold font-bold">it is based on trust, performance, and long-term reliability.</span>
+                  </p>
+                  <p>
+                    Every sourcing decision is guided by our commitment to delivering products that contribute to safer operations, greater efficiency, and successful project outcomes.
+                  </p>
+                  <p>
+                    We continuously strengthen our international supply network to ensure our clients have access to dependable industrial solutions whenever and wherever they are needed.
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Custom Call To Action Section */}
+      <section className="relative pt-6 md:pt-10 pb-10 md:pb-12 overflow-hidden bg-[#1C3256]">
+        {/* Glowing Background Elements */}
+        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay pointer-events-none"></div>
+        <div className="absolute -top-1/2 -left-1/4 w-[1000px] h-[1000px] bg-gradient-to-br from-gold/20 to-transparent rounded-full blur-[100px] pointer-events-none animate-pulse"></div>
+        <div className="absolute -bottom-1/2 -right-1/4 w-[800px] h-[800px] bg-gradient-to-tl from-gold/15 to-transparent rounded-full blur-[100px] pointer-events-none"></div>
+        
+        {/* Inner Glow Line at Top */}
+        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
+        
+        <div className="container-base relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div className="lg:col-span-7 relative z-10">
+              <ScrollReveal>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md shadow-[0_0_10px_rgba(255,215,0,0.1)]">
+                  <span className="w-2 h-2 rounded-full bg-gold shadow-[0_0_8px_rgba(255,215,0,0.8)] animate-pulse"></span>
+                  <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-white/90">Call To Action Section</span>
+                </div>
+                
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight leading-[1.1]">
+                  Looking for a Reliable <br className="hidden md:block" />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-[#FFD700] drop-shadow-[0_0_15px_rgba(255,215,0,0.3)]">Industrial Supply</span> Partner?
+                </h2>
+                
+                <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl leading-relaxed font-light">
+                  Whether you require project-specific procurement, technical sourcing support, or ongoing industrial supply solutions, our team is ready to assist.
+                </p>
+                
+                <div className="flex flex-wrap gap-4 group">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center gap-3 bg-gold text-navy-dark font-extrabold px-8 py-4 rounded-2xl hover:bg-[#FFD700] transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_10px_20px_rgba(255,215,0,0.2)] hover:shadow-[0_15px_30px_rgba(255,215,0,0.4)]"
+                  >
+                    Discuss Your Requirement
+                    <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              </ScrollReveal>
+            </div>
+            
+            <div className="lg:col-span-5 relative z-10">
+              <ScrollReveal delay={0.2}>
+                <div className="bg-surface/5 backdrop-blur-lg rounded-3xl p-8 md:p-10 border border-white/10 shadow-2xl relative overflow-hidden group/card hover:border-gold/30 transition-all duration-500 hover:shadow-[0_0_40px_rgba(255,215,0,0.15)]">
+                  <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
+                  <ul className="space-y-6 relative z-10">
+                    {[
+                      "Technical Procurement Support",
+                      "Project Supply Solutions",
+                      "Fast Response & Quotations",
+                      "UAE-Wide Delivery Support"
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-center gap-4 text-white font-medium text-lg md:text-xl group/item">
+                        <div className="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0 group-hover/item:scale-110 group-hover/item:bg-gold transition-all duration-300 shadow-[0_0_10px_rgba(255,215,0,0.1)]">
+                          <svg className="w-6 h-6 text-gold group-hover/item:text-navy-dark transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                        <span className="group-hover/item:translate-x-1 group-hover/item:text-gold transition-all duration-300">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </ScrollReveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Key Highlights Banner */}
+      <div className="bg-gradient-to-r from-navy-dark via-[#0d1524] to-navy-dark border-y border-gold/10 py-6 relative z-20 shadow-[0_10px_30px_rgba(0,0,0,0.5)] overflow-hidden">
+        <div className="container-base">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+            
+            {/* Title (No yellow border, modern inline style) */}
+            <div className="flex items-center gap-3 shrink-0">
+              <div className="w-2 h-6 bg-gold rounded-full shadow-[0_0_10px_rgba(255,215,0,0.5)]"></div>
+              <h3 className="text-base md:text-lg font-black uppercase tracking-[0.15em] text-white">
+                Statistics <span className="text-gold font-light">Section</span>
+              </h3>
+            </div>
+
+            {/* Separator for desktop */}
+            <div className="hidden lg:block w-px h-8 bg-white/20 mx-2"></div>
+
+            {/* Items */}
+            <div className="flex flex-wrap justify-center lg:justify-end items-center flex-1 gap-y-4 gap-x-6 lg:gap-x-12 w-full">
+              {[
+                "Global Supplier Network",
+                "Multiple Product Categories",
+                "UAE & GCC Coverage",
+                "Dedicated Technical Support"
+              ].map((stat, idx) => (
+                <div key={idx} className="flex items-center gap-3 group cursor-default">
+                  <div className="w-2 h-2 rounded-full bg-white/40 group-hover:bg-gold shadow-sm group-hover:shadow-[0_0_8px_rgba(255,215,0,0.8)] group-hover:scale-150 transition-all duration-300" />
+                  <span className="text-white font-bold tracking-[0.05em] uppercase text-xs md:text-sm group-hover:text-gold transition-colors duration-300 whitespace-nowrap">{stat}</span>
+                </div>
+              ))}
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+      {/* Core Values / Icon Cards Section */}
+      <section className="py-8 md:py-10 bg-navy relative overflow-hidden border-t border-gold/10">
+        {/* Modern tech background patterns */}
+        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.05] mix-blend-overlay pointer-events-none"></div>
+        
+        {/* Deep ambient glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-full bg-gradient-to-r from-blue-900/10 via-gold/5 to-blue-900/10 blur-3xl pointer-events-none"></div>
+        
+        <div className="container-base relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5">
+            {[
+              { title: "Quality Assurance", icon: ShieldCheck, iconColor: "text-blue-400 group-hover:text-white", bgColor: "bg-blue-500/10 group-hover:bg-blue-600", glowColor: "group-hover:shadow-[0_5px_15px_rgba(37,99,235,0.4)]", accent: "from-blue-400 to-blue-600" },
+              { title: "Global Sourcing", icon: Globe, iconColor: "text-emerald-400 group-hover:text-white", bgColor: "bg-emerald-500/10 group-hover:bg-emerald-600", glowColor: "group-hover:shadow-[0_5px_15px_rgba(16,185,129,0.4)]", accent: "from-emerald-400 to-emerald-600" },
+              { title: "Compliance", icon: FileCheck, iconColor: "text-purple-400 group-hover:text-white", bgColor: "bg-purple-500/10 group-hover:bg-purple-600", glowColor: "group-hover:shadow-[0_5px_15px_rgba(168,85,247,0.4)]", accent: "from-purple-400 to-purple-600" },
+              { title: "Fast Delivery", icon: Zap, iconColor: "text-orange-400 group-hover:text-white", bgColor: "bg-orange-500/10 group-hover:bg-orange-500", glowColor: "group-hover:shadow-[0_5px_15px_rgba(249,115,22,0.4)]", accent: "from-orange-400 to-orange-600" },
+              { title: "Technical Expertise", icon: Cpu, iconColor: "text-rose-400 group-hover:text-white", bgColor: "bg-rose-500/10 group-hover:bg-rose-600", glowColor: "group-hover:shadow-[0_5px_15px_rgba(244,63,94,0.4)]", accent: "from-rose-400 to-rose-600" },
+              { title: "Supply Reliability", icon: Layers, iconColor: "text-cyan-400 group-hover:text-white", bgColor: "bg-cyan-500/10 group-hover:bg-cyan-600", glowColor: "group-hover:shadow-[0_5px_15px_rgba(6,182,212,0.4)]", accent: "from-cyan-400 to-cyan-600" }
+            ].map((feature, idx) => (
+              <ScrollReveal key={idx} delay={idx * 0.1}>
+                <div className="group relative bg-white/[0.03] backdrop-blur-md rounded-2xl p-4 md:p-5 border border-white/10 shadow-[0_5px_15px_rgba(0,0,0,0.2)] hover:bg-white/[0.06] hover:border-gold/30 hover:-translate-y-1 transition-all duration-500 overflow-hidden flex flex-col items-center justify-center text-center gap-3 h-full">
+                  
+                  {/* Hover Gradient Background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                  
+                  <div className={`w-12 h-12 shrink-0 rounded-xl ${feature.bgColor} flex items-center justify-center transition-all duration-500 shadow-sm ${feature.glowColor}`}>
+                    <feature.icon className={`w-6 h-6 ${feature.iconColor} transition-colors duration-500`} strokeWidth={2} />
+                  </div>
+                  
+                  <h3 className="text-[13px] md:text-[14px] lg:text-[15px] font-extrabold text-white/90 leading-snug group-hover:text-gold transition-colors duration-300 relative z-10">
+                    {feature.title}
+                  </h3>
+                  
+                  {/* Bottom Line Indicator */}
+                  <div className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${feature.accent} w-0 group-hover:w-full transition-all duration-700 ease-out`}></div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 }
