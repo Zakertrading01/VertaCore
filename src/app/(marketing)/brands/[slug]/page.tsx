@@ -125,6 +125,17 @@ export default async function BrandPage({
                   </p>
                 </div>
               )}
+
+              {slug === 'techweld' && (
+                <div className="text-surface text-body leading-relaxed animate-in fade-in slide-in-from-bottom-4 duration-700">
+                  <p className="mb-4">
+                    Techweld is a manufacturer and supplier of professional welding machines, welding accessories, tools, and welding solutions. The brand focuses on delivering reliable, energy-efficient, and heavy-duty equipment for industrial welding applications. Techweld products are designed with advanced IGBT inverter technology, providing stable arc performance, high efficiency, and ease of use.
+                  </p>
+                  <p>
+                    Techweld specializes in industrial welding equipment and inverter welding machines, offering reliable and energy-efficient solutions for fabrication, maintenance, construction, petrochemical, and heavy-duty industrial applications.
+                  </p>
+                </div>
+              )}
             </div>
 
             {/* Right Side: Logo Display */}
@@ -272,6 +283,115 @@ export default async function BrandPage({
                     <li key={idx} className="flex items-start gap-3">
                       <span className="h-1.5 w-1.5 rounded-full bg-gold flex-shrink-0 mt-2" />
                       <span className="font-medium text-surface">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          )}
+
+          {slug === 'techweld' && (
+            <div className="mb-10 flex flex-col gap-8 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
+              <div className="bg-navy-light/30 border border-steel/20 rounded-xl p-6 md:p-8">
+                <h3 className="text-surface font-bold text-lg mb-6 flex items-center gap-3">
+                  <span className="h-4 w-1 bg-gold rounded-full"></span>
+                  Main Product Categories
+                </h3>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-4 gap-x-6">
+                  {[
+                    "MMA / Stick Welding Inverter",
+                    "ARC 200EX",
+                    "TECHARC 200i",
+                    "STICKWEL K300HD",
+                    "ZUPER 300 / ZUPER 300S",
+                    "TECHARC 400i",
+                    "TECHARC 400E",
+                    "DESERT 630 HD"
+                  ].map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3 bg-navy/50 px-4 py-3 rounded-lg border border-steel/10 hover:border-gold/30 transition-colors">
+                      <span className="h-1.5 w-1.5 rounded-full bg-gold flex-shrink-0 mt-2" />
+                      <span className="font-medium text-surface text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="bg-navy-light/30 border border-steel/20 rounded-xl p-6 md:p-8">
+                  <h3 className="text-surface font-bold text-lg mb-6 flex items-center gap-3">
+                    <span className="h-4 w-1 bg-gold rounded-full"></span>
+                    Key Features
+                  </h3>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6">
+                    {[
+                      "Advanced IGBT inverter technology",
+                      "High efficiency and power saving",
+                      "Smooth arc control",
+                      "Hot Start and Arc Force functions",
+                      "Anti-stick function",
+                      "Digital display",
+                      "Heavy-duty industrial design",
+                      "Generator friendly",
+                      "Suitable for wide range of electrodes",
+                      "Lift TIG functionality (selected models)",
+                      "Remote control option (selected models)",
+                      "Multi-voltage capability"
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <span className="h-1.5 w-1.5 rounded-full bg-gold flex-shrink-0 mt-2" />
+                        <span className="font-medium text-surface text-sm">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="bg-navy-light/30 border border-steel/20 rounded-xl p-6 md:p-8">
+                  <h3 className="text-surface font-bold text-lg mb-6 flex items-center gap-3">
+                    <span className="h-4 w-1 bg-gold rounded-full"></span>
+                    Applications
+                  </h3>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {[
+                      "MMA (Stick) Welding",
+                      "Lift TIG Welding",
+                      "Gouging Applications",
+                      "General Fabrication",
+                      "Pipe Works",
+                      "Construction",
+                      "Maintenance and Repair",
+                      "Petrochemical Industries",
+                      "Shipbuilding",
+                      "Industrial Welding",
+                      "Carbon Steel, Stainless Steel, Aluminium"
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-center gap-3 bg-navy/50 px-3 py-2 rounded-lg border border-steel/10 hover:border-gold/30 transition-colors">
+                        <span className="h-1.5 w-1.5 rounded-full bg-gold flex-shrink-0" />
+                        <span className="font-medium text-surface text-xs">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="bg-navy-light/30 border border-steel/20 rounded-xl p-6 md:p-8">
+                <h3 className="text-surface font-bold text-lg mb-6 flex items-center gap-3">
+                  <span className="h-4 w-1 bg-gold rounded-full"></span>
+                  Standard Equipment & Accessories
+                </h3>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                  {[
+                    "Power source with MMA kit",
+                    "Power source with cable connector",
+                    "TIG Torch (AWP26V)",
+                    "Argon Regulator",
+                    "Cable Connector",
+                    "Electrode Holder",
+                    "Welding Cable",
+                    "Gouging Torch (T4000, 1000A)"
+                  ].map((item, idx) => (
+                    <li key={idx} className="flex items-center gap-3 bg-navy/50 px-4 py-3 rounded-lg border border-steel/10 hover:border-gold/30 transition-colors">
+                      <span className="h-1.5 w-1.5 rounded-full bg-gold flex-shrink-0" />
+                      <span className="font-medium text-surface text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
