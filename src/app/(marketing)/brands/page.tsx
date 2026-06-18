@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { TapLink } from "@/components/shared/TapLink";
 import Image from "next/image";
-import { ArrowRight, ExternalLink, Globe, ShieldCheck, FileCheck, Layers, Zap, Cpu } from "lucide-react";
+import { ArrowRight, ExternalLink, Globe, ShieldCheck, FileCheck, Layers, Zap, Cpu, MapPin } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema } from "@/lib/schema";
 import { SectionLabel } from "@/components/shared/SectionLabel";
@@ -303,7 +303,232 @@ export default async function BrandsPage() {
         </div>
       </section>
 
-      {/* Key Highlights Banner */}
+      {/* Global Sourcing Network Map */}
+      <section className="pt-6 md:pt-8 pb-0 bg-[#070E16] relative overflow-hidden border-t border-white/5">
+        
+        {/* --- PREMIUM MODERN BACKGROUND UI --- */}
+        
+        {/* 1. Core Ambient Gradient Base */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#0d1d33] via-[#070E16] to-[#04080D] pointer-events-none z-0"></div>
+
+        {/* 2. Technical Architectural Grid */}
+        <div 
+          className="absolute inset-0 pointer-events-none z-0 opacity-40" 
+          style={{
+            backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)`,
+            backgroundSize: '40px 40px',
+            maskImage: 'radial-gradient(circle at center, black 30%, transparent 80%)',
+            WebkitMaskImage: 'radial-gradient(circle at center, black 30%, transparent 80%)'
+          }}
+        />
+
+        {/* 3. Dynamic Light Leaks / Orbs */}
+        <div className="absolute top-[10%] left-[15%] w-[400px] h-[400px] bg-gold/10 blur-[130px] rounded-full pointer-events-none z-0 mix-blend-screen"></div>
+        <div className="absolute bottom-[20%] right-[10%] w-[600px] h-[500px] bg-blue-500/10 blur-[150px] rounded-[100%] pointer-events-none z-0 mix-blend-screen"></div>
+
+        {/* 4. Elegant Top Edge Glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-gold/40 to-transparent opacity-80 z-10"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/4 h-[40px] bg-gold/5 blur-[20px] pointer-events-none z-10"></div>
+
+        <div className="container-base relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-2 md:mb-4 relative z-20">
+            <ScrollReveal>
+              <h2 className="text-3xl md:text-5xl font-black tracking-tight mb-2 relative inline-block">
+                {/* Ambient glow behind the text */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-full bg-gold/10 blur-[25px] rounded-[100%] pointer-events-none z-0"></div>
+                
+                <span className="relative z-10 text-white [text-shadow:0_0_20px_rgba(255,255,255,0.6),0_0_40px_rgba(255,255,255,0.2)]">Our Sourcing</span>{" "}
+                <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-gold to-[#B8860B] [filter:drop-shadow(0_0_15px_rgba(255,215,0,0.6))]">Network</span>
+              </h2>
+            </ScrollReveal>
+          </div>
+
+          {/* Modern Sleek World Map Container with Gold Connection Lines */}
+          <div className="relative w-full aspect-[2/1] mt-2 md:mt-4 mb-[-2%] md:mb-[-3%] lg:mb-[-5%] pointer-events-none">
+            <style>{`
+              @keyframes dash-flow {
+                to { stroke-dashoffset: -20; }
+              }
+              .animate-dash {
+                animation: dash-flow 1s linear infinite;
+              }
+            `}</style>
+            
+            <ScrollReveal className="w-full h-full relative pointer-events-auto">
+              
+              {/* Actual World Map Graphic (Gold Colored via CSS Mask) */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div 
+                  className="w-full h-full bg-gradient-to-br from-[#FFD700] via-[#D4AF37] to-[#B8860B] opacity-[0.25]"
+                  style={{
+                    maskImage: "url('/images/clean-world.svg')",
+                    maskSize: '100% 100%',
+                    maskPosition: 'center',
+                    maskRepeat: 'no-repeat',
+                    WebkitMaskImage: "url('/images/clean-world.svg')",
+                    WebkitMaskSize: '100% 100%',
+                    WebkitMaskPosition: 'center',
+                WebkitMaskRepeat: 'no-repeat'
+                  }}
+                />
+              </div>
+
+              {/* Gold Connection Lines (SVG Overlay) */}
+              <svg className="absolute inset-0 w-full h-full pointer-events-none z-10" viewBox="0 0 1000 500" preserveAspectRatio="none">
+                {/* Connecting outer regions to GCC (605, 180) */}
+                {[
+                  { x: 505, y: 120 }, // Europe
+                  { x: 685, y: 185 }, // India
+                  { x: 770, y: 145 }, // China
+                  { x: 820, y: 140 }, // South Korea
+                  { x: 845, y: 145 }, // Japan
+                ].map((point, i) => (
+                  <path 
+                    key={i}
+                    d={`M ${point.x} ${point.y} Q ${(point.x + 605) / 2} ${Math.min(point.y, 180) - 50} 605 180`}
+                    fill="none"
+                    stroke="url(#lineGradient)"
+                    strokeWidth="1.5"
+                    strokeDasharray="6 4"
+                    className="animate-[dash-flow_20s_linear_infinite] opacity-60"
+                  />
+                ))}
+                
+                <defs>
+                  <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#D4AF37" stopOpacity="0.2" />
+                    <stop offset="50%" stopColor="#FFD700" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#D4AF37" stopOpacity="0.2" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              
+              {/* Animated Region Markers accurately placed over the continents */}
+              {[
+                { id: "Europe", top: "24%", left: "50.5%", align: "center" },
+                { id: "GCC", top: "36%", left: "60.5%", align: "center" },
+                { id: "India", top: "37%", left: "68.5%", align: "center" },
+                { id: "China", top: "29%", left: "77%", align: "center" },
+                { id: "South Korea", top: "28%", left: "82%", align: "center", yOffset: "mb-16 md:mb-[4.5rem]" },
+                { id: "Japan", top: "29%", left: "84.5%", align: "right" }
+              ].map((region, idx) => (
+                <div 
+                  key={idx} 
+                  className="absolute group cursor-pointer z-20" 
+                  style={{ top: region.top, left: region.left, transform: 'translate(-50%, -50%)' }}
+                >
+                  <ScrollReveal delay={0.5 + (idx * 0.15)}>
+                    <div className="relative w-0 h-0 flex items-center justify-center">
+                      {/* Shadow base (3D floor) */}
+                      <div className="absolute w-3 h-1 md:w-5 md:h-1.5 bg-black/60 blur-[1px] rounded-[100%]"></div>
+                      
+                      {/* 3D Ripple Effect (tilted to match the floor) */}
+                      <div className="absolute w-6 h-6 md:w-10 md:h-10 bg-gold rounded-full opacity-40 animate-ping" style={{ transform: 'rotateX(70deg)' }}></div>
+                      
+                      {/* 3D Pin Icon (bouncing) */}
+                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-8 md:w-8 md:h-10 origin-bottom hover:-translate-y-2 transition-transform duration-300 z-40">
+                        <div className="w-full h-full animate-bounce" style={{ animationDuration: `${2 + (idx % 3) * 0.2}s` }}>
+                          <svg viewBox="0 0 24 36" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-[0_8px_6px_rgba(0,0,0,0.5)]">
+                            <defs>
+                              <linearGradient id={`pinGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stopColor="#FFF4D0" />
+                                <stop offset="25%" stopColor="#E7C85A" />
+                                <stop offset="70%" stopColor="#D4AF37" />
+                                <stop offset="100%" stopColor="#8B6508" />
+                              </linearGradient>
+                              <linearGradient id={`innerGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stopColor="#1a3660" />
+                                <stop offset="100%" stopColor="#0A1628" />
+                              </linearGradient>
+                            </defs>
+                            <path d="M12 0C5.373 0 0 5.373 0 12c0 8.25 12 24 12 24s12-15.75 12-24c0-6.627-5.373-12-12-12z" fill={`url(#pinGrad-${idx})`} />
+                            <circle cx="12" cy="12" r="5" fill={`url(#innerGrad-${idx})`} />
+                            <circle cx="10" cy="10" r="1.5" fill="white" fillOpacity="0.8" />
+                            <path d="M4 12c0-4.418 3.582-8 8-8 2.5 0 4.7 1.1 6.2 2.9C16.8 4.4 14.5 3 12 3 7.029 3 3 7.029 3 12c0 1.5.4 2.9 1 4.1C4 14.7 4 13.4 4 12z" fill="white" fillOpacity="0.4" />
+                          </svg>
+                        </div>
+                      </div>
+                      
+                      {/* Tooltip / Label - Permanently visible */}
+                      <div className={`absolute bottom-full ${region.yOffset || 'mb-10 md:mb-12'} ${region.align === 'left' ? 'right-1/2 mr-2 md:mr-3' : region.align === 'right' ? 'left-1/2 ml-2 md:ml-3' : 'left-1/2 -translate-x-1/2'} bg-[#0d1524]/95 backdrop-blur-md border border-gold/30 px-2 md:px-3 py-1 md:py-1.5 rounded shadow-[0_5px_15px_rgba(0,0,0,0.5)] opacity-100 -translate-y-2 group-hover:-translate-y-3 group-hover:border-gold/60 group-hover:shadow-[0_5px_20px_rgba(255,215,0,0.3)] transition-all duration-300 pointer-events-none whitespace-nowrap z-50 flex items-center gap-1.5 md:gap-2`}>
+                        <MapPin className="w-2.5 h-2.5 md:w-3 md:h-3 text-gold" />
+                        <span className="text-[9px] md:text-xs font-bold text-white tracking-widest uppercase">{region.id}</span>
+                      </div>
+                    </div>
+                  </ScrollReveal>
+                </div>
+              ))}
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Brands Marquee Banner */}
+      <div className="bg-navy-dark border-y border-white/5 py-8 md:py-12 relative z-20 shadow-[0_0_40px_rgba(0,0,0,0.8)] overflow-hidden">
+        
+        {/* Unique Golden Ambient Core */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] md:w-[800px] h-[100px] md:h-[200px] bg-gold/10 blur-[50px] md:blur-[80px] rounded-[100%] pointer-events-none z-0"></div>
+        
+        {/* Center Edge Highlighting */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[50vw] md:w-[600px] h-[1px] bg-gradient-to-r from-transparent via-gold/60 to-transparent shadow-[0_0_15px_rgba(255,215,0,0.8)] z-20"></div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[50vw] md:w-[600px] h-[1px] bg-gradient-to-r from-transparent via-gold/60 to-transparent shadow-[0_0_15px_rgba(255,215,0,0.8)] z-20"></div>
+        
+        {/* Gradient fades for smooth entry/exit */}
+        <div className="absolute top-0 left-0 bottom-0 w-16 md:w-40 bg-gradient-to-r from-navy-dark to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 bottom-0 w-16 md:w-40 bg-gradient-to-l from-navy-dark to-transparent z-10 pointer-events-none"></div>
+        
+        <div className="flex overflow-hidden group">
+          {/* Container 1 */}
+          <div className="flex animate-marquee shrink-0 items-center gap-12 md:gap-20 pr-12 md:pr-20 min-w-full">
+            {[
+              { name: 'Techweld', src: '/brands/techweld.jpeg' },
+              { name: 'Weldman', src: '/brands/weldman.jpeg' },
+              { name: 'Rigman', src: '/brands/rigman.png' },
+              { name: 'Techweld', src: '/brands/techweld.jpeg' },
+              { name: 'Weldman', src: '/brands/weldman.jpeg' },
+              { name: 'Rigman', src: '/brands/rigman.png' },
+              { name: 'Techweld', src: '/brands/techweld.jpeg' },
+              { name: 'Weldman', src: '/brands/weldman.jpeg' },
+              { name: 'Rigman', src: '/brands/rigman.png' },
+            ].map((brand, idx) => (
+              <div key={`c1-${idx}`} className="relative w-40 h-20 md:w-64 md:h-32 shrink-0 opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                <Image 
+                  src={brand.src} 
+                  alt={brand.name} 
+                  fill 
+                  className="object-contain" 
+                />
+              </div>
+            ))}
+          </div>
+          
+          {/* Container 2 (Perfect identical clone for seamless looping) */}
+          <div className="flex animate-marquee shrink-0 items-center gap-12 md:gap-20 pr-12 md:pr-20 min-w-full">
+            {[
+              { name: 'Techweld', src: '/brands/techweld.jpeg' },
+              { name: 'Weldman', src: '/brands/weldman.jpeg' },
+              { name: 'Rigman', src: '/brands/rigman.png' },
+              { name: 'Techweld', src: '/brands/techweld.jpeg' },
+              { name: 'Weldman', src: '/brands/weldman.jpeg' },
+              { name: 'Rigman', src: '/brands/rigman.png' },
+              { name: 'Techweld', src: '/brands/techweld.jpeg' },
+              { name: 'Weldman', src: '/brands/weldman.jpeg' },
+              { name: 'Rigman', src: '/brands/rigman.png' },
+            ].map((brand, idx) => (
+              <div key={`c2-${idx}`} className="relative w-40 h-20 md:w-64 md:h-32 shrink-0 opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300">
+                <Image 
+                  src={brand.src} 
+                  alt={brand.name} 
+                  fill 
+                  className="object-contain" 
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Key Highlights Banner (Statistics Section) */}
       <div className="bg-gradient-to-r from-navy-dark via-[#0d1524] to-navy-dark border-y border-gold/10 py-6 relative z-20 shadow-[0_10px_30px_rgba(0,0,0,0.5)] overflow-hidden">
         <div className="container-base">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
