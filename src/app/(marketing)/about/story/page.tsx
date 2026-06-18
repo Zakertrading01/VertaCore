@@ -31,52 +31,46 @@ export default function StoryPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema(breadcrumb)) }}
       />
 
-      <header className="bg-navy-dark pt-16 lg:pt-32 pb-8">
+      <header className="bg-navy-dark pt-16 lg:pt-32 pb-2">
         <div className="container-base">
           <Breadcrumb items={breadcrumb} className="mb-6" />
           <SectionLabel className="mb-3">Our Story</SectionLabel>
-          <h1 className="text-dlg font-bold text-surface max-w-2xl tracking-tight">
+          <h1 className="text-dlg font-bold text-surface max-w-4xl tracking-tight">
             Built on reliability <span className="text-gold">and operational trust.</span>
           </h1>
         </div>
       </header>
 
-      <section className="pt-8 pb-16 md:pt-12 md:pb-24 bg-navy-dark">
+      <section className="pt-2 pb-8 md:pt-6 md:pb-12 bg-navy-dark">
         <div className="container-base max-w-3xl">
           <ScrollReveal>
-            <div className="space-y-6 text-lg md:text-xl text-surface/80 leading-relaxed pl-6 border-l-2 border-gold">
+            <div className="space-y-6 text-lg md:text-xl text-surface leading-relaxed pl-6 border-l-2 border-gold">
               <p>
-                VERTACORE was founded with a clear mandate: to provide industrial
-                procurement teams with a supply partner they could rely on. One that
-                understood the difference between a standard product and a certified one.
-                One that treated a 24-hour response commitment as non-negotiable.
+                Every successful industrial project is built on a foundation of reliability, trust, and timely execution. Verta Core was established with a clear purpose: to bridge the gap between project requirements and dependable industrial supply solutions.
               </p>
 
               <p>
-                Industrial operations cannot afford supply failures. Whether an offshore
-                platform requires ATEX-certified equipment, a construction site needs
-                fall protection to EN 361, or a shipyard requires lifting gear to ASME
-                B30 — the specification matters. The certification matters. The supplier
-                relationship matters.
+                With decades of combined industry experience behind our leadership and operations, we recognized a growing need for a supply partner that understands the realities of modern industrial projects—tight schedules, stringent specifications, uncompromising safety standards, and the constant demand for operational efficiency.
               </p>
 
               <p>
-                VERTACORE was built to deliver on all three. Our founders brought
-                decades of operational experience in MRO procurement, understanding
-                exactly what procurement managers, HSE teams and site engineers need
-                from a supply partner: certainty.
+                Verta Core was founded to meet these challenges head-on. We set out to create a company that combines technical expertise, responsive service, and a customer-first approach, enabling clients to focus on delivering successful projects while we ensure the right products and solutions are available when they are needed most.
               </p>
 
               <p>
-                Today, VERTACORE supplies certified MRO equipment across five capability
-                areas to clients in Oil &amp; Gas, Marine, Construction, Manufacturing,
-                Mining and Fabrication. Every product meets applicable international
-                standards. Every enquiry receives a response within 24 business hours.
+                Today, we proudly support EPC contractors, oil &amp; gas operators, fabrication companies, infrastructure developers, and industrial facilities across the UAE. Our commitment extends beyond supplying products; we build lasting partnerships based on transparency, accountability, and consistent performance.
               </p>
 
               <p>
-                Operationally reliable. Built for industrial
-                procurement teams that cannot compromise.
+                As industries continue to evolve, our focus remains unchanged—to deliver quality, reliability, and value that help our clients move forward with confidence.
+              </p>
+
+              <p>
+                At Verta Core, our story is driven by a simple belief: strong partnerships and dependable solutions create lasting success.
+              </p>
+
+              <p className="font-semibold text-gold mt-8">
+                “Built on Experience. Driven by Reliability. Focused on Your Success.”
               </p>
             </div>
           </ScrollReveal>

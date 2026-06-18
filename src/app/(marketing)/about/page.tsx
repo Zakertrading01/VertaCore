@@ -135,10 +135,11 @@ export default function AboutPage() {
       <section className="pb-16 md:pb-24 pt-4 bg-navy">
         <div className="container-base max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {/* Our Story Link - Disabled temporarily */}
-            <div
+            {/* Our Story Link */}
+            <TapLink
+              href="/about/story"
               tabIndex={0}
-              className="cursor-default group p-8 rounded-2xl bg-navy-dark border border-steel/10 hover:border-gold/30 focus:border-gold/30 active:border-gold/30 hover:-translate-y-1 focus:-translate-y-1 active:-translate-y-1 active:scale-95 transition-all duration-300 hover:bg-surface/10 focus:bg-surface/10 hover:shadow-2xl focus:shadow-2xl hover:shadow-gold/5 focus:shadow-gold/5 group-hover:border-gold/30 group-focus:border-gold/30 group-hover:bg-surface/10 group-focus:bg-surface/10 group-active:border-gold/30 group-active:bg-surface/10 relative overflow-hidden outline-none"
+              className="group p-8 rounded-2xl bg-navy-dark border border-steel/10 hover:border-gold/30 focus:border-gold/30 active:border-gold/30 hover:-translate-y-1 focus:-translate-y-1 active:-translate-y-1 active:scale-95 transition-all duration-300 hover:shadow-2xl focus:shadow-2xl hover:shadow-gold/5 focus:shadow-gold/5 relative overflow-hidden outline-none"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-150 group-focus:scale-150 group-active:scale-150 duration-500" />
 
@@ -151,10 +152,10 @@ export default function AboutPage() {
                 Our Story
               </h3>
               <p className="text-sm text-surface/60 leading-relaxed mb-6 relative z-10">How Verta Core was founded and built into an industry leader.</p>
-              {/* <div className="flex items-center gap-2 text-sm font-semibold text-gold relative z-10">
-                Coming Soon <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-              </div> */}
-            </div>
+              <div className="flex items-center gap-2 text-sm font-semibold text-gold relative z-10">
+                Read our story <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 group-focus:translate-x-1 group-active:translate-x-1 transition-transform" />
+              </div>
+            </TapLink>
 
             <TapLink
               href="/about/mission"
