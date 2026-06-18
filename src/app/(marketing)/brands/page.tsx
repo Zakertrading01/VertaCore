@@ -111,12 +111,12 @@ export default async function BrandsPage() {
             /* Static Managed Fallback if DB is empty */
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { name: "TECHWELD", description: "Leading manufacturer and supplier of professional welding accessories, tools and tackles.", country: "United Kingdom", slug: "techweld" },
-                { name: "GEOTEX", description: "European standards welding curtains, blankets and protection systems.", country: "Netherlands", slug: "geotex" },
-                { name: "WELDMAN", description: "Welding products for oilfield, construction and marine industries.", country: "Global", slug: "weldman" },
-                { name: "SUPERON", description: "High-quality welding consumables and protective coatings.", country: "Global", slug: "superon" },
-                { name: "GASIQ", description: "Swedish manufacturer of equipment for gas welding and control.", country: "Sweden", slug: "gasiq" },
-                { name: "SAKURA", description: "Japanese pigment technology and tough industrial markers.", country: "Japan", slug: "sakura" },
+                { name: "TECHWELD", description: "Leading manufacturer and supplier of professional welding accessories, tools and tackles.", country: "United Kingdom", slug: "techweld", logo: "/brands/techweld.jpeg" },
+                { name: "GEOTEX", description: "European standards welding curtains, blankets and protection systems.", country: "Netherlands", slug: "geotex", logo: "/brands/geotex.jpeg" },
+                { name: "WELDMAN", description: "Welding products for oilfield, construction and marine industries.", country: "Global", slug: "weldman", logo: "/brands/weldman.jpeg" },
+                { name: "SUPERON", description: "High-quality welding consumables and protective coatings.", country: "Global", slug: "superon", logo: "/brands/superon.jpeg" },
+                { name: "GASIQ", description: "Swedish manufacturer of equipment for gas welding and control.", country: "Sweden", slug: "gasiq", logo: "/brands/gasiq.jpeg" },
+                { name: "SAKURA", description: "Japanese pigment technology and tough industrial markers.", country: "Japan", slug: "sakura", logo: "/brands/sakura.jpeg" },
               ].map((brand, i) => (
                 <ScrollReveal key={brand.slug} delay={i * 0.05}>
                   <TapLink href={`/brands/${brand.slug}`} tabIndex={0} className="card-base block p-6 flex-col h-full group outline-none focus:ring-2 focus:ring-gold active:ring-2 active:ring-gold transition-all duration-300">
@@ -127,7 +127,7 @@ export default async function BrandsPage() {
                       </div>
                       <div className="w-20 h-20 md:w-24 md:h-24 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 group-focus:scale-105 group-active:scale-105">
                         <img
-                          src={`/brands/${brand.slug}.png`}
+                          src={brand.logo}
                           alt={brand.name}
                           className="max-w-full max-h-full object-contain"
                         />
