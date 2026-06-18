@@ -464,10 +464,10 @@ export default async function BrandsPage() {
       </section>
 
       {/* Brands Marquee Banner */}
-      <div className="bg-navy-dark border-y border-white/5 py-8 md:py-12 relative z-20 shadow-[0_0_40px_rgba(0,0,0,0.8)] overflow-hidden">
+      <div className="bg-navy-dark border-y border-white/5 py-4 md:py-6 relative z-20 shadow-[0_0_40px_rgba(0,0,0,0.8)] overflow-hidden">
         
         {/* Unique Golden Ambient Core */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] md:w-[800px] h-[100px] md:h-[200px] bg-gold/10 blur-[50px] md:blur-[80px] rounded-[100%] pointer-events-none z-0"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] md:w-[800px] h-[60px] md:h-[120px] bg-gold/10 blur-[40px] md:blur-[60px] rounded-[100%] pointer-events-none z-0"></div>
         
         {/* Center Edge Highlighting */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[50vw] md:w-[600px] h-[1px] bg-gradient-to-r from-transparent via-gold/60 to-transparent shadow-[0_0_15px_rgba(255,215,0,0.8)] z-20"></div>
@@ -484,14 +484,19 @@ export default async function BrandsPage() {
               { name: 'Techweld', src: '/brands/techweld.jpeg' },
               { name: 'Weldman', src: '/brands/weldman.jpeg' },
               { name: 'Rigman', src: '/brands/rigman.png' },
+              { name: 'Superon', src: '/brands/superon.jpeg' },
+              { name: 'Gasiq', src: '/brands/gasiq.jpeg' },
+              { name: 'Geotex', src: '/brands/geotex.jpeg' },
+              { name: 'Sakura', src: '/brands/sakura.jpeg' },
               { name: 'Techweld', src: '/brands/techweld.jpeg' },
               { name: 'Weldman', src: '/brands/weldman.jpeg' },
               { name: 'Rigman', src: '/brands/rigman.png' },
-              { name: 'Techweld', src: '/brands/techweld.jpeg' },
-              { name: 'Weldman', src: '/brands/weldman.jpeg' },
-              { name: 'Rigman', src: '/brands/rigman.png' },
+              { name: 'Superon', src: '/brands/superon.jpeg' },
+              { name: 'Gasiq', src: '/brands/gasiq.jpeg' },
+              { name: 'Geotex', src: '/brands/geotex.jpeg' },
+              { name: 'Sakura', src: '/brands/sakura.jpeg' },
             ].map((brand, idx) => (
-              <div key={`c1-${idx}`} className="relative w-40 h-20 md:w-64 md:h-32 shrink-0 opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300">
+              <div key={`c1-${idx}`} className="relative w-32 h-16 md:w-48 md:h-24 shrink-0 opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300">
                 <Image 
                   src={brand.src} 
                   alt={brand.name} 
@@ -508,14 +513,19 @@ export default async function BrandsPage() {
               { name: 'Techweld', src: '/brands/techweld.jpeg' },
               { name: 'Weldman', src: '/brands/weldman.jpeg' },
               { name: 'Rigman', src: '/brands/rigman.png' },
+              { name: 'Superon', src: '/brands/superon.jpeg' },
+              { name: 'Gasiq', src: '/brands/gasiq.jpeg' },
+              { name: 'Geotex', src: '/brands/geotex.jpeg' },
+              { name: 'Sakura', src: '/brands/sakura.jpeg' },
               { name: 'Techweld', src: '/brands/techweld.jpeg' },
               { name: 'Weldman', src: '/brands/weldman.jpeg' },
               { name: 'Rigman', src: '/brands/rigman.png' },
-              { name: 'Techweld', src: '/brands/techweld.jpeg' },
-              { name: 'Weldman', src: '/brands/weldman.jpeg' },
-              { name: 'Rigman', src: '/brands/rigman.png' },
+              { name: 'Superon', src: '/brands/superon.jpeg' },
+              { name: 'Gasiq', src: '/brands/gasiq.jpeg' },
+              { name: 'Geotex', src: '/brands/geotex.jpeg' },
+              { name: 'Sakura', src: '/brands/sakura.jpeg' },
             ].map((brand, idx) => (
-              <div key={`c2-${idx}`} className="relative w-40 h-20 md:w-64 md:h-32 shrink-0 opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300">
+              <div key={`c2-${idx}`} className="relative w-32 h-16 md:w-48 md:h-24 shrink-0 opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300">
                 <Image 
                   src={brand.src} 
                   alt={brand.name} 
