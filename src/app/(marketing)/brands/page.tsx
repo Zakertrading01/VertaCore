@@ -38,7 +38,7 @@ export default async function BrandsPage() {
       />
 
       {/* Header */}
-      <header className="bg-navy-dark pt-16 lg:pt-32 pb-16">
+      <header className="bg-navy-dark pt-10 lg:pt-16 pb-10">
         <div className="container-base">
           <Breadcrumb items={breadcrumb} className="mb-8" />
           
@@ -46,7 +46,7 @@ export default async function BrandsPage() {
             {/* Left Side: Title */}
             <div className="lg:col-span-5">
               <ScrollReveal>
-                <h1 className="text-4xl md:text-5xl lg:text-[4.5rem] font-extrabold tracking-tight leading-[1.1] mb-6 text-surface">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.1] mb-4 text-surface">
                   Global Sourcing <br />
                   <span className="relative inline-block mt-2">
                     {/* Glowing animated backdrop */}
@@ -59,20 +59,20 @@ export default async function BrandsPage() {
                     </span>
                   </span>
                 </h1>
-                <p className="text-xl md:text-2xl font-medium text-surface/90 leading-snug border-l-2 border-gold pl-5">
+                <p className="text-base md:text-lg font-medium text-surface/90 leading-snug border-l-2 border-gold pl-4">
                   Delivering Quality Through a Trusted International Supply Network.
                 </p>
               </ScrollReveal>
             </div>
 
             <div className="lg:col-span-7">
-              <div className="relative p-8 md:p-12 rounded-[2.5rem] bg-gradient-to-b from-surface/10 to-transparent border border-white/10 shadow-2xl backdrop-blur-md overflow-hidden">
+              <div className="relative p-6 md:p-8 rounded-[2rem] bg-gradient-to-b from-surface/10 to-transparent border border-white/10 shadow-2xl backdrop-blur-md overflow-hidden">
                 {/* Decorative Glow */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-                
-                <div className="relative z-10 space-y-8">
+
+                <div className="relative z-10 space-y-5">
                   <ScrollReveal delay={0.1}>
-                    <p className="text-xl md:text-[1.35rem] font-medium text-surface leading-relaxed">
+                    <p className="text-sm md:text-base font-medium text-surface leading-relaxed">
                       Verta Core partners with carefully selected manufacturers across key global markets to provide <span className="text-gold font-bold">reliable products &amp; solutions</span> for the energy, oil &amp; gas, infrastructure, fabrication, and industrial sectors.
                     </p>
                   </ScrollReveal>
@@ -80,7 +80,7 @@ export default async function BrandsPage() {
                   <div className="w-16 h-px bg-gradient-to-r from-gold to-transparent opacity-50"></div>
                   
                   <ScrollReveal delay={0.2}>
-                    <p className="text-lg md:text-xl text-surface/70 leading-relaxed font-light">
+                    <p className="text-sm md:text-base text-surface/70 leading-relaxed font-light">
                       Our sourcing philosophy is built on one principle: <strong className="font-medium text-surface">every product supplied must meet the standards of quality, performance, and reliability expected by mission-critical projects.</strong> Through a robust international network, we connect our clients with proven industrial solutions that support operational continuity and project success.
                     </p>
                   </ScrollReveal>
@@ -88,7 +88,7 @@ export default async function BrandsPage() {
                   <ScrollReveal delay={0.3}>
                     <div className="bg-white/5 rounded-2xl p-6 border border-white/5 relative overflow-hidden group hover:bg-white/10 transition-colors duration-300">
                       <div className="absolute left-0 top-0 bottom-0 w-1 bg-gold"></div>
-                      <p className="text-base md:text-lg text-surface/80 leading-relaxed pl-2">
+                      <p className="text-sm md:text-sm text-surface/80 leading-relaxed pl-2">
                         Whether supporting EPC contractors, ADNOC projects, fabrication facilities, or industrial operators, our focus remains the same—<span className="text-white font-medium">delivering dependable products backed by technical expertise and responsive service.</span> This positioning aligns with the company’s industrial supply focus and existing service offerings.
                       </p>
                     </div>
@@ -103,14 +103,14 @@ export default async function BrandsPage() {
 
 
       {/* Why Our Sourcing Network Matters */}
-      <section className="pt-12 pb-8 bg-navy border-t border-white/5 relative overflow-hidden">
+      <section className="pt-8 pb-6 bg-navy border-t border-white/5 relative overflow-hidden">
         {/* Background ambient light */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-gold/5 blur-[120px] rounded-full pointer-events-none"></div>
-        
+
         <div className="container-base relative z-10">
-          <div className="text-center max-w-4xl mx-auto mb-12">
+          <div className="text-center max-w-4xl mx-auto mb-8">
             <ScrollReveal>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-surface mb-6 tracking-tight whitespace-nowrap">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-surface mb-4 tracking-tight whitespace-nowrap">
                 Why Our Sourcing <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-[#FFD700] drop-shadow-[0_0_15px_rgba(255,215,0,0.4)]">Network Matters</span>
               </h2>
             </ScrollReveal>
@@ -235,7 +235,7 @@ export default async function BrandsPage() {
       </section>
 
       {/* Custom Call To Action Section */}
-      <section className="relative pt-6 md:pt-10 pb-10 md:pb-12 overflow-hidden bg-[#1C3256]">
+      <section className="relative pt-4 md:pt-6 pb-6 md:pb-8 overflow-hidden bg-[#1C3256]">
         {/* Glowing Background Elements */}
         <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay pointer-events-none"></div>
         <div className="absolute -top-1/2 -left-1/4 w-[1000px] h-[1000px] bg-gradient-to-br from-gold/20 to-transparent rounded-full blur-[100px] pointer-events-none animate-pulse"></div>
@@ -249,12 +249,12 @@ export default async function BrandsPage() {
             
             <div className="lg:col-span-7 relative z-10">
               <ScrollReveal>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight leading-[1.1]">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 tracking-tight leading-[1.1]">
                   Looking for a Reliable <br className="hidden md:block" />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-[#FFD700] drop-shadow-[0_0_15px_rgba(255,215,0,0.3)]">Industrial Supply</span> Partner?
                 </h2>
                 
-                <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl leading-relaxed font-light">
+                <p className="text-base md:text-lg text-white/80 mb-6 max-w-2xl leading-relaxed font-light">
                   Whether you require project-specific procurement, technical sourcing support, or ongoing industrial supply solutions, our team is ready to assist.
                 </p>
                 
@@ -541,7 +541,7 @@ export default async function BrandsPage() {
             {/* Title (No yellow border, modern inline style) */}
             <div className="flex items-center gap-3 shrink-0">
               <div className="w-2 h-6 bg-gold rounded-full shadow-[0_0_10px_rgba(255,215,0,0.5)]"></div>
-              <h3 className="text-base md:text-lg font-black uppercase tracking-[0.15em] text-white whitespace-nowrap">
+              <h3 className="text-xs md:text-sm font-black uppercase tracking-[0.15em] text-white whitespace-nowrap">
                 Statistics <span className="text-gold font-light">Section</span>
               </h3>
             </div>
