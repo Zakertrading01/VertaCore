@@ -82,19 +82,36 @@ export default function AboutPage() {
                 <h2 className="text-h1 font-bold text-surface mb-8 tracking-tight">
                   Industrial supply done professionally.
                 </h2>
-                <div className="space-y-6 text-lg md:text-xl text-surface/90 leading-relaxed border-l-2 border-gold pl-6">
-                  <p>
-                    Verta Core is a dynamic industrial supply and solutions company positioned in Abu Dhabi, established to support the evolving demands of the oil & gas, energy, construction, and industrial sectors.
-                  </p>
-                  <p>
-                    Built on the principles of integrity, reliability, and performance, we provide high-quality industrial products and tailored supply solutions that help clients maintain operational excellence and project continuity.
-                  </p>
-                  <p>
-                    Our approach combines technical understanding, responsive customer service, and a commitment to long-term partnerships. We work closely with EPC contractors, ADNOC-associated projects, fabricators, and industrial clients to deliver dependable support in highly demanding environments.
-                  </p>
-                  <p>
-                    At Verta Core, we believe industrial supply is more than procurement — it is about building confidence, reducing operational risk, and ensuring every project receives the right solution at the right time.
-                  </p>
+                <div className="flex flex-col w-full mt-4">
+                  <div className="group relative pt-6 pb-8 border-t border-white/10 hover:border-gold/30 transition-colors duration-500 cursor-default">
+                    {/* Animated Gold Sweep */}
+                    <div className="absolute top-0 left-0 w-0 h-[2px] bg-gold group-hover:w-1/3 transition-all duration-700 ease-out shadow-[0_0_10px_rgba(255,215,0,0.8)]"></div>
+                    <p className="text-lg md:text-xl text-surface/80 leading-relaxed group-hover:text-white transition-colors duration-300">
+                      Verta Core is a dynamic industrial supply and solutions company positioned in Abu Dhabi, established to support the evolving demands of the oil & gas, energy, construction, and industrial sectors.
+                    </p>
+                  </div>
+
+                  <div className="group relative pt-6 pb-8 border-t border-white/10 hover:border-gold/30 transition-colors duration-500 cursor-default">
+                    <div className="absolute top-0 left-0 w-0 h-[2px] bg-gold group-hover:w-1/3 transition-all duration-700 ease-out shadow-[0_0_10px_rgba(255,215,0,0.8)]"></div>
+                    <p className="text-lg md:text-xl text-surface/80 leading-relaxed group-hover:text-white transition-colors duration-300">
+                      Built on the principles of integrity, reliability, and performance, we provide high-quality industrial products and tailored supply solutions that help clients maintain operational excellence and project continuity.
+                    </p>
+                  </div>
+
+                  <div className="group relative pt-6 pb-8 border-t border-white/10 hover:border-gold/30 transition-colors duration-500 cursor-default">
+                    <div className="absolute top-0 left-0 w-0 h-[2px] bg-gold group-hover:w-1/3 transition-all duration-700 ease-out shadow-[0_0_10px_rgba(255,215,0,0.8)]"></div>
+                    <p className="text-lg md:text-xl text-surface/80 leading-relaxed group-hover:text-white transition-colors duration-300">
+                      Our approach combines technical understanding, responsive customer service, and a commitment to long-term partnerships. We work closely with EPC contractors, ADNOC-associated projects, fabricators, and industrial clients to deliver dependable support in highly demanding environments.
+                    </p>
+                  </div>
+
+                  <div className="group relative pt-6 pb-2 border-t border-white/10 hover:border-gold/30 transition-colors duration-500 cursor-default border-b group-hover:border-b-white/10">
+                    <div className="absolute top-0 left-0 w-0 h-[2px] bg-gold group-hover:w-1/3 transition-all duration-700 ease-out shadow-[0_0_10px_rgba(255,215,0,0.8)]"></div>
+                    <div className="absolute bottom-[-1px] left-0 w-0 h-[2px] bg-gold group-hover:w-1/3 transition-all duration-700 ease-out shadow-[0_0_10px_rgba(255,215,0,0.8)]"></div>
+                    <p className="text-lg md:text-xl text-surface/80 leading-relaxed group-hover:text-white transition-colors duration-300">
+                      At Verta Core, we believe industrial supply is more than procurement — it is about building confidence, reducing operational risk, and ensuring every project receives the right solution at the right time.
+                    </p>
+                  </div>
                 </div>
               </ScrollReveal>
             </div>
