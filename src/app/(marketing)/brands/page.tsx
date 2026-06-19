@@ -339,7 +339,7 @@ export default async function BrandsPage() {
           </div>
 
           {/* Modern Sleek World Map Container with Gold Connection Lines */}
-          <div className="relative w-full aspect-[2/1] mt-2 md:mt-4 mb-[-2%] md:mb-[-3%] lg:mb-[-5%] pointer-events-none">
+          <div className="relative w-full aspect-[2/1] mt-12 md:mt-16 mb-[-2%] md:mb-[-3%] lg:mb-[-5%] pointer-events-none">
             <style>{`
               @keyframes dash-flow {
                 to { stroke-dashoffset: -20; }
@@ -404,12 +404,13 @@ export default async function BrandsPage() {
                 { id: "GCC", top: "36%", left: "60.5%", align: "center" },
                 { id: "India", top: "37%", left: "68.5%", align: "center" },
                 { id: "China", top: "29%", left: "77%", align: "center" },
-                { id: "South Korea", top: "28%", left: "82%", align: "center", yOffset: "mb-16 md:mb-[4.5rem]" },
+                { id: "South Korea", top: "28%", left: "82%", align: "center", yOffset: "mb-14 md:mb-[4.5rem]" },
                 { id: "Japan", top: "29%", left: "84.5%", align: "right" }
               ].map((region, idx) => (
                 <div 
                   key={idx} 
-                  className="absolute group cursor-pointer z-20" 
+                  className="absolute group cursor-pointer z-20 focus:outline-none" 
+                  tabIndex={0}
                   style={{ top: region.top, left: region.left, transform: 'translate(-50%, -50%)' }}
                 >
                   <ScrollReveal delay={0.5 + (idx * 0.15)}>
@@ -421,7 +422,7 @@ export default async function BrandsPage() {
                       <div className="absolute w-6 h-6 md:w-10 md:h-10 bg-gold rounded-full opacity-40 animate-ping" style={{ transform: 'rotateX(70deg)' }}></div>
                       
                       {/* 3D Pin Icon (bouncing) */}
-                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-8 md:w-8 md:h-10 origin-bottom hover:-translate-y-2 transition-transform duration-300 z-40">
+                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-8 md:w-8 md:h-10 origin-bottom group-hover:-translate-y-2 group-focus:-translate-y-2 transition-transform duration-300 z-40">
                         <div className="w-full h-full animate-bounce" style={{ animationDuration: `${2 + (idx % 3) * 0.2}s` }}>
                           <svg viewBox="0 0 24 36" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-[0_8px_6px_rgba(0,0,0,0.5)]">
                             <defs>
@@ -445,7 +446,7 @@ export default async function BrandsPage() {
                       </div>
                       
                       {/* Tooltip / Label - Permanently visible */}
-                      <div className={`absolute bottom-full ${region.yOffset || 'mb-10 md:mb-12'} ${region.align === 'left' ? 'right-1/2 mr-2 md:mr-3' : region.align === 'right' ? 'left-1/2 ml-2 md:ml-3' : 'left-1/2 -translate-x-1/2'} bg-[#0d1524]/95 backdrop-blur-md border border-gold/30 px-2 md:px-3 py-1 md:py-1.5 rounded shadow-[0_5px_15px_rgba(0,0,0,0.5)] opacity-100 -translate-y-2 group-hover:-translate-y-3 group-hover:border-gold/60 group-hover:shadow-[0_5px_20px_rgba(255,215,0,0.3)] transition-all duration-300 pointer-events-none whitespace-nowrap z-50 flex items-center gap-1.5 md:gap-2`}>
+                      <div className={`absolute bottom-full ${region.yOffset || 'mb-8 md:mb-12'} ${region.align === 'left' ? 'right-1/2 mr-2 md:mr-3' : region.align === 'right' ? 'left-1/2 ml-2 md:ml-3' : 'left-1/2 -translate-x-1/2'} bg-[#0d1524]/95 backdrop-blur-md border border-gold/30 px-2 md:px-3 py-1 md:py-1.5 rounded shadow-[0_5px_15px_rgba(0,0,0,0.5)] opacity-100 -translate-y-1 group-hover:-translate-y-2 group-focus:-translate-y-2 group-hover:border-gold/60 group-focus:border-gold/60 group-hover:shadow-[0_5px_20px_rgba(255,215,0,0.3)] group-focus:shadow-[0_5px_20px_rgba(255,215,0,0.3)] transition-all duration-300 pointer-events-none whitespace-nowrap z-50 flex items-center gap-1.5 md:gap-2`}>
                         <MapPin className="w-2.5 h-2.5 md:w-3 md:h-3 text-gold" />
                         <span className="text-[9px] md:text-xs font-bold text-white tracking-widest uppercase">{region.id}</span>
                       </div>
@@ -579,24 +580,24 @@ export default async function BrandsPage() {
         <div className="container-base relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5">
             {[
-              { title: "Quality Assurance", icon: ShieldCheck, iconColor: "text-blue-400 group-hover:text-white", bgColor: "bg-blue-500/10 group-hover:bg-blue-600", glowColor: "group-hover:shadow-[0_5px_15px_rgba(37,99,235,0.4)]", accent: "from-blue-400 to-blue-600" },
-              { title: "Global Sourcing", icon: Globe, iconColor: "text-emerald-400 group-hover:text-white", bgColor: "bg-emerald-500/10 group-hover:bg-emerald-600", glowColor: "group-hover:shadow-[0_5px_15px_rgba(16,185,129,0.4)]", accent: "from-emerald-400 to-emerald-600" },
-              { title: "Compliance", icon: FileCheck, iconColor: "text-purple-400 group-hover:text-white", bgColor: "bg-purple-500/10 group-hover:bg-purple-600", glowColor: "group-hover:shadow-[0_5px_15px_rgba(168,85,247,0.4)]", accent: "from-purple-400 to-purple-600" },
-              { title: "Fast Delivery", icon: Zap, iconColor: "text-orange-400 group-hover:text-white", bgColor: "bg-orange-500/10 group-hover:bg-orange-500", glowColor: "group-hover:shadow-[0_5px_15px_rgba(249,115,22,0.4)]", accent: "from-orange-400 to-orange-600" },
-              { title: "Technical Expertise", icon: Cpu, iconColor: "text-rose-400 group-hover:text-white", bgColor: "bg-rose-500/10 group-hover:bg-rose-600", glowColor: "group-hover:shadow-[0_5px_15px_rgba(244,63,94,0.4)]", accent: "from-rose-400 to-rose-600" },
-              { title: "Supply Reliability", icon: Layers, iconColor: "text-cyan-400 group-hover:text-white", bgColor: "bg-cyan-500/10 group-hover:bg-cyan-600", glowColor: "group-hover:shadow-[0_5px_15px_rgba(6,182,212,0.4)]", accent: "from-cyan-400 to-cyan-600" }
+              { title: "Quality Assurance", icon: ShieldCheck, iconColor: "text-blue-400 group-hover:text-white group-focus:text-white", bgColor: "bg-blue-500/10 group-hover:bg-blue-600 group-focus:bg-blue-600", glowColor: "group-hover:shadow-[0_5px_15px_rgba(37,99,235,0.4)] group-focus:shadow-[0_5px_15px_rgba(37,99,235,0.4)]", accent: "from-blue-400 to-blue-600" },
+              { title: "Global Sourcing", icon: Globe, iconColor: "text-emerald-400 group-hover:text-white group-focus:text-white", bgColor: "bg-emerald-500/10 group-hover:bg-emerald-600 group-focus:bg-emerald-600", glowColor: "group-hover:shadow-[0_5px_15px_rgba(16,185,129,0.4)] group-focus:shadow-[0_5px_15px_rgba(16,185,129,0.4)]", accent: "from-emerald-400 to-emerald-600" },
+              { title: "Compliance", icon: FileCheck, iconColor: "text-purple-400 group-hover:text-white group-focus:text-white", bgColor: "bg-purple-500/10 group-hover:bg-purple-600 group-focus:bg-purple-600", glowColor: "group-hover:shadow-[0_5px_15px_rgba(168,85,247,0.4)] group-focus:shadow-[0_5px_15px_rgba(168,85,247,0.4)]", accent: "from-purple-400 to-purple-600" },
+              { title: "Fast Delivery", icon: Zap, iconColor: "text-orange-400 group-hover:text-white group-focus:text-white", bgColor: "bg-orange-500/10 group-hover:bg-orange-500 group-focus:bg-orange-500", glowColor: "group-hover:shadow-[0_5px_15px_rgba(249,115,22,0.4)] group-focus:shadow-[0_5px_15px_rgba(249,115,22,0.4)]", accent: "from-orange-400 to-orange-600" },
+              { title: "Technical Expertise", icon: Cpu, iconColor: "text-rose-400 group-hover:text-white group-focus:text-white", bgColor: "bg-rose-500/10 group-hover:bg-rose-600 group-focus:bg-rose-600", glowColor: "group-hover:shadow-[0_5px_15px_rgba(244,63,94,0.4)] group-focus:shadow-[0_5px_15px_rgba(244,63,94,0.4)]", accent: "from-rose-400 to-rose-600" },
+              { title: "Supply Reliability", icon: Layers, iconColor: "text-cyan-400 group-hover:text-white group-focus:text-white", bgColor: "bg-cyan-500/10 group-hover:bg-cyan-600 group-focus:bg-cyan-600", glowColor: "group-hover:shadow-[0_5px_15px_rgba(6,182,212,0.4)] group-focus:shadow-[0_5px_15px_rgba(6,182,212,0.4)]", accent: "from-cyan-400 to-cyan-600" }
             ].map((feature, idx) => (
               <ScrollReveal key={idx} delay={idx * 0.1}>
-                <div className="group relative bg-white/[0.03] backdrop-blur-md rounded-2xl p-4 md:p-5 border border-white/10 shadow-[0_5px_15px_rgba(0,0,0,0.2)] hover:bg-white/[0.06] hover:border-gold/30 hover:-translate-y-1 transition-all duration-500 overflow-hidden flex flex-col items-center justify-center text-center gap-3 h-full">
+                <div tabIndex={0} className="group relative bg-white/[0.03] backdrop-blur-md rounded-2xl p-4 md:p-5 border border-white/10 shadow-[0_5px_15px_rgba(0,0,0,0.2)] hover:bg-white/[0.06] focus:bg-white/[0.06] hover:border-gold/30 focus:border-gold/30 hover:-translate-y-1 focus:-translate-y-1 focus:outline-none transition-all duration-500 overflow-hidden flex flex-col items-center justify-center text-center gap-3 h-full cursor-pointer">
                   
                   {/* Hover Gradient Background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                   
                   <div className={`w-12 h-12 shrink-0 rounded-xl ${feature.bgColor} flex items-center justify-center transition-all duration-500 shadow-sm ${feature.glowColor}`}>
                     <feature.icon className={`w-6 h-6 ${feature.iconColor} transition-colors duration-500`} strokeWidth={2} />
                   </div>
                   
-                  <h3 className="text-[13px] md:text-[14px] lg:text-[15px] font-extrabold text-white/90 leading-snug group-hover:text-gold transition-colors duration-300 relative z-10">
+                  <h3 className="text-[13px] md:text-[14px] lg:text-[15px] font-extrabold text-white/90 leading-snug group-hover:text-gold group-focus:text-gold transition-colors duration-300 relative z-10">
                     {feature.title}
                   </h3>
                   
