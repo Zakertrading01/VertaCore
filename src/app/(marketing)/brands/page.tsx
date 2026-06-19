@@ -534,32 +534,32 @@ export default async function BrandsPage() {
       </div>
 
       {/* Key Highlights Banner (Statistics Section) */}
-      <div className="bg-gradient-to-r from-navy-dark via-[#0d1524] to-navy-dark border-y border-gold/10 py-6 relative z-20 shadow-[0_10px_30px_rgba(0,0,0,0.5)] overflow-hidden">
-        <div className="container-base overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-          <div className="flex flex-row items-center justify-start lg:justify-between gap-6 min-w-max pb-2 md:pb-0">
+      <div className="bg-gradient-to-r from-navy-dark via-[#0d1524] to-navy-dark border-y border-gold/10 py-6 relative z-20 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+        <div className="container-base">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-start lg:justify-between gap-4 md:gap-6">
             
             {/* Title (No yellow border, modern inline style) */}
-            <div className="flex items-center gap-3 shrink-0">
+            <div className="flex items-center gap-3 shrink-0 mb-2 md:mb-0">
               <div className="w-2 h-6 bg-gold rounded-full shadow-[0_0_10px_rgba(255,215,0,0.5)]"></div>
-              <h3 className="text-xs md:text-sm font-black uppercase tracking-[0.15em] text-white whitespace-nowrap">
+              <h3 className="text-sm md:text-sm font-black uppercase tracking-[0.15em] text-white whitespace-nowrap">
                 Statistics <span className="text-gold font-light">Section</span>
               </h3>
             </div>
 
             {/* Separator */}
-            <div className="w-px h-8 bg-white/20 mx-2 shrink-0"></div>
+            <div className="hidden md:block w-px h-8 bg-white/20 mx-2 shrink-0"></div>
 
             {/* Items */}
-            <div className="flex flex-row items-center flex-1 gap-x-6 lg:gap-x-12 shrink-0">
+            <div className="flex flex-col md:flex-row items-start md:items-center flex-1 gap-y-3 gap-x-6 lg:gap-x-12 w-full">
               {[
                 "Global Supplier Network",
                 "Multiple Product Categories",
                 "UAE & GCC Coverage",
                 "Dedicated Technical Support"
               ].map((stat, idx) => (
-                <div key={idx} className="flex items-center gap-3 group cursor-default shrink-0">
+                <div key={idx} className="flex items-center gap-3 group cursor-default shrink-0 w-full md:w-auto p-3 md:p-0 rounded-xl md:rounded-none bg-white/[0.02] md:bg-transparent border border-white/5 md:border-none">
                   <div className="w-2 h-2 rounded-full bg-white/40 group-hover:bg-gold shadow-sm group-hover:shadow-[0_0_8px_rgba(255,215,0,0.8)] group-hover:scale-150 transition-all duration-300 shrink-0" />
-                  <span className="text-white font-bold tracking-[0.05em] uppercase text-xs md:text-sm group-hover:text-gold transition-colors duration-300 whitespace-nowrap">{stat}</span>
+                  <span className="text-white font-bold tracking-[0.05em] uppercase text-xs md:text-sm group-hover:text-gold transition-colors duration-300">{stat}</span>
                 </div>
               ))}
             </div>
