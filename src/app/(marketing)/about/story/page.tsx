@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Award, ShieldCheck, Target } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema } from "@/lib/schema";
 import { SectionLabel } from "@/components/shared/SectionLabel";
@@ -108,38 +108,56 @@ export default function StoryPage() {
                 />
               </ScrollReveal>
 
-              {/* Bottom Quote block - Modern & Unique */}
-              <ScrollReveal delay={0.4} className="relative p-8 md:p-10 rounded-[2rem] bg-[#070e16] border border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden group">
-                {/* Interactive Ambient Glow */}
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gold/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                
-                {/* Accent Line */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent opacity-50 group-hover:w-2/3 group-hover:opacity-100 transition-all duration-700"></div>
-                
-                {/* Decorative Giant Quotation Marks */}
-                <div className="absolute -top-8 -left-4 text-[12rem] font-serif text-gold/10 select-none pointer-events-none leading-none group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-700">
-                  “
-                </div>
-                <div className="absolute -bottom-16 -right-8 text-[12rem] font-serif text-white/5 select-none pointer-events-none leading-none group-hover:scale-110 group-hover:rotate-6 transition-transform duration-700">
-                  ”
-                </div>
+              {/* Bottom Core Values Stack - Ultra Modern */}
+              <div className="flex flex-col gap-3 w-full">
+                {/* Item 1 */}
+                <ScrollReveal delay={0.4} className="group relative w-full overflow-hidden rounded-2xl bg-gradient-to-r from-[#0a121d] to-[#070e16] border border-white/5 shadow-lg p-5 flex items-center justify-between hover:border-gold/30 transition-colors duration-500 cursor-default">
+                  {/* Sweep Animation */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gold/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none"></div>
+                  
+                  <div className="flex items-center gap-4 relative z-10">
+                    <div className="w-12 h-12 rounded-xl bg-gold/5 flex items-center justify-center border border-gold/10 group-hover:bg-gold/10 group-hover:scale-110 transition-all duration-500 shadow-[0_0_15px_rgba(255,215,0,0.05)] group-hover:shadow-[0_0_20px_rgba(255,215,0,0.15)]">
+                      <Award className="w-6 h-6 text-gold" />
+                    </div>
+                    <span className="text-surface/70 font-medium tracking-wide uppercase text-sm md:text-base group-hover:text-surface transition-colors">Built on</span>
+                  </div>
+                  <span className="relative z-10 font-black text-xl md:text-2xl text-white tracking-tight group-hover:text-gold transition-colors duration-300 [text-shadow:0_0_0px_rgba(255,215,0,0)] group-hover:[text-shadow:0_0_20px_rgba(255,215,0,0.4)]">
+                    Experience
+                  </span>
+                </ScrollReveal>
 
-                {/* Typography Stack */}
-                <div className="relative z-10 flex flex-col items-center justify-center space-y-3">
-                  <p className="font-extrabold text-2xl md:text-3xl lg:text-4xl text-center tracking-tight transition-transform duration-500 group-hover:-translate-y-1">
-                    <span className="text-surface">Built on </span>
-                    <span className="text-gold [text-shadow:0_0_15px_rgba(255,215,0,0.3)]">Experience.</span>
-                  </p>
-                  <p className="font-extrabold text-2xl md:text-3xl lg:text-4xl text-center tracking-tight transition-transform duration-500 delay-75 group-hover:translate-x-2">
-                    <span className="text-surface">Driven by </span>
-                    <span className="text-gold [text-shadow:0_0_15px_rgba(255,215,0,0.3)]">Reliability.</span>
-                  </p>
-                  <p className="font-extrabold text-2xl md:text-3xl lg:text-4xl text-center tracking-tight transition-transform duration-500 delay-150 group-hover:translate-y-1">
-                    <span className="text-surface">Focused on </span>
-                    <span className="text-gold [text-shadow:0_0_15px_rgba(255,215,0,0.3)]">Your Success.</span>
-                  </p>
-                </div>
-              </ScrollReveal>
+                {/* Item 2 */}
+                <ScrollReveal delay={0.5} className="group relative w-full overflow-hidden rounded-2xl bg-gradient-to-r from-[#0a121d] to-[#070e16] border border-white/5 shadow-lg p-5 flex items-center justify-between hover:border-gold/30 transition-colors duration-500 cursor-default">
+                  {/* Sweep Animation */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gold/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out delay-75 pointer-events-none"></div>
+                  
+                  <div className="flex items-center gap-4 relative z-10">
+                    <div className="w-12 h-12 rounded-xl bg-gold/5 flex items-center justify-center border border-gold/10 group-hover:bg-gold/10 group-hover:scale-110 transition-all duration-500 shadow-[0_0_15px_rgba(255,215,0,0.05)] group-hover:shadow-[0_0_20px_rgba(255,215,0,0.15)]">
+                      <ShieldCheck className="w-6 h-6 text-gold" />
+                    </div>
+                    <span className="text-surface/70 font-medium tracking-wide uppercase text-sm md:text-base group-hover:text-surface transition-colors">Driven by</span>
+                  </div>
+                  <span className="relative z-10 font-black text-xl md:text-2xl text-white tracking-tight group-hover:text-gold transition-colors duration-300 [text-shadow:0_0_0px_rgba(255,215,0,0)] group-hover:[text-shadow:0_0_20px_rgba(255,215,0,0.4)]">
+                    Reliability
+                  </span>
+                </ScrollReveal>
+
+                {/* Item 3 */}
+                <ScrollReveal delay={0.6} className="group relative w-full overflow-hidden rounded-2xl bg-gradient-to-r from-[#0a121d] to-[#070e16] border border-white/5 shadow-lg p-5 flex items-center justify-between hover:border-gold/30 transition-colors duration-500 cursor-default">
+                  {/* Sweep Animation */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gold/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out delay-150 pointer-events-none"></div>
+                  
+                  <div className="flex items-center gap-4 relative z-10">
+                    <div className="w-12 h-12 rounded-xl bg-gold/5 flex items-center justify-center border border-gold/10 group-hover:bg-gold/10 group-hover:scale-110 transition-all duration-500 shadow-[0_0_15px_rgba(255,215,0,0.05)] group-hover:shadow-[0_0_20px_rgba(255,215,0,0.15)]">
+                      <Target className="w-6 h-6 text-gold" />
+                    </div>
+                    <span className="text-surface/70 font-medium tracking-wide uppercase text-sm md:text-base group-hover:text-surface transition-colors">Focused on</span>
+                  </div>
+                  <span className="relative z-10 font-black text-xl md:text-2xl text-white tracking-tight group-hover:text-gold transition-colors duration-300 [text-shadow:0_0_0px_rgba(255,215,0,0)] group-hover:[text-shadow:0_0_20px_rgba(255,215,0,0.4)]">
+                    Your Success
+                  </span>
+                </ScrollReveal>
+              </div>
             </div>
           </div>
         </div>
