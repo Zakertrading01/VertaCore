@@ -249,11 +249,6 @@ export default async function BrandsPage() {
             
             <div className="lg:col-span-7 relative z-10">
               <ScrollReveal>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md shadow-[0_0_10px_rgba(255,215,0,0.1)]">
-                  <span className="w-2 h-2 rounded-full bg-gold shadow-[0_0_8px_rgba(255,215,0,0.8)] animate-pulse"></span>
-                  <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-white/90">Call To Action Section</span>
-                </div>
-                
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight leading-[1.1]">
                   Looking for a Reliable <br className="hidden md:block" />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-[#FFD700] drop-shadow-[0_0_15px_rgba(255,215,0,0.3)]">Industrial Supply</span> Partner?
@@ -540,30 +535,30 @@ export default async function BrandsPage() {
 
       {/* Key Highlights Banner (Statistics Section) */}
       <div className="bg-gradient-to-r from-navy-dark via-[#0d1524] to-navy-dark border-y border-gold/10 py-6 relative z-20 shadow-[0_10px_30px_rgba(0,0,0,0.5)] overflow-hidden">
-        <div className="container-base">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div className="container-base overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+          <div className="flex flex-row items-center justify-start lg:justify-between gap-6 min-w-max pb-2 md:pb-0">
             
             {/* Title (No yellow border, modern inline style) */}
             <div className="flex items-center gap-3 shrink-0">
               <div className="w-2 h-6 bg-gold rounded-full shadow-[0_0_10px_rgba(255,215,0,0.5)]"></div>
-              <h3 className="text-base md:text-lg font-black uppercase tracking-[0.15em] text-white">
+              <h3 className="text-base md:text-lg font-black uppercase tracking-[0.15em] text-white whitespace-nowrap">
                 Statistics <span className="text-gold font-light">Section</span>
               </h3>
             </div>
 
-            {/* Separator for desktop */}
-            <div className="hidden lg:block w-px h-8 bg-white/20 mx-2"></div>
+            {/* Separator */}
+            <div className="w-px h-8 bg-white/20 mx-2 shrink-0"></div>
 
             {/* Items */}
-            <div className="flex flex-wrap justify-center lg:justify-end items-center flex-1 gap-y-4 gap-x-6 lg:gap-x-12 w-full">
+            <div className="flex flex-row items-center flex-1 gap-x-6 lg:gap-x-12 shrink-0">
               {[
                 "Global Supplier Network",
                 "Multiple Product Categories",
                 "UAE & GCC Coverage",
                 "Dedicated Technical Support"
               ].map((stat, idx) => (
-                <div key={idx} className="flex items-center gap-3 group cursor-default">
-                  <div className="w-2 h-2 rounded-full bg-white/40 group-hover:bg-gold shadow-sm group-hover:shadow-[0_0_8px_rgba(255,215,0,0.8)] group-hover:scale-150 transition-all duration-300" />
+                <div key={idx} className="flex items-center gap-3 group cursor-default shrink-0">
+                  <div className="w-2 h-2 rounded-full bg-white/40 group-hover:bg-gold shadow-sm group-hover:shadow-[0_0_8px_rgba(255,215,0,0.8)] group-hover:scale-150 transition-all duration-300 shrink-0" />
                   <span className="text-white font-bold tracking-[0.05em] uppercase text-xs md:text-sm group-hover:text-gold transition-colors duration-300 whitespace-nowrap">{stat}</span>
                 </div>
               ))}
