@@ -99,7 +99,7 @@ export default function StoryPage() {
                 <div className="absolute inset-0 bg-gradient-to-tr from-navy-dark/40 via-transparent to-gold/10 z-10 pointer-events-none group-hover:opacity-50 transition-opacity duration-500 mix-blend-overlay"></div>
                 
                 <Image 
-                  src="/images/our-story.jpg" 
+                  src="/images/our-story-v2.png" 
                   alt="Verta Core Operational Trust" 
                   width={1920}
                   height={1280}
