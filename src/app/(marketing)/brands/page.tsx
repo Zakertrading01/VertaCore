@@ -551,16 +551,16 @@ export default async function BrandsPage() {
             <div className="hidden md:block w-px h-8 bg-white/20 mx-2 shrink-0"></div>
 
             {/* Items */}
-            <div className="flex flex-col md:flex-row items-start md:items-center flex-1 gap-y-3 gap-x-6 lg:gap-x-12 w-full">
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between flex-1 gap-y-3 gap-x-3 lg:gap-x-6 w-full overflow-hidden">
               {[
                 "Global Supplier Network",
                 "Multiple Product Categories",
                 "UAE & GCC Coverage",
                 "Dedicated Technical Support"
               ].map((stat, idx) => (
-                <div key={idx} className="flex items-center gap-3 group cursor-default shrink-0 w-full md:w-auto p-3 md:p-0 rounded-xl md:rounded-none bg-white/[0.02] md:bg-transparent border border-white/5 md:border-none">
-                  <div className="w-2 h-2 rounded-full bg-white/40 group-hover:bg-gold shadow-sm group-hover:shadow-[0_0_8px_rgba(255,215,0,0.8)] group-hover:scale-150 transition-all duration-300 shrink-0" />
-                  <span className="text-white font-bold tracking-[0.05em] uppercase text-xs md:text-sm group-hover:text-gold transition-colors duration-300">{stat}</span>
+                <div key={idx} className="flex items-center gap-2 lg:gap-3 group cursor-default w-full md:w-auto p-3 md:p-0 rounded-xl md:rounded-none bg-white/[0.02] md:bg-transparent border border-white/5 md:border-none" tabIndex={0}>
+                  <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 rounded-full bg-white/40 group-hover:bg-gold shadow-sm group-hover:shadow-[0_0_8px_rgba(255,215,0,0.8)] group-hover:scale-150 transition-all duration-300 shrink-0" />
+                  <span className="text-white font-bold tracking-[0.02em] uppercase text-[10px] lg:text-xs xl:text-sm group-hover:text-gold transition-colors duration-300 whitespace-normal leading-tight">{stat}</span>
                 </div>
               ))}
             </div>
