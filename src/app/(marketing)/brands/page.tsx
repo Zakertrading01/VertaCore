@@ -38,7 +38,7 @@ export default async function BrandsPage() {
       />
 
       {/* Header */}
-      <header className="bg-navy-dark pt-10 lg:pt-16 pb-10">
+      <header className="bg-navy-dark pt-20 lg:pt-24 pb-8">
         <div className="container-base">
           <Breadcrumb items={breadcrumb} className="mb-8" />
           
@@ -116,16 +116,16 @@ export default async function BrandsPage() {
             </ScrollReveal>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
             {/* Card 1 */}
             <ScrollReveal delay={0.1}>
-              <ClickParticles className="group bg-surface/5 border border-gold/20 p-6 rounded-2xl h-full shadow-[0_0_15px_rgba(255,215,0,0.1)] hover:shadow-[0_0_30px_rgba(255,215,0,0.25)] hover:bg-surface/10 hover:border-gold/40 transition-all duration-500">
+              <ClickParticles className="group bg-surface/5 border border-gold/20 p-4 rounded-2xl h-full shadow-[0_0_15px_rgba(255,215,0,0.1)] hover:shadow-[0_0_30px_rgba(255,215,0,0.25)] hover:bg-surface/10 hover:border-gold/40 transition-all duration-500">
                 <div className="absolute inset-0 bg-gradient-to-br from-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-gold/10 transition-all duration-500">
+                <div className="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-gold/10 transition-all duration-500">
                   <ShieldCheck className="w-5 h-5 text-gold" />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-surface mb-3 group-hover:text-gold transition-colors">Quality-Driven Selection</h3>
-                <p className="text-white leading-relaxed text-base md:text-lg">
+                <h3 className="text-base md:text-lg font-bold text-surface mb-2 group-hover:text-gold transition-colors">Quality-Driven Selection</h3>
+                <p className="text-white/80 leading-relaxed text-sm md:text-sm">
                   We work with manufacturers and suppliers that demonstrate consistent product quality, manufacturing excellence, and compliance with internationally recognized standards.
                 </p>
               </ClickParticles>
@@ -133,13 +133,13 @@ export default async function BrandsPage() {
             
             {/* Card 2 */}
             <ScrollReveal delay={0.2}>
-              <ClickParticles className="group bg-surface/5 border border-gold/20 p-6 rounded-2xl h-full shadow-[0_0_15px_rgba(255,215,0,0.1)] hover:shadow-[0_0_30px_rgba(255,215,0,0.25)] hover:bg-surface/10 hover:border-gold/40 transition-all duration-500">
+              <ClickParticles className="group bg-surface/5 border border-gold/20 p-4 rounded-2xl h-full shadow-[0_0_15px_rgba(255,215,0,0.1)] hover:shadow-[0_0_30px_rgba(255,215,0,0.25)] hover:bg-surface/10 hover:border-gold/40 transition-all duration-500">
                 <div className="absolute inset-0 bg-gradient-to-br from-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-gold/10 transition-all duration-500">
+                <div className="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-gold/10 transition-all duration-500">
                   <Globe className="w-5 h-5 text-gold" />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-surface mb-3 group-hover:text-gold transition-colors">Global Reach, Local Support</h3>
-                <p className="text-white leading-relaxed text-base md:text-lg">
+                <h3 className="text-base md:text-lg font-bold text-surface mb-2 group-hover:text-gold transition-colors">Global Reach, Local Support</h3>
+                <p className="text-white/80 leading-relaxed text-sm md:text-sm">
                   Our sourcing network spans multiple international markets, enabling us to identify the right solutions while providing local support, faster response times, and efficient project coordination.
                 </p>
               </ClickParticles>
@@ -147,13 +147,13 @@ export default async function BrandsPage() {
 
             {/* Card 3 */}
             <ScrollReveal delay={0.3}>
-              <ClickParticles className="group bg-surface/5 border border-gold/20 p-6 rounded-2xl h-full shadow-[0_0_15px_rgba(255,215,0,0.1)] hover:shadow-[0_0_30px_rgba(255,215,0,0.25)] hover:bg-surface/10 hover:border-gold/40 transition-all duration-500">
+              <ClickParticles className="group bg-surface/5 border border-gold/20 p-4 rounded-2xl h-full shadow-[0_0_15px_rgba(255,215,0,0.1)] hover:shadow-[0_0_30px_rgba(255,215,0,0.25)] hover:bg-surface/10 hover:border-gold/40 transition-all duration-500">
                 <div className="absolute inset-0 bg-gradient-to-br from-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-gold/10 transition-all duration-500">
+                <div className="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-gold/10 transition-all duration-500">
                   <FileCheck className="w-5 h-5 text-gold" />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-surface mb-3 group-hover:text-gold transition-colors">Compliance &amp; Traceability</h3>
-                <p className="text-white leading-relaxed text-base md:text-lg">
+                <h3 className="text-base md:text-lg font-bold text-surface mb-2 group-hover:text-gold transition-colors">Compliance &amp; Traceability</h3>
+                <p className="text-white/80 leading-relaxed text-sm md:text-sm">
                   We understand the stringent requirements of industrial and energy-sector projects. Our procurement processes prioritize documentation, traceability, and adherence to project specifications.
                 </p>
               </ClickParticles>
@@ -161,13 +161,13 @@ export default async function BrandsPage() {
 
             {/* Card 4 */}
             <ScrollReveal delay={0.4}>
-              <ClickParticles className="group bg-surface/5 border border-gold/20 p-6 rounded-2xl h-full shadow-[0_0_15px_rgba(255,215,0,0.1)] hover:shadow-[0_0_30px_rgba(255,215,0,0.25)] hover:bg-surface/10 hover:border-gold/40 transition-all duration-500">
+              <ClickParticles className="group bg-surface/5 border border-gold/20 p-4 rounded-2xl h-full shadow-[0_0_15px_rgba(255,215,0,0.1)] hover:shadow-[0_0_30px_rgba(255,215,0,0.25)] hover:bg-surface/10 hover:border-gold/40 transition-all duration-500">
                 <div className="absolute inset-0 bg-gradient-to-br from-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-gold/10 transition-all duration-500">
+                <div className="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-gold/10 transition-all duration-500">
                   <Layers className="w-5 h-5 text-gold" />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-surface mb-3 group-hover:text-gold transition-colors">Reliable Supply Continuity</h3>
-                <p className="text-white leading-relaxed text-base md:text-lg">
+                <h3 className="text-base md:text-lg font-bold text-surface mb-2 group-hover:text-gold transition-colors">Reliable Supply Continuity</h3>
+                <p className="text-white/80 leading-relaxed text-sm md:text-sm">
                   By maintaining strong relationships across our supplier network, we help clients mitigate procurement risks, reduce delays, and maintain operational efficiency.
                 </p>
               </ClickParticles>
