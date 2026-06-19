@@ -44,34 +44,54 @@ export default function StoryPage() {
       <section className="pt-2 pb-8 md:pt-6 md:pb-12 bg-navy-dark">
         <div className="container-base max-w-3xl">
           <ScrollReveal>
-            <div className="space-y-6 text-lg md:text-xl text-surface leading-relaxed pl-6 border-l-2 border-gold">
-              <p>
+            <div className="pl-6 md:pl-8 border-l-2 border-gold">
+              <p className="text-xl md:text-2xl text-surface font-medium leading-relaxed mb-8">
                 Every successful industrial project is built on a foundation of reliability, trust, and timely execution. Verta Core was established with a clear purpose: to bridge the gap between project requirements and dependable industrial supply solutions.
               </p>
 
-              <p>
-                With decades of combined industry experience behind our leadership and operations, we recognized a growing need for a supply partner that understands the realities of modern industrial projects—tight schedules, stringent specifications, uncompromising safety standards, and the constant demand for operational efficiency.
-              </p>
+              <ul className="space-y-6 text-base md:text-lg text-surface/80 leading-relaxed">
+                <li className="flex items-start gap-4 group">
+                  <div className="w-2 h-2 rounded-full bg-gold shrink-0 mt-2.5 shadow-[0_0_8px_rgba(255,215,0,0.6)] group-hover:scale-150 transition-transform duration-300"></div>
+                  <span className="group-hover:text-surface transition-colors duration-300">
+                    With decades of combined industry experience behind our leadership and operations, we recognized a growing need for a supply partner that understands the realities of modern industrial projects—tight schedules, stringent specifications, uncompromising safety standards, and the constant demand for operational efficiency.
+                  </span>
+                </li>
 
-              <p>
-                Verta Core was founded to meet these challenges head-on. We set out to create a company that combines technical expertise, responsive service, and a customer-first approach, enabling clients to focus on delivering successful projects while we ensure the right products and solutions are available when they are needed most.
-              </p>
+                <li className="flex items-start gap-4 group">
+                  <div className="w-2 h-2 rounded-full bg-gold shrink-0 mt-2.5 shadow-[0_0_8px_rgba(255,215,0,0.6)] group-hover:scale-150 transition-transform duration-300"></div>
+                  <span className="group-hover:text-surface transition-colors duration-300">
+                    Verta Core was founded to meet these challenges head-on. We set out to create a company that combines technical expertise, responsive service, and a customer-first approach, enabling clients to focus on delivering successful projects while we ensure the right products and solutions are available when they are needed most.
+                  </span>
+                </li>
 
-              <p>
-                Today, we proudly support EPC contractors, oil &amp; gas operators, fabrication companies, infrastructure developers, and industrial facilities across the UAE. Our commitment extends beyond supplying products; we build lasting partnerships based on transparency, accountability, and consistent performance.
-              </p>
+                <li className="flex items-start gap-4 group">
+                  <div className="w-2 h-2 rounded-full bg-gold shrink-0 mt-2.5 shadow-[0_0_8px_rgba(255,215,0,0.6)] group-hover:scale-150 transition-transform duration-300"></div>
+                  <span className="group-hover:text-surface transition-colors duration-300">
+                    Today, we proudly support EPC contractors, oil &amp; gas operators, fabrication companies, infrastructure developers, and industrial facilities across the UAE. Our commitment extends beyond supplying products; we build lasting partnerships based on transparency, accountability, and consistent performance.
+                  </span>
+                </li>
 
-              <p>
-                As industries continue to evolve, our focus remains unchanged—to deliver quality, reliability, and value that help our clients move forward with confidence.
-              </p>
+                <li className="flex items-start gap-4 group">
+                  <div className="w-2 h-2 rounded-full bg-gold shrink-0 mt-2.5 shadow-[0_0_8px_rgba(255,215,0,0.6)] group-hover:scale-150 transition-transform duration-300"></div>
+                  <span className="group-hover:text-surface transition-colors duration-300">
+                    As industries continue to evolve, our focus remains unchanged—to deliver quality, reliability, and value that help our clients move forward with confidence.
+                  </span>
+                </li>
 
-              <p>
-                At Verta Core, our story is driven by a simple belief: strong partnerships and dependable solutions create lasting success.
-              </p>
+                <li className="flex items-start gap-4 group">
+                  <div className="w-2 h-2 rounded-full bg-gold shrink-0 mt-2.5 shadow-[0_0_8px_rgba(255,215,0,0.6)] group-hover:scale-150 transition-transform duration-300"></div>
+                  <span className="group-hover:text-surface transition-colors duration-300">
+                    At Verta Core, our story is driven by a simple belief: strong partnerships and dependable solutions create lasting success.
+                  </span>
+                </li>
+              </ul>
 
-              <p className="font-semibold text-gold mt-8">
-                “Built on Experience. Driven by Reliability. Focused on Your Success.”
-              </p>
+              <div className="mt-10 p-6 bg-surface/5 border border-gold/20 rounded-2xl backdrop-blur-sm shadow-xl relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-r from-gold/5 via-transparent to-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <p className="font-bold text-lg md:text-xl text-gold italic text-center relative z-10 [text-shadow:0_0_15px_rgba(255,215,0,0.2)]">
+                  “Built on Experience. Driven by Reliability. Focused on Your Success.”
+                </p>
+              </div>
             </div>
           </ScrollReveal>
         </div>
