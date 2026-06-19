@@ -38,8 +38,8 @@ export default async function BrandsPage() {
       />
 
       {/* Header */}
-      <header className="bg-navy-dark pt-20 lg:pt-24 pb-8">
-        <div className="container-base">
+      <header className="bg-navy-dark pt-24 lg:pt-32 pb-8 relative overflow-hidden">
+        <div className="container-base relative z-10">
           <Breadcrumb items={breadcrumb} className="mb-8" />
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
