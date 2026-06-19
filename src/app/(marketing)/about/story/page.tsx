@@ -7,6 +7,7 @@ import { SectionLabel } from "@/components/shared/SectionLabel";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { CTASection } from "@/components/marketing/CTASection";
+import Image from "next/image";
 
 
 
@@ -42,8 +43,10 @@ export default function StoryPage() {
       </header>
 
       <section className="pt-2 pb-8 md:pt-6 md:pb-12 bg-navy-dark">
-        <div className="container-base max-w-3xl">
-          <ScrollReveal>
+        <div className="container-base">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
+            {/* Left Side Content */}
+            <ScrollReveal>
             <div className="pl-6 md:pl-8 border-l-2 border-gold">
               <p className="text-xl md:text-2xl text-surface font-medium leading-relaxed mb-8">
                 Every successful industrial project is built on a foundation of reliability, trust, and timely execution. Verta Core was established with a clear purpose: to bridge the gap between project requirements and dependable industrial supply solutions.
@@ -85,15 +88,60 @@ export default function StoryPage() {
                   </span>
                 </li>
               </ul>
-
-              <div className="mt-10 p-6 bg-surface/5 border border-gold/20 rounded-2xl backdrop-blur-sm shadow-xl relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-r from-gold/5 via-transparent to-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <p className="font-bold text-lg md:text-xl text-gold italic text-center relative z-10 [text-shadow:0_0_15px_rgba(255,215,0,0.2)]">
-                  “Built on Experience. Driven by Reliability. Focused on Your Success.”
-                </p>
-              </div>
             </div>
           </ScrollReveal>
+
+            {/* Right Side Container */}
+            <div className="flex flex-col gap-8 md:gap-10 self-start">
+              {/* Top Image */}
+              <ScrollReveal delay={0.2} className="relative w-full h-auto rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.5)] border border-white/5 group bg-[#070e16]">
+                {/* Premium overlay glow */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-navy-dark/40 via-transparent to-gold/10 z-10 pointer-events-none group-hover:opacity-50 transition-opacity duration-500 mix-blend-overlay"></div>
+                
+                <Image 
+                  src="/images/our-story.jpg" 
+                  alt="Verta Core Operational Trust" 
+                  width={1920}
+                  height={1280}
+                  className="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-700"
+                  priority
+                />
+              </ScrollReveal>
+
+              {/* Bottom Quote block - Modern & Unique */}
+              <ScrollReveal delay={0.4} className="relative p-8 md:p-10 rounded-[2rem] bg-[#070e16] border border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden group">
+                {/* Interactive Ambient Glow */}
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gold/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                
+                {/* Accent Line */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent opacity-50 group-hover:w-2/3 group-hover:opacity-100 transition-all duration-700"></div>
+                
+                {/* Decorative Giant Quotation Marks */}
+                <div className="absolute -top-8 -left-4 text-[12rem] font-serif text-gold/10 select-none pointer-events-none leading-none group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-700">
+                  “
+                </div>
+                <div className="absolute -bottom-16 -right-8 text-[12rem] font-serif text-white/5 select-none pointer-events-none leading-none group-hover:scale-110 group-hover:rotate-6 transition-transform duration-700">
+                  ”
+                </div>
+
+                {/* Typography Stack */}
+                <div className="relative z-10 flex flex-col items-center justify-center space-y-3">
+                  <p className="font-extrabold text-2xl md:text-3xl lg:text-4xl text-center tracking-tight transition-transform duration-500 group-hover:-translate-y-1">
+                    <span className="text-surface">Built on </span>
+                    <span className="text-gold [text-shadow:0_0_15px_rgba(255,215,0,0.3)]">Experience.</span>
+                  </p>
+                  <p className="font-extrabold text-2xl md:text-3xl lg:text-4xl text-center tracking-tight transition-transform duration-500 delay-75 group-hover:translate-x-2">
+                    <span className="text-surface">Driven by </span>
+                    <span className="text-gold [text-shadow:0_0_15px_rgba(255,215,0,0.3)]">Reliability.</span>
+                  </p>
+                  <p className="font-extrabold text-2xl md:text-3xl lg:text-4xl text-center tracking-tight transition-transform duration-500 delay-150 group-hover:translate-y-1">
+                    <span className="text-surface">Focused on </span>
+                    <span className="text-gold [text-shadow:0_0_15px_rgba(255,215,0,0.3)]">Your Success.</span>
+                  </p>
+                </div>
+              </ScrollReveal>
+            </div>
+          </div>
         </div>
       </section>
 
