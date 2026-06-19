@@ -20,7 +20,7 @@ const solutions = [
     title: "Welding & Fabrication Solutions",
     slug: "welding-fabrication",
     description: "Supply of welding machines, consumables, accessories, electrodes, cutting solutions, and fabrication support products designed for demanding industrial applications.",
-    tags: [],
+    tags: ["EN 60974-1", "CE", "EN 166", "EN 1869"],
   },
   {
     icon: Shield,
@@ -34,7 +34,7 @@ const solutions = [
     title: "Lifting & Material Handling",
     slug: "lifting-handling",
     description: "Supply solutions for lifting equipment, rigging accessories, material handling products, and industrial support equipment for safe operational handling.",
-    tags: [],
+    tags: ["ISO 9001", "ISO 14001", "EN 13157"],
   },
   {
     icon: Cpu,
