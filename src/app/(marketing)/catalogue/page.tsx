@@ -6,7 +6,6 @@ import { catalogueItemListSchema, breadcrumbSchema } from "@/lib/schema";
 import { SectionLabel } from "@/components/shared/SectionLabel";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { CatalogueGroup } from "@/components/catalogue/CatalogueGroup";
-import { CatalogueDownloadButton } from "@/components/catalogue/CatalogueClient";
 import { CTASection } from "@/components/marketing/CTASection";
 import { getCatalogueItems } from "@/lib/cached-queries";
 import { ScrollToHash } from "@/components/shared/ScrollToHash";
@@ -125,9 +124,6 @@ export default async function CataloguePage() {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
-              <CatalogueDownloadButton />
-            </div>
           </div>
         </div>
       </header>

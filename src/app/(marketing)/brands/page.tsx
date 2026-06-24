@@ -372,6 +372,7 @@ export default async function BrandsPage() {
               <svg className="absolute inset-0 w-full h-full pointer-events-none z-10" viewBox="0 0 1000 500" preserveAspectRatio="none">
                 {/* Connecting outer regions to GCC (605, 180) */}
                 {[
+                  { x: 220, y: 160 }, // US
                   { x: 505, y: 120 }, // Europe
                   { x: 685, y: 185 }, // India
                   { x: 770, y: 145 }, // China
@@ -400,6 +401,7 @@ export default async function BrandsPage() {
               
               {/* Animated Region Markers accurately placed over the continents */}
               {[
+                { id: "US", top: "32%", left: "22%", align: "center" },
                 { id: "Europe", top: "24%", left: "50.5%", align: "center" },
                 { id: "GCC", top: "36%", left: "60.5%", align: "center" },
                 { id: "India", top: "37%", left: "68.5%", align: "center" },
