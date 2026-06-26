@@ -18,7 +18,7 @@ import { db } from "@/lib/db";
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = buildMetadata({
-  title: "VERTACORE — Certified Industrial MRO Supply",
+  title: "VERTA CORE — Certified Industrial MRO Supply",
   description:
     "Premium MRO industrial supply and procurement company delivering certified safety equipment, welding systems, lifting & rigging, and industrial consumables to enterprise clients worldwide.",
   path: "/",
