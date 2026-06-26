@@ -6,7 +6,7 @@ import { ScrollReveal } from "@/components/shared/ScrollReveal";
 
 export const metadata: Metadata = buildMetadata({
   title: "Privacy Policy | VERTA CORE",
-  description: "Privacy Policy for VERTACORE. Learn how we collect, use, and protect your information.",
+  description: "Privacy Policy for VERTA CORE. Learn how we collect, use, and protect your information.",
   path: "/privacy",
 });
 

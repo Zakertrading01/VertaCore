@@ -6,7 +6,7 @@ import { ScrollReveal } from "@/components/shared/ScrollReveal";
 
 export const metadata: Metadata = buildMetadata({
   title: "Terms of Service | VERTA CORE",
-  description: "Terms of Service for VERTACORE. Read our terms and conditions.",
+  description: "Terms of Service for VERTA CORE. Read our terms and conditions.",
   path: "/terms",
 });
 
@@ -36,9 +36,9 @@ export default function TermsPage() {
           <ScrollReveal>
             <div className="space-y-6 text-body text-surface/80 leading-relaxed">
               <p>
-                Welcome to VERTACORE. These Terms of Service govern your access to and use of our website at{" "}
+                Welcome to VERTA CORE. These Terms of Service govern your access to and use of our website at{" "}
                 <a href="https://www.vertacore.ae" className="text-gold hover:underline">https://www.vertacore.ae</a>{" "}
-                and any related services provided by VERTACORE. By accessing or using our website, you agree to be bound by these terms in full.
+                and any related services provided by VERTA CORE. By accessing or using our website, you agree to be bound by these terms in full.
               </p>
 
               <h2 className="text-xl font-bold text-surface mt-10 mb-4">1. Acceptance of Terms</h2>

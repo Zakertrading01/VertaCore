@@ -48,7 +48,7 @@ const services = [
 
 const testimonials = [
   {
-    quote: "At our generating station with our previous vendor, we struggled to maintain inventory levels of critical compliance products. That changed immediately with VERTACORE. Their supply chain oversight and absolute compliance documentation has given us peace of mind.",
+    quote: "At our generating station with our previous vendor, we struggled to maintain inventory levels of critical compliance products. That changed immediately with VERTA CORE. Their supply chain oversight and absolute compliance documentation has given us peace of mind.",
     client: "Will County Generating Station",
     position: "Maintenance Supervisor",
   },
