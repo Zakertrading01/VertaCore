@@ -142,7 +142,7 @@ export default async function AdminLoginPage() {
         </div>
 
         <p className="text-white/50 text-xs relative z-10 pointer-events-none">
-          © {new Date().getFullYear()} Vertacore. Internal use only.
+          © {new Date().getFullYear()} Verta Core. Internal use only.
         </p>
       </div>
 
