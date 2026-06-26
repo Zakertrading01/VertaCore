@@ -49,7 +49,7 @@ const slides = [
     alt: "Premium Quality Feature",
     title1: "Commitment To",
     title2: "Absolute Safety.",
-    description: "Protecting your workforce with premium Vertacore safety solutions.",
+    description: "Protecting your workforce with premium Verta Core safety solutions.",
     fontClass: "font-montserrat font-black tracking-tighter",
     animationClass: "animate-flip-in-letter",
   },

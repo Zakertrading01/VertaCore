@@ -189,11 +189,11 @@ export function Navbar() {
           <Link
             href="/"
             className="bg-[#0b1b33] flex items-center justify-center px-6 md:px-10 group"
-            aria-label="VERTACORE — Home"
+            aria-label="VERTA CORE — Home"
           >
             <img
               src="/image.png"
-              alt="VERTACORE"
+              alt="VERTA CORE"
               className="h-9 md:h-12 w-auto object-contain"
             />
           </Link>

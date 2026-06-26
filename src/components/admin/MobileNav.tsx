@@ -45,7 +45,7 @@ export function MobileNav({ items, userEmail, onLogout }: MobileNavProps) {
       {/* Top bar */}
       <div className="fixed top-0 left-0 right-0 z-50 h-14 bg-navy border-b border-white/10 flex items-center justify-between px-4">
         <div>
-          <span className="text-xs font-bold uppercase tracking-widest text-white/40">VERTACORE</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-white/40">VERTA CORE</span>
           <span className="ml-2 text-sm font-bold text-white">ADMIN</span>
         </div>
         <button

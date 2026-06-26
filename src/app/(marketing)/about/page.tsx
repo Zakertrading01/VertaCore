@@ -12,11 +12,11 @@ import { CTASection } from "@/components/marketing/CTASection";
 
 
 export const metadata: Metadata = buildMetadata({
-  title: "About VERTACORE",
+  title: "About VERTA CORE",
   description:
-    "VERTACORE is a premium MRO industrial supply and procurement company with deep expertise across Oil & Gas, Marine, Construction, and Manufacturing.",
+    "VERTA CORE is a premium MRO industrial supply and procurement company with deep expertise across Oil & Gas, Marine, Construction, and Manufacturing.",
   path: "/about",
-  keywords: ["about VERTACORE", "industrial supplier company", "MRO procurement company"],
+  keywords: ["about VERTA CORE", "industrial supplier company", "MRO procurement company"],
 });
 
 const values = [

@@ -25,7 +25,7 @@ export async function generateMetadata({
 
   return buildMetadata({
     title: `${brand.name} — Industrial Equipment`,
-    description: brand.description ?? `VERTACORE supplies ${brand.name} products.`,
+    description: brand.description ?? `VERTA CORE supplies ${brand.name} products.`,
     path: `/brands/${slug}`,
     image: brand.logo ?? undefined,
   });

@@ -115,7 +115,7 @@ export function AdminLayoutWrapper({
                     )}>
                         {!isCollapsed && (
                             <div className="overflow-hidden whitespace-nowrap pl-1">
-                                <p className="text-sm font-bold uppercase tracking-widest text-white/40 mb-1">VERTACORE</p>
+                                <p className="text-sm font-bold uppercase tracking-widest text-white/40 mb-1">VERTA CORE</p>
                                 <p className="text-lg font-bold text-white tracking-tight">ADMIN <span className="font-normal text-white/60">PORTAL</span></p>
                             </div>
                         )}

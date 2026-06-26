@@ -17,7 +17,7 @@ export const dynamic = 'force-dynamic';
 export const metadata: Metadata = buildMetadata({
   title: "Project Portfolio & Case Studies",
   description:
-    "VERTACORE has delivered certified industrial MRO supply to Oil & Gas, Marine, Construction and Manufacturing operations. View our project portfolio.",
+    "VERTA CORE has delivered certified industrial MRO supply to Oil & Gas, Marine, Construction and Manufacturing operations. View our project portfolio.",
   path: "/projects",
   keywords: ["industrial supply projects", "MRO project case studies"],
 });
@@ -47,7 +47,7 @@ export default async function ProjectsPage() {
             <span className="text-gold">for demanding operations.</span>
           </h1>
           <p className="mt-4 text-body text-surface/60 max-w-xl leading-relaxed">
-            Selected project references demonstrating VERTACORE&apos;s supply capability
+            Selected project references demonstrating VERTA CORE&apos;s supply capability
             across industrial sectors.
           </p>
         </div>

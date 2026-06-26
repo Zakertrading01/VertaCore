@@ -5,7 +5,7 @@ import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Privacy Policy | VERTACORE",
+  title: "Privacy Policy | VERTA CORE",
   description: "Privacy Policy for VERTACORE. Learn how we collect, use, and protect your information.",
   path: "/privacy",
 });
@@ -38,7 +38,7 @@ export default function PrivacyPage() {
           <ScrollReveal>
             <div className="bg-navy-dark/40 backdrop-blur-md border border-surface/10 rounded-3xl p-8 md:p-12 shadow-xl">
               <p className="text-lg text-surface/90 leading-relaxed mb-12 border-l-4 border-gold pl-6 font-medium">
-                At VERTACORE, we are committed to protecting your privacy and handling your personal data responsibly. This Privacy Policy explains what information we collect, how we use it, who we share it with, and your rights under applicable law — including the UAE Federal Decree-Law No. 45 of 2021 on the Protection of Personal Data (PDPL).
+                At VERTA CORE, we are committed to protecting your privacy and handling your personal data responsibly. This Privacy Policy explains what information we collect, how we use it, who we share it with, and your rights under applicable law — including the UAE Federal Decree-Law No. 45 of 2021 on the Protection of Personal Data (PDPL).
               </p>
 
               <div className="space-y-12">
@@ -48,7 +48,7 @@ export default function PrivacyPage() {
                     <span className="text-gold text-lg font-mono tracking-wider">01.</span> Who We Are
                   </h2>
                   <p className="text-surface/70 leading-relaxed pl-[3.25rem]">
-                    VERTACORE is an industrial supply and trading company registered in the United Arab Emirates. Our registered office is at Office No. 44, 11th Floor, Dar Al Salam Building, Liwa Street, Corniche, Abu Dhabi, UAE. For privacy-related matters, you can contact us at{" "}
+                    VERTA CORE is an industrial supply and trading company registered in the United Arab Emirates. Our registered office is at Office No. 44, 11th Floor, Dar Al Salam Building, Liwa Street, Corniche, Abu Dhabi, UAE. For privacy-related matters, you can contact us at{" "}
                     <a href="mailto:info@vertacore.ae" className="text-gold hover:underline">info@vertacore.ae</a>.
                   </p>
                 </div>

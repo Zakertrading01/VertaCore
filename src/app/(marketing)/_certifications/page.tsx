@@ -17,7 +17,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = buildMetadata({
   title: "Certifications & Quality Standards",
   description:
-    "VERTACORE is ISO 9001:2015 and ICV certified. Every product we supply meets internationally recognised safety and quality standards including CE, EN, and ANSI.",
+    "VERTA CORE is ISO 9001:2015 and ICV certified. Every product we supply meets internationally recognised safety and quality standards including CE, EN, and ANSI.",
   path: "/certifications",
   keywords: [
     "ISO 9001 and ICV certified supplier",
@@ -29,24 +29,24 @@ export const metadata: Metadata = buildMetadata({
 
 const faqs = [
   {
-    question: "Is VERTACORE ISO 9001:2015 and ICV certified?",
+    question: "Is VERTA CORE ISO 9001:2015 and ICV certified?",
     answer:
-      "Yes. VERTACORE holds ISO 9001:2015 and ICV certifications from internationally accredited certification bodies. Our quality management system governs sourcing, supply chain management, and customer service processes.",
+      "Yes. VERTA CORE holds ISO 9001:2015 and ICV certifications from internationally accredited certification bodies. Our quality management system governs sourcing, supply chain management, and customer service processes.",
   },
   {
-    question: "Can I download certificates for products VERTACORE supplies?",
+    question: "Can I download certificates for products VERTA CORE supplies?",
     answer:
       "Yes. Product compliance certificates, test reports, and material documentation are available on request. Contact our team directly.",
   },
   {
-    question: "What standards do VERTACORE products meet?",
+    question: "What standards do VERTA CORE products meet?",
     answer:
-      "Products supplied by VERTACORE meet applicable international standards including CE marking, EN (European Norm), ANSI (American National Standards Institute), ASME, and other sector-specific standards relevant to Oil & Gas, Marine, and Construction operations.",
+      "Products supplied by VERTA CORE meet applicable international standards including CE marking, EN (European Norm), ANSI (American National Standards Institute), ASME, and other sector-specific standards relevant to Oil & Gas, Marine, and Construction operations.",
   },
   {
-    question: "How does VERTACORE verify product compliance?",
+    question: "How does VERTA CORE verify product compliance?",
     answer:
-      "All products are sourced from manufacturers with verified certification documentation. VERTACORE maintains records of product compliance and can provide supporting documentation — datasheets, test certificates, and conformity declarations — on request.",
+      "All products are sourced from manufacturers with verified certification documentation. VERTA CORE maintains records of product compliance and can provide supporting documentation — datasheets, test certificates, and conformity declarations — on request.",
   },
 ];
 
@@ -83,7 +83,7 @@ export default async function CertificationsPage() {
             <span className="text-gold">safety and quality standards.</span>
           </h1>
           <p className="mt-4 text-body text-surface/60 max-w-xl leading-relaxed">
-            Every item VERTACORE supplies is certified to internationally recognised
+            Every item VERTA CORE supplies is certified to internationally recognised
             standards. Full documentation available on request.
           </p>
         </div>
@@ -174,7 +174,7 @@ export default async function CertificationsPage() {
                   name: "oSa / MPA Certified",
                   body: "Organisation for the Safety of Abrasives",
                   description:
-                    "Abrasive products supplied by VERTACORE carry oSa or MPA certification ensuring grinding and cutting wheel safety.",
+                    "Abrasive products supplied by VERTA CORE carry oSa or MPA certification ensuring grinding and cutting wheel safety.",
                 },
                 {
                   name: "ATEX Compliant",

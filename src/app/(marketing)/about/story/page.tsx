@@ -14,7 +14,7 @@ import Image from "next/image";
 export const metadata: Metadata = buildMetadata({
   title: "Our Story",
   description:
-    "The founding story of VERTACORE — how a commitment to quality and procurement reliability led to building a premium MRO industrial supply company.",
+    "The founding story of VERTA CORE — how a commitment to quality and procurement reliability led to building a premium MRO industrial supply company.",
   path: "/about/story",
 });
 
@@ -349,7 +349,7 @@ export default function StoryPage() {
             className="inline-flex items-center gap-2 text-sm text-steel-muted hover:text-gold transition-colors"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
-            About VERTACORE
+            About VERTA CORE
           </Link>
         </div>
       </div>

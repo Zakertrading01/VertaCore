@@ -53,12 +53,12 @@ const testimonials = [
     position: "Maintenance Supervisor",
   },
   {
-    quote: "We've been using VERTACORE for hard supplies and custom rigging systems. Their customer service is exceptional, enquiries are handled quickly, and the quality standards are always perfect. They have saved us both time and money.",
+    quote: "We've been using VERTA CORE for hard supplies and custom rigging systems. Their customer service is exceptional, enquiries are handled quickly, and the quality standards are always perfect. They have saved us both time and money.",
     client: "Aaron Ozminkowski",
     position: "Production Manager, Coan Engineering",
   },
   {
-    quote: "VERTACORE benefits our corporation on many levels. We not only receive quality premium products for use in our fabrication shop, but also reap the rewards of their technical consultation. Their team goes above and beyond.",
+    quote: "VERTA CORE benefits our corporation on many levels. We not only receive quality premium products for use in our fabrication shop, but also reap the rewards of their technical consultation. Their team goes above and beyond.",
     client: "Adam Gromer",
     position: "QA Manager, Peddinghaus Corp",
   },

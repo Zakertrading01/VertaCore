@@ -17,7 +17,7 @@ export const dynamic = 'force-dynamic';
 export const metadata: Metadata = buildMetadata({
   title: "Industries We Serve",
   description:
-    "VERTACORE supplies certified industrial equipment to Oil & Gas, Marine, Construction, Manufacturing, Mining and other critical industrial sectors worldwide.",
+    "VERTA CORE supplies certified industrial equipment to Oil & Gas, Marine, Construction, Manufacturing, Mining and other critical industrial sectors worldwide.",
   path: "/industries",
   keywords: [
     "industrial equipment industries",
@@ -67,7 +67,7 @@ export default async function IndustriesPage() {
             <span className="text-gold">every major sector.</span>
           </h1>
           <p className="mt-4 text-body text-surface/60 max-w-xl leading-relaxed">
-            VERTACORE understands the compliance requirements and operational environment
+            VERTA CORE understands the compliance requirements and operational environment
             of each industry we serve. Sector-specific supply from a knowledgeable partner.
           </p>
         </div>

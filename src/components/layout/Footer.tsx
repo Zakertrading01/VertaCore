@@ -15,7 +15,7 @@ const popularCategories = [
 ];
 
 const customerCare = [
-  { label: "About VERTACORE", href: "/about" },
+  { label: "About VERTA CORE", href: "/about" },
   // { label: "Certifications", href: "/certifications" },
   { label: "Brands & Partners", href: "/brands" },
   { label: "Projects", href: "/projects" },
@@ -42,7 +42,7 @@ export function Footer({ showSocials = true }: { showSocials?: boolean }) {
             <Link href="/" className="inline-flex items-center group mb-1">
               <img
                 src="/image.png"
-                alt="VERTACORE"
+                alt="VERTA CORE"
                 className="h-10 w-auto object-contain"
               />
             </Link>
@@ -130,7 +130,7 @@ export function Footer({ showSocials = true }: { showSocials?: boolean }) {
                 tabIndex={0}
                 className="block text-sm text-white leading-relaxed hover:text-gold focus:text-gold active:text-gold transition-colors outline-none"
               >
-                VERTACORE provides premium industrial equipment supply solutions to enterprise clients worldwide.
+                VERTA CORE provides premium industrial equipment supply solutions to enterprise clients worldwide.
               </TapLink>
 
               {/* Social Grid */}

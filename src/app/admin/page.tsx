@@ -10,7 +10,7 @@ import { ParticleBackground } from '@/components/shared/ParticleBackground'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Admin Login | VERTACORE',
+  title: 'Admin Login | VERTA CORE',
   robots: { index: false, follow: false },
 }
 
@@ -113,7 +113,7 @@ export default async function AdminLoginPage() {
         <Link href="/" className="relative z-10">
           <Image
             src="/image.png"
-            alt="VERTACORE"
+            alt="VERTA CORE"
             width={160}
             height={64}
             className="object-contain object-left cursor-pointer"
@@ -127,7 +127,7 @@ export default async function AdminLoginPage() {
             <span className="text-gold">fully under control.</span>
           </h1>
           <p className="text-white/80 text-sm mb-10 leading-relaxed max-w-xs">
-            The admin portal for managing Vertacore&apos;s product catalogue,
+            The admin portal for managing Verta Core&apos;s product catalogue,
             media assets, and customer enquiries.
           </p>
 
@@ -163,7 +163,7 @@ export default async function AdminLoginPage() {
                 <Link href="/">
                   <Image
                     src="/image.png"
-                    alt="VERTACORE"
+                    alt="VERTA CORE"
                     width={130}
                     height={52}
                     className="object-contain object-left cursor-pointer"

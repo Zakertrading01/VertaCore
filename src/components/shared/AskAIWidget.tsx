@@ -26,7 +26,7 @@ const DEFAULT_QUESTIONS = [
   {
     id: "q3",
     text: "Which industries do you serve?",
-    answer: "VERTACORE serves major enterprise clients in Oil & Gas, Marine, Construction, Manufacturing, and Mining sectors worldwide."
+    answer: "VERTA CORE serves major enterprise clients in Oil & Gas, Marine, Construction, Manufacturing, and Mining sectors worldwide."
   },
   {
     id: "q4",
@@ -36,7 +36,7 @@ const DEFAULT_QUESTIONS = [
 ];
 
 const WELCOME_MESSAGE =
-  "Hi, I'm VERTACORE AI. I can help with product information and technical industrial sourcing enquiries. How can I help?";
+  "Hi, I'm VERTA CORE AI. I can help with product information and technical industrial sourcing enquiries. How can I help?";
 
 export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
   const [config, setConfig] = useState<WidgetConfig>({ enabled: true, questions: DEFAULT_QUESTIONS });
@@ -198,7 +198,7 @@ export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
         )}
         role="dialog"
         aria-modal="true"
-        aria-label="VERTACORE AI Assistant"
+        aria-label="VERTA CORE AI Assistant"
       >
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-5 bg-navy-dark border-b border-steel/30 flex-shrink-0">
@@ -207,7 +207,7 @@ export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
               <Sparkles className="h-5 w-5 text-gold" />
             </div>
             <div>
-              <p className="text-base font-bold text-surface tracking-tight">VERTACORE AI</p>
+              <p className="text-base font-bold text-surface tracking-tight">VERTA CORE AI</p>
               <p className="text-xs text-steel-muted">Procurement assistant</p>
             </div>
           </div>
@@ -357,7 +357,7 @@ export function AskAIWidget({ isOpen, onClose }: AskAIWidgetProps) {
             </button>
           </form>
           <p className="text-[10px] text-steel-muted/50 text-center mt-2">
-            VERTACORE AI may make mistakes. Verify important information.
+            VERTA CORE AI may make mistakes. Verify important information.
           </p>
         </div>
       </div>

@@ -229,7 +229,7 @@ function PageHeader() {
 function Footer() {
   return (
     <View style={styles.footer} fixed>
-      <Text style={styles.footerLeft}>© Vertacore Industrial Supply · ISO 9001:2015 CERTIFIED · ICV CERTIFIED · No Obligation Enquiry</Text>
+      <Text style={styles.footerLeft}>© Verta Core Industrial Supply · ISO 9001:2015 CERTIFIED · ICV CERTIFIED · No Obligation Enquiry</Text>
       <Text style={styles.footerRight} render={({ pageNumber }) => `Page ${pageNumber}`} />
     </View>
   );
@@ -382,7 +382,7 @@ export async function generateCataloguePDF(items: CatalogueItem[]): Promise<Buff
   });
 
   const doc = (
-    <Document title="Vertacore Product Catalogue" author="Vertacore Industrial Supply">
+    <Document title="Verta Core Product Catalogue" author="Verta Core Industrial Supply">
       <CoverPage year={new Date().getFullYear().toString()} />
       <Page size="A4" style={styles.page}>
         <PageHeader />

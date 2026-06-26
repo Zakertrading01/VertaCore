@@ -61,17 +61,17 @@ export default async function SolutionPage({
 
   const faqs = [
     {
-      question: `What ${solution.title.toLowerCase()} does VERTACORE supply?`,
+      question: `What ${solution.title.toLowerCase()} does VERTA CORE supply?`,
       answer: solution.description,
     },
     {
-      question: `Which industries does VERTACORE supply ${solution.title.toLowerCase()} to?`,
+      question: `Which industries does VERTA CORE supply ${solution.title.toLowerCase()} to?`,
       answer: solution.industries.length > 0
-        ? `VERTACORE supplies ${solution.title.toLowerCase()} to ${solution.industries.map((i) => i.name).join(", ")} and other industrial sectors.`
-        : `VERTACORE supplies ${solution.title.toLowerCase()} to Oil & Gas, Marine, Construction, Manufacturing and other major industrial sectors.`,
+        ? `VERTA CORE supplies ${solution.title.toLowerCase()} to ${solution.industries.map((i) => i.name).join(", ")} and other industrial sectors.`
+        : `VERTA CORE supplies ${solution.title.toLowerCase()} to Oil & Gas, Marine, Construction, Manufacturing and other major industrial sectors.`,
     },
     {
-      question: `How do I source ${solution.title.toLowerCase()} from VERTACORE?`,
+      question: `How do I source ${solution.title.toLowerCase()} from VERTA CORE?`,
       answer:
         "Contact our technical team with your specific requirements. Provide names, quantities, and standards, and we will fulfill your order based on our global brand network.",
     },

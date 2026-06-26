@@ -17,7 +17,7 @@ export const dynamic = 'force-dynamic';
 export const metadata: Metadata = buildMetadata({
   title: "Technical Insights",
   description:
-    "Technical articles and procurement guides from VERTACORE — industrial safety, welding, lifting, certifications and MRO procurement best practices.",
+    "Technical articles and procurement guides from VERTA CORE — industrial safety, welding, lifting, certifications and MRO procurement best practices.",
   path: "/insights",
   keywords: ["industrial insights", "MRO procurement guide", "safety equipment articles"],
 });

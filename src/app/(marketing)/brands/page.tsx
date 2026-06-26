@@ -17,9 +17,9 @@ export const dynamic = 'force-dynamic';
 export const metadata: Metadata = buildMetadata({
   title: "Brands & Partners",
   description:
-    "VERTACORE sources from internationally recognised industrial brands across safety, welding, lifting, and abrasives. Our vendor network signals the quality of our supply relationships.",
+    "VERTA CORE sources from internationally recognised industrial brands across safety, welding, lifting, and abrasives. Our vendor network signals the quality of our supply relationships.",
   path: "/brands",
-  keywords: ["industrial brands", "safety equipment brands", "welding brands", "vertacore partners"],
+  keywords: ["industrial brands", "safety equipment brands", "welding brands", "verta core partners"],
 });
 
 export default async function BrandsPage() {

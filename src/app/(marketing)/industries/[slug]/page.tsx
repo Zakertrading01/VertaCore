@@ -71,7 +71,7 @@ export default async function IndustryPage({
           <ScrollReveal>
             <SectionLabel className="mb-4">Sector Overview</SectionLabel>
             <p className="text-body text-surface/70 leading-relaxed">
-              VERTACORE understands the operational requirements and compliance environment
+              VERTA CORE understands the operational requirements and compliance environment
               of the {industry.name} sector. We supply certified MRO equipment that meets
               the specific standards and regulatory requirements of your operations.
             </p>
@@ -86,7 +86,7 @@ export default async function IndustryPage({
             <ScrollReveal>
               <SectionLabel className="mb-3">Supply Capabilities</SectionLabel>
               <h2 className="text-h1 font-bold text-surface mb-8">
-                What VERTACORE supplies for {industry.name}
+                What VERTA CORE supplies for {industry.name}
               </h2>
             </ScrollReveal>
 

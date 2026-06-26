@@ -13,7 +13,7 @@ import { CTASection } from "@/components/marketing/CTASection";
 export const metadata: Metadata = buildMetadata({
   title: "Mission & Values",
   description:
-    "VERTACORE's mission and operating values — quality assurance, compliance-first, enterprise partnership, and reliable global sourcing.",
+    "VERTA CORE's mission and operating values — quality assurance, compliance-first, enterprise partnership, and reliable global sourcing.",
   path: "/about/mission",
 });
 
@@ -126,7 +126,7 @@ export default function MissionPage() {
             className="inline-flex items-center gap-2 text-sm text-steel-muted hover:text-gold transition-colors"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
-            About VERTACORE
+            About VERTA CORE
           </Link>
         </div>
       </div>

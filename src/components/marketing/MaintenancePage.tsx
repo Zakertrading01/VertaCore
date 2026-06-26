@@ -59,7 +59,7 @@ export function MaintenancePage() {
                             <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 z-20 bg-white">
                                 <img
                                     src="/maintenance.png"
-                                    alt="Vertacore Under Maintenance"
+                                    alt="Verta Core Under Maintenance"
                                     className="w-full h-full object-contain"
                                 />
                             </div>
