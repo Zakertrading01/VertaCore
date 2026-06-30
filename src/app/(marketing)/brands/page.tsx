@@ -462,69 +462,77 @@ export default async function BrandsPage() {
       </section>
 
       {/* Brands Marquee Banner */}
-      <div className="bg-navy-dark border-y border-white/5 py-4 md:py-6 relative z-20 shadow-[0_0_40px_rgba(0,0,0,0.8)] overflow-hidden">
+      <div className="bg-navy border-y border-white/5 py-4 md:py-6 relative z-20 shadow-[0_0_40px_rgba(0,0,0,0.8)] overflow-hidden group">
         
         {/* Unique Golden Ambient Core */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] md:w-[800px] h-[60px] md:h-[120px] bg-gold/10 blur-[40px] md:blur-[60px] rounded-[100%] pointer-events-none z-0"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] md:w-[800px] h-[60px] md:h-[120px] bg-gold/15 blur-[40px] md:blur-[60px] rounded-[100%] animate-pulse pointer-events-none z-0"></div>
         
         {/* Center Edge Highlighting */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[50vw] md:w-[600px] h-[1px] bg-gradient-to-r from-transparent via-gold/60 to-transparent shadow-[0_0_15px_rgba(255,215,0,0.8)] z-20"></div>
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[50vw] md:w-[600px] h-[1px] bg-gradient-to-r from-transparent via-gold/60 to-transparent shadow-[0_0_15px_rgba(255,215,0,0.8)] z-20"></div>
         
         {/* Gradient fades for smooth entry/exit */}
-        <div className="absolute top-0 left-0 bottom-0 w-16 md:w-40 bg-gradient-to-r from-navy-dark to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute top-0 right-0 bottom-0 w-16 md:w-40 bg-gradient-to-l from-navy-dark to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute top-0 left-0 bottom-0 w-16 md:w-40 bg-gradient-to-r from-navy to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 bottom-0 w-16 md:w-40 bg-gradient-to-l from-navy to-transparent z-10 pointer-events-none"></div>
         
-        <div className="flex overflow-hidden group">
+        <div className="flex overflow-hidden group/marquee">
           {/* Container 1 */}
-          <div className="flex animate-marquee shrink-0 items-center gap-12 md:gap-20 pr-12 md:pr-20 min-w-full">
+          <div className="flex animate-marquee group-hover/marquee:[animation-play-state:paused] shrink-0 items-center gap-12 md:gap-20 pr-12 md:pr-20 min-w-full">
             {[
-              { name: 'Techweld', src: '/brands/techweld.jpeg' },
-              { name: 'Weldman', src: '/brands/weldman.jpeg' },
-              { name: 'Rigman', src: '/brands/rigman.png' },
-              { name: 'Gasiq', src: '/brands/gasiq.jpeg' },
-              { name: 'Geotex', src: '/brands/geotex.jpeg' },
-              { name: 'Sakura', src: '/brands/sakura.jpeg' },
-              { name: 'Techweld', src: '/brands/techweld.jpeg' },
-              { name: 'Weldman', src: '/brands/weldman.jpeg' },
-              { name: 'Rigman', src: '/brands/rigman.png' },
-              { name: 'Gasiq', src: '/brands/gasiq.jpeg' },
-              { name: 'Geotex', src: '/brands/geotex.jpeg' },
-              { name: 'Sakura', src: '/brands/sakura.jpeg' },
+              { name: 'Techweld', src: '/brands/techweld-transparent.png', imgClass: 'drop-shadow-[0_0_4px_rgba(255,255,255,1)] drop-shadow-[0_0_10px_rgba(255,255,255,1)] drop-shadow-[0_0_20px_rgba(255,255,255,1)]' },
+              { name: 'Weldman', src: '/brands/weldman.png' },
+              { name: 'Rigman', src: '/brands/rigman-strict.png' },
+              { name: 'Gasiq', src: '/brands/gasiq.png', imgClass: 'scale-[2.0]' },
+              { name: 'Geotex', src: '/brands/geotex-transparent.png', imgClass: 'scale-[1.5]' },
+              { name: 'Sakura', src: '/brands/sakura-transparent.png' },
+              { name: 'Techweld', src: '/brands/techweld-transparent.png', imgClass: 'drop-shadow-[0_0_4px_rgba(255,255,255,1)] drop-shadow-[0_0_10px_rgba(255,255,255,1)] drop-shadow-[0_0_20px_rgba(255,255,255,1)]' },
+              { name: 'Weldman', src: '/brands/weldman.png' },
+              { name: 'Rigman', src: '/brands/rigman-strict.png' },
+              { name: 'Gasiq', src: '/brands/gasiq.png', imgClass: 'scale-[2.0]' },
+              { name: 'Geotex', src: '/brands/geotex-transparent.png', imgClass: 'scale-[1.5]' },
+              { name: 'Sakura', src: '/brands/sakura-transparent.png' },
             ].map((brand, idx) => (
-              <div key={`c1-${idx}`} className="relative w-32 h-16 md:w-48 md:h-24 shrink-0 opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300">
+              <div 
+                key={`c1-${idx}`} 
+                className="relative w-32 h-16 md:w-48 md:h-24 shrink-0 animate-highlight-pulse cursor-pointer"
+                style={{ animationDelay: `${idx * 0.5}s` }}
+              >
                 <Image 
                   src={brand.src} 
                   alt={brand.name} 
                   fill 
-                  className="object-contain" 
+                  className={`object-contain ${brand.imgClass || ''}`} 
                 />
               </div>
             ))}
           </div>
           
           {/* Container 2 (Perfect identical clone for seamless looping) */}
-          <div className="flex animate-marquee shrink-0 items-center gap-12 md:gap-20 pr-12 md:pr-20 min-w-full">
+          <div className="flex animate-marquee group-hover/marquee:[animation-play-state:paused] shrink-0 items-center gap-12 md:gap-20 pr-12 md:pr-20 min-w-full">
             {[
-              { name: 'Techweld', src: '/brands/techweld.jpeg' },
-              { name: 'Weldman', src: '/brands/weldman.jpeg' },
-              { name: 'Rigman', src: '/brands/rigman.png' },
-              { name: 'Gasiq', src: '/brands/gasiq.jpeg' },
-              { name: 'Geotex', src: '/brands/geotex.jpeg' },
-              { name: 'Sakura', src: '/brands/sakura.jpeg' },
-              { name: 'Techweld', src: '/brands/techweld.jpeg' },
-              { name: 'Weldman', src: '/brands/weldman.jpeg' },
-              { name: 'Rigman', src: '/brands/rigman.png' },
-              { name: 'Gasiq', src: '/brands/gasiq.jpeg' },
-              { name: 'Geotex', src: '/brands/geotex.jpeg' },
-              { name: 'Sakura', src: '/brands/sakura.jpeg' },
+              { name: 'Techweld', src: '/brands/techweld-transparent.png', imgClass: 'drop-shadow-[0_0_4px_rgba(255,255,255,1)] drop-shadow-[0_0_10px_rgba(255,255,255,1)] drop-shadow-[0_0_20px_rgba(255,255,255,1)]' },
+              { name: 'Weldman', src: '/brands/weldman.png' },
+              { name: 'Rigman', src: '/brands/rigman-strict.png' },
+              { name: 'Gasiq', src: '/brands/gasiq.png', imgClass: 'scale-[2.0]' },
+              { name: 'Geotex', src: '/brands/geotex-transparent.png', imgClass: 'scale-[1.5]' },
+              { name: 'Sakura', src: '/brands/sakura-transparent.png' },
+              { name: 'Techweld', src: '/brands/techweld-transparent.png', imgClass: 'drop-shadow-[0_0_4px_rgba(255,255,255,1)] drop-shadow-[0_0_10px_rgba(255,255,255,1)] drop-shadow-[0_0_20px_rgba(255,255,255,1)]' },
+              { name: 'Weldman', src: '/brands/weldman.png' },
+              { name: 'Rigman', src: '/brands/rigman-strict.png' },
+              { name: 'Gasiq', src: '/brands/gasiq.png', imgClass: 'scale-[2.0]' },
+              { name: 'Geotex', src: '/brands/geotex-transparent.png', imgClass: 'scale-[1.5]' },
+              { name: 'Sakura', src: '/brands/sakura-transparent.png' },
             ].map((brand, idx) => (
-              <div key={`c2-${idx}`} className="relative w-32 h-16 md:w-48 md:h-24 shrink-0 opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300">
+              <div 
+                key={`c2-${idx}`} 
+                className="relative w-32 h-16 md:w-48 md:h-24 shrink-0 animate-highlight-pulse cursor-pointer"
+                style={{ animationDelay: `${idx * 0.5}s` }}
+              >
                 <Image 
                   src={brand.src} 
                   alt={brand.name} 
                   fill 
-                  className="object-contain" 
+                  className={`object-contain ${brand.imgClass || ''}`} 
                 />
               </div>
             ))}

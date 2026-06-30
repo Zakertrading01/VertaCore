@@ -333,3 +333,20 @@
     background: #E7C85A;
   }
 }
+
+/* ── BRAND LOGO HIGHLIGHT ANIMATION ── */
+@keyframes highlight-pulse {
+  0%, 100% { 
+    transform: scale(1); 
+    opacity: 0.6; 
+    filter: drop-shadow(0 0 0px rgba(255,255,255,0)); 
+  }
+  50% { 
+    transform: scale(1.15); 
+    opacity: 1; 
+    filter: drop-shadow(0 0 2px rgba(255,255,255,1)) drop-shadow(0 0 5px rgba(255,255,255,1)) drop-shadow(0 0 15px rgba(255,255,255,1)) drop-shadow(0 0 30px rgba(255,255,255,1)); 
+  }
+}
+.animate-highlight-pulse {
+  animation: highlight-pulse 4s ease-in-out infinite;
+}
