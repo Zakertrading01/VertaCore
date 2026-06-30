@@ -401,7 +401,7 @@ export default async function BrandsPage() {
               
               {/* Animated Region Markers accurately placed over the continents */}
               {[
-                { id: "US", top: "32%", left: "22%", align: "center" },
+                { id: "USA", top: "32%", left: "22%", align: "center" },
                 { id: "Europe", top: "24%", left: "50.5%", align: "center" },
                 { id: "GCC", top: "36%", left: "60.5%", align: "center" },
                 { id: "India", top: "37%", left: "68.5%", align: "center" },

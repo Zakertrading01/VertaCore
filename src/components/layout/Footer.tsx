@@ -57,8 +57,8 @@ export function Footer({ showSocials = true }: { showSocials?: boolean }) {
                 <MapPin className="h-4 w-4 text-gold flex-shrink-0 mt-0.5 group-hover/address:scale-110 transition-transform" />
                 <span className="leading-relaxed">
                   Office No.44, 11th Floor<br />
-                  Dar Al Salam Building<br />
-                  Near Al Madina Supermarket, Liwa Street, Corniche,<br />
+                  Dar Al Salam Building,<br />
+                  Liwa Street, Corniche,<br />
                   Abu Dhabi, United Arab Emirates
                 </span>
               </TapLink>

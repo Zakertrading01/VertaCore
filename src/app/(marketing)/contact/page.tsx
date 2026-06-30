@@ -94,8 +94,8 @@ export default function ContactPage() {
                               className="leading-relaxed hover:text-gold focus:text-gold active:text-gold outline-none transition-colors duration-300"
                             >
                               Office No.44, 11th Floor<br />
-                              Dar Al Salam Building<br />
-                              Near Al Madina Supermarket, Liwa Street, Corniche,<br />
+                              Dar Al Salam Building,<br />
+                              Liwa Street, Corniche,<br />
                               Abu Dhabi, United Arab Emirates
                             </TapLink>
                           </p>
