@@ -41,24 +41,66 @@ export async function sendRFQConfirmation(data: RFQEmailData) {
 }
 
 export async function sendCatalogueNotification(data: {
+  id: string;
   name: string;
   email: string;
   phone: string;
   company: string;
+  pdfUrl: string;
 }) {
+  const baseUrl = process.env.NEXTAUTH_URL ?? "http://localhost:3000";
+  const approveUrl = `${baseUrl}/api/catalogue/approve?id=${data.id}&pdfUrl=${encodeURIComponent(data.pdfUrl)}`;
+
   await getResend().emails.send({
     from: FROM,
     to: SALES,
     replyTo: data.email,
     subject: `Catalogue Request: ${data.company} — ${data.name}`,
     html: `
-      <h2>New Catalogue Request</h2>
-      <p><strong>Name:</strong> ${data.name}</p>
-      <p><strong>Email:</strong> ${data.email}</p>
-      <p><strong>Phone:</strong> ${data.phone}</p>
-      <p><strong>Company:</strong> ${data.company}</p>
-      <hr />
-      <p>The user has requested the full industrial catalogue.</p>
+      <div style="font-family: sans-serif; padding: 20px; color: #102544;">
+        <h2 style="color: #102544;">New Catalogue Request</h2>
+        <p><strong>Name:</strong> ${data.name}</p>
+        <p><strong>Email:</strong> ${data.email}</p>
+        <p><strong>Phone:</strong> ${data.phone}</p>
+        <p><strong>Company:</strong> ${data.company}</p>
+        <p><strong>Requested Catalogue:</strong> ${data.pdfUrl}</p>
+        <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
+        <p>Click the button below to approve this request and automatically send the catalogue PDF to the client's email:</p>
+        <p style="margin: 24px 0;">
+          <a href="${approveUrl}" style="background-color: #10b981; color: white; padding: 12px 24px; text-decoration: none; font-weight: bold; border-radius: 6px; display: inline-block;">
+            Approve & Send Catalogue
+          </a>
+        </p>
+      </div>
+    `,
+  });
+}
+
+export async function sendCataloguePDFEmail(data: {
+  name: string;
+  email: string;
+  pdfUrl: string;
+}) {
+  await getResend().emails.send({
+    from: FROM,
+    to: data.email,
+    subject: "Approved: Your VERTA CORE Catalogue Access",
+    html: `
+      <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #102544;">
+        <h1 style="color: #E7C85A;">VERTA CORE</h1>
+        <p>Dear ${data.name},</p>
+        <p>We are pleased to inform you that your request for the <strong>VERTA CORE Product Catalogue</strong> has been approved!</p>
+        <p>You can access and download the high-resolution PDF catalogue using the link below:</p>
+        <p style="margin: 24px 0;">
+          <a href="${data.pdfUrl}" target="_blank" style="background-color: #E7C85A; color: #102544; padding: 12px 24px; text-decoration: none; font-weight: bold; border-radius: 6px; display: inline-block;">
+            Download/View Catalogue PDF
+          </a>
+        </p>
+        <p>If the link above does not work, please copy and paste the following URL into your browser's address bar:</p>
+        <p><a href="${data.pdfUrl}">${data.pdfUrl}</a></p>
+        <br />
+        <p>Best regards,<br />Technical Team<br />VERTA CORE</p>
+      </div>
     `,
   });
 }
@@ -70,16 +112,16 @@ export async function sendCatalogueConfirmation(data: {
   await getResend().emails.send({
     from: FROM,
     to: data.email,
-    subject: "Your VERTACORE Catalogue Request",
+    subject: "Request Received: Your VERTA CORE Catalogue Request",
     html: `
       <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #102544;">
         <h1 style="color: #E7C85A;">VERTACORE</h1>
         <p>Dear ${data.name},</p>
-        <p>Thank you for your interest in our industrial range. We have received your request for the <strong>VERTACORE Product Catalogue</strong>.</p>
-        <p>Our technical team is processing your request. You will receive the high-resolution PDF catalogue at this email address within <strong>1 business day</strong>.</p>
-        <p>If you have urgent procurement needs, please reach out to us directly at <a href="mailto:${SALES}">${SALES}</a>.</p>
+        <p>Thank you for your interest in our range of industrial products. We have received your request for the <strong>VERTA CORE Product Catalogue</strong>.</p>
+        <p>Our sales team is reviewing your details. Once approved, you will receive another email containing the download link for the PDF catalogue.</p>
+        <p>If you have any urgent procurement enquiries, please do not hesitate to contact us directly at <a href="mailto:${SALES}">${SALES}</a>.</p>
         <br />
-        <p>Best regards,<br />Technical Team<br />VERTACORE</p>
+        <p>Best regards,<br />Team VERTA CORE</p>
       </div>
     `,
   });

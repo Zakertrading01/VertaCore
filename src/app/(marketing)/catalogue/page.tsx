@@ -110,8 +110,8 @@ export default async function CataloguePage() {
 
       {/* Header */}
       <header className="bg-navy-dark pt-16 lg:pt-32 pb-6 relative">
-          <div className="container-base relative z-10">
-            <Breadcrumb items={breadcrumb} className="mb-2" />
+        <div className="container-base relative z-10">
+          <Breadcrumb items={breadcrumb} className="mb-2" />
           <SectionLabel className="mb-3">Our Product Range</SectionLabel>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="max-w-2xl">
@@ -133,7 +133,7 @@ export default async function CataloguePage() {
         <div className="container-base space-y-8 md:space-y-10">
           {Object.entries(grouped).map(([category, categoryItems]) => {
             if (categoryItems.length === 0) return null;
-            
+
             return (
               <div key={category}>
                 {/* Category description */}
@@ -142,7 +142,13 @@ export default async function CataloguePage() {
                     {CATEGORY_DESCRIPTIONS[category]}
                   </p>
                 )}
-                <CatalogueGroup categoryGroup={category} items={categoryItems} />
+                <CatalogueGroup
+                  categoryGroup={category}
+                  items={categoryItems}
+                  pdfUrl="https://pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev/datasheets/safetyppe.pdf"
+                  pdfImage="https://pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev/brands/image.png"
+                  pdfLabel="View Full Catalogue"
+                />
               </div>
             );
           })}

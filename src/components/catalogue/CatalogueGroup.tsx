@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { CatalogueItemCard } from "./CatalogueItemCard";
+import { PdfCard } from "./PdfCard";
 import type { CatalogueItemCard as CatalogueItemCardType } from "@/types/db";
 
 const SOLUTION_LINKS: Record<string, string> = {
@@ -15,9 +16,12 @@ const SOLUTION_LINKS: Record<string, string> = {
 interface CatalogueGroupProps {
   categoryGroup: string;
   items: CatalogueItemCardType[];
+  pdfUrl?: string;
+  pdfImage?: string;
+  pdfLabel?: string;
 }
 
-export function CatalogueGroup({ categoryGroup, items }: CatalogueGroupProps) {
+export function CatalogueGroup({ categoryGroup, items, pdfUrl, pdfImage, pdfLabel }: CatalogueGroupProps) {
   const solutionLink = SOLUTION_LINKS[categoryGroup];
 
   return (
@@ -50,6 +54,7 @@ export function CatalogueGroup({ categoryGroup, items }: CatalogueGroupProps) {
         {items.map((item) => (
           <CatalogueItemCard key={item.id} {...item} />
         ))}
+        {pdfUrl && <PdfCard url={pdfUrl} label={pdfLabel} image={pdfImage} />}
       </div>
 
       {/* Mobile solution link */}

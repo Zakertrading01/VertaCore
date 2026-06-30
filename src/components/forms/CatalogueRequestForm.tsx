@@ -18,9 +18,10 @@ type FormData = z.infer<typeof schema>;
 
 interface CatalogueRequestFormProps {
     onSuccess?: () => void;
+    pdfUrl?: string;
 }
 
-export function CatalogueRequestForm({ onSuccess }: CatalogueRequestFormProps) {
+export function CatalogueRequestForm({ onSuccess, pdfUrl }: CatalogueRequestFormProps) {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -41,14 +42,15 @@ export function CatalogueRequestForm({ onSuccess }: CatalogueRequestFormProps) {
             const res = await fetch("/api/catalogue/request", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data),
+                body: JSON.stringify({ ...data, pdfUrl }),
             });
 
             if (!res.ok) throw new Error("Failed to submit request");
 
             setIsSuccess(true);
+
             if (onSuccess) {
-                setTimeout(onSuccess, 3000);
+                setTimeout(onSuccess, 4000);
             }
         } catch (err) {
             setError("Something went wrong. Please try again later.");
@@ -64,8 +66,8 @@ export function CatalogueRequestForm({ onSuccess }: CatalogueRequestFormProps) {
                     <CheckCircle className="h-8 w-8 text-gold" />
                 </div>
                 <h3 className="text-xl font-bold text-surface mb-2">Request Received</h3>
-                <p className="text-white max-w-xs mx-auto">
-                    Thank you! We have received your request. You will receive the catalogue in your email within 24 business hours.
+                <p className="text-white max-w-sm mx-auto">
+                    Thank you! We have received your request. Once verified and approved by our team, the PDF catalogue access link will be sent to your email.
                 </p>
             </div>
         );

@@ -295,3 +295,14 @@ model AIChatLog {
   @@index([createdAt])
   @@index([ipHash])
 }
+
+model CatalogueRequest {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String
+  company   String
+  pdfUrl    String?
+  approved  Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
