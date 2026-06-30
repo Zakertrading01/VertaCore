@@ -308,25 +308,25 @@ export default function StoryPage() {
               <div className="relative z-10 flex flex-nowrap items-center justify-center gap-2 md:gap-8 w-full max-w-[100vw] mx-auto cursor-default text-center px-2">
                  
                  {/* Bouncing Inline Quote */}
-                 <Quote className="w-4 h-4 sm:w-6 sm:h-6 md:w-12 md:h-12 lg:w-16 lg:h-16 text-gold drop-shadow-[0_0_25px_rgba(255,215,0,0.9)] animate-subtle-bounce shrink-0" strokeWidth={1.5} fill="currentColor" />
+                 <Quote className="w-3 h-3 sm:w-4 sm:h-4 md:w-8 md:h-8 lg:w-12 lg:h-12 text-gold drop-shadow-[0_0_25px_rgba(255,215,0,0.9)] animate-subtle-bounce rotate-180 shrink-0" strokeWidth={1.5} fill="currentColor" />
                  
                  <h2 className="relative z-10 text-[4vw] sm:text-[3vw] md:text-[2.5vw] lg:text-[2vw] xl:text-[1.8vw] font-light font-[family-name:var(--font-montserrat)] text-white tracking-widest italic flex flex-nowrap justify-center items-center whitespace-nowrap">
                     Built on{" "}
-                    <span className="font-bold font-[family-name:var(--font-cinzel)] text-gold drop-shadow-[0_0_15px_rgba(255,215,0,0.3)] animate-word-zoom mx-1 md:mx-2" style={{ animationDelay: '0s' }}>
+                    <span className="font-bold text-gold drop-shadow-[0_0_15px_rgba(255,215,0,0.3)] animate-word-zoom mx-1 md:mx-2" style={{ animationDelay: '0s' }}>
                       Experience
                     </span>
                     , driven by{" "}
-                    <span className="font-bold font-[family-name:var(--font-cinzel)] text-blue-400 drop-shadow-[0_0_15px_rgba(59,130,246,0.4)] animate-word-zoom mx-1 md:mx-2" style={{ animationDelay: '1.3s' }}>
+                    <span className="font-bold text-blue-400 drop-shadow-[0_0_15px_rgba(59,130,246,0.4)] animate-word-zoom mx-1 md:mx-2" style={{ animationDelay: '1.3s' }}>
                       Reliability
                     </span>
                     , and focused on{" "}
-                    <span className="font-bold font-[family-name:var(--font-cinzel)] text-gold drop-shadow-[0_0_15px_rgba(255,215,0,0.3)] animate-word-zoom mx-1 md:mx-2" style={{ animationDelay: '2.6s' }}>
+                    <span className="font-bold text-gold drop-shadow-[0_0_15px_rgba(255,215,0,0.3)] animate-word-zoom mx-1 md:mx-2" style={{ animationDelay: '2.6s' }}>
                       Success
                     </span>
                     .
                  </h2>
 
-                 <Quote className="w-4 h-4 sm:w-6 sm:h-6 md:w-12 md:h-12 lg:w-16 lg:h-16 text-gold drop-shadow-[0_0_25px_rgba(255,215,0,0.9)] animate-subtle-bounce rotate-180 shrink-0" style={{ animationDelay: '2s' }} strokeWidth={1.5} fill="currentColor" />
+                 <Quote className="w-3 h-3 sm:w-4 sm:h-4 md:w-8 md:h-8 lg:w-12 lg:h-12 text-gold drop-shadow-[0_0_25px_rgba(255,215,0,0.9)] animate-subtle-bounce shrink-0" style={{ animationDelay: '2s' }} strokeWidth={1.5} fill="currentColor" />
 
               </div>
 
