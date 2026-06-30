@@ -37,6 +37,12 @@ const CATEGORY_ORDER = [
   "Project Supply & Logistics",
 ];
 
+const CATEGORY_PDFS: Record<string, string> = {
+  "Safety & PPE":              "https://pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev/datasheets/safetyppe.pdf",
+  "Welding & Fabrication":     "https://pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev/datasheets/welding.pdf",
+  "Lifting & Material Handling": "https://pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev/datasheets/lifting.pdf",
+};
+
 const CATEGORY_DESCRIPTIONS: Record<string, string> = {
   "Safety & PPE":
     "Personal protective equipment and workplace safety products certified to CE, EN, and ANSI standards for industrial and construction environments.",
@@ -145,8 +151,7 @@ export default async function CataloguePage() {
                 <CatalogueGroup
                   categoryGroup={category}
                   items={categoryItems}
-                  pdfUrl="https://pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev/datasheets/safetyppe.pdf"
-                  pdfImage="https://pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev/brands/image.png"
+                  pdfUrl={CATEGORY_PDFS[category]}
                   pdfLabel="View Full Catalogue"
                 />
               </div>
