@@ -1,17 +1,11 @@
-import Link from "next/link";
+"use client";
+
+import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { CatalogueItemCard } from "./CatalogueItemCard";
-import { PdfCard } from "./PdfCard";
+import { Modal } from "@/components/shared/Modal";
+import { CatalogueRequestForm } from "@/components/forms/CatalogueRequestForm";
 import type { CatalogueItemCard as CatalogueItemCardType } from "@/types/db";
-
-const SOLUTION_LINKS: Record<string, string> = {
-  "Safety & PPE": "/solutions/safety-ppe",
-  "Welding & Fabrication": "/solutions/welding-fabrication",
-  "Lifting & Material Handling": "/solutions/lifting-handling",
-  "Industrial Supply": "/solutions/industrial-supply",
-  "Technical Procurement": "/solutions/technical-procurement",
-  "Project Supply & Logistics": "/solutions/project-logistics",
-};
 
 interface CatalogueGroupProps {
   categoryGroup: string;
@@ -22,7 +16,11 @@ interface CatalogueGroupProps {
 }
 
 export function CatalogueGroup({ categoryGroup, items, pdfUrl, pdfImage, pdfLabel }: CatalogueGroupProps) {
-  const solutionLink = SOLUTION_LINKS[categoryGroup];
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleSuccess = () => {
+    setIsOpen(false);
+  };
 
   return (
     <section aria-labelledby={`group-${categoryGroup.toLowerCase().replace(/\s+/g, "-")}`}>
@@ -38,14 +36,14 @@ export function CatalogueGroup({ categoryGroup, items, pdfUrl, pdfImage, pdfLabe
           </h2>
         </div>
 
-        {solutionLink && (
-          <Link
-            href={solutionLink}
-            className="hidden sm:inline-flex items-center gap-1.5 text-sm text-gold hover:text-gold-muted transition-colors font-medium"
+        {pdfUrl && (
+          <button
+            onClick={() => setIsOpen(true)}
+            className="group hidden sm:inline-flex items-center gap-1.5 text-sm text-gold hover:text-gold-muted transition-colors font-medium bg-transparent border-none cursor-pointer focus:outline-none underline underline-offset-4 decoration-gold/30 hover:decoration-gold"
           >
-            View Solution
-            <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
+            View Full Catalogue
+            <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+          </button>
         )}
       </div>
 
@@ -54,21 +52,33 @@ export function CatalogueGroup({ categoryGroup, items, pdfUrl, pdfImage, pdfLabe
         {items.map((item) => (
           <CatalogueItemCard key={item.id} {...item} />
         ))}
-        {pdfUrl && <PdfCard url={pdfUrl} label={pdfLabel} image={pdfImage} />}
       </div>
 
-      {/* Mobile solution link */}
-      {solutionLink && (
+      {/* Mobile view catalogue link */}
+      {pdfUrl && (
         <div className="mt-5 sm:hidden">
-          <Link
-            href={solutionLink}
-            className="inline-flex items-center gap-1.5 text-sm text-gold font-medium"
+          <button
+            onClick={() => setIsOpen(true)}
+            className="group inline-flex items-center gap-1.5 text-sm text-gold hover:text-gold-muted transition-colors font-medium bg-transparent border-none cursor-pointer focus:outline-none underline underline-offset-4 decoration-gold/30 hover:decoration-gold"
           >
-            See all {categoryGroup} solutions
-            <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
+            View Full Catalogue
+            <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+          </button>
         </div>
       )}
+
+      <Modal
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        title="Catalogue Access Request"
+      >
+        <div className="mb-6">
+          <p className="text-sm text-white/80 leading-relaxed">
+            Please enter your details to request access to the **{categoryGroup}** catalogue PDF.
+          </p>
+        </div>
+        <CatalogueRequestForm onSuccess={handleSuccess} pdfUrl={pdfUrl} />
+      </Modal>
     </section>
   );
 }
