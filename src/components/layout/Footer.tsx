@@ -19,7 +19,6 @@ const customerCare = [
   // { label: "Certifications", href: "/certifications" },
   { label: "Brands & Partners", href: "/brands" },
   { label: "Projects", href: "/projects" },
-  { label: "Insights", href: "/insights" },
   { label: "Contact", href: "/contact" },
 ];
 

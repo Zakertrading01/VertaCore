@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
-import { getHomeProjects, getHomeInsights } from "@/lib/cached-queries";
+import { getHomeProjects } from "@/lib/cached-queries";
 import { HeroSection } from "@/components/marketing/HeroSection";
 import { IntroductionSection } from "@/components/marketing/IntroductionSection";
 import { SolutionsSection } from "@/components/marketing/SolutionsSection";
@@ -10,7 +10,6 @@ import { QualitySection } from "@/components/marketing/QualitySection";
 import { WhyVertacoreSection } from "@/components/marketing/WhyVertacoreSection";
 import { MetricsBand } from "@/components/marketing/MetricsBand";
 import { ProjectsSection } from "@/components/marketing/ProjectsSection";
-import { InsightsSection } from "@/components/marketing/InsightsSection";
 import { CTASection } from "@/components/marketing/CTASection";
 import { MaintenancePage } from "@/components/marketing/MaintenancePage";
 import { db } from "@/lib/db";
@@ -43,10 +42,9 @@ async function getSiteSettings() {
 }
 
 export default async function HomePage() {
-  const [{ maintenanceMode, showSocials }, projects, insights] = await Promise.all([
+  const [{ maintenanceMode, showSocials }, projects] = await Promise.all([
     getSiteSettings(),
     getHomeProjects(),
-    getHomeInsights(),
   ]);
 
   const jsonLd = [organizationSchema(), websiteSchema()];
@@ -72,7 +70,6 @@ export default async function HomePage() {
       {/* <QualitySection /> */}
       <MetricsBand />
       <ProjectsSection projects={projects} />
-      <InsightsSection insights={insights} />
       <CTASection />
     </>
   );
