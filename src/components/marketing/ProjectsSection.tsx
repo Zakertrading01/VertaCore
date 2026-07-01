@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { TapLink } from "@/components/shared/TapLink";
 import Image from "next/image";
-import { ArrowRight, Building2 } from "lucide-react";
+import { Building2 } from "lucide-react";
 import { SectionLabel } from "@/components/shared/SectionLabel";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import type { Project, Industry } from "@/types/db";
@@ -11,6 +11,11 @@ type ProjectWithIndustry = Project & { industry: Industry | null };
 interface ProjectsSectionProps {
   projects: ProjectWithIndustry[];
 }
+
+const PROJECT_BRANDS: Record<string, string> = {
+  "marine-fabrication-yard": "Rigman",
+  "offshore-refinery-maintenance": "Toyolift",
+};
 
 export function ProjectsSection({ projects }: ProjectsSectionProps) {
   if (projects.length === 0) return null;
@@ -42,7 +47,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
           {projects.map((project, i) => (
             <ScrollReveal key={project.id} delay={i * 0.1}>
               <TapLink
-                href={`/projects/${project.slug}`}
+                href="/catalogue"
                 tabIndex={0}
                 className="card-base flex flex-col overflow-hidden group outline-none"
               >
@@ -62,11 +67,10 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                     </div>
                   )}
 
-                  {/* Industry badge */}
-                  {project.industry && (
+                  {PROJECT_BRANDS[project.slug] && (
                     <div className="absolute top-3 left-3">
                       <span className="text-[10px] font-semibold uppercase tracking-wide bg-navy-dark/80 text-gold border border-gold/20 px-2 py-0.5 rounded">
-                        {project.industry.name}
+                        {PROJECT_BRANDS[project.slug]}
                       </span>
                     </div>
                   )}
@@ -82,15 +86,6 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                       {project.subtitle}
                     </p>
                   )}
-
-                  <div className="flex items-center justify-between mt-4 pt-4 border-t border-white/10">
-                    {project.client && (
-                      <span className="text-xs text-white/40 truncate mr-2">
-                        {project.client}
-                      </span>
-                    )}
-                    <ArrowRight className="h-4 w-4 text-gold flex-shrink-0 group-hover:translate-x-0.5 transition-transform" />
-                  </div>
                 </div>
               </TapLink>
             </ScrollReveal>
