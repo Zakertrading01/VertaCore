@@ -462,52 +462,59 @@ export default async function BrandsPage() {
       </section>
 
       {/* Brands Marquee Banner */}
-      <div className="bg-navy border-y border-white/5 py-4 md:py-6 relative z-20 shadow-[0_0_40px_rgba(0,0,0,0.8)] overflow-hidden group">
+      <div className="bg-gradient-to-b from-[#050a12] via-navy-dark to-[#050a12] border-y border-gold/10 py-6 md:py-8 relative z-20 shadow-[0_0_50px_rgba(0,0,0,0.9)] overflow-hidden group">
         
-        {/* Unique Golden Ambient Core */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] md:w-[800px] h-[60px] md:h-[120px] bg-gold/15 blur-[40px] md:blur-[60px] rounded-[100%] animate-pulse pointer-events-none z-0"></div>
+        {/* Modern Tech Grid & Noise */}
+        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay pointer-events-none z-0"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(231,200,90,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(231,200,90,0.03)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_70%_50%_at_50%_50%,#000_30%,transparent_100%)] pointer-events-none z-0"></div>
+        
+        {/* Dynamic Glowing Orbs */}
+        <div className="absolute top-0 left-[20%] w-[40vw] max-w-[400px] h-[200px] bg-blue-600/10 rounded-full blur-[70px] -translate-y-1/2 animate-ambient-drift pointer-events-none z-0"></div>
+        <div className="absolute bottom-0 right-[20%] w-[40vw] max-w-[400px] h-[200px] bg-gold/10 rounded-full blur-[70px] translate-y-1/2 animate-ambient-drift-delayed pointer-events-none z-0"></div>
         
         {/* Center Edge Highlighting */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[50vw] md:w-[600px] h-[1px] bg-gradient-to-r from-transparent via-gold/60 to-transparent shadow-[0_0_15px_rgba(255,215,0,0.8)] z-20"></div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[50vw] md:w-[600px] h-[1px] bg-gradient-to-r from-transparent via-gold/60 to-transparent shadow-[0_0_15px_rgba(255,215,0,0.8)] z-20"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[70vw] md:w-[800px] h-[1px] bg-gradient-to-r from-transparent via-gold/50 to-transparent shadow-[0_0_20px_rgba(231,200,90,0.8)] z-20"></div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[70vw] md:w-[800px] h-[1px] bg-gradient-to-r from-transparent via-gold/50 to-transparent shadow-[0_0_20px_rgba(231,200,90,0.8)] z-20"></div>
         
-        {/* Gradient fades for smooth entry/exit */}
-        <div className="absolute top-0 left-0 bottom-0 w-16 md:w-40 bg-gradient-to-r from-navy to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute top-0 right-0 bottom-0 w-16 md:w-40 bg-gradient-to-l from-navy to-transparent z-10 pointer-events-none"></div>
+        {/* Deep Gradient fades for seamless looping */}
+        <div className="absolute top-0 left-0 bottom-0 w-20 md:w-56 bg-gradient-to-r from-[#050a12] to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 bottom-0 w-20 md:w-56 bg-gradient-to-l from-[#050a12] to-transparent z-10 pointer-events-none"></div>
         
         <div className="flex overflow-hidden group/marquee">
           {/* Container 1 */}
           <div className="flex animate-marquee group-hover/marquee:[animation-play-state:paused] shrink-0 items-center gap-12 md:gap-20 pr-12 md:pr-20 min-w-full">
             {[
-              { name: 'Techweld', src: '/brands/techweld-transparent.png', imgClass: 'drop-shadow-[0_0_4px_rgba(255,255,255,1)] drop-shadow-[0_0_10px_rgba(255,255,255,1)] drop-shadow-[0_0_20px_rgba(255,255,255,1)]' },
+              { name: 'Techweld', src: '/brands/techweld-new.png' },
               { name: 'Weldman', src: '/brands/weldman.png' },
-              { name: 'Rigman', src: '/brands/rigman-strict.png' },
-              { name: 'Toyolift', src: '/brands/toyolift-transparent.png', imgClass: 'scale-[2.0]' },
+              { name: 'Rigman', src: '/brands/rigman-new.png' },
+              { name: 'Toyolift', src: '/brands/toyolift-new.png', imgClass: 'scale-[2.0]' },
               { name: 'Geotex', src: '/brands/geotex-transparent.png', imgClass: 'scale-[1.5]' },
               { name: 'Sakura', src: '/brands/sakura-transparent.png' },
-              { name: 'Orkon', src: '/brands/orkon-transparent.png', imgClass: 'scale-[2.0]' },
+              { name: 'Orkon', src: '/brands/orkon-new.png', imgClass: 'scale-[2.0]' },
               { name: 'Toyo', src: '/brands/toyo-transparent.png', imgClass: 'scale-[1.5]' },
               { name: 'Structure-Flex', src: '/brands/structure-flex-transparent.png', imgClass: 'scale-[2.0]' },
-              { name: 'Techweld', src: '/brands/techweld-transparent.png', imgClass: 'drop-shadow-[0_0_4px_rgba(255,255,255,1)] drop-shadow-[0_0_10px_rgba(255,255,255,1)] drop-shadow-[0_0_20px_rgba(255,255,255,1)]' },
+              { name: 'Techweld', src: '/brands/techweld-new.png' },
               { name: 'Weldman', src: '/brands/weldman.png' },
-              { name: 'Rigman', src: '/brands/rigman-strict.png' },
-              { name: 'Toyolift', src: '/brands/toyolift-transparent.png', imgClass: 'scale-[2.0]' },
+              { name: 'Rigman', src: '/brands/rigman-new.png' },
+              { name: 'Toyolift', src: '/brands/toyolift-new.png', imgClass: 'scale-[2.0]' },
               { name: 'Geotex', src: '/brands/geotex-transparent.png', imgClass: 'scale-[1.5]' },
               { name: 'Sakura', src: '/brands/sakura-transparent.png' },
-              { name: 'Orkon', src: '/brands/orkon-transparent.png', imgClass: 'scale-[2.0]' },
+              { name: 'Orkon', src: '/brands/orkon-new.png', imgClass: 'scale-[2.0]' },
               { name: 'Toyo', src: '/brands/toyo-transparent.png', imgClass: 'scale-[1.5]' },
               { name: 'Structure-Flex', src: '/brands/structure-flex-transparent.png', imgClass: 'scale-[2.0]' },
             ].map((brand, idx) => (
               <div 
                 key={`c1-${idx}`} 
-                className="relative w-32 h-16 md:w-48 md:h-24 shrink-0 animate-highlight-pulse cursor-pointer"
+                className="relative w-32 h-16 md:w-48 md:h-24 shrink-0 cursor-pointer"
                 style={{ animationDelay: `${idx * 0.5}s` }}
               >
                 <Image 
                   src={brand.src} 
                   alt={brand.name} 
                   fill 
-                  className={`object-contain ${brand.imgClass || ''}`} 
+                  className={`object-contain transition-all duration-700 hover:scale-110 hover:brightness-125 ${brand.imgClass || ''}`} 
+                  sizes="(max-width: 768px) 30vw, 15vw"
+                  quality={100}
                 />
               </div>
             ))}
@@ -516,35 +523,37 @@ export default async function BrandsPage() {
           {/* Container 2 (Perfect identical clone for seamless looping) */}
           <div className="flex animate-marquee group-hover/marquee:[animation-play-state:paused] shrink-0 items-center gap-12 md:gap-20 pr-12 md:pr-20 min-w-full">
             {[
-              { name: 'Techweld', src: '/brands/techweld-transparent.png', imgClass: 'drop-shadow-[0_0_4px_rgba(255,255,255,1)] drop-shadow-[0_0_10px_rgba(255,255,255,1)] drop-shadow-[0_0_20px_rgba(255,255,255,1)]' },
+              { name: 'Techweld', src: '/brands/techweld-new.png' },
               { name: 'Weldman', src: '/brands/weldman.png' },
-              { name: 'Rigman', src: '/brands/rigman-strict.png' },
-              { name: 'Toyolift', src: '/brands/toyolift-transparent.png', imgClass: 'scale-[2.0]' },
+              { name: 'Rigman', src: '/brands/rigman-new.png' },
+              { name: 'Toyolift', src: '/brands/toyolift-new.png', imgClass: 'scale-[2.0]' },
               { name: 'Geotex', src: '/brands/geotex-transparent.png', imgClass: 'scale-[1.5]' },
               { name: 'Sakura', src: '/brands/sakura-transparent.png' },
-              { name: 'Orkon', src: '/brands/orkon-transparent.png', imgClass: 'scale-[2.0]' },
+              { name: 'Orkon', src: '/brands/orkon-new.png', imgClass: 'scale-[2.0]' },
               { name: 'Toyo', src: '/brands/toyo-transparent.png', imgClass: 'scale-[1.5]' },
               { name: 'Structure-Flex', src: '/brands/structure-flex-transparent.png', imgClass: 'scale-[2.0]' },
-              { name: 'Techweld', src: '/brands/techweld-transparent.png', imgClass: 'drop-shadow-[0_0_4px_rgba(255,255,255,1)] drop-shadow-[0_0_10px_rgba(255,255,255,1)] drop-shadow-[0_0_20px_rgba(255,255,255,1)]' },
+              { name: 'Techweld', src: '/brands/techweld-new.png' },
               { name: 'Weldman', src: '/brands/weldman.png' },
-              { name: 'Rigman', src: '/brands/rigman-strict.png' },
-              { name: 'Toyolift', src: '/brands/toyolift-transparent.png', imgClass: 'scale-[2.0]' },
+              { name: 'Rigman', src: '/brands/rigman-new.png' },
+              { name: 'Toyolift', src: '/brands/toyolift-new.png', imgClass: 'scale-[2.0]' },
               { name: 'Geotex', src: '/brands/geotex-transparent.png', imgClass: 'scale-[1.5]' },
               { name: 'Sakura', src: '/brands/sakura-transparent.png' },
-              { name: 'Orkon', src: '/brands/orkon-transparent.png', imgClass: 'scale-[2.0]' },
+              { name: 'Orkon', src: '/brands/orkon-new.png', imgClass: 'scale-[2.0]' },
               { name: 'Toyo', src: '/brands/toyo-transparent.png', imgClass: 'scale-[1.5]' },
               { name: 'Structure-Flex', src: '/brands/structure-flex-transparent.png', imgClass: 'scale-[2.0]' },
             ].map((brand, idx) => (
               <div 
                 key={`c2-${idx}`} 
-                className="relative w-32 h-16 md:w-48 md:h-24 shrink-0 animate-highlight-pulse cursor-pointer"
+                className="relative w-32 h-16 md:w-48 md:h-24 shrink-0 cursor-pointer"
                 style={{ animationDelay: `${idx * 0.5}s` }}
               >
                 <Image 
                   src={brand.src} 
                   alt={brand.name} 
                   fill 
-                  className={`object-contain ${brand.imgClass || ''}`} 
+                  className={`object-contain transition-all duration-700 hover:scale-110 hover:brightness-125 ${brand.imgClass || ''}`} 
+                  sizes="(max-width: 768px) 30vw, 15vw"
+                  quality={100}
                 />
               </div>
             ))}
