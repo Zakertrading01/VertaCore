@@ -17,7 +17,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
 
   return (
     <section
-      className="pt-6 pb-12 md:pt-10 md:pb-20 lg:pt-12 lg:pb-24 bg-[#FAF9F6]"
+      className="py-8 md:py-12 bg-navy-dark"
       aria-labelledby="projects-heading"
     >
       <div className="container-base">
@@ -27,7 +27,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
             <SectionLabel className="mb-3">Proven Delivery</SectionLabel>
             <h2
               id="projects-heading"
-              className="text-dmd font-bold text-navy tracking-tight"
+              className="text-dmd font-bold text-white tracking-tight"
             >
               Delivering at scale
               <br />
@@ -35,15 +35,6 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
             </h2>
           </ScrollReveal>
 
-          <ScrollReveal delay={0.1}>
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 text-sm text-gold hover:text-gold-muted transition-colors font-medium"
-            >
-              View All Projects
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </ScrollReveal>
         </div>
 
         {/* Projects grid */}
@@ -82,12 +73,12 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                 </div>
 
                 {/* Content */}
-                <div className="p-5 flex-1 flex flex-col bg-white border border-navy/5 shadow-sm rounded-b-xl">
-                  <h3 className="text-[16px] font-bold text-navy mb-2 group-hover:text-gold transition-colors leading-snug">
+                <div className="p-4 flex-1 flex flex-col bg-white border border-navy/5 shadow-sm rounded-b-xl">
+                  <h3 className="text-sm font-bold text-navy mb-1 group-hover:text-gold transition-colors leading-snug">
                     {project.title}
                   </h3>
                   {project.subtitle && (
-                    <p className="text-sm text-navy/60 line-clamp-2 leading-relaxed flex-1">
+                    <p className="text-xs text-navy/60 line-clamp-2 leading-relaxed flex-1">
                       {project.subtitle}
                     </p>
                   )}
