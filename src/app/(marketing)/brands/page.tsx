@@ -461,103 +461,95 @@ export default async function BrandsPage() {
         </div>
       </section>
 
-      {/* Brands Floating Marquee Showcase */}
-      <div className="bg-navy border-y border-white/5 py-4 md:py-6 relative z-20 overflow-hidden">
+      {/* Brands Marquee Banner */}
+      <div className="bg-navy border-y border-white/5 py-4 md:py-6 relative z-20 shadow-[0_0_40px_rgba(0,0,0,0.8)] overflow-hidden group">
         
-        {/* Soft Ambient Core Light */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[100px] bg-gold/5 blur-[60px] pointer-events-none z-0 mix-blend-screen"></div>
-
-        {/* Fades for smooth entry/exit */}
-        <div className="absolute top-0 left-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-navy to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute top-0 right-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-navy to-transparent z-10 pointer-events-none"></div>
-
-        <div className="relative z-20">
-          
-          {/* TRACK 1: Single Line, Clean & Modern */}
-          <div className="flex overflow-hidden group/track">
-            {[1, 2].map((containerIdx) => (
+        {/* Unique Golden Ambient Core */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] md:w-[800px] h-[60px] md:h-[120px] bg-gold/15 blur-[40px] md:blur-[60px] rounded-[100%] animate-pulse pointer-events-none z-0"></div>
+        
+        {/* Center Edge Highlighting */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[50vw] md:w-[600px] h-[1px] bg-gradient-to-r from-transparent via-gold/60 to-transparent shadow-[0_0_15px_rgba(255,215,0,0.8)] z-20"></div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[50vw] md:w-[600px] h-[1px] bg-gradient-to-r from-transparent via-gold/60 to-transparent shadow-[0_0_15px_rgba(255,215,0,0.8)] z-20"></div>
+        
+        {/* Gradient fades for smooth entry/exit */}
+        <div className="absolute top-0 left-0 bottom-0 w-16 md:w-40 bg-gradient-to-r from-navy to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 bottom-0 w-16 md:w-40 bg-gradient-to-l from-navy to-transparent z-10 pointer-events-none"></div>
+        
+        <div className="flex overflow-hidden group/marquee">
+          {/* Container 1 */}
+          <div className="flex animate-marquee group-hover/marquee:[animation-play-state:paused] shrink-0 items-center gap-12 md:gap-20 pr-12 md:pr-20 min-w-full">
+            {[
+              { name: 'Techweld', src: '/brands/techweld-transparent.png', imgClass: 'drop-shadow-[0_0_4px_rgba(255,255,255,1)] drop-shadow-[0_0_10px_rgba(255,255,255,1)] drop-shadow-[0_0_20px_rgba(255,255,255,1)]' },
+              { name: 'Weldman', src: '/brands/weldman.png' },
+              { name: 'Rigman', src: '/brands/rigman-strict.png' },
+              { name: 'Toyolift', src: '/brands/toyolift-transparent.png', imgClass: 'scale-[2.0]' },
+              { name: 'Geotex', src: '/brands/geotex-transparent.png', imgClass: 'scale-[1.5]' },
+              { name: 'Sakura', src: '/brands/sakura-transparent.png' },
+              { name: 'Orkon', src: '/brands/orkon-transparent.png', imgClass: 'scale-[2.0]' },
+              { name: 'Toyo', src: '/brands/toyo-transparent.png', imgClass: 'scale-[1.5]' },
+              { name: 'Structure-Flex', src: '/brands/structure-flex-transparent.png', imgClass: 'scale-[2.0]' },
+              { name: 'Techweld', src: '/brands/techweld-transparent.png', imgClass: 'drop-shadow-[0_0_4px_rgba(255,255,255,1)] drop-shadow-[0_0_10px_rgba(255,255,255,1)] drop-shadow-[0_0_20px_rgba(255,255,255,1)]' },
+              { name: 'Weldman', src: '/brands/weldman.png' },
+              { name: 'Rigman', src: '/brands/rigman-strict.png' },
+              { name: 'Toyolift', src: '/brands/toyolift-transparent.png', imgClass: 'scale-[2.0]' },
+              { name: 'Geotex', src: '/brands/geotex-transparent.png', imgClass: 'scale-[1.5]' },
+              { name: 'Sakura', src: '/brands/sakura-transparent.png' },
+              { name: 'Orkon', src: '/brands/orkon-transparent.png', imgClass: 'scale-[2.0]' },
+              { name: 'Toyo', src: '/brands/toyo-transparent.png', imgClass: 'scale-[1.5]' },
+              { name: 'Structure-Flex', src: '/brands/structure-flex-transparent.png', imgClass: 'scale-[2.0]' },
+            ].map((brand, idx) => (
               <div 
-                key={`track1-c${containerIdx}`} 
-                className="flex animate-marquee group-hover/track:[animation-play-state:paused] shrink-0 items-center gap-16 md:gap-24 pr-16 md:pr-24 min-w-full"
+                key={`c1-${idx}`} 
+                className="relative w-32 h-16 md:w-48 md:h-24 shrink-0 animate-highlight-pulse cursor-pointer"
+                style={{ animationDelay: `${idx * 0.5}s` }}
               >
-                {[
-                  { name: 'Techweld', src: '/brands/techweld-transparent.png' },
-                  { name: 'Weldman', src: '/brands/weldman.png' },
-                  { name: 'Rigman', src: '/brands/rigman-strict.png' },
-                  { name: 'Gasiq', src: '/brands/gasiq.png', imgClass: 'scale-[1.8]' },
-                  { name: 'Geotex', src: '/brands/geotex-transparent.png', imgClass: 'scale-[1.3]' },
-                  { name: 'Sakura', src: '/brands/sakura-transparent.png' },
-                  { name: 'Techweld', src: '/brands/techweld-transparent.png' },
-                  { name: 'Weldman', src: '/brands/weldman.png' },
-                  { name: 'Rigman', src: '/brands/rigman-strict.png' },
-                  { name: 'Gasiq', src: '/brands/gasiq.png', imgClass: 'scale-[1.8]' },
-                  { name: 'Geotex', src: '/brands/geotex-transparent.png', imgClass: 'scale-[1.3]' },
-                  { name: 'Sakura', src: '/brands/sakura-transparent.png' },
-                ].map((brand, idx) => (
-                  <div key={`t1-b${idx}`} className="relative group/logo cursor-pointer shrink-0 flex flex-col items-center justify-center py-4">
-                    
-                    {/* Glowing Aura / Glitter Behind Logo */}
-                    <div 
-                      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gold/20 blur-[30px] rounded-full pointer-events-none animate-brand-pulse-glow group-hover/track:[animation-play-state:paused]"
-                      style={{ animationDelay: `${(idx % 6) * 0.5}s`, animationDuration: '3.0s' }}
-                    ></div>
-
-                    {/* The Logo with Sibling Dimming AND Smooth Automated Pulse */}
-                    <div 
-                      className="relative w-32 h-16 md:w-48 md:h-20 transition-all duration-700 opacity-50 group-hover/track:opacity-20 group-hover/logo:!opacity-100 group-hover/logo:!scale-[1.2] group-hover/logo:!-translate-y-2 z-10 animate-brand-pulse-logo group-hover/track:[animation-play-state:paused]"
-                      style={{ animationDelay: `${(idx % 6) * 0.5}s`, animationDuration: '3.0s' }}
-                    >
-                      <Image 
-                        src={brand.src} 
-                        alt={brand.name} 
-                        fill 
-                        className={`object-contain transition-all duration-500 ${brand.imgClass || ''}`} 
-                      />
-                    </div>
-                    
-                    {/* Elegant Expanding Gold Underline with Glitter Shadow */}
-                    <div 
-                      className="absolute bottom-0 h-[3px] bg-gradient-to-r from-transparent via-[#FFD700] to-transparent rounded-full animate-brand-pulse-line group-hover/track:[animation-play-state:paused] group-hover/logo:!w-full group-hover/logo:!opacity-100 shadow-[0_0_15px_rgba(255,215,0,0.8),0_0_30px_rgba(255,215,0,0.6)]"
-                      style={{ animationDelay: `${(idx % 6) * 0.5}s`, animationDuration: '3.0s' }}
-                    ></div>
-                    
-                    {/* Subtle Upward Glow from the line */}
-                    <div 
-                      className="absolute bottom-0 h-16 bg-gradient-to-t from-gold/40 via-gold/10 to-transparent blur-xl pointer-events-none animate-brand-pulse-upglow group-hover/track:[animation-play-state:paused] group-hover/logo:!w-[120%] group-hover/logo:!opacity-100"
-                      style={{ animationDelay: `${(idx % 6) * 0.5}s`, animationDuration: '3.0s' }}
-                    ></div>
-
-                  </div>
-                ))}
+                <Image 
+                  src={brand.src} 
+                  alt={brand.name} 
+                  fill 
+                  className={`object-contain ${brand.imgClass || ''}`} 
+                />
               </div>
             ))}
           </div>
-
+          
+          {/* Container 2 (Perfect identical clone for seamless looping) */}
+          <div className="flex animate-marquee group-hover/marquee:[animation-play-state:paused] shrink-0 items-center gap-12 md:gap-20 pr-12 md:pr-20 min-w-full">
+            {[
+              { name: 'Techweld', src: '/brands/techweld-transparent.png', imgClass: 'drop-shadow-[0_0_4px_rgba(255,255,255,1)] drop-shadow-[0_0_10px_rgba(255,255,255,1)] drop-shadow-[0_0_20px_rgba(255,255,255,1)]' },
+              { name: 'Weldman', src: '/brands/weldman.png' },
+              { name: 'Rigman', src: '/brands/rigman-strict.png' },
+              { name: 'Toyolift', src: '/brands/toyolift-transparent.png', imgClass: 'scale-[2.0]' },
+              { name: 'Geotex', src: '/brands/geotex-transparent.png', imgClass: 'scale-[1.5]' },
+              { name: 'Sakura', src: '/brands/sakura-transparent.png' },
+              { name: 'Orkon', src: '/brands/orkon-transparent.png', imgClass: 'scale-[2.0]' },
+              { name: 'Toyo', src: '/brands/toyo-transparent.png', imgClass: 'scale-[1.5]' },
+              { name: 'Structure-Flex', src: '/brands/structure-flex-transparent.png', imgClass: 'scale-[2.0]' },
+              { name: 'Techweld', src: '/brands/techweld-transparent.png', imgClass: 'drop-shadow-[0_0_4px_rgba(255,255,255,1)] drop-shadow-[0_0_10px_rgba(255,255,255,1)] drop-shadow-[0_0_20px_rgba(255,255,255,1)]' },
+              { name: 'Weldman', src: '/brands/weldman.png' },
+              { name: 'Rigman', src: '/brands/rigman-strict.png' },
+              { name: 'Toyolift', src: '/brands/toyolift-transparent.png', imgClass: 'scale-[2.0]' },
+              { name: 'Geotex', src: '/brands/geotex-transparent.png', imgClass: 'scale-[1.5]' },
+              { name: 'Sakura', src: '/brands/sakura-transparent.png' },
+              { name: 'Orkon', src: '/brands/orkon-transparent.png', imgClass: 'scale-[2.0]' },
+              { name: 'Toyo', src: '/brands/toyo-transparent.png', imgClass: 'scale-[1.5]' },
+              { name: 'Structure-Flex', src: '/brands/structure-flex-transparent.png', imgClass: 'scale-[2.0]' },
+            ].map((brand, idx) => (
+              <div 
+                key={`c2-${idx}`} 
+                className="relative w-32 h-16 md:w-48 md:h-24 shrink-0 animate-highlight-pulse cursor-pointer"
+                style={{ animationDelay: `${idx * 0.5}s` }}
+              >
+                <Image 
+                  src={brand.src} 
+                  alt={brand.name} 
+                  fill 
+                  className={`object-contain ${brand.imgClass || ''}`} 
+                />
+              </div>
+            ))}
+          </div>
         </div>
-
-        {/* Global Keyframes for the seamless, realistic gold pulse */}
-        <style dangerouslySetInnerHTML={{__html: `
-          @keyframes brand-pulse-logo {
-            0%, 40%, 100% { opacity: 0.4; transform: scale(1) translateY(0); filter: drop-shadow(0 0 0px rgba(255,215,0,0)); }
-            15% { opacity: 1; transform: scale(1.15) translateY(-8px); filter: drop-shadow(0 15px 25px rgba(255,215,0,0.7)); }
-          }
-          @keyframes brand-pulse-line {
-            0%, 40%, 100% { width: 0%; opacity: 0; }
-            15% { width: 120%; opacity: 1; }
-          }
-          @keyframes brand-pulse-glow {
-            0%, 40%, 100% { opacity: 0; transform: scale(0.5); }
-            15% { opacity: 1; transform: scale(1.2); }
-          }
-          @keyframes brand-pulse-upglow {
-            0%, 40%, 100% { width: 0%; opacity: 0; }
-            15% { width: 100%; opacity: 1; }
-          }
-          .animate-brand-pulse-logo { animation: brand-pulse-logo infinite cubic-bezier(0.4, 0, 0.2, 1); }
-          .animate-brand-pulse-line { animation: brand-pulse-line infinite cubic-bezier(0.4, 0, 0.2, 1); }
-          .animate-brand-pulse-glow { animation: brand-pulse-glow infinite cubic-bezier(0.4, 0, 0.2, 1); }
-          .animate-brand-pulse-upglow { animation: brand-pulse-upglow infinite cubic-bezier(0.4, 0, 0.2, 1); }
-        `}} />
       </div>
 
       {/* Key Highlights Banner (Statistics Section) */}

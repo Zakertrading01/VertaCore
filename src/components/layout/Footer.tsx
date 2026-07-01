@@ -173,6 +173,8 @@ export function Footer({ showSocials = true }: { showSocials?: boolean }) {
             <span className="hidden sm:inline">|</span>
             <TapLink href="/privacy" tabIndex={0} className="text-sm font-medium hover:text-gold focus:text-gold active:text-gold transition-colors outline-none">Privacy Policy</TapLink>
             <TapLink href="/terms" tabIndex={0} className="text-sm font-medium hover:text-gold focus:text-gold active:text-gold transition-colors outline-none">Terms of Service</TapLink>
+            <span className="hidden sm:inline">|</span>
+            <TapLink href="https://aerixtech.com/" target="_blank" rel="noopener noreferrer" tabIndex={0} className="text-sm font-medium hover:text-gold focus:text-gold active:text-gold transition-colors outline-none">Designed by AerixNova Technologies</TapLink>
           </div>
         </div>
       </div>
