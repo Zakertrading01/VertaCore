@@ -11,6 +11,7 @@ import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { CTASection } from "@/components/marketing/CTASection";
 import { getBrands } from "@/lib/cached-queries";
 import { ClickParticles } from "@/components/shared/ClickParticles";
+import { MarqueeOnScroll } from "@/components/shared/MarqueeOnScroll";
 
 export const dynamic = 'force-dynamic';
 
@@ -477,12 +478,12 @@ export default async function BrandsPage() {
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[70vw] md:w-[800px] h-[1px] bg-gradient-to-r from-transparent via-gold/50 to-transparent shadow-[0_0_20px_rgba(231,200,90,0.8)] z-20"></div>
         
         {/* Deep Gradient fades for seamless looping */}
-        <div className="absolute top-0 left-0 bottom-0 w-20 md:w-56 bg-gradient-to-r from-[#050a12] to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute top-0 right-0 bottom-0 w-20 md:w-56 bg-gradient-to-l from-[#050a12] to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute top-0 left-0 bottom-0 w-8 md:w-12 bg-gradient-to-r from-[#050a12] to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 bottom-0 w-8 md:w-12 bg-gradient-to-l from-[#050a12] to-transparent z-10 pointer-events-none"></div>
         
         <div className="flex overflow-hidden group/marquee">
           {/* Container 1 */}
-          <div className="flex animate-marquee group-hover/marquee:[animation-play-state:paused] shrink-0 items-center gap-12 md:gap-20 pr-12 md:pr-20 min-w-full">
+          <MarqueeOnScroll className="flex group-hover/marquee:[animation-play-state:paused] shrink-0 items-center gap-12 md:gap-20 pr-12 md:pr-20 min-w-full">
             {[
               { name: 'Toyo', src: '/brands/toyo-transparent.png', imgClass: 'scale-[1.5]' },
               { name: 'Toyolift', src: '/brands/toyolift-new.png', imgClass: 'scale-[2.0]' },
@@ -518,10 +519,10 @@ export default async function BrandsPage() {
                 />
               </div>
             ))}
-          </div>
+          </MarqueeOnScroll>
           
           {/* Container 2 (Perfect identical clone for seamless looping) */}
-          <div className="flex animate-marquee group-hover/marquee:[animation-play-state:paused] shrink-0 items-center gap-12 md:gap-20 pr-12 md:pr-20 min-w-full">
+          <MarqueeOnScroll className="flex group-hover/marquee:[animation-play-state:paused] shrink-0 items-center gap-12 md:gap-20 pr-12 md:pr-20 min-w-full">
             {[
               { name: 'Toyo', src: '/brands/toyo-transparent.png', imgClass: 'scale-[1.5]' },
               { name: 'Toyolift', src: '/brands/toyolift-new.png', imgClass: 'scale-[2.0]' },
@@ -557,7 +558,7 @@ export default async function BrandsPage() {
                 />
               </div>
             ))}
-          </div>
+          </MarqueeOnScroll>
         </div>
       </div>
 
