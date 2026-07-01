@@ -73,19 +73,19 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                 </div>
 
                 {/* Content */}
-                <div className="p-4 flex-1 flex flex-col bg-white border border-navy/5 shadow-sm rounded-b-xl">
-                  <h3 className="text-sm font-bold text-navy mb-1 group-hover:text-gold transition-colors leading-snug">
+                <div className="p-4 flex-1 flex flex-col rounded-b-xl">
+                  <h3 className="text-sm font-bold text-white mb-1 group-hover:text-gold transition-colors leading-snug">
                     {project.title}
                   </h3>
                   {project.subtitle && (
-                    <p className="text-xs text-navy/60 line-clamp-2 leading-relaxed flex-1">
+                    <p className="text-xs text-white/60 line-clamp-2 leading-relaxed flex-1">
                       {project.subtitle}
                     </p>
                   )}
 
-                  <div className="flex items-center justify-between mt-4 pt-4 border-t border-navy/5">
+                  <div className="flex items-center justify-between mt-4 pt-4 border-t border-white/10">
                     {project.client && (
-                      <span className="text-xs text-navy/40 truncate mr-2">
+                      <span className="text-xs text-white/40 truncate mr-2">
                         {project.client}
                       </span>
                     )}
