@@ -484,23 +484,23 @@ export default async function BrandsPage() {
           {/* Container 1 */}
           <div className="flex animate-marquee group-hover/marquee:[animation-play-state:paused] shrink-0 items-center gap-12 md:gap-20 pr-12 md:pr-20 min-w-full">
             {[
-              { name: 'Techweld', src: '/brands/techweld-new.png' },
-              { name: 'Weldman', src: '/brands/weldman.png' },
-              { name: 'Rigman', src: '/brands/rigman-new.png' },
+              { name: 'Toyo', src: '/brands/toyo-transparent.png', imgClass: 'scale-[1.5]' },
               { name: 'Toyolift', src: '/brands/toyolift-new.png', imgClass: 'scale-[2.0]' },
               { name: 'Geotex', src: '/brands/geotex-transparent.png', imgClass: 'scale-[1.5]' },
+              { name: 'Techweld', src: '/brands/techweld-new.png' },
+              { name: 'Rigman', src: '/brands/rigman-new.png' },
+              { name: 'Weldman', src: '/brands/weldman.png' },
               { name: 'Sakura', src: '/brands/sakura-transparent.png' },
               { name: 'Orkon', src: '/brands/orkon-new.png', imgClass: 'scale-[2.0]' },
-              { name: 'Toyo', src: '/brands/toyo-transparent.png', imgClass: 'scale-[1.5]' },
               { name: 'Structure-Flex', src: '/brands/structure-flex-transparent.png', imgClass: 'scale-[2.0]' },
-              { name: 'Techweld', src: '/brands/techweld-new.png' },
-              { name: 'Weldman', src: '/brands/weldman.png' },
-              { name: 'Rigman', src: '/brands/rigman-new.png' },
+              { name: 'Toyo', src: '/brands/toyo-transparent.png', imgClass: 'scale-[1.5]' },
               { name: 'Toyolift', src: '/brands/toyolift-new.png', imgClass: 'scale-[2.0]' },
               { name: 'Geotex', src: '/brands/geotex-transparent.png', imgClass: 'scale-[1.5]' },
+              { name: 'Techweld', src: '/brands/techweld-new.png' },
+              { name: 'Rigman', src: '/brands/rigman-new.png' },
+              { name: 'Weldman', src: '/brands/weldman.png' },
               { name: 'Sakura', src: '/brands/sakura-transparent.png' },
               { name: 'Orkon', src: '/brands/orkon-new.png', imgClass: 'scale-[2.0]' },
-              { name: 'Toyo', src: '/brands/toyo-transparent.png', imgClass: 'scale-[1.5]' },
               { name: 'Structure-Flex', src: '/brands/structure-flex-transparent.png', imgClass: 'scale-[2.0]' },
             ].map((brand, idx) => (
               <div 
@@ -523,23 +523,23 @@ export default async function BrandsPage() {
           {/* Container 2 (Perfect identical clone for seamless looping) */}
           <div className="flex animate-marquee group-hover/marquee:[animation-play-state:paused] shrink-0 items-center gap-12 md:gap-20 pr-12 md:pr-20 min-w-full">
             {[
-              { name: 'Techweld', src: '/brands/techweld-new.png' },
-              { name: 'Weldman', src: '/brands/weldman.png' },
-              { name: 'Rigman', src: '/brands/rigman-new.png' },
+              { name: 'Toyo', src: '/brands/toyo-transparent.png', imgClass: 'scale-[1.5]' },
               { name: 'Toyolift', src: '/brands/toyolift-new.png', imgClass: 'scale-[2.0]' },
               { name: 'Geotex', src: '/brands/geotex-transparent.png', imgClass: 'scale-[1.5]' },
+              { name: 'Techweld', src: '/brands/techweld-new.png' },
+              { name: 'Rigman', src: '/brands/rigman-new.png' },
+              { name: 'Weldman', src: '/brands/weldman.png' },
               { name: 'Sakura', src: '/brands/sakura-transparent.png' },
               { name: 'Orkon', src: '/brands/orkon-new.png', imgClass: 'scale-[2.0]' },
-              { name: 'Toyo', src: '/brands/toyo-transparent.png', imgClass: 'scale-[1.5]' },
               { name: 'Structure-Flex', src: '/brands/structure-flex-transparent.png', imgClass: 'scale-[2.0]' },
-              { name: 'Techweld', src: '/brands/techweld-new.png' },
-              { name: 'Weldman', src: '/brands/weldman.png' },
-              { name: 'Rigman', src: '/brands/rigman-new.png' },
+              { name: 'Toyo', src: '/brands/toyo-transparent.png', imgClass: 'scale-[1.5]' },
               { name: 'Toyolift', src: '/brands/toyolift-new.png', imgClass: 'scale-[2.0]' },
               { name: 'Geotex', src: '/brands/geotex-transparent.png', imgClass: 'scale-[1.5]' },
+              { name: 'Techweld', src: '/brands/techweld-new.png' },
+              { name: 'Rigman', src: '/brands/rigman-new.png' },
+              { name: 'Weldman', src: '/brands/weldman.png' },
               { name: 'Sakura', src: '/brands/sakura-transparent.png' },
               { name: 'Orkon', src: '/brands/orkon-new.png', imgClass: 'scale-[2.0]' },
-              { name: 'Toyo', src: '/brands/toyo-transparent.png', imgClass: 'scale-[1.5]' },
               { name: 'Structure-Flex', src: '/brands/structure-flex-transparent.png', imgClass: 'scale-[2.0]' },
             ].map((brand, idx) => (
               <div 
