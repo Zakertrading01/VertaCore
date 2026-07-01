@@ -42,7 +42,7 @@ export default async function BrandsPage() {
       <header className="bg-navy-dark pt-24 lg:pt-32 pb-8 relative overflow-hidden">
         <div className="container-base relative z-10">
           <Breadcrumb items={breadcrumb} className="mb-8" />
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Left Side: Title */}
             <div className="lg:col-span-5">
@@ -77,15 +77,15 @@ export default async function BrandsPage() {
                       Verta Core partners with carefully selected manufacturers across key global markets to provide <span className="text-gold font-bold">reliable products &amp; solutions</span> for the energy, oil &amp; gas, infrastructure, fabrication, and industrial sectors.
                     </p>
                   </ScrollReveal>
-                  
+
                   <div className="w-16 h-px bg-gradient-to-r from-gold to-transparent opacity-50"></div>
-                  
+
                   <ScrollReveal delay={0.2}>
                     <p className="text-sm md:text-base text-surface/70 leading-relaxed font-light">
                       Our sourcing philosophy is built on one principle: <strong className="font-medium text-surface">every product supplied must meet the standards of quality, performance, and reliability expected by mission-critical projects.</strong> Through a robust international network, we connect our clients with proven industrial solutions that support operational continuity and project success.
                     </p>
                   </ScrollReveal>
-                  
+
                   <ScrollReveal delay={0.3}>
                     <div className="bg-white/5 rounded-2xl p-6 border border-white/5 relative overflow-hidden group hover:bg-white/10 transition-colors duration-300">
                       <div className="absolute left-0 top-0 bottom-0 w-1 bg-gold"></div>
@@ -116,7 +116,7 @@ export default async function BrandsPage() {
               </h2>
             </ScrollReveal>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
             {/* Card 1 */}
             <ScrollReveal delay={0.1}>
@@ -131,7 +131,7 @@ export default async function BrandsPage() {
                 </p>
               </ClickParticles>
             </ScrollReveal>
-            
+
             {/* Card 2 */}
             <ScrollReveal delay={0.2}>
               <ClickParticles className="group bg-surface/5 border border-gold/20 p-4 rounded-2xl h-full shadow-[0_0_15px_rgba(255,215,0,0.1)] hover:shadow-[0_0_30px_rgba(255,215,0,0.25)] hover:bg-surface/10 hover:border-gold/40 transition-all duration-500">
@@ -213,11 +213,11 @@ export default async function BrandsPage() {
                 <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-surface/80">Philosophy</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-extrabold text-surface mb-8 tracking-tight">Our Commitment</h2>
-              
+
               <div className="relative p-8 md:p-10 rounded-[2rem] bg-surface/5 border border-white/5 backdrop-blur-md shadow-2xl overflow-hidden group hover:border-gold/20 transition-all duration-500">
                 <div className="absolute top-0 left-0 bottom-0 w-1.5 bg-gradient-to-b from-gold via-gold/50 to-transparent group-hover:w-2 transition-all duration-500"></div>
                 <div className="absolute top-0 right-0 w-48 h-48 bg-gold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                
+
                 <div className="relative z-10 space-y-6 text-base md:text-lg text-surface/70 leading-relaxed pl-2 font-light">
                   <p className="text-white font-medium text-lg md:text-xl leading-snug">
                     At Verta Core, supplier selection is not based solely on availability—<span className="text-gold font-bold">it is based on trust, performance, and long-term reliability.</span>
@@ -241,24 +241,24 @@ export default async function BrandsPage() {
         <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay pointer-events-none"></div>
         <div className="absolute -top-1/2 -left-1/4 w-[1000px] h-[1000px] bg-gradient-to-br from-gold/20 to-transparent rounded-full blur-[100px] pointer-events-none animate-pulse"></div>
         <div className="absolute -bottom-1/2 -right-1/4 w-[800px] h-[800px] bg-gradient-to-tl from-gold/15 to-transparent rounded-full blur-[100px] pointer-events-none"></div>
-        
+
         {/* Inner Glow Line at Top */}
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
-        
+
         <div className="container-base relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             <div className="lg:col-span-7 relative z-10">
               <ScrollReveal>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 tracking-tight leading-[1.1]">
                   Looking for a Reliable <br className="hidden md:block" />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-[#FFD700] drop-shadow-[0_0_15px_rgba(255,215,0,0.3)]">Industrial Supply</span> Partner?
                 </h2>
-                
+
                 <p className="text-base md:text-lg text-white/80 mb-6 max-w-2xl leading-relaxed font-light">
                   Whether you require project-specific procurement, technical sourcing support, or ongoing industrial supply solutions, our team is ready to assist.
                 </p>
-                
+
                 <div className="flex flex-wrap gap-4 group">
                   <Link
                     href="/contact"
@@ -270,7 +270,7 @@ export default async function BrandsPage() {
                 </div>
               </ScrollReveal>
             </div>
-            
+
             <div className="lg:col-span-5 relative z-10">
               <ScrollReveal delay={0.2}>
                 <div className="bg-surface/5 backdrop-blur-lg rounded-3xl p-8 md:p-10 border border-white/10 shadow-2xl relative overflow-hidden group/card hover:border-gold/30 transition-all duration-500 hover:shadow-[0_0_40px_rgba(255,215,0,0.15)]">
@@ -301,15 +301,15 @@ export default async function BrandsPage() {
 
       {/* Global Sourcing Network Map */}
       <section className="pt-6 md:pt-8 pb-0 bg-[#070E16] relative overflow-hidden border-t border-white/5">
-        
+
         {/* --- PREMIUM MODERN BACKGROUND UI --- */}
-        
+
         {/* 1. Core Ambient Gradient Base */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#0d1d33] via-[#070E16] to-[#04080D] pointer-events-none z-0"></div>
 
         {/* 2. Technical Architectural Grid */}
-        <div 
-          className="absolute inset-0 pointer-events-none z-0 opacity-40" 
+        <div
+          className="absolute inset-0 pointer-events-none z-0 opacity-40"
           style={{
             backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)`,
             backgroundSize: '40px 40px',
@@ -332,7 +332,7 @@ export default async function BrandsPage() {
               <h2 className="text-3xl md:text-5xl font-black tracking-tight mb-2 relative inline-block">
                 {/* Ambient glow behind the text */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-full bg-gold/10 blur-[25px] rounded-[100%] pointer-events-none z-0"></div>
-                
+
                 <span className="relative z-10 text-white [text-shadow:0_0_20px_rgba(255,255,255,0.6),0_0_40px_rgba(255,255,255,0.2)]">Our Sourcing</span>{" "}
                 <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-gold to-[#B8860B] [filter:drop-shadow(0_0_15px_rgba(255,215,0,0.6))]">Network</span>
               </h2>
@@ -349,12 +349,12 @@ export default async function BrandsPage() {
                 animation: dash-flow 1s linear infinite;
               }
             `}</style>
-            
+
             <ScrollReveal className="w-full h-full relative pointer-events-auto">
-              
+
               {/* Actual World Map Graphic (Gold Colored via CSS Mask) */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div 
+                <div
                   className="w-full h-full bg-gradient-to-br from-[#FFD700] via-[#D4AF37] to-[#B8860B] opacity-[0.25]"
                   style={{
                     maskImage: "url('/images/clean-world.svg')",
@@ -364,7 +364,7 @@ export default async function BrandsPage() {
                     WebkitMaskImage: "url('/images/clean-world.svg')",
                     WebkitMaskSize: '100% 100%',
                     WebkitMaskPosition: 'center',
-                WebkitMaskRepeat: 'no-repeat'
+                    WebkitMaskRepeat: 'no-repeat'
                   }}
                 />
               </div>
@@ -380,7 +380,7 @@ export default async function BrandsPage() {
                   { x: 820, y: 140 }, // South Korea
                   { x: 845, y: 145 }, // Japan
                 ].map((point, i) => (
-                  <path 
+                  <path
                     key={i}
                     d={`M ${point.x} ${point.y} Q ${(point.x + 605) / 2} ${Math.min(point.y, 180) - 50} 605 180`}
                     fill="none"
@@ -390,7 +390,7 @@ export default async function BrandsPage() {
                     className="animate-[dash-flow_20s_linear_infinite] opacity-60"
                   />
                 ))}
-                
+
                 <defs>
                   <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#D4AF37" stopOpacity="0.2" />
@@ -399,7 +399,7 @@ export default async function BrandsPage() {
                   </linearGradient>
                 </defs>
               </svg>
-              
+
               {/* Animated Region Markers accurately placed over the continents */}
               {[
                 { id: "USA", top: "32%", left: "22%", align: "center" },
@@ -410,9 +410,9 @@ export default async function BrandsPage() {
                 { id: "South Korea", top: "28%", left: "82%", align: "center", yOffset: "mb-14 md:mb-[4.5rem]" },
                 { id: "Japan", top: "29%", left: "84.5%", align: "right" }
               ].map((region, idx) => (
-                <div 
-                  key={idx} 
-                  className="absolute group cursor-pointer z-20 focus:outline-none" 
+                <div
+                  key={idx}
+                  className="absolute group cursor-pointer z-20 focus:outline-none"
                   tabIndex={0}
                   style={{ top: region.top, left: region.left, transform: 'translate(-50%, -50%)' }}
                 >
@@ -420,10 +420,10 @@ export default async function BrandsPage() {
                     <div className="relative w-0 h-0 flex items-center justify-center">
                       {/* Shadow base (3D floor) */}
                       <div className="absolute w-3 h-1 md:w-5 md:h-1.5 bg-black/60 blur-[1px] rounded-[100%]"></div>
-                      
+
                       {/* 3D Ripple Effect (tilted to match the floor) */}
                       <div className="absolute w-6 h-6 md:w-10 md:h-10 bg-gold rounded-full opacity-40 animate-ping" style={{ transform: 'rotateX(70deg)' }}></div>
-                      
+
                       {/* 3D Pin Icon (bouncing) */}
                       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-8 md:w-8 md:h-10 origin-bottom group-hover:-translate-y-2 group-focus:-translate-y-2 transition-transform duration-300 z-40">
                         <div className="w-full h-full animate-bounce" style={{ animationDuration: `${2 + (idx % 3) * 0.2}s` }}>
@@ -447,7 +447,7 @@ export default async function BrandsPage() {
                           </svg>
                         </div>
                       </div>
-                      
+
                       {/* Tooltip / Label - Permanently visible */}
                       <div className={`absolute bottom-full ${region.yOffset || 'mb-8 md:mb-12'} ${region.align === 'left' ? 'right-1/2 mr-2 md:mr-3' : region.align === 'right' ? 'left-1/2 ml-2 md:ml-3' : 'left-1/2 -translate-x-1/2'} bg-[#0d1524]/95 backdrop-blur-md border border-gold/30 px-2 md:px-3 py-1 md:py-1.5 rounded shadow-[0_5px_15px_rgba(0,0,0,0.5)] opacity-100 -translate-y-1 group-hover:-translate-y-2 group-focus:-translate-y-2 group-hover:border-gold/60 group-focus:border-gold/60 group-hover:shadow-[0_5px_20px_rgba(255,215,0,0.3)] group-focus:shadow-[0_5px_20px_rgba(255,215,0,0.3)] transition-all duration-300 pointer-events-none whitespace-nowrap z-50 flex items-center gap-1.5 md:gap-2`}>
                         <MapPin className="w-2.5 h-2.5 md:w-3 md:h-3 text-gold" />
@@ -464,97 +464,93 @@ export default async function BrandsPage() {
 
       {/* Brands Marquee Banner */}
       <div className="bg-gradient-to-b from-[#050a12] via-navy-dark to-[#050a12] border-y border-gold/10 py-6 md:py-8 relative z-20 shadow-[0_0_50px_rgba(0,0,0,0.9)] overflow-hidden group">
-        
+
         {/* Modern Tech Grid & Noise */}
         <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay pointer-events-none z-0"></div>
         <div className="absolute inset-0 bg-[linear-gradient(rgba(231,200,90,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(231,200,90,0.03)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_70%_50%_at_50%_50%,#000_30%,transparent_100%)] pointer-events-none z-0"></div>
-        
+
         {/* Dynamic Glowing Orbs */}
         <div className="absolute top-0 left-[20%] w-[40vw] max-w-[400px] h-[200px] bg-blue-600/10 rounded-full blur-[70px] -translate-y-1/2 animate-ambient-drift pointer-events-none z-0"></div>
         <div className="absolute bottom-0 right-[20%] w-[40vw] max-w-[400px] h-[200px] bg-gold/10 rounded-full blur-[70px] translate-y-1/2 animate-ambient-drift-delayed pointer-events-none z-0"></div>
-        
+
         {/* Center Edge Highlighting */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[70vw] md:w-[800px] h-[1px] bg-gradient-to-r from-transparent via-gold/50 to-transparent shadow-[0_0_20px_rgba(231,200,90,0.8)] z-20"></div>
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[70vw] md:w-[800px] h-[1px] bg-gradient-to-r from-transparent via-gold/50 to-transparent shadow-[0_0_20px_rgba(231,200,90,0.8)] z-20"></div>
-        
+
         {/* Deep Gradient fades for seamless looping */}
         <div className="absolute top-0 left-0 bottom-0 w-8 md:w-12 bg-gradient-to-r from-[#050a12] to-transparent z-10 pointer-events-none"></div>
         <div className="absolute top-0 right-0 bottom-0 w-8 md:w-12 bg-gradient-to-l from-[#050a12] to-transparent z-10 pointer-events-none"></div>
-        
+
         <div className="flex overflow-hidden group/marquee">
           {/* Container 1 */}
           <MarqueeOnScroll className="flex group-hover/marquee:[animation-play-state:paused] shrink-0 items-center gap-12 md:gap-20 pr-12 md:pr-20 min-w-full">
-            {[
-              { name: 'Toyo', src: '/brands/toyo-transparent.png', imgClass: 'scale-[1.5]' },
-              { name: 'Toyolift', src: '/brands/toyolift-new.png', imgClass: 'scale-[2.0]' },
-              { name: 'Geotex', src: '/brands/geotex-transparent.png', imgClass: 'scale-[1.5]' },
-              { name: 'Techweld', src: '/brands/techweld-new.png' },
+            {([
+              { name: 'Toyo', src: '/brands/toyo-new.png' },
+              { name: 'Toyolift', src: '/brands/toyolift-new.png', imgClass: 'scale-[3.0] translate-y-2' },
+              { name: 'Geotex', src: '/brands/geotex-new.png', imgClass: 'scale-[1.25]' },
+              { name: 'Techweld', src: '/brands/techweld-new.png', imgClass: 'scale-[1.5]' },
               { name: 'Rigman', src: '/brands/rigman-new.png' },
-              { name: 'Weldman', src: '/brands/weldman.png' },
+              { name: 'Weldman', src: '/brands/weldman-new.png' },
               { name: 'Sakura', src: '/brands/sakura-transparent.png' },
-              { name: 'Orkon', src: '/brands/orkon-new.png', imgClass: 'scale-[2.0]' },
-              { name: 'Structure-Flex', src: '/brands/structure-flex-transparent.png', imgClass: 'scale-[2.0]' },
-              { name: 'Toyo', src: '/brands/toyo-transparent.png', imgClass: 'scale-[1.5]' },
-              { name: 'Toyolift', src: '/brands/toyolift-new.png', imgClass: 'scale-[2.0]' },
-              { name: 'Geotex', src: '/brands/geotex-transparent.png', imgClass: 'scale-[1.5]' },
-              { name: 'Techweld', src: '/brands/techweld-new.png' },
+              { name: 'Orkon', src: '/brands/orkon-new.png', imgClass: 'scale-[1.5]' },
+              { name: 'Structure-Flex', src: '/brands/structure-flex-new.png', imgClass: 'scale-[2.5]' },
+              { name: 'Toyo', src: '/brands/toyo-new.png' },
+              { name: 'Toyolift', src: '/brands/toyolift-new.png', imgClass: 'scale-[3.0] translate-y-2' },
+              { name: 'Geotex', src: '/brands/geotex-new.png', imgClass: 'scale-[1.25]' },
+              { name: 'Techweld', src: '/brands/techweld-new.png', imgClass: 'scale-[1.5]' },
               { name: 'Rigman', src: '/brands/rigman-new.png' },
-              { name: 'Weldman', src: '/brands/weldman.png' },
+              { name: 'Weldman', src: '/brands/weldman-new.png' },
               { name: 'Sakura', src: '/brands/sakura-transparent.png' },
-              { name: 'Orkon', src: '/brands/orkon-new.png', imgClass: 'scale-[2.0]' },
-              { name: 'Structure-Flex', src: '/brands/structure-flex-transparent.png', imgClass: 'scale-[2.0]' },
-            ].map((brand, idx) => (
-              <div 
-                key={`c1-${idx}`} 
-                className="relative w-32 h-16 md:w-48 md:h-24 shrink-0 cursor-pointer"
+              { name: 'Orkon', src: '/brands/orkon-new.png', imgClass: 'scale-[1.5]' },
+              { name: 'Structure-Flex', src: '/brands/structure-flex-new.png', imgClass: 'scale-[2.5]' },
+            ] as { name: string; src: string; imgClass?: string }[]).map((brand, idx) => (
+              <div
+                key={`c1-${idx}`}
+                className="relative w-40 md:w-64 shrink-0 cursor-pointer flex items-center justify-center"
                 style={{ animationDelay: `${idx * 0.5}s` }}
               >
-                <Image 
-                  src={brand.src} 
-                  alt={brand.name} 
-                  fill 
-                  className={`object-contain transition-all duration-700 hover:scale-110 hover:brightness-125 ${brand.imgClass || ''}`} 
-                  sizes="(max-width: 768px) 30vw, 15vw"
-                  quality={100}
+                <img
+                  src={brand.src}
+                  alt={brand.name}
+                  className={`w-full h-auto max-h-32 object-contain transition-all duration-700 hover:scale-110 hover:brightness-125 ${brand.imgClass || ''}`}
+                  loading="lazy"
                 />
               </div>
             ))}
           </MarqueeOnScroll>
-          
+
           {/* Container 2 (Perfect identical clone for seamless looping) */}
           <MarqueeOnScroll className="flex group-hover/marquee:[animation-play-state:paused] shrink-0 items-center gap-12 md:gap-20 pr-12 md:pr-20 min-w-full">
-            {[
-              { name: 'Toyo', src: '/brands/toyo-transparent.png', imgClass: 'scale-[1.5]' },
-              { name: 'Toyolift', src: '/brands/toyolift-new.png', imgClass: 'scale-[2.0]' },
-              { name: 'Geotex', src: '/brands/geotex-transparent.png', imgClass: 'scale-[1.5]' },
-              { name: 'Techweld', src: '/brands/techweld-new.png' },
+            {([
+              { name: 'Toyo', src: '/brands/toyo-new.png' },
+              { name: 'Toyolift', src: '/brands/toyolift-new.png', imgClass: 'scale-[3.0] translate-y-2' },
+              { name: 'Geotex', src: '/brands/geotex-new.png', imgClass: 'scale-[1.25]' },
+              { name: 'Techweld', src: '/brands/techweld-new.png', imgClass: 'scale-[1.5]' },
               { name: 'Rigman', src: '/brands/rigman-new.png' },
-              { name: 'Weldman', src: '/brands/weldman.png' },
+              { name: 'Weldman', src: '/brands/weldman-new.png' },
               { name: 'Sakura', src: '/brands/sakura-transparent.png' },
-              { name: 'Orkon', src: '/brands/orkon-new.png', imgClass: 'scale-[2.0]' },
-              { name: 'Structure-Flex', src: '/brands/structure-flex-transparent.png', imgClass: 'scale-[2.0]' },
-              { name: 'Toyo', src: '/brands/toyo-transparent.png', imgClass: 'scale-[1.5]' },
-              { name: 'Toyolift', src: '/brands/toyolift-new.png', imgClass: 'scale-[2.0]' },
-              { name: 'Geotex', src: '/brands/geotex-transparent.png', imgClass: 'scale-[1.5]' },
-              { name: 'Techweld', src: '/brands/techweld-new.png' },
+              { name: 'Orkon', src: '/brands/orkon-new.png', imgClass: 'scale-[1.5]' },
+              { name: 'Structure-Flex', src: '/brands/structure-flex-new.png', imgClass: 'scale-[2.5]' },
+              { name: 'Toyo', src: '/brands/toyo-new.png' },
+              { name: 'Toyolift', src: '/brands/toyolift-new.png', imgClass: 'scale-[3.0] translate-y-2' },
+              { name: 'Geotex', src: '/brands/geotex-new.png', imgClass: 'scale-[1.25]' },
+              { name: 'Techweld', src: '/brands/techweld-new.png', imgClass: 'scale-[1.5]' },
               { name: 'Rigman', src: '/brands/rigman-new.png' },
-              { name: 'Weldman', src: '/brands/weldman.png' },
+              { name: 'Weldman', src: '/brands/weldman-new.png' },
               { name: 'Sakura', src: '/brands/sakura-transparent.png' },
-              { name: 'Orkon', src: '/brands/orkon-new.png', imgClass: 'scale-[2.0]' },
-              { name: 'Structure-Flex', src: '/brands/structure-flex-transparent.png', imgClass: 'scale-[2.0]' },
-            ].map((brand, idx) => (
-              <div 
-                key={`c2-${idx}`} 
-                className="relative w-32 h-16 md:w-48 md:h-24 shrink-0 cursor-pointer"
+              { name: 'Orkon', src: '/brands/orkon-new.png', imgClass: 'scale-[1.5]' },
+              { name: 'Structure-Flex', src: '/brands/structure-flex-new.png', imgClass: 'scale-[2.5]' },
+            ] as { name: string; src: string; imgClass?: string }[]).map((brand, idx) => (
+              <div
+                key={`c2-${idx}`}
+                className="relative w-40 md:w-64 shrink-0 cursor-pointer flex items-center justify-center"
                 style={{ animationDelay: `${idx * 0.5}s` }}
               >
-                <Image 
-                  src={brand.src} 
-                  alt={brand.name} 
-                  fill 
-                  className={`object-contain transition-all duration-700 hover:scale-110 hover:brightness-125 ${brand.imgClass || ''}`} 
-                  sizes="(max-width: 768px) 30vw, 15vw"
-                  quality={100}
+                <img
+                  src={brand.src}
+                  alt={brand.name}
+                  className={`w-full h-auto max-h-32 object-contain transition-all duration-700 hover:scale-110 hover:brightness-125 ${brand.imgClass || ''}`}
+                  loading="lazy"
                 />
               </div>
             ))}
@@ -566,7 +562,7 @@ export default async function BrandsPage() {
       <div className="bg-gradient-to-r from-navy-dark via-[#0d1524] to-navy-dark border-y border-gold/10 py-6 relative z-20 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
         <div className="container-base">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-start lg:justify-between gap-4 md:gap-6">
-            
+
             {/* Title (No yellow border, modern inline style) */}
             <div className="flex items-center gap-3 shrink-0 mb-2 md:mb-0">
               <div className="w-2 h-6 bg-gold rounded-full shadow-[0_0_10px_rgba(255,215,0,0.5)]"></div>
@@ -592,7 +588,7 @@ export default async function BrandsPage() {
                 </div>
               ))}
             </div>
-            
+
           </div>
         </div>
       </div>
@@ -601,10 +597,10 @@ export default async function BrandsPage() {
       <section className="py-8 md:py-10 bg-navy relative overflow-hidden border-t border-gold/10">
         {/* Modern tech background patterns */}
         <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.05] mix-blend-overlay pointer-events-none"></div>
-        
+
         {/* Deep ambient glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-full bg-gradient-to-r from-blue-900/10 via-gold/5 to-blue-900/10 blur-3xl pointer-events-none"></div>
-        
+
         <div className="container-base relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5">
             {[
@@ -617,18 +613,18 @@ export default async function BrandsPage() {
             ].map((feature, idx) => (
               <ScrollReveal key={idx} delay={idx * 0.1}>
                 <div tabIndex={0} className="group relative bg-white/[0.03] backdrop-blur-md rounded-2xl p-4 md:p-5 border border-white/10 shadow-[0_5px_15px_rgba(0,0,0,0.2)] hover:bg-white/[0.06] focus:bg-white/[0.06] hover:border-gold/30 focus:border-gold/30 hover:-translate-y-1 focus:-translate-y-1 focus:outline-none transition-all duration-500 overflow-hidden flex flex-col items-center justify-center text-center gap-3 h-full cursor-pointer">
-                  
+
                   {/* Hover Gradient Background */}
                   <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                  
+
                   <div className={`w-12 h-12 shrink-0 rounded-xl ${feature.bgColor} flex items-center justify-center transition-all duration-500 shadow-sm ${feature.glowColor}`}>
                     <feature.icon className={`w-6 h-6 ${feature.iconColor} transition-colors duration-500`} strokeWidth={2} />
                   </div>
-                  
+
                   <h3 className="text-[13px] md:text-[14px] lg:text-[15px] font-extrabold text-white/90 leading-snug group-hover:text-gold group-focus:text-gold transition-colors duration-300 relative z-10">
                     {feature.title}
                   </h3>
-                  
+
                   {/* Bottom Line Indicator */}
                   <div className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${feature.accent} w-0 group-hover:w-full transition-all duration-700 ease-out`}></div>
                 </div>
