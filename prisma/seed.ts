@@ -546,7 +546,7 @@ async function main() {
   const sampleProjects = [
     {
       slug: "onshore-drilling-rig-supply",
-      title: "Onshore Drilling Rig Tooling Supply",
+      title: "Drilling",
       subtitle: "Rig-ready tooling and consumables supply for an active onshore drilling operation.",
       client: "Regional Drilling Contractor",
       coverImage: "https://pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev/projects/1782991865728-drilling-rig-supply.png",
@@ -559,7 +559,7 @@ async function main() {
     },
     {
       slug: "structural-steel-fabrication-supply",
-      title: "Structural Steel Fabrication Supply Programme",
+      title: "Fabrication",
       subtitle: "Multi-brand welding, cutting, and PPE supply across a heavy fabrication yard.",
       client: "Regional Steel Fabricators",
       coverImage: "https://pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev/projects/1783001867328-fabrication-yard-supply.png",
@@ -572,7 +572,7 @@ async function main() {
     },
     {
       slug: "offshore-platform-mro-supply",
-      title: "Offshore Platform MRO Supply",
+      title: "Oil & Gas",
       subtitle: "Multi-brand safety, welding, and lifting equipment supply for an active offshore platform.",
       client: "Offshore Energy Operator",
       coverImage: "https://pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev/projects/1782992474153-oil-gas-platform-supply.png",
@@ -585,7 +585,7 @@ async function main() {
     },
     {
       slug: "port-marine-equipment-supply",
-      title: "Port & Marine Equipment Supply",
+      title: "Marine",
       subtitle: "Certified safety and lifting equipment supply for port and vessel operations.",
       client: "Regional Port Authority",
       coverImage: "https://pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev/projects/1782992474153-marine-port-supply.png",
@@ -598,7 +598,7 @@ async function main() {
     },
     {
       slug: "high-rise-construction-supply",
-      title: "High-Rise Construction Site Supply",
+      title: "Construction",
       subtitle: "Multi-brand safety, lifting, and structural supply for an active high-rise build.",
       client: "Regional Construction Contractor",
       coverImage: "https://pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev/projects/1782994610168-construction-site-supply.png",
@@ -611,7 +611,7 @@ async function main() {
     },
     {
       slug: "open-pit-mining-equipment-supply",
-      title: "Open-Pit Mining Equipment Supply",
+      title: "Mining",
       subtitle: "Rugged safety and operational equipment supply for a large-scale mining operation.",
       client: "Regional Mining Operator",
       coverImage: "https://pub-7021f4bc341042cbbd61efee31d6bad0.r2.dev/projects/1783002250914-mining-sector-supply.png",
