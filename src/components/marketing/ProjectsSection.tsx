@@ -12,11 +12,6 @@ interface ProjectsSectionProps {
   projects: ProjectWithIndustry[];
 }
 
-const PROJECT_BRANDS: Record<string, string> = {
-  "marine-fabrication-yard": "Rigman",
-  "offshore-refinery-maintenance": "Toyolift",
-};
-
 export function ProjectsSection({ projects }: ProjectsSectionProps) {
   if (projects.length === 0) return null;
 
@@ -43,7 +38,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
         </div>
 
         {/* Projects grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-5 md:gap-6">
           {projects.map((project, i) => (
             <ScrollReveal key={project.id} delay={i * 0.1}>
               <TapLink
@@ -58,20 +53,12 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                       src={project.coverImage}
                       alt={project.title}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center">
                       <Building2 className="h-10 w-10 text-steel/30" />
-                    </div>
-                  )}
-
-                  {PROJECT_BRANDS[project.slug] && (
-                    <div className="absolute top-3 left-3">
-                      <span className="text-[10px] font-semibold uppercase tracking-wide bg-navy-dark/80 text-gold border border-gold/20 px-2 py-0.5 rounded">
-                        {PROJECT_BRANDS[project.slug]}
-                      </span>
                     </div>
                   )}
                 </div>

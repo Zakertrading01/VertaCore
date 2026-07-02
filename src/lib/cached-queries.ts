@@ -168,7 +168,7 @@ export const getHomeProjects = unstable_cache(
   () =>
     db.project.findMany({
       where: { published: true, featured: true },
-      take: 3,
+      take: 6,
       orderBy: { completedAt: 'desc' },
       include: { industry: true },
     }).catch(() => []),
