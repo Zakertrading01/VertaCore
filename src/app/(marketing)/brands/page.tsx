@@ -31,6 +31,19 @@ export default async function BrandsPage() {
     { name: "Brands", href: "/brands" },
   ];
 
+  const marqueeBrands: Array<{ name: string; src: string; imgClass?: string; containerClass?: string }> = [
+    { name: 'Toyo', src: '/brands/toyo-new.png', imgClass: 'scale-[1.35] md:scale-[1.25]' },
+    { name: 'Toyolift', src: '/brands/toyolift-new.png', imgClass: 'scale-[2.8] md:scale-[3.0] translate-y-1 md:translate-y-2', containerClass: 'w-48 md:w-64' },
+    { name: 'Geotex', src: '/brands/geotex-latest.png', imgClass: 'scale-[1.25]' },
+    { name: 'Techweld', src: '/brands/techweld-new.png', imgClass: 'scale-[1.25]' },
+    { name: 'Rigman', src: '/brands/rigman-new.png', imgClass: 'scale-[1.05] md:scale-100' },
+    { name: 'Weldman', src: '/brands/weldman-new.png', imgClass: 'scale-[1.05] md:scale-100' },
+    { name: 'Sakura', src: '/brands/sakura-transparent.png', imgClass: 'scale-[1.05] md:scale-100' },
+    { name: 'Orkon', src: '/brands/orkon-new.png', imgClass: 'scale-[1.65] md:scale-[1.5]', containerClass: 'w-32 md:w-64' },
+    { name: 'Structure-Flex', src: '/brands/structure-flex-new.png', imgClass: 'scale-[3.0] md:scale-[2.5]', containerClass: 'w-48 md:w-64' },
+  ];
+  const doubleMarqueeBrands = [...marqueeBrands, ...marqueeBrands];
+
   return (
     <>
       <script
@@ -404,7 +417,7 @@ export default async function BrandsPage() {
               {[
                 { id: "USA", top: "32%", left: "22%", align: "center" },
                 { id: "Europe", top: "24%", left: "50.5%", align: "center" },
-                { id: "GCC", top: "36%", left: "60.5%", align: "center" },
+                { id: "GCC", top: "36%", left: "60.5%", align: "center", yOffset: "mb-2 md:mb-4" },
                 { id: "India", top: "37%", left: "68.5%", align: "center" },
                 { id: "China", top: "29%", left: "77%", align: "center" },
                 { id: "South Korea", top: "28%", left: "82%", align: "center", yOffset: "mb-14 md:mb-[4.5rem]" },
@@ -483,36 +496,17 @@ export default async function BrandsPage() {
 
         <div className="flex overflow-hidden group/marquee">
           {/* Container 1 */}
-          <MarqueeOnScroll className="flex group-hover/marquee:[animation-play-state:paused] shrink-0 items-center gap-12 md:gap-20 pr-12 md:pr-20 min-w-full">
-            {([
-              { name: 'Toyo', src: '/brands/toyo-new.png', imgClass: 'scale-[1.25]' },
-              { name: 'Toyolift', src: '/brands/toyolift-new.png', imgClass: 'scale-[3.0] translate-y-2' },
-              { name: 'Geotex', src: '/brands/geotex-latest.png', imgClass: 'scale-[1.25]' },
-              { name: 'Techweld', src: '/brands/techweld-new.png', imgClass: 'scale-[1.25]' },
-              { name: 'Rigman', src: '/brands/rigman-new.png' },
-              { name: 'Weldman', src: '/brands/weldman-new.png' },
-              { name: 'Sakura', src: '/brands/sakura-transparent.png' },
-              { name: 'Orkon', src: '/brands/orkon-new.png', imgClass: 'scale-[1.5]' },
-              { name: 'Structure-Flex', src: '/brands/structure-flex-new.png', imgClass: 'scale-[2.5]' },
-              { name: 'Toyo', src: '/brands/toyo-new.png', imgClass: 'scale-[1.25]' },
-              { name: 'Toyolift', src: '/brands/toyolift-new.png', imgClass: 'scale-[3.0] translate-y-2' },
-              { name: 'Geotex', src: '/brands/geotex-latest.png', imgClass: 'scale-[1.25]' },
-              { name: 'Techweld', src: '/brands/techweld-new.png', imgClass: 'scale-[1.25]' },
-              { name: 'Rigman', src: '/brands/rigman-new.png' },
-              { name: 'Weldman', src: '/brands/weldman-new.png' },
-              { name: 'Sakura', src: '/brands/sakura-transparent.png' },
-              { name: 'Orkon', src: '/brands/orkon-new.png', imgClass: 'scale-[1.5]' },
-              { name: 'Structure-Flex', src: '/brands/structure-flex-new.png', imgClass: 'scale-[2.5]' },
-            ] as { name: string; src: string; imgClass?: string }[]).map((brand, idx) => (
+          <MarqueeOnScroll className="flex group-hover/marquee:[animation-play-state:paused] shrink-0 items-center gap-8 md:gap-20 pr-8 md:pr-20 min-w-full">
+            {doubleMarqueeBrands.map((brand, idx) => (
               <div
                 key={`c1-${idx}`}
-                className="relative w-40 md:w-64 shrink-0 cursor-pointer flex items-center justify-center transition-transform duration-700 hover:scale-110 group/item"
+                className={`relative shrink-0 cursor-pointer flex items-center justify-center transition-transform duration-700 hover:scale-110 group/item ${brand.containerClass || 'w-36 md:w-64'}`}
                 style={{ animationDelay: `${idx * 0.5}s` }}
               >
                 <img
                   src={brand.src}
                   alt={brand.name}
-                  className={`w-full h-auto max-h-32 object-contain transition-all duration-700 group-hover/item:brightness-125 ${brand.imgClass || ''}`}
+                  className={`w-full h-auto max-h-20 md:max-h-32 object-contain transition-all duration-700 group-hover/item:brightness-125 ${brand.imgClass || ''}`}
                   loading="lazy"
                 />
               </div>
@@ -520,36 +514,17 @@ export default async function BrandsPage() {
           </MarqueeOnScroll>
 
           {/* Container 2 (Perfect identical clone for seamless looping) */}
-          <MarqueeOnScroll className="flex group-hover/marquee:[animation-play-state:paused] shrink-0 items-center gap-12 md:gap-20 pr-12 md:pr-20 min-w-full">
-            {([
-              { name: 'Toyo', src: '/brands/toyo-new.png', imgClass: 'scale-[1.25]' },
-              { name: 'Toyolift', src: '/brands/toyolift-new.png', imgClass: 'scale-[3.0] translate-y-2' },
-              { name: 'Geotex', src: '/brands/geotex-latest.png', imgClass: 'scale-[1.25]' },
-              { name: 'Techweld', src: '/brands/techweld-new.png', imgClass: 'scale-[1.25]' },
-              { name: 'Rigman', src: '/brands/rigman-new.png' },
-              { name: 'Weldman', src: '/brands/weldman-new.png' },
-              { name: 'Sakura', src: '/brands/sakura-transparent.png' },
-              { name: 'Orkon', src: '/brands/orkon-new.png', imgClass: 'scale-[1.5]' },
-              { name: 'Structure-Flex', src: '/brands/structure-flex-new.png', imgClass: 'scale-[2.5]' },
-              { name: 'Toyo', src: '/brands/toyo-new.png', imgClass: 'scale-[1.25]' },
-              { name: 'Toyolift', src: '/brands/toyolift-new.png', imgClass: 'scale-[3.0] translate-y-2' },
-              { name: 'Geotex', src: '/brands/geotex-latest.png', imgClass: 'scale-[1.25]' },
-              { name: 'Techweld', src: '/brands/techweld-new.png', imgClass: 'scale-[1.25]' },
-              { name: 'Rigman', src: '/brands/rigman-new.png' },
-              { name: 'Weldman', src: '/brands/weldman-new.png' },
-              { name: 'Sakura', src: '/brands/sakura-transparent.png' },
-              { name: 'Orkon', src: '/brands/orkon-new.png', imgClass: 'scale-[1.5]' },
-              { name: 'Structure-Flex', src: '/brands/structure-flex-new.png', imgClass: 'scale-[2.5]' },
-            ] as { name: string; src: string; imgClass?: string }[]).map((brand, idx) => (
+          <MarqueeOnScroll className="flex group-hover/marquee:[animation-play-state:paused] shrink-0 items-center gap-8 md:gap-20 pr-8 md:pr-20 min-w-full">
+            {doubleMarqueeBrands.map((brand, idx) => (
               <div
                 key={`c2-${idx}`}
-                className="relative w-40 md:w-64 shrink-0 cursor-pointer flex items-center justify-center transition-transform duration-700 hover:scale-110 group/item"
+                className={`relative shrink-0 cursor-pointer flex items-center justify-center transition-transform duration-700 hover:scale-110 group/item ${brand.containerClass || 'w-36 md:w-64'}`}
                 style={{ animationDelay: `${idx * 0.5}s` }}
               >
                 <img
                   src={brand.src}
                   alt={brand.name}
-                  className={`w-full h-auto max-h-32 object-contain transition-all duration-700 group-hover/item:brightness-125 ${brand.imgClass || ''}`}
+                  className={`w-full h-auto max-h-20 md:max-h-32 object-contain transition-all duration-700 group-hover/item:brightness-125 ${brand.imgClass || ''}`}
                   loading="lazy"
                 />
               </div>
