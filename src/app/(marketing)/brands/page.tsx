@@ -417,7 +417,7 @@ export default async function BrandsPage() {
               {[
                 { id: "USA", top: "32%", left: "22%", align: "center" },
                 { id: "Europe", top: "24%", left: "50.5%", align: "center" },
-                { id: "GCC", top: "36%", left: "60.5%", align: "center", yOffset: "mb-2 md:mb-4" },
+                { id: "GCC", top: "36%", left: "60.5%", align: "center", yOffset: "mb-2 md:mb-12" },
                 { id: "India", top: "37%", left: "68.5%", align: "center" },
                 { id: "China", top: "29%", left: "77%", align: "center" },
                 { id: "South Korea", top: "28%", left: "82%", align: "center", yOffset: "mb-14 md:mb-[4.5rem]" },
