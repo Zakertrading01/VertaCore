@@ -57,7 +57,7 @@ export default function ContactPage() {
 
             <div className="flex items-center gap-2.5 text-sm text-steel-muted">
               <Mail className="h-4 w-4 text-gold" />
-              info@vertacore.com
+              info@vertacore.ae
             </div>
           </div>
         </div>
@@ -101,8 +101,8 @@ export default function ContactPage() {
                           </p>
                           <p className="flex items-center gap-3">
                             <Mail className="h-5 w-5 text-gold flex-shrink-0" />
-                            <TapLink href="mailto:info@vertacore.com" tabIndex={0} className="hover:text-gold focus:text-gold active:text-gold outline-none transition-colors">
-                              info@vertacore.com
+                            <TapLink href="mailto:info@vertacore.ae" tabIndex={0} className="hover:text-gold focus:text-gold active:text-gold outline-none transition-colors">
+                              info@vertacore.ae
                             </TapLink>
                           </p>
                           <p className="flex items-center gap-3">
