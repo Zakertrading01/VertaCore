@@ -19,8 +19,8 @@ export const PROVIDER_MODELS: Record<string, { label: string; models: { value: s
   groq: {
     label: "Groq",
     models: [
-      { value: "llama-3.3-70b-versatile", label: "Llama 3.3 70B (Fast Free)" },
-      { value: "llama-3.1-8b-instant", label: "Llama 3.1 8B (Instant)" },
+      { value: "openai/gpt-oss-120b", label: "GPT-OSS 120B (Fast Free)" },
+      { value: "openai/gpt-oss-20b", label: "GPT-OSS 20B (Instant)" },
     ],
   },
   grok: {
